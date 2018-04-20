@@ -12,18 +12,18 @@ namespace WebApplicationMvc.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class INV_MEDIDA
+    public partial class EPRTA_MEDIDA
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public INV_MEDIDA()
+        public EPRTA_MEDIDA()
         {
-            this.INV_ITEMS = new HashSet<INV_ITEMS>();
+            this.EPRTA_ITEM = new HashSet<EPRTA_ITEM>();
         }
     
-        public string UNI_CODIGO { get; set; }
-        public string UNI_DESCRIPCION { get; set; }
+        public byte ID_MEDIDA { get; set; }
+        public string NOMBRE { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<INV_ITEMS> INV_ITEMS { get; set; }
+        public virtual ICollection<EPRTA_ITEM> EPRTA_ITEM { get; set; }
     }
 }

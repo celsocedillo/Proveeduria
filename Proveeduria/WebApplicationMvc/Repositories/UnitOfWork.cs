@@ -9,21 +9,21 @@ namespace WebApplicationMvc.Repositories
     public class UnitOfWork : IDisposable
     {
         private bool disposed = false;
-        private OracleEntities context = new OracleEntities();
-        private GenericRepository<INV_MEDIDA> invMedidaRepository = null;
+        private EntitiesProveduria context = new EntitiesProveduria();
+        //private GenericRepository<INV_MEDIDA> invMedidaRepository = null;
 
 
-        public GenericRepository<INV_MEDIDA> InvMedidaRepository
-        {
-            get
-            {
-                if (invMedidaRepository == null)
-                {
-                    invMedidaRepository = new GenericRepository<INV_MEDIDA>(context);
-                }
-                return invMedidaRepository;
-            }
-        }
+        //public GenericRepository<INV_MEDIDA> InvMedidaRepository
+        //{
+        //    get
+        //    {
+        //        if (invMedidaRepository == null)
+        //        {
+        //            invMedidaRepository = new GenericRepository<INV_MEDIDA>(context);
+        //        }
+        //        return invMedidaRepository;
+        //    }
+        //}
 
         public void Save()
         {

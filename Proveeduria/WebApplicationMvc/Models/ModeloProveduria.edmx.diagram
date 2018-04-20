@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="79bb910bf7124bd586e47d114c90bc62" Name="Diagram1" ZoomLevel="64" >
+        <EntityTypeShape EntityType="ModelProveduria.EPRTA_ARTICULO_BODEGA" Width="1.5" PointX="8.875" PointY="7.625" />
+        <EntityTypeShape EntityType="ModelProveduria.EPRTA_BODEGA" Width="1.5" PointX="0.75" PointY="7.625" />
+        <EntityTypeShape EntityType="ModelProveduria.EPRTA_GRUPO" Width="1.5" PointX="1.5" PointY="12.375" />
+        <EntityTypeShape EntityType="ModelProveduria.EPRTA_ITEM" Width="1.5" PointX="7.375" PointY="0.625" />
+        <EntityTypeShape EntityType="ModelProveduria.EPRTA_MEDIDA" Width="1.5" PointX="1.125" PointY="1.25" />
+        <EntityTypeShape EntityType="ModelProveduria.EPRTA_MOVIMIENTO" Width="1.5" PointX="3" PointY="3.125" />
+        <EntityTypeShape EntityType="ModelProveduria.EPRTA_MOVIMIENTO_DETALLE" Width="1.5" PointX="10.5" PointY="5.625" />
+        <EntityTypeShape EntityType="ModelProveduria.EPRTA_SECUENCIA" Width="1.5" PointX="3" PointY="15.5" />
+        <EntityTypeShape EntityType="ModelProveduria.EPRTA_TIPO_MOVIMIENTO" Width="1.5" PointX="0.75" PointY="15.75" />
+        <AssociationConnector Association="ModelProveduria.EPRCN_ARTBOD_ITEM_FK" />
+        <AssociationConnector Association="ModelProveduria.EPRTA_ARTBOD_BODEGA_FK" />
+        <AssociationConnector Association="ModelProveduria.EPRCN_MOVIMIENTO_BODEGA_FK" />
+        <AssociationConnector Association="ModelProveduria.INV_ITEMS_EPRTA_GRUPO_FK" />
+        <AssociationConnector Association="ModelProveduria.EPRCN_ITEM_MEDIDA_FK" />
+        <AssociationConnector Association="ModelProveduria.EPRCN_MOVDET_ITEM_FK" />
+        <AssociationConnector Association="ModelProveduria.EPRCN_MOVDET_MOVIMIENTO_FK" />
+        <AssociationConnector Association="ModelProveduria.EPRCN_MOVIMIENTO_MOVIMIENTO_FK" />
+        <AssociationConnector Association="ModelProveduria.EPRCN_MOVIMIENTO_TIPMOV_FK" />
+        <AssociationConnector Association="ModelProveduria.EPRCN_SECUENCIA_TIPMOV_FK" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

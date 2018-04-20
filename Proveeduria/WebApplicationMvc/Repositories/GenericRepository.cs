@@ -11,16 +11,16 @@ namespace WebApplicationMvc.Repositories
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {
-        private OracleEntities db = null;
+        private EntitiesProveduria db = null;
         private DbSet<TEntity> table = null;
 
         public GenericRepository()
         {
-            this.db = new OracleEntities();
+            this.db = new EntitiesProveduria();
             table = db.Set<TEntity>();
         }
 
-        public GenericRepository(OracleEntities db)
+        public GenericRepository(EntitiesProveduria db)
         {
             this.db = db;
             table = db.Set<TEntity>();

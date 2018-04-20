@@ -1,0 +1,761 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="ModelProveduria.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="10.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="EPRTA_ARTICULO_BODEGA">
+          <Key>
+            <PropertyRef Name="ID_BODEGA" />
+            <PropertyRef Name="ID_ITEM" />
+          </Key>
+          <Property Name="ID_BODEGA" Type="number" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="ID_ITEM" Type="number" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="CANTIDAD_MAXIMA" Type="number" Precision="8" Scale="0" />
+          <Property Name="CANTIDAD_ACTUAL" Type="number" Precision="8" Scale="2" />
+          <Property Name="CANTIDAD_INICIO" Type="number" Precision="8" Scale="2" />
+          <Property Name="CANTIDAD_CRITICA" Type="number" Precision="8" Scale="0" />
+          <Property Name="CANTIDAD_MINIMA" Type="number" Precision="8" Scale="0" />
+          <Property Name="CANTIDAD_BAJA" Type="number" Precision="8" Scale="2" />
+          <Property Name="CANTIDAD_OC" Type="number" Precision="8" Scale="0" />
+          <Property Name="VALOR" Type="number" Precision="9" Scale="3" />
+          <Property Name="ESTADO" Type="varchar2" MaxLength="1" />
+          <Property Name="UBICACION" Type="varchar2" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="EPRTA_BODEGA">
+          <Key>
+            <PropertyRef Name="ID_BODEGA" />
+          </Key>
+          <Property Name="ID_BODEGA" Type="number" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar2" MaxLength="100" />
+          <Property Name="ESTADO" Type="varchar2" MaxLength="1" />
+          <Property Name="CUENTA_CONTABLE" Type="varchar2" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="EPRTA_GRUPO">
+          <Key>
+            <PropertyRef Name="ID_GRUPO" />
+          </Key>
+          <Property Name="ID_GRUPO" Type="number" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar2" MaxLength="100" Nullable="false" />
+          <Property Name="ESTADO" Type="varchar2" MaxLength="1" />
+          <Property Name="CUENTA_CONTABLE" Type="varchar2" MaxLength="30" />
+        </EntityType>
+        <EntityType Name="EPRTA_ITEM">
+          <Key>
+            <PropertyRef Name="ID_ITEM" />
+          </Key>
+          <Property Name="ID_ITEM" Type="number" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="CODIGO" Type="varchar2" MaxLength="250" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="300" />
+          <Property Name="ID_MEDIDA" Type="number" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="FECHA_ULTIMO_INGRESO" Type="date" />
+          <Property Name="FECHA_ULTIMO_EGRESO" Type="date" />
+          <Property Name="VALOR_ANTERIOR" Type="number" Precision="17" Scale="3" />
+          <Property Name="VALOR_ACTUAL" Type="number" Precision="17" Scale="3" />
+          <Property Name="ESTADO" Type="varchar2" MaxLength="1" />
+          <Property Name="OBSERVACION" Type="varchar2" MaxLength="250" />
+          <Property Name="ID_GRUPO" Type="number" Precision="2" Scale="0" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EPRTA_MEDIDA">
+          <Key>
+            <PropertyRef Name="ID_MEDIDA" />
+          </Key>
+          <Property Name="ID_MEDIDA" Type="number" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar2" MaxLength="250" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EPRTA_MOVIMIENTO">
+          <Key>
+            <PropertyRef Name="ID_MOVIMIENTO" />
+          </Key>
+          <Property Name="ID_MOVIMIENTO" Type="number" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="ANIO" Type="number" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="NUMERO_MOVIMIENTO" Type="number" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="ID_TIPO_MOVIMIENTO" Type="number" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="OBSERVACION" Type="varchar2" MaxLength="500" />
+          <Property Name="ESTADO" Type="varchar2" MaxLength="1" Nullable="false" />
+          <Property Name="ID_BODEGA" Type="number" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="USUARIO_APRUEBA" Type="varchar2" MaxLength="15" />
+          <Property Name="USUARIO_AUTORIZA" Type="varchar2" MaxLength="15" />
+          <Property Name="USUARIO_SOLICITA" Type="varchar2" MaxLength="15" Nullable="false" />
+          <Property Name="ID_DEPARTAMENTO_SOLICITA" Type="number" Precision="2" Scale="0" />
+          <Property Name="FECHA_SOLICITUD" Type="date" />
+          <Property Name="FECHA_AUTORIZACION" Type="date" />
+          <Property Name="FECHA_APROBACION" Type="date" />
+          <Property Name="USUARIO_ANULA" Type="varchar2" MaxLength="15" />
+          <Property Name="FECHA_ANULA" Type="date" />
+          <Property Name="MOTIVO_ANULA" Type="varchar2" MaxLength="250" />
+          <Property Name="ID_MOVIMIENTO_RELACION" Type="number" Precision="8" Scale="0" />
+        </EntityType>
+        <EntityType Name="EPRTA_MOVIMIENTO_DETALLE">
+          <Key>
+            <PropertyRef Name="ID_DETALLE" />
+          </Key>
+          <Property Name="ID_DETALLE" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="ID_MOVIMIENTO" Type="number" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="ID_ITEM" Type="number" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="CANTIDAD_PEDIDO" Type="number" Precision="6" Scale="0" />
+          <Property Name="ESTADO" Type="varchar2" MaxLength="1" />
+          <Property Name="IVA" Type="varchar2" MaxLength="1" />
+          <Property Name="OBSERVACION" Type="varchar2" MaxLength="250" />
+          <Property Name="DESCRIPCION_ADICIONAL" Type="varchar2" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="EPRTA_SECUENCIA">
+          <Key>
+            <PropertyRef Name="ID_SECUENCIA" />
+          </Key>
+          <Property Name="ID_SECUENCIA" Type="number" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="ID_TIPO_MOVIMIENTO" Type="number" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="ANIO" Type="number" Precision="4" Scale="0" />
+          <Property Name="SECUENCIA" Type="number" Precision="10" Scale="0" />
+          <Property Name="FECHA_CREA" Type="date" />
+          <Property Name="FECHA_ULTIMA_SECUENCIA" Type="date" />
+        </EntityType>
+        <EntityType Name="EPRTA_TIPO_MOVIMIENTO">
+          <Key>
+            <PropertyRef Name="ID_TIPO_MOVIMIENTO" />
+          </Key>
+          <Property Name="ID_TIPO_MOVIMIENTO" Type="number" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="NOMBRE" Type="varchar2" MaxLength="50" />
+          <Property Name="INGRESO_EGRESO" Type="varchar2" MaxLength="1" />
+        </EntityType>
+        <Association Name="EPRCN_ARTBOD_ITEM_FK">
+          <End Role="EPRTA_ITEM" Type="Self.EPRTA_ITEM" Multiplicity="1" />
+          <End Role="EPRTA_ARTICULO_BODEGA" Type="Self.EPRTA_ARTICULO_BODEGA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EPRTA_ITEM">
+              <PropertyRef Name="ID_ITEM" />
+            </Principal>
+            <Dependent Role="EPRTA_ARTICULO_BODEGA">
+              <PropertyRef Name="ID_ITEM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EPRCN_ITEM_MEDIDA_FK">
+          <End Role="EPRTA_MEDIDA" Type="Self.EPRTA_MEDIDA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="EPRTA_ITEM" Type="Self.EPRTA_ITEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EPRTA_MEDIDA">
+              <PropertyRef Name="ID_MEDIDA" />
+            </Principal>
+            <Dependent Role="EPRTA_ITEM">
+              <PropertyRef Name="ID_MEDIDA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EPRCN_MOVDET_ITEM_FK">
+          <End Role="EPRTA_ITEM" Type="Self.EPRTA_ITEM" Multiplicity="1" />
+          <End Role="EPRTA_MOVIMIENTO_DETALLE" Type="Self.EPRTA_MOVIMIENTO_DETALLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EPRTA_ITEM">
+              <PropertyRef Name="ID_ITEM" />
+            </Principal>
+            <Dependent Role="EPRTA_MOVIMIENTO_DETALLE">
+              <PropertyRef Name="ID_ITEM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EPRCN_MOVDET_MOVIMIENTO_FK">
+          <End Role="EPRTA_MOVIMIENTO" Type="Self.EPRTA_MOVIMIENTO" Multiplicity="1" />
+          <End Role="EPRTA_MOVIMIENTO_DETALLE" Type="Self.EPRTA_MOVIMIENTO_DETALLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EPRTA_MOVIMIENTO">
+              <PropertyRef Name="ID_MOVIMIENTO" />
+            </Principal>
+            <Dependent Role="EPRTA_MOVIMIENTO_DETALLE">
+              <PropertyRef Name="ID_MOVIMIENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EPRCN_MOVIMIENTO_BODEGA_FK">
+          <End Role="EPRTA_BODEGA" Type="Self.EPRTA_BODEGA" Multiplicity="1" />
+          <End Role="EPRTA_MOVIMIENTO" Type="Self.EPRTA_MOVIMIENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EPRTA_BODEGA">
+              <PropertyRef Name="ID_BODEGA" />
+            </Principal>
+            <Dependent Role="EPRTA_MOVIMIENTO">
+              <PropertyRef Name="ID_BODEGA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EPRCN_MOVIMIENTO_MOVIMIENTO_FK">
+          <End Role="EPRTA_MOVIMIENTO" Type="Self.EPRTA_MOVIMIENTO" Multiplicity="1" />
+          <End Role="EPRTA_MOVIMIENTO1" Type="Self.EPRTA_MOVIMIENTO" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="EPRTA_MOVIMIENTO">
+              <PropertyRef Name="ID_MOVIMIENTO" />
+            </Principal>
+            <Dependent Role="EPRTA_MOVIMIENTO1">
+              <PropertyRef Name="ID_MOVIMIENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EPRCN_MOVIMIENTO_TIPMOV_FK">
+          <End Role="EPRTA_TIPO_MOVIMIENTO" Type="Self.EPRTA_TIPO_MOVIMIENTO" Multiplicity="1" />
+          <End Role="EPRTA_MOVIMIENTO" Type="Self.EPRTA_MOVIMIENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EPRTA_TIPO_MOVIMIENTO">
+              <PropertyRef Name="ID_TIPO_MOVIMIENTO" />
+            </Principal>
+            <Dependent Role="EPRTA_MOVIMIENTO">
+              <PropertyRef Name="ID_TIPO_MOVIMIENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EPRCN_SECUENCIA_TIPMOV_FK">
+          <End Role="EPRTA_TIPO_MOVIMIENTO" Type="Self.EPRTA_TIPO_MOVIMIENTO" Multiplicity="1" />
+          <End Role="EPRTA_SECUENCIA" Type="Self.EPRTA_SECUENCIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EPRTA_TIPO_MOVIMIENTO">
+              <PropertyRef Name="ID_TIPO_MOVIMIENTO" />
+            </Principal>
+            <Dependent Role="EPRTA_SECUENCIA">
+              <PropertyRef Name="ID_TIPO_MOVIMIENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EPRTA_ARTBOD_BODEGA_FK">
+          <End Role="EPRTA_BODEGA" Type="Self.EPRTA_BODEGA" Multiplicity="1" />
+          <End Role="EPRTA_ARTICULO_BODEGA" Type="Self.EPRTA_ARTICULO_BODEGA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EPRTA_BODEGA">
+              <PropertyRef Name="ID_BODEGA" />
+            </Principal>
+            <Dependent Role="EPRTA_ARTICULO_BODEGA">
+              <PropertyRef Name="ID_BODEGA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INV_ITEMS_EPRTA_GRUPO_FK">
+          <End Role="EPRTA_GRUPO" Type="Self.EPRTA_GRUPO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="EPRTA_ITEM" Type="Self.EPRTA_ITEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EPRTA_GRUPO">
+              <PropertyRef Name="ID_GRUPO" />
+            </Principal>
+            <Dependent Role="EPRTA_ITEM">
+              <PropertyRef Name="ID_GRUPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="ModelProveduriaStoreContainer">
+          <EntitySet Name="EPRTA_ARTICULO_BODEGA" EntityType="Self.EPRTA_ARTICULO_BODEGA" Schema="PROVEDURIA" store:Type="Tables" />
+          <EntitySet Name="EPRTA_BODEGA" EntityType="Self.EPRTA_BODEGA" Schema="PROVEDURIA" store:Type="Tables" />
+          <EntitySet Name="EPRTA_GRUPO" EntityType="Self.EPRTA_GRUPO" Schema="PROVEDURIA" store:Type="Tables" />
+          <EntitySet Name="EPRTA_ITEM" EntityType="Self.EPRTA_ITEM" Schema="PROVEDURIA" store:Type="Tables" />
+          <EntitySet Name="EPRTA_MEDIDA" EntityType="Self.EPRTA_MEDIDA" Schema="PROVEDURIA" store:Type="Tables" />
+          <EntitySet Name="EPRTA_MOVIMIENTO" EntityType="Self.EPRTA_MOVIMIENTO" Schema="PROVEDURIA" store:Type="Tables" />
+          <EntitySet Name="EPRTA_MOVIMIENTO_DETALLE" EntityType="Self.EPRTA_MOVIMIENTO_DETALLE" Schema="PROVEDURIA" store:Type="Tables" />
+          <EntitySet Name="EPRTA_SECUENCIA" EntityType="Self.EPRTA_SECUENCIA" Schema="PROVEDURIA" store:Type="Tables" />
+          <EntitySet Name="EPRTA_TIPO_MOVIMIENTO" EntityType="Self.EPRTA_TIPO_MOVIMIENTO" Schema="PROVEDURIA" store:Type="Tables" />
+          <AssociationSet Name="EPRCN_ARTBOD_ITEM_FK" Association="Self.EPRCN_ARTBOD_ITEM_FK">
+            <End Role="EPRTA_ITEM" EntitySet="EPRTA_ITEM" />
+            <End Role="EPRTA_ARTICULO_BODEGA" EntitySet="EPRTA_ARTICULO_BODEGA" />
+          </AssociationSet>
+          <AssociationSet Name="EPRCN_ITEM_MEDIDA_FK" Association="Self.EPRCN_ITEM_MEDIDA_FK">
+            <End Role="EPRTA_MEDIDA" EntitySet="EPRTA_MEDIDA" />
+            <End Role="EPRTA_ITEM" EntitySet="EPRTA_ITEM" />
+          </AssociationSet>
+          <AssociationSet Name="EPRCN_MOVDET_ITEM_FK" Association="Self.EPRCN_MOVDET_ITEM_FK">
+            <End Role="EPRTA_ITEM" EntitySet="EPRTA_ITEM" />
+            <End Role="EPRTA_MOVIMIENTO_DETALLE" EntitySet="EPRTA_MOVIMIENTO_DETALLE" />
+          </AssociationSet>
+          <AssociationSet Name="EPRCN_MOVDET_MOVIMIENTO_FK" Association="Self.EPRCN_MOVDET_MOVIMIENTO_FK">
+            <End Role="EPRTA_MOVIMIENTO" EntitySet="EPRTA_MOVIMIENTO" />
+            <End Role="EPRTA_MOVIMIENTO_DETALLE" EntitySet="EPRTA_MOVIMIENTO_DETALLE" />
+          </AssociationSet>
+          <AssociationSet Name="EPRCN_MOVIMIENTO_BODEGA_FK" Association="Self.EPRCN_MOVIMIENTO_BODEGA_FK">
+            <End Role="EPRTA_BODEGA" EntitySet="EPRTA_BODEGA" />
+            <End Role="EPRTA_MOVIMIENTO" EntitySet="EPRTA_MOVIMIENTO" />
+          </AssociationSet>
+          <AssociationSet Name="EPRCN_MOVIMIENTO_MOVIMIENTO_FK" Association="Self.EPRCN_MOVIMIENTO_MOVIMIENTO_FK">
+            <End Role="EPRTA_MOVIMIENTO" EntitySet="EPRTA_MOVIMIENTO" />
+            <End Role="EPRTA_MOVIMIENTO1" EntitySet="EPRTA_MOVIMIENTO" />
+          </AssociationSet>
+          <AssociationSet Name="EPRCN_MOVIMIENTO_TIPMOV_FK" Association="Self.EPRCN_MOVIMIENTO_TIPMOV_FK">
+            <End Role="EPRTA_TIPO_MOVIMIENTO" EntitySet="EPRTA_TIPO_MOVIMIENTO" />
+            <End Role="EPRTA_MOVIMIENTO" EntitySet="EPRTA_MOVIMIENTO" />
+          </AssociationSet>
+          <AssociationSet Name="EPRCN_SECUENCIA_TIPMOV_FK" Association="Self.EPRCN_SECUENCIA_TIPMOV_FK">
+            <End Role="EPRTA_TIPO_MOVIMIENTO" EntitySet="EPRTA_TIPO_MOVIMIENTO" />
+            <End Role="EPRTA_SECUENCIA" EntitySet="EPRTA_SECUENCIA" />
+          </AssociationSet>
+          <AssociationSet Name="EPRTA_ARTBOD_BODEGA_FK" Association="Self.EPRTA_ARTBOD_BODEGA_FK">
+            <End Role="EPRTA_BODEGA" EntitySet="EPRTA_BODEGA" />
+            <End Role="EPRTA_ARTICULO_BODEGA" EntitySet="EPRTA_ARTICULO_BODEGA" />
+          </AssociationSet>
+          <AssociationSet Name="INV_ITEMS_EPRTA_GRUPO_FK" Association="Self.INV_ITEMS_EPRTA_GRUPO_FK">
+            <End Role="EPRTA_GRUPO" EntitySet="EPRTA_GRUPO" />
+            <End Role="EPRTA_ITEM" EntitySet="EPRTA_ITEM" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="ModelProveduria" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="EntitiesProveduria" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="EPRTA_ARTICULO_BODEGA" EntityType="ModelProveduria.EPRTA_ARTICULO_BODEGA" />
+          <EntitySet Name="EPRTA_BODEGA" EntityType="ModelProveduria.EPRTA_BODEGA" />
+          <EntitySet Name="EPRTA_GRUPO" EntityType="ModelProveduria.EPRTA_GRUPO" />
+          <EntitySet Name="EPRTA_ITEM" EntityType="ModelProveduria.EPRTA_ITEM" />
+          <EntitySet Name="EPRTA_MEDIDA" EntityType="ModelProveduria.EPRTA_MEDIDA" />
+          <EntitySet Name="EPRTA_MOVIMIENTO" EntityType="ModelProveduria.EPRTA_MOVIMIENTO" />
+          <EntitySet Name="EPRTA_MOVIMIENTO_DETALLE" EntityType="ModelProveduria.EPRTA_MOVIMIENTO_DETALLE" />
+          <EntitySet Name="EPRTA_SECUENCIA" EntityType="ModelProveduria.EPRTA_SECUENCIA" />
+          <EntitySet Name="EPRTA_TIPO_MOVIMIENTO" EntityType="ModelProveduria.EPRTA_TIPO_MOVIMIENTO" />
+          <AssociationSet Name="EPRCN_ARTBOD_ITEM_FK" Association="ModelProveduria.EPRCN_ARTBOD_ITEM_FK">
+            <End Role="EPRTA_ITEM" EntitySet="EPRTA_ITEM" />
+            <End Role="EPRTA_ARTICULO_BODEGA" EntitySet="EPRTA_ARTICULO_BODEGA" />
+          </AssociationSet>
+          <AssociationSet Name="EPRTA_ARTBOD_BODEGA_FK" Association="ModelProveduria.EPRTA_ARTBOD_BODEGA_FK">
+            <End Role="EPRTA_BODEGA" EntitySet="EPRTA_BODEGA" />
+            <End Role="EPRTA_ARTICULO_BODEGA" EntitySet="EPRTA_ARTICULO_BODEGA" />
+          </AssociationSet>
+          <AssociationSet Name="EPRCN_MOVIMIENTO_BODEGA_FK" Association="ModelProveduria.EPRCN_MOVIMIENTO_BODEGA_FK">
+            <End Role="EPRTA_BODEGA" EntitySet="EPRTA_BODEGA" />
+            <End Role="EPRTA_MOVIMIENTO" EntitySet="EPRTA_MOVIMIENTO" />
+          </AssociationSet>
+          <AssociationSet Name="INV_ITEMS_EPRTA_GRUPO_FK" Association="ModelProveduria.INV_ITEMS_EPRTA_GRUPO_FK">
+            <End Role="EPRTA_GRUPO" EntitySet="EPRTA_GRUPO" />
+            <End Role="EPRTA_ITEM" EntitySet="EPRTA_ITEM" />
+          </AssociationSet>
+          <AssociationSet Name="EPRCN_ITEM_MEDIDA_FK" Association="ModelProveduria.EPRCN_ITEM_MEDIDA_FK">
+            <End Role="EPRTA_MEDIDA" EntitySet="EPRTA_MEDIDA" />
+            <End Role="EPRTA_ITEM" EntitySet="EPRTA_ITEM" />
+          </AssociationSet>
+          <AssociationSet Name="EPRCN_MOVDET_ITEM_FK" Association="ModelProveduria.EPRCN_MOVDET_ITEM_FK">
+            <End Role="EPRTA_ITEM" EntitySet="EPRTA_ITEM" />
+            <End Role="EPRTA_MOVIMIENTO_DETALLE" EntitySet="EPRTA_MOVIMIENTO_DETALLE" />
+          </AssociationSet>
+          <AssociationSet Name="EPRCN_MOVDET_MOVIMIENTO_FK" Association="ModelProveduria.EPRCN_MOVDET_MOVIMIENTO_FK">
+            <End Role="EPRTA_MOVIMIENTO" EntitySet="EPRTA_MOVIMIENTO" />
+            <End Role="EPRTA_MOVIMIENTO_DETALLE" EntitySet="EPRTA_MOVIMIENTO_DETALLE" />
+          </AssociationSet>
+          <AssociationSet Name="EPRCN_MOVIMIENTO_MOVIMIENTO_FK" Association="ModelProveduria.EPRCN_MOVIMIENTO_MOVIMIENTO_FK">
+            <End Role="EPRTA_MOVIMIENTO" EntitySet="EPRTA_MOVIMIENTO" />
+            <End Role="EPRTA_MOVIMIENTO1" EntitySet="EPRTA_MOVIMIENTO" />
+          </AssociationSet>
+          <AssociationSet Name="EPRCN_MOVIMIENTO_TIPMOV_FK" Association="ModelProveduria.EPRCN_MOVIMIENTO_TIPMOV_FK">
+            <End Role="EPRTA_TIPO_MOVIMIENTO" EntitySet="EPRTA_TIPO_MOVIMIENTO" />
+            <End Role="EPRTA_MOVIMIENTO" EntitySet="EPRTA_MOVIMIENTO" />
+          </AssociationSet>
+          <AssociationSet Name="EPRCN_SECUENCIA_TIPMOV_FK" Association="ModelProveduria.EPRCN_SECUENCIA_TIPMOV_FK">
+            <End Role="EPRTA_TIPO_MOVIMIENTO" EntitySet="EPRTA_TIPO_MOVIMIENTO" />
+            <End Role="EPRTA_SECUENCIA" EntitySet="EPRTA_SECUENCIA" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="EPRTA_ARTICULO_BODEGA">
+          <Key>
+            <PropertyRef Name="ID_BODEGA" />
+            <PropertyRef Name="ID_ITEM" />
+          </Key>
+          <Property Name="ID_BODEGA" Type="Byte" Nullable="false" />
+          <Property Name="ID_ITEM" Type="Int32" Nullable="false" />
+          <Property Name="CANTIDAD_MAXIMA" Type="Int32" />
+          <Property Name="CANTIDAD_ACTUAL" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="CANTIDAD_INICIO" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="CANTIDAD_CRITICA" Type="Int32" />
+          <Property Name="CANTIDAD_MINIMA" Type="Int32" />
+          <Property Name="CANTIDAD_BAJA" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="CANTIDAD_OC" Type="Int32" />
+          <Property Name="VALOR" Type="Decimal" Precision="9" Scale="3" />
+          <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="UBICACION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EPRTA_ITEM" Relationship="ModelProveduria.EPRCN_ARTBOD_ITEM_FK" FromRole="EPRTA_ARTICULO_BODEGA" ToRole="EPRTA_ITEM" />
+          <NavigationProperty Name="EPRTA_BODEGA" Relationship="ModelProveduria.EPRTA_ARTBOD_BODEGA_FK" FromRole="EPRTA_ARTICULO_BODEGA" ToRole="EPRTA_BODEGA" />
+        </EntityType>
+        <EntityType Name="EPRTA_BODEGA">
+          <Key>
+            <PropertyRef Name="ID_BODEGA" />
+          </Key>
+          <Property Name="ID_BODEGA" Type="Byte" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CUENTA_CONTABLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EPRTA_ARTICULO_BODEGA" Relationship="ModelProveduria.EPRTA_ARTBOD_BODEGA_FK" FromRole="EPRTA_BODEGA" ToRole="EPRTA_ARTICULO_BODEGA" />
+          <NavigationProperty Name="EPRTA_MOVIMIENTO" Relationship="ModelProveduria.EPRCN_MOVIMIENTO_BODEGA_FK" FromRole="EPRTA_BODEGA" ToRole="EPRTA_MOVIMIENTO" />
+        </EntityType>
+        <EntityType Name="EPRTA_GRUPO">
+          <Key>
+            <PropertyRef Name="ID_GRUPO" />
+          </Key>
+          <Property Name="ID_GRUPO" Type="Byte" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CUENTA_CONTABLE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EPRTA_ITEM" Relationship="ModelProveduria.INV_ITEMS_EPRTA_GRUPO_FK" FromRole="EPRTA_GRUPO" ToRole="EPRTA_ITEM" />
+        </EntityType>
+        <EntityType Name="EPRTA_ITEM">
+          <Key>
+            <PropertyRef Name="ID_ITEM" />
+          </Key>
+          <Property Name="ID_ITEM" Type="Int32" Nullable="false" />
+          <Property Name="CODIGO" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPCION" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
+          <Property Name="ID_MEDIDA" Type="Byte" Nullable="false" />
+          <Property Name="FECHA_ULTIMO_INGRESO" Type="DateTime" />
+          <Property Name="FECHA_ULTIMO_EGRESO" Type="DateTime" />
+          <Property Name="VALOR_ANTERIOR" Type="Decimal" Precision="17" Scale="3" />
+          <Property Name="VALOR_ACTUAL" Type="Decimal" Precision="17" Scale="3" />
+          <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OBSERVACION" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ID_GRUPO" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="EPRTA_ARTICULO_BODEGA" Relationship="ModelProveduria.EPRCN_ARTBOD_ITEM_FK" FromRole="EPRTA_ITEM" ToRole="EPRTA_ARTICULO_BODEGA" />
+          <NavigationProperty Name="EPRTA_GRUPO" Relationship="ModelProveduria.INV_ITEMS_EPRTA_GRUPO_FK" FromRole="EPRTA_ITEM" ToRole="EPRTA_GRUPO" />
+          <NavigationProperty Name="EPRTA_MEDIDA" Relationship="ModelProveduria.EPRCN_ITEM_MEDIDA_FK" FromRole="EPRTA_ITEM" ToRole="EPRTA_MEDIDA" />
+          <NavigationProperty Name="EPRTA_MOVIMIENTO_DETALLE" Relationship="ModelProveduria.EPRCN_MOVDET_ITEM_FK" FromRole="EPRTA_ITEM" ToRole="EPRTA_MOVIMIENTO_DETALLE" />
+        </EntityType>
+        <EntityType Name="EPRTA_MEDIDA">
+          <Key>
+            <PropertyRef Name="ID_MEDIDA" />
+          </Key>
+          <Property Name="ID_MEDIDA" Type="Byte" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EPRTA_ITEM" Relationship="ModelProveduria.EPRCN_ITEM_MEDIDA_FK" FromRole="EPRTA_MEDIDA" ToRole="EPRTA_ITEM" />
+        </EntityType>
+        <EntityType Name="EPRTA_MOVIMIENTO">
+          <Key>
+            <PropertyRef Name="ID_MOVIMIENTO" />
+          </Key>
+          <Property Name="ID_MOVIMIENTO" Type="Int32" Nullable="false" />
+          <Property Name="ANIO" Type="Int16" Nullable="false" />
+          <Property Name="NUMERO_MOVIMIENTO" Type="Int32" Nullable="false" />
+          <Property Name="ID_TIPO_MOVIMIENTO" Type="Byte" Nullable="false" />
+          <Property Name="OBSERVACION" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ID_BODEGA" Type="Byte" Nullable="false" />
+          <Property Name="USUARIO_APRUEBA" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="USUARIO_AUTORIZA" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="USUARIO_SOLICITA" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ID_DEPARTAMENTO_SOLICITA" Type="Byte" />
+          <Property Name="FECHA_SOLICITUD" Type="DateTime" />
+          <Property Name="FECHA_AUTORIZACION" Type="DateTime" />
+          <Property Name="FECHA_APROBACION" Type="DateTime" />
+          <Property Name="USUARIO_ANULA" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_ANULA" Type="DateTime" />
+          <Property Name="MOTIVO_ANULA" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ID_MOVIMIENTO_RELACION" Type="Int32" />
+          <NavigationProperty Name="EPRTA_BODEGA" Relationship="ModelProveduria.EPRCN_MOVIMIENTO_BODEGA_FK" FromRole="EPRTA_MOVIMIENTO" ToRole="EPRTA_BODEGA" />
+          <NavigationProperty Name="EPRTA_MOVIMIENTO_DETALLE" Relationship="ModelProveduria.EPRCN_MOVDET_MOVIMIENTO_FK" FromRole="EPRTA_MOVIMIENTO" ToRole="EPRTA_MOVIMIENTO_DETALLE" />
+          <NavigationProperty Name="EPRTA_MOVIMIENTO1" Relationship="ModelProveduria.EPRCN_MOVIMIENTO_MOVIMIENTO_FK" FromRole="EPRTA_MOVIMIENTO" ToRole="EPRTA_MOVIMIENTO1" />
+          <NavigationProperty Name="EPRTA_MOVIMIENTO2" Relationship="ModelProveduria.EPRCN_MOVIMIENTO_MOVIMIENTO_FK" FromRole="EPRTA_MOVIMIENTO1" ToRole="EPRTA_MOVIMIENTO" />
+          <NavigationProperty Name="EPRTA_TIPO_MOVIMIENTO" Relationship="ModelProveduria.EPRCN_MOVIMIENTO_TIPMOV_FK" FromRole="EPRTA_MOVIMIENTO" ToRole="EPRTA_TIPO_MOVIMIENTO" />
+        </EntityType>
+        <EntityType Name="EPRTA_MOVIMIENTO_DETALLE">
+          <Key>
+            <PropertyRef Name="ID_DETALLE" />
+          </Key>
+          <Property Name="ID_DETALLE" Type="Int64" Nullable="false" />
+          <Property Name="ID_MOVIMIENTO" Type="Int32" Nullable="false" />
+          <Property Name="ID_ITEM" Type="Int32" Nullable="false" />
+          <Property Name="CANTIDAD_PEDIDO" Type="Int32" />
+          <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="IVA" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="OBSERVACION" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPCION_ADICIONAL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EPRTA_ITEM" Relationship="ModelProveduria.EPRCN_MOVDET_ITEM_FK" FromRole="EPRTA_MOVIMIENTO_DETALLE" ToRole="EPRTA_ITEM" />
+          <NavigationProperty Name="EPRTA_MOVIMIENTO" Relationship="ModelProveduria.EPRCN_MOVDET_MOVIMIENTO_FK" FromRole="EPRTA_MOVIMIENTO_DETALLE" ToRole="EPRTA_MOVIMIENTO" />
+        </EntityType>
+        <EntityType Name="EPRTA_SECUENCIA">
+          <Key>
+            <PropertyRef Name="ID_SECUENCIA" />
+          </Key>
+          <Property Name="ID_SECUENCIA" Type="Int16" Nullable="false" />
+          <Property Name="ID_TIPO_MOVIMIENTO" Type="Byte" Nullable="false" />
+          <Property Name="ANIO" Type="Int16" />
+          <Property Name="SECUENCIA" Type="Int32" />
+          <Property Name="FECHA_CREA" Type="DateTime" />
+          <Property Name="FECHA_ULTIMA_SECUENCIA" Type="DateTime" />
+          <NavigationProperty Name="EPRTA_TIPO_MOVIMIENTO" Relationship="ModelProveduria.EPRCN_SECUENCIA_TIPMOV_FK" FromRole="EPRTA_SECUENCIA" ToRole="EPRTA_TIPO_MOVIMIENTO" />
+        </EntityType>
+        <EntityType Name="EPRTA_TIPO_MOVIMIENTO">
+          <Key>
+            <PropertyRef Name="ID_TIPO_MOVIMIENTO" />
+          </Key>
+          <Property Name="ID_TIPO_MOVIMIENTO" Type="Byte" Nullable="false" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="INGRESO_EGRESO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EPRTA_MOVIMIENTO" Relationship="ModelProveduria.EPRCN_MOVIMIENTO_TIPMOV_FK" FromRole="EPRTA_TIPO_MOVIMIENTO" ToRole="EPRTA_MOVIMIENTO" />
+          <NavigationProperty Name="EPRTA_SECUENCIA" Relationship="ModelProveduria.EPRCN_SECUENCIA_TIPMOV_FK" FromRole="EPRTA_TIPO_MOVIMIENTO" ToRole="EPRTA_SECUENCIA" />
+        </EntityType>
+        <Association Name="EPRCN_ARTBOD_ITEM_FK">
+          <End Type="ModelProveduria.EPRTA_ITEM" Role="EPRTA_ITEM" Multiplicity="1" />
+          <End Type="ModelProveduria.EPRTA_ARTICULO_BODEGA" Role="EPRTA_ARTICULO_BODEGA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EPRTA_ITEM">
+              <PropertyRef Name="ID_ITEM" />
+            </Principal>
+            <Dependent Role="EPRTA_ARTICULO_BODEGA">
+              <PropertyRef Name="ID_ITEM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EPRTA_ARTBOD_BODEGA_FK">
+          <End Type="ModelProveduria.EPRTA_BODEGA" Role="EPRTA_BODEGA" Multiplicity="1" />
+          <End Type="ModelProveduria.EPRTA_ARTICULO_BODEGA" Role="EPRTA_ARTICULO_BODEGA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EPRTA_BODEGA">
+              <PropertyRef Name="ID_BODEGA" />
+            </Principal>
+            <Dependent Role="EPRTA_ARTICULO_BODEGA">
+              <PropertyRef Name="ID_BODEGA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EPRCN_MOVIMIENTO_BODEGA_FK">
+          <End Type="ModelProveduria.EPRTA_BODEGA" Role="EPRTA_BODEGA" Multiplicity="1" />
+          <End Type="ModelProveduria.EPRTA_MOVIMIENTO" Role="EPRTA_MOVIMIENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EPRTA_BODEGA">
+              <PropertyRef Name="ID_BODEGA" />
+            </Principal>
+            <Dependent Role="EPRTA_MOVIMIENTO">
+              <PropertyRef Name="ID_BODEGA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INV_ITEMS_EPRTA_GRUPO_FK">
+          <End Type="ModelProveduria.EPRTA_GRUPO" Role="EPRTA_GRUPO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ModelProveduria.EPRTA_ITEM" Role="EPRTA_ITEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EPRTA_GRUPO">
+              <PropertyRef Name="ID_GRUPO" />
+            </Principal>
+            <Dependent Role="EPRTA_ITEM">
+              <PropertyRef Name="ID_GRUPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EPRCN_ITEM_MEDIDA_FK">
+          <End Type="ModelProveduria.EPRTA_MEDIDA" Role="EPRTA_MEDIDA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ModelProveduria.EPRTA_ITEM" Role="EPRTA_ITEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EPRTA_MEDIDA">
+              <PropertyRef Name="ID_MEDIDA" />
+            </Principal>
+            <Dependent Role="EPRTA_ITEM">
+              <PropertyRef Name="ID_MEDIDA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EPRCN_MOVDET_ITEM_FK">
+          <End Type="ModelProveduria.EPRTA_ITEM" Role="EPRTA_ITEM" Multiplicity="1" />
+          <End Type="ModelProveduria.EPRTA_MOVIMIENTO_DETALLE" Role="EPRTA_MOVIMIENTO_DETALLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EPRTA_ITEM">
+              <PropertyRef Name="ID_ITEM" />
+            </Principal>
+            <Dependent Role="EPRTA_MOVIMIENTO_DETALLE">
+              <PropertyRef Name="ID_ITEM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EPRCN_MOVDET_MOVIMIENTO_FK">
+          <End Type="ModelProveduria.EPRTA_MOVIMIENTO" Role="EPRTA_MOVIMIENTO" Multiplicity="1" />
+          <End Type="ModelProveduria.EPRTA_MOVIMIENTO_DETALLE" Role="EPRTA_MOVIMIENTO_DETALLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EPRTA_MOVIMIENTO">
+              <PropertyRef Name="ID_MOVIMIENTO" />
+            </Principal>
+            <Dependent Role="EPRTA_MOVIMIENTO_DETALLE">
+              <PropertyRef Name="ID_MOVIMIENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EPRCN_MOVIMIENTO_MOVIMIENTO_FK">
+          <End Type="ModelProveduria.EPRTA_MOVIMIENTO" Role="EPRTA_MOVIMIENTO" Multiplicity="1" />
+          <End Type="ModelProveduria.EPRTA_MOVIMIENTO" Role="EPRTA_MOVIMIENTO1" Multiplicity="0..1" />
+          <ReferentialConstraint>
+            <Principal Role="EPRTA_MOVIMIENTO">
+              <PropertyRef Name="ID_MOVIMIENTO" />
+            </Principal>
+            <Dependent Role="EPRTA_MOVIMIENTO1">
+              <PropertyRef Name="ID_MOVIMIENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EPRCN_MOVIMIENTO_TIPMOV_FK">
+          <End Type="ModelProveduria.EPRTA_TIPO_MOVIMIENTO" Role="EPRTA_TIPO_MOVIMIENTO" Multiplicity="1" />
+          <End Type="ModelProveduria.EPRTA_MOVIMIENTO" Role="EPRTA_MOVIMIENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EPRTA_TIPO_MOVIMIENTO">
+              <PropertyRef Name="ID_TIPO_MOVIMIENTO" />
+            </Principal>
+            <Dependent Role="EPRTA_MOVIMIENTO">
+              <PropertyRef Name="ID_TIPO_MOVIMIENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EPRCN_SECUENCIA_TIPMOV_FK">
+          <End Type="ModelProveduria.EPRTA_TIPO_MOVIMIENTO" Role="EPRTA_TIPO_MOVIMIENTO" Multiplicity="1" />
+          <End Type="ModelProveduria.EPRTA_SECUENCIA" Role="EPRTA_SECUENCIA" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EPRTA_TIPO_MOVIMIENTO">
+              <PropertyRef Name="ID_TIPO_MOVIMIENTO" />
+            </Principal>
+            <Dependent Role="EPRTA_SECUENCIA">
+              <PropertyRef Name="ID_TIPO_MOVIMIENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="ModelProveduriaStoreContainer" CdmEntityContainer="EntitiesProveduria" >
+          <EntitySetMapping Name="EPRTA_ARTICULO_BODEGA">
+            <EntityTypeMapping TypeName="ModelProveduria.EPRTA_ARTICULO_BODEGA">
+              <MappingFragment StoreEntitySet="EPRTA_ARTICULO_BODEGA">
+                <ScalarProperty Name="UBICACION" ColumnName="UBICACION" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="VALOR" ColumnName="VALOR" />
+                <ScalarProperty Name="CANTIDAD_OC" ColumnName="CANTIDAD_OC" />
+                <ScalarProperty Name="CANTIDAD_BAJA" ColumnName="CANTIDAD_BAJA" />
+                <ScalarProperty Name="CANTIDAD_MINIMA" ColumnName="CANTIDAD_MINIMA" />
+                <ScalarProperty Name="CANTIDAD_CRITICA" ColumnName="CANTIDAD_CRITICA" />
+                <ScalarProperty Name="CANTIDAD_INICIO" ColumnName="CANTIDAD_INICIO" />
+                <ScalarProperty Name="CANTIDAD_ACTUAL" ColumnName="CANTIDAD_ACTUAL" />
+                <ScalarProperty Name="CANTIDAD_MAXIMA" ColumnName="CANTIDAD_MAXIMA" />
+                <ScalarProperty Name="ID_ITEM" ColumnName="ID_ITEM" />
+                <ScalarProperty Name="ID_BODEGA" ColumnName="ID_BODEGA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EPRTA_BODEGA">
+            <EntityTypeMapping TypeName="ModelProveduria.EPRTA_BODEGA">
+              <MappingFragment StoreEntitySet="EPRTA_BODEGA">
+                <ScalarProperty Name="CUENTA_CONTABLE" ColumnName="CUENTA_CONTABLE" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="ID_BODEGA" ColumnName="ID_BODEGA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EPRTA_GRUPO">
+            <EntityTypeMapping TypeName="ModelProveduria.EPRTA_GRUPO">
+              <MappingFragment StoreEntitySet="EPRTA_GRUPO">
+                <ScalarProperty Name="CUENTA_CONTABLE" ColumnName="CUENTA_CONTABLE" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="ID_GRUPO" ColumnName="ID_GRUPO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EPRTA_ITEM">
+            <EntityTypeMapping TypeName="ModelProveduria.EPRTA_ITEM">
+              <MappingFragment StoreEntitySet="EPRTA_ITEM">
+                <ScalarProperty Name="ID_GRUPO" ColumnName="ID_GRUPO" />
+                <ScalarProperty Name="OBSERVACION" ColumnName="OBSERVACION" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="VALOR_ACTUAL" ColumnName="VALOR_ACTUAL" />
+                <ScalarProperty Name="VALOR_ANTERIOR" ColumnName="VALOR_ANTERIOR" />
+                <ScalarProperty Name="FECHA_ULTIMO_EGRESO" ColumnName="FECHA_ULTIMO_EGRESO" />
+                <ScalarProperty Name="FECHA_ULTIMO_INGRESO" ColumnName="FECHA_ULTIMO_INGRESO" />
+                <ScalarProperty Name="ID_MEDIDA" ColumnName="ID_MEDIDA" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
+                <ScalarProperty Name="ID_ITEM" ColumnName="ID_ITEM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EPRTA_MEDIDA">
+            <EntityTypeMapping TypeName="ModelProveduria.EPRTA_MEDIDA">
+              <MappingFragment StoreEntitySet="EPRTA_MEDIDA">
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="ID_MEDIDA" ColumnName="ID_MEDIDA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EPRTA_MOVIMIENTO">
+            <EntityTypeMapping TypeName="ModelProveduria.EPRTA_MOVIMIENTO">
+              <MappingFragment StoreEntitySet="EPRTA_MOVIMIENTO">
+                <ScalarProperty Name="ID_MOVIMIENTO_RELACION" ColumnName="ID_MOVIMIENTO_RELACION" />
+                <ScalarProperty Name="MOTIVO_ANULA" ColumnName="MOTIVO_ANULA" />
+                <ScalarProperty Name="FECHA_ANULA" ColumnName="FECHA_ANULA" />
+                <ScalarProperty Name="USUARIO_ANULA" ColumnName="USUARIO_ANULA" />
+                <ScalarProperty Name="FECHA_APROBACION" ColumnName="FECHA_APROBACION" />
+                <ScalarProperty Name="FECHA_AUTORIZACION" ColumnName="FECHA_AUTORIZACION" />
+                <ScalarProperty Name="FECHA_SOLICITUD" ColumnName="FECHA_SOLICITUD" />
+                <ScalarProperty Name="ID_DEPARTAMENTO_SOLICITA" ColumnName="ID_DEPARTAMENTO_SOLICITA" />
+                <ScalarProperty Name="USUARIO_SOLICITA" ColumnName="USUARIO_SOLICITA" />
+                <ScalarProperty Name="USUARIO_AUTORIZA" ColumnName="USUARIO_AUTORIZA" />
+                <ScalarProperty Name="USUARIO_APRUEBA" ColumnName="USUARIO_APRUEBA" />
+                <ScalarProperty Name="ID_BODEGA" ColumnName="ID_BODEGA" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="OBSERVACION" ColumnName="OBSERVACION" />
+                <ScalarProperty Name="ID_TIPO_MOVIMIENTO" ColumnName="ID_TIPO_MOVIMIENTO" />
+                <ScalarProperty Name="NUMERO_MOVIMIENTO" ColumnName="NUMERO_MOVIMIENTO" />
+                <ScalarProperty Name="ANIO" ColumnName="ANIO" />
+                <ScalarProperty Name="ID_MOVIMIENTO" ColumnName="ID_MOVIMIENTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EPRTA_MOVIMIENTO_DETALLE">
+            <EntityTypeMapping TypeName="ModelProveduria.EPRTA_MOVIMIENTO_DETALLE">
+              <MappingFragment StoreEntitySet="EPRTA_MOVIMIENTO_DETALLE">
+                <ScalarProperty Name="DESCRIPCION_ADICIONAL" ColumnName="DESCRIPCION_ADICIONAL" />
+                <ScalarProperty Name="OBSERVACION" ColumnName="OBSERVACION" />
+                <ScalarProperty Name="IVA" ColumnName="IVA" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="CANTIDAD_PEDIDO" ColumnName="CANTIDAD_PEDIDO" />
+                <ScalarProperty Name="ID_ITEM" ColumnName="ID_ITEM" />
+                <ScalarProperty Name="ID_MOVIMIENTO" ColumnName="ID_MOVIMIENTO" />
+                <ScalarProperty Name="ID_DETALLE" ColumnName="ID_DETALLE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EPRTA_SECUENCIA">
+            <EntityTypeMapping TypeName="ModelProveduria.EPRTA_SECUENCIA">
+              <MappingFragment StoreEntitySet="EPRTA_SECUENCIA">
+                <ScalarProperty Name="FECHA_ULTIMA_SECUENCIA" ColumnName="FECHA_ULTIMA_SECUENCIA" />
+                <ScalarProperty Name="FECHA_CREA" ColumnName="FECHA_CREA" />
+                <ScalarProperty Name="SECUENCIA" ColumnName="SECUENCIA" />
+                <ScalarProperty Name="ANIO" ColumnName="ANIO" />
+                <ScalarProperty Name="ID_TIPO_MOVIMIENTO" ColumnName="ID_TIPO_MOVIMIENTO" />
+                <ScalarProperty Name="ID_SECUENCIA" ColumnName="ID_SECUENCIA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EPRTA_TIPO_MOVIMIENTO">
+            <EntityTypeMapping TypeName="ModelProveduria.EPRTA_TIPO_MOVIMIENTO">
+              <MappingFragment StoreEntitySet="EPRTA_TIPO_MOVIMIENTO">
+                <ScalarProperty Name="INGRESO_EGRESO" ColumnName="INGRESO_EGRESO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="ID_TIPO_MOVIMIENTO" ColumnName="ID_TIPO_MOVIMIENTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

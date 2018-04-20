@@ -12,13 +12,15 @@ namespace WebApplicationMvc.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class INV_BODEGA
+    public partial class EPRTA_SECUENCIA
     {
-        public decimal ID_CODIGO { get; set; }
-        public string DESCRIPCION { get; set; }
-        public string DESC_ABREVIADA { get; set; }
-        public string ESTADO { get; set; }
-        public string RESPONSABLE { get; set; }
-        public string TIPO { get; set; }
+        public short ID_SECUENCIA { get; set; }
+        public byte ID_TIPO_MOVIMIENTO { get; set; }
+        public Nullable<short> ANIO { get; set; }
+        public Nullable<int> SECUENCIA { get; set; }
+        public Nullable<System.DateTime> FECHA_CREA { get; set; }
+        public Nullable<System.DateTime> FECHA_ULTIMA_SECUENCIA { get; set; }
+    
+        public virtual EPRTA_TIPO_MOVIMIENTO EPRTA_TIPO_MOVIMIENTO { get; set; }
     }
 }

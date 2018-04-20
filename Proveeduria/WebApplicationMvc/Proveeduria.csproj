@@ -182,32 +182,47 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\INV_BODEGA.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+    <Compile Include="Models\EPRTA_ARTICULO_BODEGA.cs">
+      <DependentUpon>ModeloProveduria.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\INV_GRUPO.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+    <Compile Include="Models\EPRTA_BODEGA.cs">
+      <DependentUpon>ModeloProveduria.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\INV_ITEMS.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+    <Compile Include="Models\EPRTA_GRUPO.cs">
+      <DependentUpon>ModeloProveduria.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\INV_MEDIDA.cs">
-      <DependentUpon>Model.tt</DependentUpon>
+    <Compile Include="Models\EPRTA_ITEM.cs">
+      <DependentUpon>ModeloProveduria.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model.Context.cs">
+    <Compile Include="Models\EPRTA_MEDIDA.cs">
+      <DependentUpon>ModeloProveduria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EPRTA_MOVIMIENTO.cs">
+      <DependentUpon>ModeloProveduria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EPRTA_MOVIMIENTO_DETALLE.cs">
+      <DependentUpon>ModeloProveduria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EPRTA_SECUENCIA.cs">
+      <DependentUpon>ModeloProveduria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EPRTA_TIPO_MOVIMIENTO.cs">
+      <DependentUpon>ModeloProveduria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\ModeloProveduria.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model.Context.tt</DependentUpon>
+      <DependentUpon>ModeloProveduria.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model.cs">
+    <Compile Include="Models\ModeloProveduria.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model.tt</DependentUpon>
+      <DependentUpon>ModeloProveduria.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\Model.Designer.cs">
+    <Compile Include="Models\ModeloProveduria.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Model.edmx</DependentUpon>
+      <DependentUpon>ModeloProveduria.edmx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
@@ -6828,15 +6843,15 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\Model.Context.tt">
+    <Content Include="Models\ModeloProveduria.Context.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model.edmx</DependentUpon>
-      <LastGenOutput>Model.Context.cs</LastGenOutput>
+      <DependentUpon>ModeloProveduria.edmx</DependentUpon>
+      <LastGenOutput>ModeloProveduria.Context.cs</LastGenOutput>
     </Content>
-    <Content Include="Models\Model.tt">
+    <Content Include="Models\ModeloProveduria.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>Model.edmx</DependentUpon>
-      <LastGenOutput>Model.cs</LastGenOutput>
+      <DependentUpon>ModeloProveduria.edmx</DependentUpon>
+      <LastGenOutput>ModeloProveduria.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\App\InvMedida.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -7314,12 +7329,12 @@
     <Content Include="Content\dist\css\adminlte.min.css.map" />
     <Content Include="Content\plugins\input-mask\phone-codes\phone-be.json" />
     <Content Include="Content\plugins\input-mask\phone-codes\phone-codes.json" />
-    <EntityDeploy Include="Models\Model.edmx">
+    <EntityDeploy Include="Models\ModeloProveduria.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>Model.Designer.cs</LastGenOutput>
+      <LastGenOutput>ModeloProveduria.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <Content Include="Models\Model.edmx.diagram">
-      <DependentUpon>Model.edmx</DependentUpon>
+    <Content Include="Models\ModeloProveduria.edmx.diagram">
+      <DependentUpon>ModeloProveduria.edmx</DependentUpon>
     </Content>
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
@@ -7394,7 +7409,7 @@
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
-          <UseIIS>True</UseIIS>
+          <UseIIS>False</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
           <DevelopmentServerPort>58466</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
