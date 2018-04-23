@@ -179,6 +179,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InvMedidaController.cs" />
+    <Compile Include="Controllers\TipoMovimientoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -7368,9 +7369,11 @@
     <Content Include="Views\InvMedida\Index.cshtml" />
     <Content Include="Views\InvMedida\Create.cshtml" />
     <Content Include="Views\InvMedida\Edit.cshtml" />
+    <Content Include="Views\TipoMovimiento\ListaTipoMovimiento.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Referencias\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

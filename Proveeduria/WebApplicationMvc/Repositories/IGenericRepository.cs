@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
-namespace WebApplicationMvc.Repositories
+namespace Proveduria.Repositories
 {
     interface IGenericRepository<TEntity> where TEntity : class
     {

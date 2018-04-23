@@ -1,9 +1,9 @@
-﻿@*@model IEnumerable<Proveduria.Models.INV_MEDIDA>*@
+﻿@model IEnumerable<Proveduria.Models.EPRTA_TIPO_MOVIMIENTO>
 
-@{
-    ViewBag.Title = "Index";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
+@*@{
+        ViewBag.Title = "ListaTipoMovimiento";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }*@
 
 
 @section styles {
@@ -15,7 +15,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Medidas items
+        Tipos de Movimientos
         <small>Control panel</small>
     </h1>
     <ol class="breadcrumb">
@@ -48,10 +48,10 @@
                     <thead>
                         <tr>
                             <th>
-                                @*@Html.DisplayNameFor(model => model.UNI_CODIGO)*@
+                                @Html.DisplayNameFor(model => model.ID_TIPO_MOVIMIENTO)
                             </th>
                             <th>
-                                @*@Html.DisplayNameFor(model => model.UNI_DESCRIPCION)*@
+                                @Html.DisplayNameFor(model => model.NOMBRE)
                             </th>
                             <th></th>
                         </tr>
@@ -61,30 +61,30 @@
                         {
                             <tr>
                                 <td>
-                                    @*@Html.DisplayFor(modelItem => item.UNI_CODIGO)*@
+                                    @Html.DisplayFor(modelItem => item.ID_TIPO_MOVIMIENTO)
                                 </td>
                                 <td>
-                                    @*@Html.DisplayFor(modelItem => item.UNI_DESCRIPCION)*@
+                                    @Html.DisplayFor(modelItem => item.NOMBRE)
                                 </td>
                                 <td>
                                     @*<a href="/InvMedida/Edit/@item.UNI_CODIGO">
-                                        <span class="fa-stack fa-1x">
-                                            <i class="fa fa-circle-thin fa-stack-2x"></i>
-                                            <i class="fa fa-pencil fa-stack-1x"></i>
-                                        </span>
-                                    </a> |
-                                    <a href="/InvMedida/Details/@item.UNI_CODIGO">
-                                        <span class="fa-stack fa-1x">
-                                            <i class="fa fa-circle-thin fa-stack-2x"></i>
-                                            <i class="fa fa-eye fa-stack-1x"></i>
-                                        </span>
-                                    </a> |
-                                    <a href="javascript:;" onclick="eliminar(@item.UNI_CODIGO)">
-                                        <span class="fa-stack fa-1x">
-                                            <i class="fa fa-circle-thin fa-stack-2x"></i>
-                                            <i class="fa fa-trash fa-stack-1x"></i>
-                                        </span>
-                                    </a>*@
+                                            <span class="fa-stack fa-1x">
+                                                <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                                <i class="fa fa-pencil fa-stack-1x"></i>
+                                            </span>
+                                        </a> |
+                                        <a href="/InvMedida/Details/@item.UNI_CODIGO">
+                                            <span class="fa-stack fa-1x">
+                                                <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                                <i class="fa fa-eye fa-stack-1x"></i>
+                                            </span>
+                                        </a> |
+                                        <a href="javascript:;" onclick="eliminar(@item.UNI_CODIGO)">
+                                            <span class="fa-stack fa-1x">
+                                                <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                                <i class="fa fa-trash fa-stack-1x"></i>
+                                            </span>
+                                        </a>*@
                                 </td>
                             </tr>
                         }

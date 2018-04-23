@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
-using WebApplicationMvc.Repositories;
-using WebApplicationMvc.Models;
+using Proveduria.Repositories;
+using Proveduria.Models;
 using Newtonsoft.Json.Linq;
 using System.Net;
 using NLog;
 
-namespace WebApplicationMvc.Controllers
+namespace Proveduria.Controllers
 {
     public class InvMedidaController : Controller
     {

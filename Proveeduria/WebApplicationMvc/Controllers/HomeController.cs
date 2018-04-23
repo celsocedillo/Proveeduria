@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace WebApplicationMvc.Controllers
+namespace Proveduria.Controllers
 {
     public class HomeController : Controller
     {

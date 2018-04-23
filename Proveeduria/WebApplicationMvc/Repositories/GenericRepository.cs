@@ -4,10 +4,10 @@ using System.Data;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
-using WebApplicationMvc.Models;
+using Proveduria.Models;
 using System.Data.OracleClient;
 
-namespace WebApplicationMvc.Repositories
+namespace Proveduria.Repositories
 {
     public class GenericRepository<TEntity> : IGenericRepository<TEntity> where TEntity : class
     {

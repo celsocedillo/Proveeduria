@@ -2,14 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using WebApplicationMvc.Models;
+using Proveduria.Models;
 
-namespace WebApplicationMvc.Repositories
+namespace Proveduria.Repositories
 {
     public class UnitOfWork : IDisposable
     {
         private bool disposed = false;
         private EntitiesProveduria context = new EntitiesProveduria();
+        private GenericRepository<EPRTA_TIPO_MOVIMIENTO> tipoMovimientoRepository = null;
+
         //private GenericRepository<INV_MEDIDA> invMedidaRepository = null;
 
 
@@ -24,6 +26,19 @@ namespace WebApplicationMvc.Repositories
         //        return invMedidaRepository;
         //    }
         //}
+
+        public GenericRepository<EPRTA_TIPO_MOVIMIENTO> TipoMovimientoRepository
+        {
+            get
+            {
+                //context.Configuration.ProxyCreationEnabled = false;
+                if (tipoMovimientoRepository == null)
+                {
+                    tipoMovimientoRepository = new GenericRepository<EPRTA_TIPO_MOVIMIENTO>(context);
+                }
+                return tipoMovimientoRepository;
+            }
+        }
 
         public void Save()
         {
