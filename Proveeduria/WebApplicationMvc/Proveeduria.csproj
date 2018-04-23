@@ -177,6 +177,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\GrupoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InvMedidaController.cs" />
     <Compile Include="Controllers\TipoMovimientoController.cs" />
@@ -7370,6 +7371,7 @@
     <Content Include="Views\InvMedida\Create.cshtml" />
     <Content Include="Views\InvMedida\Edit.cshtml" />
     <Content Include="Views\TipoMovimiento\ListaTipoMovimiento.cshtml" />
+    <Content Include="Views\Grupo\ListaGrupo.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

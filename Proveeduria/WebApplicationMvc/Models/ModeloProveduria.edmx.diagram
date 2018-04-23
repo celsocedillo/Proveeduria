@@ -7,7 +7,7 @@
       <Diagram DiagramId="79bb910bf7124bd586e47d114c90bc62" Name="Diagram1" ZoomLevel="109" >
         <EntityTypeShape EntityType="ModelProveduria.EPRTA_ARTICULO_BODEGA" Width="1.5" PointX="8.875" PointY="7.625" />
         <EntityTypeShape EntityType="ModelProveduria.EPRTA_BODEGA" Width="1.5" PointX="0.75" PointY="7.625" />
-        <EntityTypeShape EntityType="ModelProveduria.EPRTA_GRUPO" Width="1.5" PointX="1.5" PointY="12.375" />
+        <EntityTypeShape EntityType="ModelProveduria.EPRTA_GRUPO" Width="1.5" PointX="1.5" PointY="12.75" />
         <EntityTypeShape EntityType="ModelProveduria.EPRTA_ITEM" Width="1.5" PointX="7.375" PointY="0.625" />
         <EntityTypeShape EntityType="ModelProveduria.EPRTA_MEDIDA" Width="1.5" PointX="1.125" PointY="1.25" />
         <EntityTypeShape EntityType="ModelProveduria.EPRTA_MOVIMIENTO" Width="1.5" PointX="3" PointY="3.125" />

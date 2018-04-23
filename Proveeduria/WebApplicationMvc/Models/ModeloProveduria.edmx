@@ -40,6 +40,7 @@
           <Property Name="NOMBRE" Type="varchar2" MaxLength="100" Nullable="false" />
           <Property Name="ESTADO" Type="varchar2" MaxLength="1" />
           <Property Name="CUENTA_CONTABLE" Type="varchar2" MaxLength="30" />
+          <Property Name="CODIGO_GRUPO" Type="varchar2" MaxLength="10" />
         </EntityType>
         <EntityType Name="EPRTA_ITEM">
           <Key>
@@ -389,6 +390,7 @@
           <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="CUENTA_CONTABLE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="EPRTA_ITEM" Relationship="ModelProveduria.INV_ITEMS_EPRTA_GRUPO_FK" FromRole="EPRTA_GRUPO" ToRole="EPRTA_ITEM" />
+          <Property Name="CODIGO_GRUPO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="EPRTA_ITEM">
           <Key>
@@ -644,6 +646,7 @@
           <EntitySetMapping Name="EPRTA_GRUPO">
             <EntityTypeMapping TypeName="ModelProveduria.EPRTA_GRUPO">
               <MappingFragment StoreEntitySet="EPRTA_GRUPO">
+                <ScalarProperty Name="CODIGO_GRUPO" ColumnName="CODIGO_GRUPO" />
                 <ScalarProperty Name="CUENTA_CONTABLE" ColumnName="CUENTA_CONTABLE" />
                 <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
                 <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />

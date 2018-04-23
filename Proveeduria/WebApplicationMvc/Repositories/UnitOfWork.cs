@@ -11,6 +11,7 @@ namespace Proveduria.Repositories
         private bool disposed = false;
         private EntitiesProveduria context = new EntitiesProveduria();
         private GenericRepository<EPRTA_TIPO_MOVIMIENTO> tipoMovimientoRepository = null;
+        private GenericRepository<EPRTA_GRUPO> grupoRepository = null;
 
         //private GenericRepository<INV_MEDIDA> invMedidaRepository = null;
 
@@ -40,6 +41,18 @@ namespace Proveduria.Repositories
             }
         }
 
+        public GenericRepository<EPRTA_GRUPO> GrupoRepository
+        {
+            get
+            {
+                //context.Configuration.ProxyCreationEnabled = false;
+                if (grupoRepository == null)
+                {
+                    grupoRepository = new GenericRepository<EPRTA_GRUPO>(context);
+                }
+                return grupoRepository;
+            }
+        }
         public void Save()
         {
             context.SaveChanges();
