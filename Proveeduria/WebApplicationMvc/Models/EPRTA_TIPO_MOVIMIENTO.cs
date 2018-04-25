@@ -7,7 +7,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace WebApplicationMvc.Models
+namespace Proveduria.Models
 {
     using System;
     using System.Collections.Generic;
