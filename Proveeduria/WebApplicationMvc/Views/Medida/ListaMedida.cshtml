@@ -1,0 +1,117 @@
+﻿
+@model IEnumerable<Proveduria.Models.EPRTA_MEDIDA>
+
+@{
+    ViewBag.Title = "ListaMedida";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@section styles {
+    <!-- DataTables -->
+    <link rel="stylesheet" href=@Url.Content("/Content/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css")>
+}
+
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Medidas
+        <small>Control panel</small>
+    </h1>
+    <ol class="breadcrumb">
+        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
+        <li class="active">Dashboard</li>
+    </ol>
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+    <p>
+        <button class="btn btn-primary" onclick="location.href='@Url.Action("Create", "InvMedida")'">
+            <i class="fa fa-plus"></i>  CREAR
+        </button>
+    </p>
+
+    <!-- begin panel -->
+    <div class="panel panel-primary">
+        <div class="panel-heading">
+            <div class="panel-heading-btn">
+            </div>
+            <h4 class="panel-title">
+                <i class="fa fa-list" aria-hidden="true"></i>  MEDIDA
+            </h4>
+        </div>
+        <div class="panel-body">
+            <div class="form-horizontal">
+                <table id="tabla-medida" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.DisplayNameFor(model => model.ID_MEDIDA)
+                            </th>
+                            <th>
+                                @Html.DisplayNameFor(model => model.NOMBRE)
+                            </th>
+                            <th></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ID_MEDIDA)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NOMBRE)
+                                </td>
+                                <td>
+                                    @*<a href="/InvMedida/Edit/@item.UNI_CODIGO">
+                                            <span class="fa-stack fa-1x">
+                                                <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                                <i class="fa fa-pencil fa-stack-1x"></i>
+                                            </span>
+                                        </a> |
+                                        <a href="/InvMedida/Details/@item.UNI_CODIGO">
+                                            <span class="fa-stack fa-1x">
+                                                <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                                <i class="fa fa-eye fa-stack-1x"></i>
+                                            </span>
+                                        </a> |
+                                        <a href="javascript:;" onclick="eliminar(@item.UNI_CODIGO)">
+                                            <span class="fa-stack fa-1x">
+                                                <i class="fa fa-circle-thin fa-stack-2x"></i>
+                                                <i class="fa fa-trash fa-stack-1x"></i>
+                                            </span>
+                                        </a>*@
+                                </td>
+                            </tr>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    <!-- end panel -->
+
+</section>
+
+@section scripts {
+    <!-- DataTables -->
+    <script src=@Url.Content("/Content/bower_components/datatables.net/js/jquery.dataTables.min.js")></script>
+    <script src=@Url.Content("/Content/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js")></script>
+    <script type="text/javascript" src=@Url.Content("/Scripts/App/InvMedida.js")></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#tabla-medida').DataTable({
+                "columnDefs": [{
+                    "targets": 2,
+                    "orderable": false
+                }]
+            });
+        });
+    </script>
+
+}

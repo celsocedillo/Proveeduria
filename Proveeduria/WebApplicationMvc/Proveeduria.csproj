@@ -180,6 +180,7 @@
     <Compile Include="Controllers\GrupoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InvMedidaController.cs" />
+    <Compile Include="Controllers\MedidaController.cs" />
     <Compile Include="Controllers\TipoMovimientoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -7372,6 +7373,7 @@
     <Content Include="Views\InvMedida\Edit.cshtml" />
     <Content Include="Views\TipoMovimiento\ListaTipoMovimiento.cshtml" />
     <Content Include="Views\Grupo\ListaGrupo.cshtml" />
+    <Content Include="Views\Medida\ListaMedida.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
