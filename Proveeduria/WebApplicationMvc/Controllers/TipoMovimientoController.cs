@@ -25,6 +25,11 @@ namespace Proveduria.Controllers
             List<EPRTA_TIPO_MOVIMIENTO> ltipmov = unitOfWork.TipoMovimientoRepository.GetAll().ToList();
             return View(ltipmov);
         }
+        public ActionResult ListaTipoMovimiento5555221()
+        {
+            List<EPRTA_TIPO_MOVIMIENTO> ltipmov = unitOfWork.TipoMovimientoRepository.GetAll().ToList();
+            return View(ltipmov);
+        }
 
         public void Prueba()
         {
