@@ -26,5 +26,9 @@ namespace Proveduria.Controllers
             return View(ltipmov);
         }
 
+        public void Prueba()
+        {
+            //
+        }
     }
 }
