@@ -20,6 +20,12 @@ namespace Proveduria.Controllers
             return View(ltipmov);
         }
 
+        [HttpPost]
+        public JsonResult GetTipoMovimiento(int pid)
+        {
+            EPRTA_TIPO_MOVIMIENTO tipomov = unitOfWork.TipoMovimientoRepository.GetById(pid);
+            return Json(new { resultado = "success", data = tipomov, mensaje = "" });
+        }
    
 
     }

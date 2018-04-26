@@ -44,7 +44,7 @@
         </div>
         <div class="panel-body">
             <div class="form-horizontal">
-                <table id="tabla-medida" class="table table-bordered">
+                <table id="tabTipoMov" class="table table-bordered">
                     <thead>
                         <tr>
                             <th>
@@ -67,24 +67,12 @@
                                     @Html.DisplayFor(modelItem => item.NOMBRE)
                                 </td>
                                 <td>
-                                    @*<a href="/InvMedida/Edit/@item.UNI_CODIGO">
-                                            <span class="fa-stack fa-1x">
-                                                <i class="fa fa-circle-thin fa-stack-2x"></i>
-                                                <i class="fa fa-pencil fa-stack-1x"></i>
-                                            </span>
-                                        </a> |
-                                        <a href="/InvMedida/Details/@item.UNI_CODIGO">
-                                            <span class="fa-stack fa-1x">
-                                                <i class="fa fa-circle-thin fa-stack-2x"></i>
-                                                <i class="fa fa-eye fa-stack-1x"></i>
-                                            </span>
-                                        </a> |
-                                        <a href="javascript:;" onclick="eliminar(@item.UNI_CODIGO)">
-                                            <span class="fa-stack fa-1x">
-                                                <i class="fa fa-circle-thin fa-stack-2x"></i>
-                                                <i class="fa fa-trash fa-stack-1x"></i>
-                                            </span>
-                                        </a>*@
+                                    <button id="butEditar" type="button" class="btn btn-default btn-xs">
+                                        <i class="fa fa-pencil"></i>
+                                    </button>
+                                    <button id="butEliminar" type="button" class="btn btn-default btn-xs">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
                                 </td>
                             </tr>
                         }
@@ -95,6 +83,43 @@
     </div>
     <!-- end panel -->
 
+    <div class="modal fade" id="dlgTipoMov">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title"><span id="titAgrActivo"></span></h4>
+                </div>
+                <div class="modal-body">
+                    <form class="form-horizontal">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">ID</label>
+                            <div class="col-sm-10">
+                                <input id="txtIdTipoMov" type="text" class="form-control" />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Nombre</label>
+                            <div class="col-sm-10">
+                                <input id="txtNombre" type="text" class="form-control" />
+                            </div>
+                        </div>
+
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button id="butAcepta" type="button" class="btn btn-primary btn-sm">Grabar</button>
+                    <button id="butCancela" type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+
 </section>
 
 @section scripts {
@@ -104,11 +129,45 @@
     <script type="text/javascript" src=@Url.Content("/Scripts/App/InvMedida.js")></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $('#tabla-medida').DataTable({
+
+            $('#tabTipoMov').DataTable({
+                "paging": false,
+                "searching": false,
                 "columnDefs": [{
                     "targets": 2,
                     "orderable": false
                 }]
+            });
+
+            $('#tabTipoMov tbody').on('click', '[id*=butEditar]', function (e) {
+                $("#dlgTipoMov").modal('toggle');
+                //var data = tab.row($(this).parents('tr')).data();
+                var data = $("#tabTipoMov").DataTable().row($(this).parents('tr')).data();
+                var parametros = JSON.stringify(
+                    {
+                        pid: data.ID_TIPO_MOVIMIENTO,
+                        pid: data[0]
+                    });
+
+                $.ajax({
+                dataType: 'JSON',
+                url: '@Url.Action("GetTipoMovimiento", "TipoMovimiento")',
+                type: "POST",
+                contentType: 'application/json; charset=utf-8',
+                data:  parametros,
+                success: function (result)
+                 {
+
+                    $("#txtIdTipoMov").val(result.data.ID_TIPO_MOVIMIENTO);
+                    $("#txtNombre").val(result.data.NOMBRE);
+                 },
+                error: function (result) {
+                    alert("Error :" + result.responseText);
+                    $("#msgMain").html(result.responseText);
+                    $("#msgMain").addClass("alert alert-danger");
+                }
+                });
+
             });
         });
     </script>
