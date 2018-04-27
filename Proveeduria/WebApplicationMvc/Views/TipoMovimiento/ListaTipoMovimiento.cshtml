@@ -57,7 +57,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach (var item in Model)
+                        @*@foreach (var item in Model)
                         {
                             <tr>
                                 <td>
@@ -67,7 +67,7 @@
                                     @Html.DisplayFor(modelItem => item.NOMBRE)
                                 </td>
                                 <td>
-                                    <button id="butEditar" type="button" class="btn btn-default btn-xs">
+                                    <button id="butEditar" type="button" class="btn btn-default btn-xs clsedit">
                                         <i class="fa fa-pencil"></i>
                                     </button>
                                     <button id="butEliminar" type="button" class="btn btn-default btn-xs">
@@ -75,7 +75,7 @@
                                     </button>
                                 </td>
                             </tr>
-                        }
+                        }*@
                     </tbody>
                 </table>
             </div>
@@ -128,9 +128,79 @@
     <script src=@Url.Content("/Content/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js")></script>
     <script type="text/javascript" src=@Url.Content("/Scripts/App/InvMedida.js")></script>
     <script type="text/javascript">
+        var tabtipomov;
+
+
+        function CargaDatos()
+        {
+            var $this = $(this);
+   
+            $.ajax({
+                    type: "POST",
+                    traditional: true,
+                    datatype: "json",
+                    data: null,
+                    contentType: 'application/json; charset=utf-8',
+                    url: "/TipoMovimiento/GetListaTipoMovimiento",
+                    beforeSend: function () {
+                        run_waitMe($(".panel-body"), 'bounce', 'Cargando...');
+                    },
+                    success: function (data) {
+                        if (data.error) {
+                            swal({
+                                type: 'error',
+                                text: 'Error al cargar los datos.',
+                                confirmButtonColor: '#00BCD4'
+                            });
+                        }
+                        else {
+                            var items = data.items;
+                            if (items.length > 0) {
+                                var editar = `<button id="butEditar" type="button" class="btn btn-default btn-xs clsedit">
+                                                    <i class="fa fa-pencil"></i>
+                                                </button>`;
+                                var eliminar = `<button id="butEliminar" type="button" class="btn btn-default btn-xs">
+                                                    <i class="fa fa-trash"></i>
+                                                </button>`;
+                                for (var i = 0; i < items.length; i++) {
+                                    tabtipomov.row.add([
+                                        items[i].ID_TIPO_MOVIMIENTO,
+                                        items[i].NOMBRE,
+                                        editar + eliminar
+                                    ]).draw();
+                                }
+                            }
+                            else {
+                                swal({
+                                    type: 'info',
+                                    text: 'No se encontraron resultados con los datos proporcionados.',
+                                    confirmButtonColor: '#00BCD4'
+                                });
+                            }
+                        }
+                        $(".panel-body").waitMe('hide');
+                        $this.button('reset');
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        $(".panel-body").waitMe('hide');
+                        $this.button('reset');
+                        swal({
+                            type: 'error',
+                            text: 'Error al cargar los datos.',
+                            confirmButtonColor: '#00BCD4'
+                        });
+                    },
+                    complete: function () {
+                        calcularTotales();
+                    }
+                });
+            
+        }
+
+
         $(document).ready(function () {
 
-            $('#tabTipoMov').DataTable({
+            tabtipomov = $('#tabTipoMov').DataTable({
                 "paging": false,
                 "searching": false,
                 "columnDefs": [{
@@ -139,7 +209,38 @@
                 }]
             });
 
-            $('#tabTipoMov tbody').on('click', '[id*=butEditar]', function (e) {
+            CargaDatos();    
+
+            tabtipomov.on('click', 'button.clsedit', function (e) {
+                var row = $(this).closest('tr');
+                var parametros = JSON.stringify(
+                    {
+                        //pid: row.ID_TIPO_MOVIMIENTO,
+                        //pid: data[0]
+                    });
+
+                $.ajax({
+                dataType: 'JSON',
+                url: '@Url.Action("GetTipoMovimiento", "TipoMovimiento")',
+                type: "POST",
+                contentType: 'application/json; charset=utf-8',
+                data:  parametros,
+                success: function (result)
+                 {
+
+                    $("#txtIdTipoMov").val(result.data.ID_TIPO_MOVIMIENTO);
+                    $("#txtNombre").val(result.data.NOMBRE);
+                 },
+                error: function (result) {
+                    alert("Error :" + result.responseText);
+                    $("#msgMain").html(result.responseText);
+                    $("#msgMain").addClass("alert alert-danger");
+                }
+                });
+            });
+            
+
+            @*$('#tabTipoMov tbody').on('click', '[id*=butEditar]', function (e) {
                 $("#dlgTipoMov").modal('toggle');
                 //var data = tab.row($(this).parents('tr')).data();
                 var data = $("#tabTipoMov").DataTable().row($(this).parents('tr')).data();
@@ -168,7 +269,9 @@
                 }
                 });
 
-            });
+            });*@
         });
+
+
     </script>
 }

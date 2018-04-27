@@ -1,0 +1,78 @@
+     ---------------------------- Error(2018-04-27 11:40:55.5651) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : Can not add Newtonsoft.Json.Linq.JValue to Newtonsoft.Json.Linq.JObject.
+     
+              Inner Exception  : System.ArgumentException: Can not add Newtonsoft.Json.Linq.JValue to Newtonsoft.Json.Linq.JObject.
+   en Newtonsoft.Json.Linq.JObject.ValidateToken(JToken o, JToken existing)
+   en Newtonsoft.Json.Linq.JContainer.InsertItem(Int32 index, JToken item, Boolean skipParentCheck)
+   en Newtonsoft.Json.Linq.JObject.InsertItem(Int32 index, JToken item, Boolean skipParentCheck)
+   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
+   en Newtonsoft.Json.Linq.JContainer.Add(Object content)
+   en Proveduria.Controllers.TipoMovimientoController.GetListaTipoMovimiento() en C:\Emapag\Produccion\Proveduria\Proveeduria\WebApplicationMvc\Controllers\TipoMovimientoController.cs:línea 52 
+ 
+              Stack Trace   :    en Newtonsoft.Json.Linq.JObject.ValidateToken(JToken o, JToken existing)
+   en Newtonsoft.Json.Linq.JContainer.InsertItem(Int32 index, JToken item, Boolean skipParentCheck)
+   en Newtonsoft.Json.Linq.JObject.InsertItem(Int32 index, JToken item, Boolean skipParentCheck)
+   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
+   en Newtonsoft.Json.Linq.JContainer.Add(Object content)
+   en Proveduria.Controllers.TipoMovimientoController.GetListaTipoMovimiento() en C:\Emapag\Produccion\Proveduria\Proveeduria\WebApplicationMvc\Controllers\TipoMovimientoController.cs:línea 52
+        
+              Additional Info  : Can not add Newtonsoft.Json.Linq.JValue to Newtonsoft.Json.Linq.JObject.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-04-27 11:42:11.9849) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : Can not add Newtonsoft.Json.Linq.JValue to Newtonsoft.Json.Linq.JObject.
+     
+              Inner Exception  : System.ArgumentException: Can not add Newtonsoft.Json.Linq.JValue to Newtonsoft.Json.Linq.JObject.
+   en Newtonsoft.Json.Linq.JObject.ValidateToken(JToken o, JToken existing)
+   en Newtonsoft.Json.Linq.JContainer.InsertItem(Int32 index, JToken item, Boolean skipParentCheck)
+   en Newtonsoft.Json.Linq.JObject.InsertItem(Int32 index, JToken item, Boolean skipParentCheck)
+   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
+   en Newtonsoft.Json.Linq.JContainer.Add(Object content)
+   en Proveduria.Controllers.TipoMovimientoController.GetListaTipoMovimiento() en C:\Emapag\Produccion\Proveduria\Proveeduria\WebApplicationMvc\Controllers\TipoMovimientoController.cs:línea 52 
+ 
+              Stack Trace   :    en Newtonsoft.Json.Linq.JObject.ValidateToken(JToken o, JToken existing)
+   en Newtonsoft.Json.Linq.JContainer.InsertItem(Int32 index, JToken item, Boolean skipParentCheck)
+   en Newtonsoft.Json.Linq.JObject.InsertItem(Int32 index, JToken item, Boolean skipParentCheck)
+   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
+   en Newtonsoft.Json.Linq.JContainer.Add(Object content)
+   en Proveduria.Controllers.TipoMovimientoController.GetListaTipoMovimiento() en C:\Emapag\Produccion\Proveduria\Proveeduria\WebApplicationMvc\Controllers\TipoMovimientoController.cs:línea 52
+        
+              Additional Info  : Can not add Newtonsoft.Json.Linq.JValue to Newtonsoft.Json.Linq.JObject.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-04-27 11:42:23.7560) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : Can not add Newtonsoft.Json.Linq.JValue to Newtonsoft.Json.Linq.JObject.
+     
+              Inner Exception  : System.ArgumentException: Can not add Newtonsoft.Json.Linq.JValue to Newtonsoft.Json.Linq.JObject.
+   en Newtonsoft.Json.Linq.JObject.ValidateToken(JToken o, JToken existing)
+   en Newtonsoft.Json.Linq.JContainer.InsertItem(Int32 index, JToken item, Boolean skipParentCheck)
+   en Newtonsoft.Json.Linq.JObject.InsertItem(Int32 index, JToken item, Boolean skipParentCheck)
+   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
+   en Newtonsoft.Json.Linq.JContainer.Add(Object content)
+   en Proveduria.Controllers.TipoMovimientoController.GetListaTipoMovimiento() en C:\Emapag\Produccion\Proveduria\Proveeduria\WebApplicationMvc\Controllers\TipoMovimientoController.cs:línea 52 
+ 
+              Stack Trace   :    en Newtonsoft.Json.Linq.JObject.ValidateToken(JToken o, JToken existing)
+   en Newtonsoft.Json.Linq.JContainer.InsertItem(Int32 index, JToken item, Boolean skipParentCheck)
+   en Newtonsoft.Json.Linq.JObject.InsertItem(Int32 index, JToken item, Boolean skipParentCheck)
+   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
+   en Newtonsoft.Json.Linq.JContainer.Add(Object content)
+   en Proveduria.Controllers.TipoMovimientoController.GetListaTipoMovimiento() en C:\Emapag\Produccion\Proveduria\Proveeduria\WebApplicationMvc\Controllers\TipoMovimientoController.cs:línea 52
+        
+              Additional Info  : Can not add Newtonsoft.Json.Linq.JValue to Newtonsoft.Json.Linq.JObject.  
+              -------------------------------------------------------------------
+              ----------     
+     
