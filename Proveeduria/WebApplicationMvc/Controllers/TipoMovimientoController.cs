@@ -23,8 +23,16 @@ namespace Proveduria.Controllers
         [HttpPost]
         public JsonResult GetTipoMovimiento(int pid)
         {
-            EPRTA_TIPO_MOVIMIENTO tipomov = unitOfWork.TipoMovimientoRepository.GetById(pid);
-            return Json(new { resultado = "success", data = tipomov, mensaje = "" });
+            try
+            {
+                EPRTA_TIPO_MOVIMIENTO tipomov = unitOfWork.TipoMovimientoRepository.GetById(pid);
+                return Json(new { resultado = "success", data = tipomov, mensaje = "" });
+
+            }
+            catch (Exception ex)
+            {
+                return Json(new { resultado = "error", data = "", mensaje = " Error al consultar el tipo de movimiento, favor revisar las conecciones de base de datos => [" + ex + "]" });
+            }
         }
    
 
