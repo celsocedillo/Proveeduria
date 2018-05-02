@@ -8,7 +8,7 @@
         bg: 'rgba(255,255,255,0.7)',
         color: '#000',
         maxSize: 30,
-        source: 'img.svg',
+        //source: 'img.svg',
         textPos: textPos,
         fontSize: fontSize,
         onClose: function () { }
