@@ -3382,6 +3382,13 @@
     <Content Include="Content\bower_components\datatables.net\js\jquery.dataTables.js" />
     <Content Include="Content\bower_components\datatables.net\js\jquery.dataTables.min.js" />
     <Content Include="Content\bower_components\datatables.net\License.txt" />
+    <Content Include="Content\bower_components\datatable\dataTables.bootstrap.js" />
+    <Content Include="Content\bower_components\datatable\dataTables.jqueryui.min.css" />
+    <Content Include="Content\bower_components\datatable\dataTables.jqueryui.min.js" />
+    <Content Include="Content\bower_components\datatable\dataTables.select.js" />
+    <Content Include="Content\bower_components\datatable\jquery.dataTables.css" />
+    <Content Include="Content\bower_components\datatable\jquery.dataTables.js" />
+    <Content Include="Content\bower_components\datatable\jquery.dataTables.min.js" />
     <Content Include="Content\bower_components\eve-raphael\e.html" />
     <Content Include="Content\bower_components\eve-raphael\eve.js" />
     <Content Include="Content\bower_components\fastclick\lib\fastclick.js" />
@@ -3525,6 +3532,12 @@
     <Content Include="Content\bower_components\fullcalendar\dist\locale\zh-cn.js" />
     <Content Include="Content\bower_components\fullcalendar\dist\locale\zh-tw.js" />
     <Content Include="Content\bower_components\fullcalendar\LICENSE.txt" />
+    <Content Include="Content\bower_components\_images\favicon.ico" />
+    <Content Include="Content\bower_components\_images\sort_asc.png" />
+    <Content Include="Content\bower_components\_images\sort_asc_disabled.png" />
+    <Content Include="Content\bower_components\_images\sort_both.png" />
+    <Content Include="Content\bower_components\_images\sort_desc.png" />
+    <Content Include="Content\bower_components\_images\sort_desc_disabled.png" />
     <Content Include="Content\bower_components\inputmask\dist\inputmask\bindings\inputmask.binding.js" />
     <Content Include="Content\bower_components\inputmask\dist\inputmask\dependencyLibs\inputmask.dependencyLib.jqlite.js" />
     <Content Include="Content\bower_components\inputmask\dist\inputmask\dependencyLibs\inputmask.dependencyLib.jquery.js" />
@@ -7342,6 +7355,7 @@
     <Content Include="Models\ModeloProveduria.edmx.diagram">
       <DependentUpon>ModeloProveduria.edmx</DependentUpon>
     </Content>
+    <Content Include="Content\bower_components\_images\Sorting icons.psd" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

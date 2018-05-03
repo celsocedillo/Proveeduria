@@ -9,6 +9,7 @@ using System.Net;
 using System.Data.Entity;
 using Newtonsoft.Json.Linq;
 using NLog;
+using Newtonsoft.Json;
 
 namespace Proveduria.Controllers
 {
@@ -45,20 +46,27 @@ namespace Proveduria.Controllers
             JObject total = new JObject();
             try
             {
+                //var query = from d in unitOfWork.TipoMovimientoRepository.GetAll()
+                //            select d;
+                //foreach (EPRTA_TIPO_MOVIMIENTO item in query)
+                //{
+                //    JObject jsonObject = new JObject
+                //    {
+                //        { "ID_TIPO_MOVIMIENTO", item.ID_TIPO_MOVIMIENTO },
+                //        { "NOMBRE", item.NOMBRE }
+                //    };
+                //    jArray.Add(jsonObject);
+                //}
+                //total = new JObject();
+                //total.Add("items", jArray);
+                //total.Add("error", false);
+
                 var query = from d in unitOfWork.TipoMovimientoRepository.GetAll()
-                            select d;
-                foreach (EPRTA_TIPO_MOVIMIENTO item in query)
-                {
-                    JObject jsonObject = new JObject
-                    {
-                        { "ID_TIPO_MOVIMIENTO", item.ID_TIPO_MOVIMIENTO },
-                        { "NOMBRE", item.NOMBRE }
-                    };
-                    jArray.Add(jsonObject);
-                }
+                            select new { d.ID_TIPO_MOVIMIENTO, d.NOMBRE, d.INGRESO_EGRESO };
                 total = new JObject();
-                total.Add("items", jArray);
+                total.Add("data", JsonConvert.SerializeObject(query));
                 total.Add("error", false);
+
             }
             catch (Exception ex)
             {
