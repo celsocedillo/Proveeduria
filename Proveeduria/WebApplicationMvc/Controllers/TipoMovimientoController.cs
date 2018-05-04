@@ -42,8 +42,8 @@ namespace Proveduria.Controllers
         [HttpPost]
         public ActionResult GetListaTipoMovimiento()
         {
-            JArray jArray = new JArray();
-            JObject total = new JObject();
+            //JArray jArray = new JArray();
+            JObject retorna = new JObject();
             try
             {
                 //var query = from d in unitOfWork.TipoMovimientoRepository.GetAll()
@@ -63,19 +63,48 @@ namespace Proveduria.Controllers
 
                 var query = from d in unitOfWork.TipoMovimientoRepository.GetAll()
                             select new { d.ID_TIPO_MOVIMIENTO, d.NOMBRE, d.INGRESO_EGRESO };
-                total = new JObject();
-                total.Add("data", JsonConvert.SerializeObject(query));
-                total.Add("error", false);
+                retorna = new JObject();
+                retorna.Add("data", JsonConvert.SerializeObject(query));
+                retorna.Add("error", false);
 
             }
             catch (Exception ex)
             {
-                total.Add("error", true);
+                retorna.Add("error", true);
                 logger.Error(ex, ex.Message);
             }
-            return Content(total.ToString(), "application/json");
+            return Content(retorna.ToString(), "application/json");
         }
 
+        [HttpPost]
+        public ActionResult Grabar(EPRTA_TIPO_MOVIMIENTO precord)
+        {
+            JObject retorno = new JObject();
+            try
+            {
+                EPRTA_TIPO_MOVIMIENTO record = unitOfWork.TipoMovimientoRepository.GetById(precord.ID_TIPO_MOVIMIENTO);
+                record.NOMBRE = precord.NOMBRE;
+                unitOfWork.TipoMovimientoRepository.Update(record);
+                unitOfWork.Save();
 
+                retorno.Add("resultado", "success");
+                retorno.Add("data", null);
+                retorno.Add("mensaje", "");
+            }
+            catch(Exception ex)
+            {
+                retorno.Add("resultado", "error");
+                retorno.Add("data", null);
+                retorno.Add("mensaje", ex.ToString());
+                logger.Error(ex, ex.Message);
+            }
+            return Content(retorno.ToString(), "application/json");
+        }
+
+        protected override void Dispose(bool disposing)
+        {
+            unitOfWork.Dispose();
+            base.Dispose(disposing);
+        }
     }
 }
