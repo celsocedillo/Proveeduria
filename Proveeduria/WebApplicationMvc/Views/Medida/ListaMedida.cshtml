@@ -1,14 +1,17 @@
 ﻿@model IEnumerable<Proveduria.Models.EPRTA_MEDIDA>
 
-@{
+@*@{
         ViewBag.Title = "ListaMedida";
         Layout = "~/Views/Shared/_Layout.cshtml";
-    }
+    }*@
 
 
 @section styles {
     <!-- DataTables -->
-    <link rel="stylesheet" href=@Url.Content("/Content/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css")>
+    @*<link rel="stylesheet" href=@Url.Content("/Content/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css")>*@
+    <link rel="stylesheet" href=@Url.Content("/Content/bower_components/datatable/jquery.dataTables.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/bower_components/datatable/dataTables.jqueryui.min.css")>
+
 }
 
 
@@ -34,51 +37,51 @@
     </p>
 
     <!-- begin panel -->
-    <div class="panel panel-primary">
-        <div class="panel-heading">
+    <div class="box box-default">
+        <div class="box-header">
             <div class="panel-heading-btn">
             </div>
             <h4 class="panel-title">
                 <i class="fa fa-list" aria-hidden="true"></i>  MEDIDAS
             </h4>
         </div>
-        <div class="panel-body">
-            <div class="form-horizontal">
-                <table id="tabMedida" class="table table-bordered">
-                    <thead>
-                        <tr>
-                            <th>
-                                @Html.DisplayNameFor(model => model.ID_MEDIDA)
-                            </th>
-                            <th>
-                                @Html.DisplayNameFor(model => model.NOMBRE)
-                            </th>
-                            <th></th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        @foreach (var item in Model)
-                            {
-                                <tr>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.ID_MEDIDA)
-                                    </td>
-                                    <td>
-                                        @Html.DisplayFor(modelItem => item.NOMBRE)
-                                    </td>
-                                    <td>
-                                        <button id="butEditar" type="button" class="btn btn-default btn-xs clsedit">
-                                            <i class="fa fa-pencil"></i>
-                                        </button>
-                                        <button id="butEliminar" type="button" class="btn btn-default btn-xs">
-                                            <i class="fa fa-trash"></i>
-                                        </button>
-                                    </td>
-                                </tr>
-                            }
-                    </tbody>
-                </table>
-            </div>
+        <div class="box-body no-padding">
+
+            <table id="tabMedida" class="compact stripe dataTable hover">
+                <thead>
+                    <tr>
+                        <th>
+                            Id
+                        </th>
+                        <th>
+                            Nombre
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @*@foreach (var item in Model)
+                        {
+                            <tr>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.ID_MEDIDA)
+                                </td>
+                                <td>
+                                    @Html.DisplayFor(modelItem => item.NOMBRE)
+                                </td>
+                                <td>
+                                    <button id="butEditar" type="button" class="btn btn-default btn-xs clsedit">
+                                        <i class="fa fa-pencil"></i>
+                                    </button>
+                                    <button id="butEliminar" type="button" class="btn btn-default btn-xs">
+                                        <i class="fa fa-trash"></i>
+                                    </button>
+                                </td>
+                            </tr>
+                        }*@
+                </tbody>
+            </table>
+
         </div>
     </div>
     <!-- end panel -->
@@ -124,11 +127,14 @@
 
 @section scripts {
     <!-- DataTables -->
-    <script src=@Url.Content("/Content/bower_components/datatables.net/js/jquery.dataTables.min.js")></script>
-    <script src=@Url.Content("/Content/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js")></script>
+    @*<script src=@Url.Content("/Content/bower_components/datatables.net/js/jquery.dataTables.min.js")></script>
+        <script src=@Url.Content("/Content/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js")></script>*@
+    <script src=@Url.Content("/Content/bower_components/datatable/jquery.dataTables.js")></script>
+    <script src=@Url.Content("/Content/bower_components/datatable/dataTables.jqueryui.min.js")></script>
     <script type="text/javascript" src=@Url.Content("/Scripts/App/InvMedida.js")></script>
     <script type="text/javascript">
-        var tabtipomov;
+        var tabmedida;
+        var ldata = [];
 
 
         function CargaDatos()
@@ -143,7 +149,7 @@
                     contentType: 'application/json; charset=utf-8',
                     url: "/Medida/GetListaMedida",
                     beforeSend: function () {
-                        run_waitMe($(".panel-body"), 'bounce', 'Cargando...');
+                        run_waitMe($(".panel-body"), 'win8', 'Cargando...');
                     },
                     success: function (data) {
                         if (data.error) {
@@ -154,29 +160,37 @@
                             });
                         }
                         else {
-                            var items = data.items;
-                            if (items.length > 0) {
-                                var editar = `<button id="butEditar" type="button" class="btn btn-default btn-xs clsedit">
-                                                    <i class="fa fa-pencil"></i>
-                                                </button>`;
-                                var eliminar = `<button id="butEliminar" type="button" class="btn btn-default btn-xs">
-                                                    <i class="fa fa-trash"></i>
-                                                </button>`;
-                                for (var i = 0; i < items.length; i++) {
-                                    tabMedida.row.add([
-                                        items[i].ID_MEDIDA,
-                                        items[i].NOMBRE,
-                                        editar + eliminar
-                                    ]).draw();
-                                }
-                            }
-                            else {
-                                swal({
-                                    type: 'info',
-                                    text: 'No se encontraron resultados con los datos proporcionados.',
-                                    confirmButtonColor: '#00BCD4'
-                                });
-                            }
+                            //var items = data.items;
+                            var data = $.parseJSON(data.data);
+                            //ldata = data.data;
+                            //tabtipomov.ajax.reload();
+                            //ldata = [{ "ID_TIPO_MOVIMIENTO": "1", "NOMBRE": "ASASAS" }, { "ID_TIPO_MOVIMIENTO": "1", "NOMBRE": "WEWEWEWE" }, { "ID_TIPO_MOVIMIENTO": "1", "NOMBRE": "KLKLKLKLKLKL" }];
+                            tabmedida.clear();
+                            tabmedida.rows.add(data);
+                            tabmedida.draw();
+                            //$('#tabMedida').DataTable().ajax.reload();
+                            //if (data.length > 0) {
+                            //    var editar = `<button id="butEditar" type="button" class="btn btn-default btn-xs clsedit">
+                            //                        <i class="fa fa-pencil"></i>
+                            //                    </button>`;
+                            //    var eliminar = `<button id="butEliminar" type="button" class="btn btn-default btn-xs">
+                            //                        <i class="fa fa-trash"></i>
+                            //                    </button>`;
+                            //    for (var i = 0; i < data.length; i++) {
+                            //        tabmedida.row.add([
+                            //            data[i].ID_MEDIDA,
+                            //            data[i].NOMBRE,
+                            //            editar + eliminar
+                            //        ]).draw();
+                            //    }
+                            //}
+                            //else {
+                            //    swal({
+                            //        type: 'info',
+                            //        text: 'No se encontraron resultados con los datos proporcionados.',
+                            //        confirmButtonColor: '#00BCD4'
+                            //    });
+                            //}
                         }
                         $(".panel-body").waitMe('hide');
                         $this.button('reset');
@@ -200,23 +214,32 @@
 
         $(document).ready(function () {
 
-            tabMedida = $('#tabMedida').DataTable({
+            tabmedida = $('#tabMedida').DataTable({
                 "paging": false,
                 "searching": false,
-                "columnDefs": [{
-                    "targets": 2,
-                    "orderable": false
-                }]
+                "filter": false,
+                "dom" :'t',
+                "columnDefs":
+                [
+                    { "targets": [0], "width": "80px", "orderable": false },
+                    { "targets": [2], "width": "40px", "defaultContent": '<button id="butEditar" type="button" class="btn btn-default btn-xs clsedit"><i class="fa fa-pencil"></i></button>'}
+                ],
+                "data": ldata,
+                "columns": [
+                    { "data": 'ID_MEDIDA' },
+                    { "data": 'NOMBRE' }
+                ]
             });
 
             CargaDatos();
 
-            tabMedida.on('click', 'button.clsedit', function (e) {
+            tabmedida.on('click', 'button.clsedit', function (e) {
                 var row = $(this).closest('tr');
+                var data = tabmedida.row($(this).parents('tr')).data();
                 var parametros = JSON.stringify(
                     {
-                        //pid: row.ID_TIPO_MOVIMIENTO,
-                        //pid: data[0]
+                        //pid: row.ID_MEDIDA,
+                        pid: data.ID_MEDIDA
                     });
 
                 $.ajax({
@@ -227,7 +250,7 @@
                 data:  parametros,
                 success: function (result)
                  {
-
+                    $("#dlgMedida").modal('toggle');
                     $("#txtIdMedida").val(result.data.ID_MEDIDA);
                     $("#txtNombre").val(result.data.NOMBRE);
                  },
@@ -240,26 +263,26 @@
             });
 
 
-            @*$('#tabTipoMov tbody').on('click', '[id*=butEditar]', function (e) {
-                $("#dlgTipoMov").modal('toggle');
+            @*$('#tabMedida tbody').on('click', '[id*=butEditar]', function (e) {
+                $("#dlgMedida").modal('toggle');
                 //var data = tab.row($(this).parents('tr')).data();
-                var data = $("#tabTipoMov").DataTable().row($(this).parents('tr')).data();
+                var data = $("#tabMedida").DataTable().row($(this).parents('tr')).data();
                 var parametros = JSON.stringify(
                     {
-                        pid: data.ID_TIPO_MOVIMIENTO,
+                        pid: data.ID_MEDIDA,
                         pid: data[0]
                     });
 
                 $.ajax({
                 dataType: 'JSON',
-                url: '@Url.Action("GetTipoMovimiento", "TipoMovimiento")',
+                url: '@Url.Action("GetMedida", "Medida")',
                 type: "POST",
                 contentType: 'application/json; charset=utf-8',
                 data:  parametros,
                 success: function (result)
                  {
 
-                    $("#txtIdTipoMov").val(result.data.ID_TIPO_MOVIMIENTO);
+                    $("#txtIdMedida").val(result.data.ID_MEDIDA);
                     $("#txtNombre").val(result.data.NOMBRE);
                  },
                 error: function (result) {
