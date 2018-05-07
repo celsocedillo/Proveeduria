@@ -9,7 +9,7 @@ using Proveduria.Repositories;
 using System.Net;
 using System.Data.Entity;
 using NLog;
-using Newtonsoft.Json;
+
 
 namespace Proveduria.Controllers
 {
@@ -48,27 +48,20 @@ namespace Proveduria.Controllers
             JObject total = new JObject();
             try
             {
-                //var query = from d in unitOfWork.MedidaRepository.GetAll()
-                //            select d;
-                //foreach (EPRTA_MEDIDA item in query)
-                //{
-                //    JObject jsonObject = new JObject
-                //    {
-                //        { "ID_MEDIDA", item.ID_MEDIDA },
-                //        { "NOMBRE", item.NOMBRE }
-                //    };
-                //    jArray.Add(jsonObject);
-                //}
-                //total = new JObject();
-                //total.Add("items", jArray);
-                //total.Add("error", false);
-
                 var query = from d in unitOfWork.MedidaRepository.GetAll()
-                            select new { d.ID_MEDIDA, d.NOMBRE };
+                            select d;
+                foreach (EPRTA_MEDIDA item in query)
+                {
+                    JObject jsonObject = new JObject
+                    {
+                        { "ID_MEDIDA", item.ID_MEDIDA },
+                        { "NOMBRE", item.NOMBRE }
+                    };
+                    jArray.Add(jsonObject);
+                }
                 total = new JObject();
-                total.Add("data", JsonConvert.SerializeObject(query));
+                total.Add("items", jArray);
                 total.Add("error", false);
-
             }
             catch (Exception ex)
             {

@@ -24,6 +24,7 @@ namespace Proveduria.Models
         public byte ID_TIPO_MOVIMIENTO { get; set; }
         public string NOMBRE { get; set; }
         public string INGRESO_EGRESO { get; set; }
+        public string ESTADO { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EPRTA_MOVIMIENTO> EPRTA_MOVIMIENTO { get; set; }

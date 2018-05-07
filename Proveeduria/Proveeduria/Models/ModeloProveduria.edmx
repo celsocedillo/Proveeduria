@@ -7,9 +7,9 @@
     <Schema Namespace="ModelProveduria.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="10.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="EPRTA_ARTICULO_BODEGA">
           <Key>
-            <PropertyRef Name="ID_BODEGA" />
-            <PropertyRef Name="ID_ITEM" />
+            <PropertyRef Name="ID_ARTIBODE" />
           </Key>
+          <Property Name="ID_ARTIBODE" Type="number" Precision="2" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_BODEGA" Type="number" Precision="2" Scale="0" Nullable="false" />
           <Property Name="ID_ITEM" Type="number" Precision="8" Scale="0" Nullable="false" />
           <Property Name="CANTIDAD_MAXIMA" Type="number" Precision="8" Scale="0" />
@@ -27,7 +27,7 @@
           <Key>
             <PropertyRef Name="ID_BODEGA" />
           </Key>
-          <Property Name="ID_BODEGA" Type="number" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="ID_BODEGA" Type="number" Precision="2" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NOMBRE" Type="varchar2" MaxLength="100" />
           <Property Name="ESTADO" Type="varchar2" MaxLength="1" />
           <Property Name="CUENTA_CONTABLE" Type="varchar2" MaxLength="50" />
@@ -36,7 +36,7 @@
           <Key>
             <PropertyRef Name="ID_GRUPO" />
           </Key>
-          <Property Name="ID_GRUPO" Type="number" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="ID_GRUPO" Type="number" Precision="2" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NOMBRE" Type="varchar2" MaxLength="100" Nullable="false" />
           <Property Name="ESTADO" Type="varchar2" MaxLength="1" />
           <Property Name="CUENTA_CONTABLE" Type="varchar2" MaxLength="30" />
@@ -46,7 +46,7 @@
           <Key>
             <PropertyRef Name="ID_ITEM" />
           </Key>
-          <Property Name="ID_ITEM" Type="number" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="ID_ITEM" Type="number" Precision="8" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CODIGO" Type="varchar2" MaxLength="250" Nullable="false" />
           <Property Name="DESCRIPCION" Type="varchar2" MaxLength="300" />
           <Property Name="ID_MEDIDA" Type="number" Precision="3" Scale="0" Nullable="false" />
@@ -62,14 +62,14 @@
           <Key>
             <PropertyRef Name="ID_MEDIDA" />
           </Key>
-          <Property Name="ID_MEDIDA" Type="number" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="ID_MEDIDA" Type="number" Precision="3" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NOMBRE" Type="varchar2" MaxLength="250" Nullable="false" />
         </EntityType>
         <EntityType Name="EPRTA_MOVIMIENTO">
           <Key>
             <PropertyRef Name="ID_MOVIMIENTO" />
           </Key>
-          <Property Name="ID_MOVIMIENTO" Type="number" Precision="8" Scale="0" Nullable="false" />
+          <Property Name="ID_MOVIMIENTO" Type="number" Precision="8" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ANIO" Type="number" Precision="4" Scale="0" Nullable="false" />
           <Property Name="NUMERO_MOVIMIENTO" Type="number" Precision="8" Scale="0" Nullable="false" />
           <Property Name="ID_TIPO_MOVIMIENTO" Type="number" Precision="2" Scale="0" Nullable="false" />
@@ -92,7 +92,7 @@
           <Key>
             <PropertyRef Name="ID_DETALLE" />
           </Key>
-          <Property Name="ID_DETALLE" Type="number" Precision="12" Scale="0" Nullable="false" />
+          <Property Name="ID_DETALLE" Type="number" Precision="12" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_MOVIMIENTO" Type="number" Precision="8" Scale="0" Nullable="false" />
           <Property Name="ID_ITEM" Type="number" Precision="8" Scale="0" Nullable="false" />
           <Property Name="CANTIDAD_PEDIDO" Type="number" Precision="6" Scale="0" />
@@ -105,7 +105,7 @@
           <Key>
             <PropertyRef Name="ID_SECUENCIA" />
           </Key>
-          <Property Name="ID_SECUENCIA" Type="number" Precision="4" Scale="0" Nullable="false" />
+          <Property Name="ID_SECUENCIA" Type="number" Precision="4" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_TIPO_MOVIMIENTO" Type="number" Precision="2" Scale="0" Nullable="false" />
           <Property Name="ANIO" Type="number" Precision="4" Scale="0" />
           <Property Name="SECUENCIA" Type="number" Precision="10" Scale="0" />
@@ -116,9 +116,10 @@
           <Key>
             <PropertyRef Name="ID_TIPO_MOVIMIENTO" />
           </Key>
-          <Property Name="ID_TIPO_MOVIMIENTO" Type="number" Precision="2" Scale="0" Nullable="false" />
+          <Property Name="ID_TIPO_MOVIMIENTO" Type="number" Precision="2" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NOMBRE" Type="varchar2" MaxLength="50" />
           <Property Name="INGRESO_EGRESO" Type="varchar2" MaxLength="1" />
+          <Property Name="ESTADO" Type="varchar2" MaxLength="2" />
         </EntityType>
         <Association Name="EPRCN_ARTBOD_ITEM_FK">
           <End Role="EPRTA_ITEM" Type="Self.EPRTA_ITEM" Multiplicity="1" />
@@ -352,9 +353,9 @@
         </EntityContainer>
         <EntityType Name="EPRTA_ARTICULO_BODEGA">
           <Key>
-            <PropertyRef Name="ID_BODEGA" />
-            <PropertyRef Name="ID_ITEM" />
+            <PropertyRef Name="ID_ARTIBODE" />
           </Key>
+          <Property Name="ID_ARTIBODE" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_BODEGA" Type="Byte" Nullable="false" />
           <Property Name="ID_ITEM" Type="Int32" Nullable="false" />
           <Property Name="CANTIDAD_MAXIMA" Type="Int32" />
@@ -374,7 +375,7 @@
           <Key>
             <PropertyRef Name="ID_BODEGA" />
           </Key>
-          <Property Name="ID_BODEGA" Type="Byte" Nullable="false" />
+          <Property Name="ID_BODEGA" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NOMBRE" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="CUENTA_CONTABLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
@@ -385,18 +386,18 @@
           <Key>
             <PropertyRef Name="ID_GRUPO" />
           </Key>
-          <Property Name="ID_GRUPO" Type="Byte" Nullable="false" />
+          <Property Name="ID_GRUPO" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="CUENTA_CONTABLE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="EPRTA_ITEM" Relationship="ModelProveduria.INV_ITEMS_EPRTA_GRUPO_FK" FromRole="EPRTA_GRUPO" ToRole="EPRTA_ITEM" />
           <Property Name="CODIGO_GRUPO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EPRTA_ITEM" Relationship="ModelProveduria.INV_ITEMS_EPRTA_GRUPO_FK" FromRole="EPRTA_GRUPO" ToRole="EPRTA_ITEM" />
         </EntityType>
         <EntityType Name="EPRTA_ITEM">
           <Key>
             <PropertyRef Name="ID_ITEM" />
           </Key>
-          <Property Name="ID_ITEM" Type="Int32" Nullable="false" />
+          <Property Name="ID_ITEM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CODIGO" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="DESCRIPCION" Type="String" MaxLength="300" FixedLength="false" Unicode="false" />
           <Property Name="ID_MEDIDA" Type="Byte" Nullable="false" />
@@ -416,7 +417,7 @@
           <Key>
             <PropertyRef Name="ID_MEDIDA" />
           </Key>
-          <Property Name="ID_MEDIDA" Type="Byte" Nullable="false" />
+          <Property Name="ID_MEDIDA" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="EPRTA_ITEM" Relationship="ModelProveduria.EPRCN_ITEM_MEDIDA_FK" FromRole="EPRTA_MEDIDA" ToRole="EPRTA_ITEM" />
         </EntityType>
@@ -424,7 +425,7 @@
           <Key>
             <PropertyRef Name="ID_MOVIMIENTO" />
           </Key>
-          <Property Name="ID_MOVIMIENTO" Type="Int32" Nullable="false" />
+          <Property Name="ID_MOVIMIENTO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ANIO" Type="Int16" Nullable="false" />
           <Property Name="NUMERO_MOVIMIENTO" Type="Int32" Nullable="false" />
           <Property Name="ID_TIPO_MOVIMIENTO" Type="Byte" Nullable="false" />
@@ -452,7 +453,7 @@
           <Key>
             <PropertyRef Name="ID_DETALLE" />
           </Key>
-          <Property Name="ID_DETALLE" Type="Int64" Nullable="false" />
+          <Property Name="ID_DETALLE" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_MOVIMIENTO" Type="Int32" Nullable="false" />
           <Property Name="ID_ITEM" Type="Int32" Nullable="false" />
           <Property Name="CANTIDAD_PEDIDO" Type="Int32" />
@@ -467,7 +468,7 @@
           <Key>
             <PropertyRef Name="ID_SECUENCIA" />
           </Key>
-          <Property Name="ID_SECUENCIA" Type="Int16" Nullable="false" />
+          <Property Name="ID_SECUENCIA" Type="Int16" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_TIPO_MOVIMIENTO" Type="Byte" Nullable="false" />
           <Property Name="ANIO" Type="Int16" />
           <Property Name="SECUENCIA" Type="Int32" />
@@ -479,9 +480,10 @@
           <Key>
             <PropertyRef Name="ID_TIPO_MOVIMIENTO" />
           </Key>
-          <Property Name="ID_TIPO_MOVIMIENTO" Type="Byte" Nullable="false" />
+          <Property Name="ID_TIPO_MOVIMIENTO" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="INGRESO_EGRESO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="2" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="EPRTA_MOVIMIENTO" Relationship="ModelProveduria.EPRCN_MOVIMIENTO_TIPMOV_FK" FromRole="EPRTA_TIPO_MOVIMIENTO" ToRole="EPRTA_MOVIMIENTO" />
           <NavigationProperty Name="EPRTA_SECUENCIA" Relationship="ModelProveduria.EPRCN_SECUENCIA_TIPMOV_FK" FromRole="EPRTA_TIPO_MOVIMIENTO" ToRole="EPRTA_SECUENCIA" />
         </EntityType>
@@ -609,7 +611,7 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-      </Schema>
+        </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
@@ -630,6 +632,7 @@
                 <ScalarProperty Name="CANTIDAD_MAXIMA" ColumnName="CANTIDAD_MAXIMA" />
                 <ScalarProperty Name="ID_ITEM" ColumnName="ID_ITEM" />
                 <ScalarProperty Name="ID_BODEGA" ColumnName="ID_BODEGA" />
+                <ScalarProperty Name="ID_ARTIBODE" ColumnName="ID_ARTIBODE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -732,6 +735,7 @@
           <EntitySetMapping Name="EPRTA_TIPO_MOVIMIENTO">
             <EntityTypeMapping TypeName="ModelProveduria.EPRTA_TIPO_MOVIMIENTO">
               <MappingFragment StoreEntitySet="EPRTA_TIPO_MOVIMIENTO">
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
                 <ScalarProperty Name="INGRESO_EGRESO" ColumnName="INGRESO_EGRESO" />
                 <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
                 <ScalarProperty Name="ID_TIPO_MOVIMIENTO" ColumnName="ID_TIPO_MOVIMIENTO" />

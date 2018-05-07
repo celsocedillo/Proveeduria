@@ -42,27 +42,11 @@ namespace Proveduria.Controllers
         [HttpPost]
         public ActionResult GetListaTipoMovimiento()
         {
-            //JArray jArray = new JArray();
             JObject retorna = new JObject();
             try
             {
-                //var query = from d in unitOfWork.TipoMovimientoRepository.GetAll()
-                //            select d;
-                //foreach (EPRTA_TIPO_MOVIMIENTO item in query)
-                //{
-                //    JObject jsonObject = new JObject
-                //    {
-                //        { "ID_TIPO_MOVIMIENTO", item.ID_TIPO_MOVIMIENTO },
-                //        { "NOMBRE", item.NOMBRE }
-                //    };
-                //    jArray.Add(jsonObject);
-                //}
-                //total = new JObject();
-                //total.Add("items", jArray);
-                //total.Add("error", false);
-
                 var query = from d in unitOfWork.TipoMovimientoRepository.GetAll()
-                            select new { d.ID_TIPO_MOVIMIENTO, d.NOMBRE, d.INGRESO_EGRESO };
+                            select new { d.ID_TIPO_MOVIMIENTO, d.NOMBRE, d.INGRESO_EGRESO, d.ESTADO };
                 retorna = new JObject();
                 retorna.Add("data", JsonConvert.SerializeObject(query));
                 retorna.Add("error", false);
