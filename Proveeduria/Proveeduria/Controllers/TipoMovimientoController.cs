@@ -46,7 +46,7 @@ namespace Proveduria.Controllers
             try
             {
                 var query = from d in unitOfWork.TipoMovimientoRepository.GetAll()
-                            select new { d.ID_TIPO_MOVIMIENTO, d.NOMBRE, d.INGRESO_EGRESO, d.ESTADO };
+                            select new { d.ID_TIPO_MOVIMIENTO, d.NOMBRE, d.INGRESO_EGRESO, d.ESTADO, TIPO_INGEGR = d.INGRESO_EGRESO.Equals("I") ? "INGRESO" : "EGRESO" };
                 retorna = new JObject();
                 retorna.Add("data", JsonConvert.SerializeObject(query));
                 retorna.Add("error", false);
@@ -64,13 +64,24 @@ namespace Proveduria.Controllers
         public ActionResult Grabar(EPRTA_TIPO_MOVIMIENTO precord)
         {
             JObject retorno = new JObject();
+            EPRTA_TIPO_MOVIMIENTO record;
             try
             {
-                EPRTA_TIPO_MOVIMIENTO record = unitOfWork.TipoMovimientoRepository.GetById(precord.ID_TIPO_MOVIMIENTO);
-                record.NOMBRE = precord.NOMBRE;
-                unitOfWork.TipoMovimientoRepository.Update(record);
-                unitOfWork.Save();
-
+                if (precord.ID_TIPO_MOVIMIENTO == 0)
+                {
+                    precord.ESTADO = "A";
+                    unitOfWork.TipoMovimientoRepository.Insert(precord);
+                    unitOfWork.Save();
+                }
+                else
+                {
+                    record = unitOfWork.TipoMovimientoRepository.GetById(precord.ID_TIPO_MOVIMIENTO);
+                    record.NOMBRE = precord.NOMBRE;
+                    record.INGRESO_EGRESO = precord.INGRESO_EGRESO;
+                    record.ESTADO = precord.ESTADO;
+                    unitOfWork.TipoMovimientoRepository.Update(record);
+                    unitOfWork.Save();
+                }
                 retorno.Add("resultado", "success");
                 retorno.Add("data", null);
                 retorno.Add("mensaje", "");

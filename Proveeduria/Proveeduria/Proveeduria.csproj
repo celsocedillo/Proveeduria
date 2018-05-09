@@ -3532,6 +3532,7 @@
     <Content Include="Content\bower_components\fullcalendar\dist\locale\zh-cn.js" />
     <Content Include="Content\bower_components\fullcalendar\dist\locale\zh-tw.js" />
     <Content Include="Content\bower_components\fullcalendar\LICENSE.txt" />
+    <Content Include="Content\bower_components\parsley\es.js" />
     <Content Include="Content\bower_components\parsley\parsley.css" />
     <Content Include="Content\bower_components\parsley\parsley_2.8.1.min.js" />
     <Content Include="Content\bower_components\_images\favicon.ico" />
