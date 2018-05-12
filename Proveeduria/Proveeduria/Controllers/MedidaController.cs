@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 using System.Web;
 using System.Web.Mvc;
 using Proveduria.Models;
@@ -41,34 +42,53 @@ namespace Proveduria.Controllers
             }
         }
 
+        //[HttpPost]
+        //public ActionResult GetListaMedida()
+        //{
+        //    JArray jArray = new JArray();
+        //    JObject total = new JObject();
+        //    try
+        //    {
+        //        var query = from d in unitOfWork.MedidaRepository.GetAll()
+        //                    select d;
+        //        foreach (EPRTA_MEDIDA item in query)
+        //        {
+        //            JObject jsonObject = new JObject
+        //            {
+        //                { "ID_MEDIDA", item.ID_MEDIDA },
+        //                { "NOMBRE", item.NOMBRE }
+        //            };
+        //            jArray.Add(jsonObject);
+        //        }
+        //        total = new JObject();
+        //        total.Add("items", jArray);
+        //        total.Add("error", false);
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        total.Add("error", true);
+        //        logger.Error(ex, ex.Message);
+        //    }
+        //    return Content(total.ToString(), "application/json");
+        //}
         [HttpPost]
         public ActionResult GetListaMedida()
         {
-            JArray jArray = new JArray();
-            JObject total = new JObject();
+            JObject retorna = new JObject();
             try
             {
                 var query = from d in unitOfWork.MedidaRepository.GetAll()
-                            select d;
-                foreach (EPRTA_MEDIDA item in query)
-                {
-                    JObject jsonObject = new JObject
-                    {
-                        { "ID_MEDIDA", item.ID_MEDIDA },
-                        { "NOMBRE", item.NOMBRE }
-                    };
-                    jArray.Add(jsonObject);
-                }
-                total = new JObject();
-                total.Add("items", jArray);
-                total.Add("error", false);
+                            select new { d.ID_MEDIDA, d.NOMBRE };
+                retorna = new JObject();
+                retorna.Add("data", JsonConvert.SerializeObject(query));
+                retorna.Add("error", false);
             }
             catch (Exception ex)
             {
-                total.Add("error", true);
+                retorna.Add("error", true);
                 logger.Error(ex, ex.Message);
             }
-            return Content(total.ToString(), "application/json");
+            return Content(retorna.ToString(), "application/json");
         }
 
 
@@ -91,7 +111,44 @@ namespace Proveduria.Controllers
             return Content(jObject.ToString(), "application/json");
         }
 
+        [HttpPost]
+        public ActionResult Grabar(EPRTA_MEDIDA precord)
+        {
+            JObject retorno = new JObject();
+            EPRTA_MEDIDA record;
+            try
+            {
+                if (precord.ID_MEDIDA == 0)
+                {
+                    unitOfWork.MedidaRepository.Insert(precord);
+                    unitOfWork.Save();
+                }
+                else
+                {
+                    record = unitOfWork.MedidaRepository.GetById(precord.ID_MEDIDA);
+                    record.NOMBRE = precord.NOMBRE;
+                    unitOfWork.MedidaRepository.Update(record);
+                    unitOfWork.Save();
+                }
+                retorno.Add("resultado", "success");
+                retorno.Add("data", null);
+                retorno.Add("mensaje", "");
+            }
+            catch(Exception ex)
+            {
+                retorno.Add("resultado", "error");
+                retorno.Add("data", null);
+                retorno.Add("mensaje", ex.ToString());
+                logger.Error(ex, ex.Message);
+            }
+            return Content(retorno.ToString(), "application/json");
+        }
 
+        protected override void Dispose(bool disposing)
+        {
+            unitOfWork.Dispose();
+            base.Dispose(disposing);
+        }
 
     }
 }
