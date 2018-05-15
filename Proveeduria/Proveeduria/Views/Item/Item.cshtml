@@ -71,7 +71,7 @@
                 <div class="form-group">
                     <label class="col-sm-1 control-label">Grupo</label>
                     <div class="col-sm-10">
-                        @Html.DropDownListFor(m => m.ID_GRUPO, new SelectList(ViewBag.lstGrupo, "Value", "Text"), new { @class = "form-control", required = "required" } )
+                        @Html.DropDownListFor(m => m.ID_GRUPO, new SelectList(ViewBag.lstGrupo, "Value", "Text"), new { @class = "form-control", required = "required" })
                     </div>
                 </div>
                 <div class="form-group">
@@ -86,6 +86,15 @@
                         @Html.TextBoxFor(m => m.OBSERVACION, new { @class = "form-control" })
                     </div>
                 </div>
+                <div class="form-group">
+                    <label class="col-sm-1 control-label">Fecha</label>
+                    <div class="col-sm-10">
+                        @*@Html.TextBoxFor(m => m.FECHA_ULTIMO_INGRESO, new { @class = "form-control" })*@
+
+                        <input type="text" id="FECHA_ULTIMO" class="form-control" required />
+                    </div>
+                </div>
+
                 <div class="form-group">
                     <div class="col-sm-offset-1 col-sm-10">
                         <button type="button" id="btnGrabar" class="btn btn-primary btn-sm">Grabar</button>
@@ -115,6 +124,12 @@
 
         $(document).ready(function () {
             Item.init();
+            $("#FECHA_ULTIMO").datepicker({
+                format: "dd/mm/yyyy",
+                todayHighlight: true,
+                autoclose: true
+            });
+
         });
 
 

@@ -35,7 +35,7 @@
     <link href=@Url.Content("/Content/plugins/sweetalert/sweetalert2.min.css") rel="stylesheet" />
 
     <link href=@Url.Content("/Content/plugins/waitMe/waitMe.min.css") rel="stylesheet" />
-
+    <link href=@Url.Content("/Content/bower_components/select2/dist/css/select2.min.css") rel="stylesheet" />
 
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -104,12 +104,28 @@
     <script src=@Url.Content("/Content/bower_components/parsley/parsley_2.8.1.min.js")></script>
     <script src=@Url.Content("/Content/bower_components/parsley/es.js")></script>
 
+
+    <script src=@Url.Content("/Content/bower_components/select2/dist/js/select2.min.js")></script>
     <!-- AdminLTE App -->
     <script src=@Url.Content("/Content/dist/js/adminlte.min.js")></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
     <!-- AdminLTE for demo purposes -->
     <script src=@Url.Content("/Content/dist/js/demo.js")></script>
     <script src=@Url.Content("/Scripts/App/Util.js")></script>
+    <script>
+
+        $(document).ready(function () {
+            //Inicializar datatable defoult español
+            $.extend(true, $.fn.dataTable.defaults, {
+                language: {
+                    "url": "/Content/bower_components/datatable/Spanish.json"
+                }
+            });
+
+            $("select").select2();
+
+        });</script>
+
     @RenderSection("scripts", required: false)
 </body>
 </html>

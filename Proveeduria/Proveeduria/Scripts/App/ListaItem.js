@@ -51,26 +51,52 @@ var ListaItem = function () {
     return {
         init: function () {
 
-            tabitem = $('#tabItem').DataTable({
-                "searching": true,
-                "filter": false,
-                //"dom": 't',
+            //tabitem = $('#tabItem').DataTable({
+            //    "searching": true,
+            //    "filter": false,
+            //    //"dom": 't',
+            //    "autoWidth": false,
+            //    "columnDefs":
+            //        [
+            //            { "targets": [0], "visible": false, "orderable": false },
+            //            { "targets": [5], "defaultContent": '<button id="butEditar" type="button" class="btn btn-default btn-xs clsedit"><i class="fa fa-pencil"></i></button>' }                    ],
+            //    "data": ldata,
+            //    "columns": [
+            //        { "data": 'ID_ITEM' },
+            //        { "data": 'CODIGO' },
+            //        { "data": 'DESCRIPCION' },
+            //        { "data": 'MEDIDA' },
+            //        { "data": 'GRUPO' }
+            //    ]
+            //});
+
+
+            tabitem = $("#tabItem").DataTable({
                 "autoWidth": false,
-                "columnDefs":
-                    [
-                        { "targets": [0], "visible": false, "orderable": false },
-                        { "targets": [5], "defaultContent": '<button id="butEditar" type="button" class="btn btn-default btn-xs clsedit"><i class="fa fa-pencil"></i></button>' }                    ],
-                "data": ldata,
+                "responsive": true,
+                "processing": true,
+                "serverSide": true,
+                "info": true,
+                "stateSave": true,
+                "ajax": {
+                    "url": "/Item/GetListaItem",
+                    "type": "POST",
+                    "error": function () {
+                        console.log("error remote load data using datatable");
+                    }
+                },
                 "columns": [
-                    { "data": 'ID_ITEM' },
-                    { "data": 'CODIGO' },
-                    { "data": 'DESCRIPCION' },
-                    { "data": 'MEDIDA' },
-                    { "data": 'GRUPO' }
-                ]
+                    { "data": "ID_ITEM", "orderable": false },
+                    { "data": "CODIGO", "orderable": true },
+                    { "data": "DESCRIPCION", "orderable": true },
+                    { "data": "MEDIDA", "orderable": true },
+                    { "data": "GRUPO", "orderable": true },
+                    { "data": "ACCION"}
+                ],
+                "order": [[0, "asc"]]
             });
 
-            CargaDatos();
+            //CargaDatos();
 
             tabitem.on('click', 'button.clsedit', function (e) {
                 var row = $(this).closest('tr');

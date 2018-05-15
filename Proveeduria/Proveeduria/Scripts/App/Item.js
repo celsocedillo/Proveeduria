@@ -58,6 +58,8 @@ var Item = function () {
 return {
     init: function () {
 
+    
+
         $("#btnCancelar").on('click', function () {
             window.location.href = '/Item/ListaItem' ;
         });
@@ -72,7 +74,6 @@ return {
             $("#CODIGO").prop('readonly', true);
         }
 
-        
     }
 };
 }();

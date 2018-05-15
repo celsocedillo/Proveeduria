@@ -7363,6 +7363,7 @@
       <DependentUpon>ModeloProveduria.edmx</DependentUpon>
     </Content>
     <Content Include="Content\bower_components\_images\Sorting icons.psd" />
+    <Content Include="Content\bower_components\datatable\Spanish.json" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />

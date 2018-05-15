@@ -25,12 +25,12 @@ namespace Proveduria.Controllers
         }
 
         [HttpPost]
-        public JsonResult GetTipoMovimiento(int pid)
+        public ActionResult GetTipoMovimiento(int pid)
         {
             try
             {
                 EPRTA_TIPO_MOVIMIENTO tipomov = unitOfWork.TipoMovimientoRepository.GetById(pid);
-                return Json(new { resultado = "success", data = tipomov, mensaje = "" });
+                return Json(new { resultado = "success", data = new { tipomov.ID_TIPO_MOVIMIENTO, tipomov.NOMBRE, tipomov.INGRESO_EGRESO, tipomov.ESTADO }, mensaje = "" });
 
             }
             catch (Exception ex)

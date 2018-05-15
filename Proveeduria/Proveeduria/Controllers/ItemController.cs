@@ -26,22 +26,65 @@ namespace Proveduria.Controllers
         [HttpPost]
         public ActionResult GetListaItem()
         {
-            JObject retorna = new JObject();
+            JArray jArray = new JArray();
+            JObject total = new JObject();
             try
             {
-                var query = from d in unitOfWork.ItemRepository.GetAll()
-                            select new { d.ID_ITEM, d.CODIGO, d.DESCRIPCION, GRUPO = d.EPRTA_GRUPO.NOMBRE, MEDIDA = d.EPRTA_MEDIDA.NOMBRE };
-                retorna = new JObject();
-                retorna.Add("data", JsonConvert.SerializeObject(query));
-                retorna.Add("error", false);
+                var searchValue = Request.Form.Get("search[value]");
+                var items = unitOfWork.ItemRepository.GetAll();
+                IEnumerable<EPRTA_ITEM> filteredFacturas;
+                if (!String.IsNullOrEmpty(searchValue))
+                {
+                    filteredFacturas = items.Where(w => w.CODIGO.ToLower().Contains(searchValue.ToLower()) || w.DESCRIPCION.Contains(searchValue));
+                }
+                else
+                {
+                    filteredFacturas = items;
+                }
+                var sortColumnIndex = Convert.ToInt32(Request.Form.Get("order[0][column]"));
+                Func<EPRTA_ITEM, string> orderingFunction = (c => sortColumnIndex == 0 ? c.CODIGO.ToString() : sortColumnIndex == 1 ? c.DESCRIPCION : c.EPRTA_MEDIDA.NOMBRE);
+                var sortDirection = Request.Form.Get("order[0][dir]");
+                if (sortDirection == "asc")
+                {
+                    filteredFacturas = filteredFacturas.OrderBy(orderingFunction);
+                }
+                else
+                {
+                    filteredFacturas = filteredFacturas.OrderByDescending(orderingFunction);
+                }
+                IEnumerable<EPRTA_ITEM> dataShow = filteredFacturas.Skip(int.Parse(Request.Form.Get("start"))).Take(int.Parse(Request.Form.Get("length")));
+                foreach (EPRTA_ITEM item in dataShow)
+                {
+                    var accionModificar = "<a href='/Item/Item/" + item.ID_ITEM + "' class='text-inverse' data-toggle='tooltip' title='Modificar'>" +
+                                            "<i class='fa fa-pencil' aria-hidden='true'></i>" +
+                                          "</a>";
+                    var enviar = new { item.ID_ITEM, item.CODIGO, item.DESCRIPCION, MEDIDA = item.EPRTA_MEDIDA.NOMBRE, GRUPO = item.EPRTA_GRUPO.NOMBRE };
 
+
+                    JObject jsonObject = new JObject
+                    {
+                        { "ID_ITEM", item.ID_ITEM},
+                        { "CODIGO", item.CODIGO },
+                        { "DESCRIPCION", item.DESCRIPCION},
+                        { "MEDIDA", item.EPRTA_MEDIDA.NOMBRE},
+                        { "GRUPO", item.EPRTA_GRUPO.NOMBRE },
+                        { "ACCION", accionModificar}
+                    };
+                    jArray.Add(jsonObject);
+                }
+
+                total.Add("draw", Request.Form.Get("draw"));
+                total.Add("recordsTotal", items.Count());
+                total.Add("recordsFiltered", filteredFacturas.Count());
+                total.Add("data", jArray);
             }
             catch (Exception ex)
             {
-                retorna.Add("error", true);
                 logger.Error(ex, ex.Message);
             }
-            return Content(retorna.ToString(), "application/json");
+            return Content(total.ToString(), "application/json");
+
+
         }
 
         public ActionResult Item(int id)

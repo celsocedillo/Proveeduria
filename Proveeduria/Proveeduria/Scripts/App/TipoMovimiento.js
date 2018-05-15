@@ -93,6 +93,7 @@ function Grabar() {
                         text: 'Datos grabados',
                         confirmButtonColor: '#00BCD4'
                     });
+                    
                     CargaDatos();
                 }
                 $("#dlgTipoMov").waitMe('hide');
@@ -164,6 +165,7 @@ var TipoMovimiento = function () {
                     success: function (result) {
                         tipomov = result.data;
                         $("#dlgTipoMov").modal('toggle');
+                        $('#frmTipoMov').parsley().reset();
                         //$("#txtIdTipoMov").val(tipomov.ID_TIPO_MOVIMIENTO);
                         $("#lblIdTipoMov").text(tipomov.ID_TIPO_MOVIMIENTO);
                         $("#sltIngEgr").val(tipomov.INGRESO_EGRESO);
