@@ -69,8 +69,11 @@ namespace Proveduria.Controllers
             {
                 if (precord.ID_TIPO_MOVIMIENTO == 0)
                 {
-                    precord.ESTADO = "A";
-                    unitOfWork.TipoMovimientoRepository.Insert(precord);
+                    record = new EPRTA_TIPO_MOVIMIENTO();
+                    record.NOMBRE = precord.NOMBRE;
+                    record.INGRESO_EGRESO = precord.INGRESO_EGRESO;
+                    record.ESTADO = "A";
+                    unitOfWork.TipoMovimientoRepository.Insert(record);
                     unitOfWork.Save();
                 }
                 else
@@ -85,6 +88,7 @@ namespace Proveduria.Controllers
                 retorno.Add("resultado", "success");
                 retorno.Add("data", null);
                 retorno.Add("mensaje", "");
+                logger.Info("Dato Grabado");
             }
             catch(Exception ex)
             {

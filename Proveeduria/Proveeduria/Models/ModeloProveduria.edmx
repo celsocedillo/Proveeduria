@@ -37,10 +37,10 @@
             <PropertyRef Name="ID_GRUPO" />
           </Key>
           <Property Name="ID_GRUPO" Type="number" Precision="2" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CODIGO" Type="varchar2" MaxLength="10" Nullable="false" />
           <Property Name="NOMBRE" Type="varchar2" MaxLength="100" Nullable="false" />
           <Property Name="ESTADO" Type="varchar2" MaxLength="1" />
           <Property Name="CUENTA_CONTABLE" Type="varchar2" MaxLength="30" />
-          <Property Name="CODIGO_GRUPO" Type="varchar2" MaxLength="10" />
         </EntityType>
         <EntityType Name="EPRTA_ITEM">
           <Key>
@@ -64,6 +64,7 @@
           </Key>
           <Property Name="ID_MEDIDA" Type="number" Precision="3" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NOMBRE" Type="varchar2" MaxLength="250" Nullable="false" />
+          <Property Name="ESTADO" Type="varchar2" MaxLength="1" />
         </EntityType>
         <EntityType Name="EPRTA_MOVIMIENTO">
           <Key>
@@ -119,7 +120,7 @@
           <Property Name="ID_TIPO_MOVIMIENTO" Type="number" Precision="2" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="NOMBRE" Type="varchar2" MaxLength="50" />
           <Property Name="INGRESO_EGRESO" Type="varchar2" MaxLength="1" />
-          <Property Name="ESTADO" Type="varchar2" MaxLength="2" />
+          <Property Name="ESTADO" Type="varchar2" MaxLength="1" />
         </EntityType>
         <Association Name="EPRCN_ARTBOD_ITEM_FK">
           <End Role="EPRTA_ITEM" Type="Self.EPRTA_ITEM" Multiplicity="1" />
@@ -303,7 +304,6 @@
         <EntityContainer Name="EntitiesProveduria" annotation:LazyLoadingEnabled="true" >
           <EntitySet Name="EPRTA_ARTICULO_BODEGA" EntityType="ModelProveduria.EPRTA_ARTICULO_BODEGA" />
           <EntitySet Name="EPRTA_BODEGA" EntityType="ModelProveduria.EPRTA_BODEGA" />
-          <EntitySet Name="EPRTA_GRUPO" EntityType="ModelProveduria.EPRTA_GRUPO" />
           <EntitySet Name="EPRTA_ITEM" EntityType="ModelProveduria.EPRTA_ITEM" />
           <EntitySet Name="EPRTA_MEDIDA" EntityType="ModelProveduria.EPRTA_MEDIDA" />
           <EntitySet Name="EPRTA_MOVIMIENTO" EntityType="ModelProveduria.EPRTA_MOVIMIENTO" />
@@ -321,10 +321,6 @@
           <AssociationSet Name="EPRCN_MOVIMIENTO_BODEGA_FK" Association="ModelProveduria.EPRCN_MOVIMIENTO_BODEGA_FK">
             <End Role="EPRTA_BODEGA" EntitySet="EPRTA_BODEGA" />
             <End Role="EPRTA_MOVIMIENTO" EntitySet="EPRTA_MOVIMIENTO" />
-          </AssociationSet>
-          <AssociationSet Name="INV_ITEMS_EPRTA_GRUPO_FK" Association="ModelProveduria.INV_ITEMS_EPRTA_GRUPO_FK">
-            <End Role="EPRTA_GRUPO" EntitySet="EPRTA_GRUPO" />
-            <End Role="EPRTA_ITEM" EntitySet="EPRTA_ITEM" />
           </AssociationSet>
           <AssociationSet Name="EPRCN_ITEM_MEDIDA_FK" Association="ModelProveduria.EPRCN_ITEM_MEDIDA_FK">
             <End Role="EPRTA_MEDIDA" EntitySet="EPRTA_MEDIDA" />
@@ -349,6 +345,11 @@
           <AssociationSet Name="EPRCN_SECUENCIA_TIPMOV_FK" Association="ModelProveduria.EPRCN_SECUENCIA_TIPMOV_FK">
             <End Role="EPRTA_TIPO_MOVIMIENTO" EntitySet="EPRTA_TIPO_MOVIMIENTO" />
             <End Role="EPRTA_SECUENCIA" EntitySet="EPRTA_SECUENCIA" />
+          </AssociationSet>
+          <EntitySet Name="EPRTA_GRUPO" EntityType="ModelProveduria.EPRTA_GRUPO" />
+          <AssociationSet Name="INV_ITEMS_EPRTA_GRUPO_FK" Association="ModelProveduria.INV_ITEMS_EPRTA_GRUPO_FK">
+            <End Role="EPRTA_GRUPO" EntitySet="EPRTA_GRUPO" />
+            <End Role="EPRTA_ITEM" EntitySet="EPRTA_ITEM" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="EPRTA_ARTICULO_BODEGA">
@@ -382,17 +383,6 @@
           <NavigationProperty Name="EPRTA_ARTICULO_BODEGA" Relationship="ModelProveduria.EPRTA_ARTBOD_BODEGA_FK" FromRole="EPRTA_BODEGA" ToRole="EPRTA_ARTICULO_BODEGA" />
           <NavigationProperty Name="EPRTA_MOVIMIENTO" Relationship="ModelProveduria.EPRCN_MOVIMIENTO_BODEGA_FK" FromRole="EPRTA_BODEGA" ToRole="EPRTA_MOVIMIENTO" />
         </EntityType>
-        <EntityType Name="EPRTA_GRUPO">
-          <Key>
-            <PropertyRef Name="ID_GRUPO" />
-          </Key>
-          <Property Name="ID_GRUPO" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
-          <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="CUENTA_CONTABLE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
-          <Property Name="CODIGO_GRUPO" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="EPRTA_ITEM" Relationship="ModelProveduria.INV_ITEMS_EPRTA_GRUPO_FK" FromRole="EPRTA_GRUPO" ToRole="EPRTA_ITEM" />
-        </EntityType>
         <EntityType Name="EPRTA_ITEM">
           <Key>
             <PropertyRef Name="ID_ITEM" />
@@ -409,9 +399,9 @@
           <Property Name="OBSERVACION" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="ID_GRUPO" Type="Byte" Nullable="false" />
           <NavigationProperty Name="EPRTA_ARTICULO_BODEGA" Relationship="ModelProveduria.EPRCN_ARTBOD_ITEM_FK" FromRole="EPRTA_ITEM" ToRole="EPRTA_ARTICULO_BODEGA" />
-          <NavigationProperty Name="EPRTA_GRUPO" Relationship="ModelProveduria.INV_ITEMS_EPRTA_GRUPO_FK" FromRole="EPRTA_ITEM" ToRole="EPRTA_GRUPO" />
           <NavigationProperty Name="EPRTA_MEDIDA" Relationship="ModelProveduria.EPRCN_ITEM_MEDIDA_FK" FromRole="EPRTA_ITEM" ToRole="EPRTA_MEDIDA" />
           <NavigationProperty Name="EPRTA_MOVIMIENTO_DETALLE" Relationship="ModelProveduria.EPRCN_MOVDET_ITEM_FK" FromRole="EPRTA_ITEM" ToRole="EPRTA_MOVIMIENTO_DETALLE" />
+          <NavigationProperty Name="EPRTA_GRUPO" Relationship="ModelProveduria.INV_ITEMS_EPRTA_GRUPO_FK" FromRole="EPRTA_ITEM" ToRole="EPRTA_GRUPO" />
         </EntityType>
         <EntityType Name="EPRTA_MEDIDA">
           <Key>
@@ -420,6 +410,7 @@
           <Property Name="ID_MEDIDA" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="EPRTA_ITEM" Relationship="ModelProveduria.EPRCN_ITEM_MEDIDA_FK" FromRole="EPRTA_MEDIDA" ToRole="EPRTA_ITEM" />
+          <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="EPRTA_MOVIMIENTO">
           <Key>
@@ -523,20 +514,6 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="INV_ITEMS_EPRTA_GRUPO_FK">
-          <End Type="ModelProveduria.EPRTA_GRUPO" Role="EPRTA_GRUPO" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="ModelProveduria.EPRTA_ITEM" Role="EPRTA_ITEM" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EPRTA_GRUPO">
-              <PropertyRef Name="ID_GRUPO" />
-            </Principal>
-            <Dependent Role="EPRTA_ITEM">
-              <PropertyRef Name="ID_GRUPO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <Association Name="EPRCN_ITEM_MEDIDA_FK">
           <End Type="ModelProveduria.EPRTA_MEDIDA" Role="EPRTA_MEDIDA" Multiplicity="1">
             <OnDelete Action="Cascade" />
@@ -611,6 +588,31 @@
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="EPRTA_GRUPO">
+          <Key>
+            <PropertyRef Name="ID_GRUPO" />
+          </Key>
+          <Property Name="ID_GRUPO" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CODIGO" Type="String" Nullable="false" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CUENTA_CONTABLE" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EPRTA_ITEM" Relationship="ModelProveduria.INV_ITEMS_EPRTA_GRUPO_FK" FromRole="EPRTA_GRUPO" ToRole="EPRTA_ITEM" />
+        </EntityType>
+        <Association Name="INV_ITEMS_EPRTA_GRUPO_FK">
+          <End Type="ModelProveduria.EPRTA_GRUPO" Role="EPRTA_GRUPO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ModelProveduria.EPRTA_ITEM" Role="EPRTA_ITEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EPRTA_GRUPO">
+              <PropertyRef Name="ID_GRUPO" />
+            </Principal>
+            <Dependent Role="EPRTA_ITEM">
+              <PropertyRef Name="ID_GRUPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -646,17 +648,6 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="EPRTA_GRUPO">
-            <EntityTypeMapping TypeName="ModelProveduria.EPRTA_GRUPO">
-              <MappingFragment StoreEntitySet="EPRTA_GRUPO">
-                <ScalarProperty Name="CODIGO_GRUPO" ColumnName="CODIGO_GRUPO" />
-                <ScalarProperty Name="CUENTA_CONTABLE" ColumnName="CUENTA_CONTABLE" />
-                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
-                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-                <ScalarProperty Name="ID_GRUPO" ColumnName="ID_GRUPO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="EPRTA_ITEM">
             <EntityTypeMapping TypeName="ModelProveduria.EPRTA_ITEM">
               <MappingFragment StoreEntitySet="EPRTA_ITEM">
@@ -677,6 +668,7 @@
           <EntitySetMapping Name="EPRTA_MEDIDA">
             <EntityTypeMapping TypeName="ModelProveduria.EPRTA_MEDIDA">
               <MappingFragment StoreEntitySet="EPRTA_MEDIDA">
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
                 <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
                 <ScalarProperty Name="ID_MEDIDA" ColumnName="ID_MEDIDA" />
               </MappingFragment>
@@ -739,6 +731,17 @@
                 <ScalarProperty Name="INGRESO_EGRESO" ColumnName="INGRESO_EGRESO" />
                 <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
                 <ScalarProperty Name="ID_TIPO_MOVIMIENTO" ColumnName="ID_TIPO_MOVIMIENTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EPRTA_GRUPO">
+            <EntityTypeMapping TypeName="ModelProveduria.EPRTA_GRUPO">
+              <MappingFragment StoreEntitySet="EPRTA_GRUPO">
+                <ScalarProperty Name="CUENTA_CONTABLE" ColumnName="CUENTA_CONTABLE" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
+                <ScalarProperty Name="ID_GRUPO" ColumnName="ID_GRUPO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

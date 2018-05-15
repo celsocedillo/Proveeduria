@@ -1,0 +1,125 @@
+﻿@model Proveduria.Models.EPRTA_ITEM
+
+
+@{
+    ViewBag.Title = "Item";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles {
+    <!-- DataTables -->
+    @*<link rel="stylesheet" href=@Url.Content("/Content/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css")>*@
+    <link rel="stylesheet" href=@Url.Content("/Content/bower_components/datatable/jquery.dataTables.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/bower_components/datatable/dataTables.jqueryui.min.css")>
+
+
+}
+
+<style>
+    /*.lblMsg {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 13px;
+        font-weight: bold;
+    }*/
+    .registro_inactivo {
+        background-color: #fccfcf;
+    }
+</style>
+
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Item
+    </h1>
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+    <p>
+    </p>
+
+    <!-- begin panel -->
+    <div class="box box-primary">
+        <form id="frmItem" class="form-horizontal" data-parsley-validate>
+            <div class="box-body">
+                <div class="form-group">
+                    <label class="col-sm-1 control-label">Id</label>
+                    <div class="col-sm-10">
+                        @Html.HiddenFor(m => m.ID_ITEM)
+                        @Html.HiddenFor(m => m.ESTADO)
+                        @Html.HiddenFor(m => m.FECHA_ULTIMO_EGRESO)
+                        @Html.HiddenFor(m => m.FECHA_ULTIMO_INGRESO)
+                        @Html.HiddenFor(m => m.VALOR_ACTUAL)
+                        @Html.HiddenFor(m => m.VALOR_ANTERIOR)
+                        <label class="form-control">@Html.Raw(Model.ID_ITEM)</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-1 control-label">Codigo</label>
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(m => m.CODIGO, new { @class = "form-control", required = "required" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-1 control-label">Descripcion</label>
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(m => m.DESCRIPCION, new { @class = "form-control", required = "required" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-1 control-label">Grupo</label>
+                    <div class="col-sm-10">
+                        @Html.DropDownListFor(m => m.ID_GRUPO, new SelectList(ViewBag.lstGrupo, "Value", "Text"), new { @class = "form-control", required = "required" } )
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-1 control-label">Medida</label>
+                    <div class="col-sm-10">
+                        @Html.DropDownListFor(m => m.ID_MEDIDA, new SelectList(ViewBag.lstMedida, "Value", "Text"), new { @class = "form-control", required = "required" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-1 control-label">Observación</label>
+                    <div class="col-sm-10">
+                        @Html.TextBoxFor(m => m.OBSERVACION, new { @class = "form-control" })
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-sm-offset-1 col-sm-10">
+                        <button type="button" id="btnGrabar" class="btn btn-primary btn-sm">Grabar</button>
+                        <button type="button" id="btnCancelar" class="btn btn-default btn-sm">Cancelar</button>
+                    </div>
+                </div>
+
+            </div>
+        </form>
+    </div>
+    <!-- end panel -->
+
+
+
+</section>
+
+@section scripts {
+    <!-- DataTables -->
+    @*<script src=@Url.Content("/Content/bower_components/datatables.net/js/jquery.dataTables.min.js")></script>
+        <script src=@Url.Content("/Content/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js")></script>*@
+    <script src=@Url.Content("/Content/bower_components/datatable/jquery.dataTables.js")></script>
+    <script src=@Url.Content("/Content/bower_components/datatable/dataTables.jqueryui.min.js")></script>
+
+    <script type="text/javascript" src=@Url.Content("/Scripts/App/Item.js")></script>
+    <script type="text/javascript">
+
+
+        $(document).ready(function () {
+            Item.init();
+        });
+
+
+    </script>
+}
+
+
+
