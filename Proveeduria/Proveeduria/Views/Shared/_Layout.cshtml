@@ -37,6 +37,12 @@
     <link href=@Url.Content("/Content/plugins/waitMe/waitMe.min.css") rel="stylesheet" />
     <link href=@Url.Content("/Content/bower_components/select2/dist/css/select2.min.css") rel="stylesheet" />
 
+    <link rel="stylesheet" href=@Url.Content("/Content/bower_components/datatable/jquery.dataTables.css")>
+    <link rel="stylesheet" href=@Url.Content("/Content/bower_components/datatable/dataTables.jqueryui.min.css")>
+
+
+    <link rel="stylesheet" href=@Url.Content("/Content/Site.css")>
+
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -109,6 +115,10 @@
     <!-- AdminLTE App -->
     <script src=@Url.Content("/Content/dist/js/adminlte.min.js")></script>
     <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
+    <script src=@Url.Content("/Content/bower_components/datatable/jquery.dataTables.js")></script>
+    <script src=@Url.Content("/Content/bower_components/datatable/dataTables.jqueryui.min.js")></script>
+
+
     <!-- AdminLTE for demo purposes -->
     <script src=@Url.Content("/Content/dist/js/demo.js")></script>
     <script src=@Url.Content("/Scripts/App/Util.js")></script>
@@ -122,7 +132,10 @@
                 }
             });
 
-            $("select").select2();
+            $("select").select2({
+                dropdownAutoWidth: 'true',
+                width: '100%'
+            });
 
         });</script>
 

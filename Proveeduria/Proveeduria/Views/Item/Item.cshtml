@@ -42,68 +42,136 @@
 
     <!-- begin panel -->
     <div class="box box-primary">
-        <form id="frmItem" class="form-horizontal" data-parsley-validate>
-            <div class="box-body">
-                <div class="form-group">
-                    <label class="col-sm-1 control-label">Id</label>
-                    <div class="col-sm-10">
-                        @Html.HiddenFor(m => m.ID_ITEM)
-                        @Html.HiddenFor(m => m.ESTADO)
-                        @Html.HiddenFor(m => m.FECHA_ULTIMO_EGRESO)
-                        @Html.HiddenFor(m => m.FECHA_ULTIMO_INGRESO)
-                        @Html.HiddenFor(m => m.VALOR_ACTUAL)
-                        @Html.HiddenFor(m => m.VALOR_ANTERIOR)
-                        <label class="form-control">@Html.Raw(Model.ID_ITEM)</label>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-1 control-label">Codigo</label>
-                    <div class="col-sm-10">
-                        @Html.TextBoxFor(m => m.CODIGO, new { @class = "form-control", required = "required" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-1 control-label">Descripcion</label>
-                    <div class="col-sm-10">
-                        @Html.TextBoxFor(m => m.DESCRIPCION, new { @class = "form-control", required = "required" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-1 control-label">Grupo</label>
-                    <div class="col-sm-10">
-                        @Html.DropDownListFor(m => m.ID_GRUPO, new SelectList(ViewBag.lstGrupo, "Value", "Text"), new { @class = "form-control", required = "required" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-1 control-label">Medida</label>
-                    <div class="col-sm-10">
-                        @Html.DropDownListFor(m => m.ID_MEDIDA, new SelectList(ViewBag.lstMedida, "Value", "Text"), new { @class = "form-control", required = "required" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-1 control-label">Observación</label>
-                    <div class="col-sm-10">
-                        @Html.TextBoxFor(m => m.OBSERVACION, new { @class = "form-control" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="col-sm-1 control-label">Fecha</label>
-                    <div class="col-sm-10">
-                        @*@Html.TextBoxFor(m => m.FECHA_ULTIMO_INGRESO, new { @class = "form-control" })*@
+        
+        <div class="box-body">
+            <div class="row">
+                <form id="frmItem" class="form-horizontal" data-parsley-validate>
+                    @Html.HiddenFor(m => m.ID_ITEM)
+                    @Html.HiddenFor(m => m.ESTADO)
+                    @Html.HiddenFor(m => m.FECHA_ULTIMO_EGRESO)
+                    @Html.HiddenFor(m => m.FECHA_ULTIMO_INGRESO)
+                    @Html.HiddenFor(m => m.VALOR_ACTUAL)
+                    @Html.HiddenFor(m => m.VALOR_ANTERIOR)
+                    <div class="col-sm-8">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Código :</label>
+                            <div class="col-sm-5">
+                                @Html.TextBoxFor(m => m.CODIGO, new { @class = "form-control", required = "required", style = "text-transform:uppercase" })
+                            </div>
+                            <label class="col-sm-1 control-label">Estado:</label>
+                            <div class="col-sm-4">
+                                @*@Html.TextBoxFor(m => m.ESTADO, new { @class = "form-control", required = "required", style = "text-transform:uppercase" })*@
+                                @Html.DropDownListFor(m => m.ESTADO, new[] { new SelectListItem { Text = "Activo", Value = "A" }, new SelectListItem { Text = "Inactivo", Value = "I" } }, new { @class = "form-control" })
+                            </div>
 
-                        <input type="text" id="FECHA_ULTIMO" class="form-control" required />
-                    </div>
-                </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Descripción :</label>
+                            <div class="col-sm-10">
+                                @Html.TextBoxFor(m => m.DESCRIPCION, new { @class = "form-control", required = "required", style = "text-transform:uppercase" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Grupo :</label>
+                            <div class="col-sm-10">
+                                @Html.DropDownListFor(m => m.ID_GRUPO, new SelectList(ViewBag.lstGrupo, "Value", "Text"), new { @class = "form-control", required = "required" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Medida :</label>
+                            <div class="col-sm-10">
+                                @Html.DropDownListFor(m => m.ID_MEDIDA, new SelectList(ViewBag.lstMedida, "Value", "Text"), new { @class = "form-control", required = "required" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Observación :</label>
+                            <div class="col-sm-10">
+                                @Html.TextBoxFor(m => m.OBSERVACION, new { @class = "form-control" })
+                            </div>
+                        </div>
 
-                <div class="form-group">
-                    <div class="col-sm-offset-1 col-sm-10">
-                        <button type="button" id="btnGrabar" class="btn btn-primary btn-sm">Grabar</button>
-                        <button type="button" id="btnCancelar" class="btn btn-default btn-sm">Cancelar</button>
+                        <div class="form-group">
+                            <div class="col-sm-offset-2 col-sm-10">
+                                <button type="button" id="btnGrabar" class="btn btn-primary btn-sm">Grabar</button>
+                                <button type="button" id="btnCancelar" class="btn btn-default btn-sm">Cancelar</button>
+                            </div>
+                        </div>
                     </div>
-                </div>
 
+                    <div class="col-sm-3">
+                        <div class="form-group">
+                            <label class="col-sm-5">Fec.UltimoIngreso</label>
+                            <div class="col-sm-7">
+                                <label class="form-control">@(Model.FECHA_ULTIMO_INGRESO.HasValue ? Model.FECHA_ULTIMO_INGRESO.Value.ToString("dd/MM/yyyy") : null)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5">Fec.UltimoEgreso</label>
+                            <div class="col-sm-7">
+                                <label class="form-control">@(Model.FECHA_ULTIMO_EGRESO.HasValue ? Model.FECHA_ULTIMO_EGRESO.Value.ToString("dd/MM/yyyy") : null)</label>
+                            </div>
+                        </div>
+                    </div>
+
+                </form>
             </div>
-        </form>
+
+            <div class="row">
+                <div class="col-sm-12">
+                    <p class="page-header">Stock por bodega</p>
+                </div>
+            </div>
+            <table id="tabStock" class="table table-striped hover compact">
+                <thead>
+                    <tr>
+                        <th>
+                            Bodega
+                        </th>
+                        <th>
+                            Cant.Maxima
+                        </th>
+                        <th>
+                            Cant.Actual
+                        </th>
+                        <th>
+                            Cant.Inicio
+                        </th>
+                        <th>
+                            Cant.Critica
+                        </th>
+                        <th>
+                            Cant.Minima
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in Model.EPRTA_ARTICULO_BODEGA)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.EPRTA_BODEGA.NOMBRE)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CANTIDAD_MAXIMA)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CANTIDAD_ACTUAL)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CANTIDAD_INICIO)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CANTIDAD_CRITICA)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.CANTIDAD_MINIMA)
+                    </td>
+                </tr>}
+                </tbody>
+            </table>
+
+        </div>
+        
     </div>
     <!-- end panel -->
 
@@ -120,15 +188,17 @@
 
     <script type="text/javascript" src=@Url.Content("/Scripts/App/Item.js")></script>
     <script type="text/javascript">
+        @*@{ 
+    var item = new
+    {
+        Model.CODIGO,
+        STOCK = (from p in Model.EPRTA_ARTICULO_BODEGA select new { p.CANTIDAD_MAXIMA, p.CANTIDAD_MINIMA})
+    };
+}
 
-
+        var item = @Html.Raw(Json.Encode(item))*@
         $(document).ready(function () {
-            Item.init();
-            $("#FECHA_ULTIMO").datepicker({
-                format: "dd/mm/yyyy",
-                todayHighlight: true,
-                autoclose: true
-            });
+                Item.init();
 
         });
 

@@ -1,25 +1,144 @@
-﻿body {
+﻿/*body {
     padding-top: 50px;
     padding-bottom: 20px;
-}
+}*/
 
 /* Set padding to keep content from hitting the edges */
-.body-content {
+/*.body-content {
     padding-left: 15px;
     padding-right: 15px;
-}
+}*/
 
 /* Override the default bootstrap behavior where horizontal description lists 
     un solo idolo
    will truncate terms that are too long to fit in the left column 
 */
-.dl-horizontal dt {
+/*.dl-horizontal dt {
     white-space: normal;
-}
+}*/
 
 /* Set width on the form input elements since they're 100% wide by default */
-input,
+/*input,
 select,
 textarea {
     max-width: 280px;
+}*/
+
+
+
+
+/*
+    *************************************************************************************************
+*/
+
+table.dataTable.supercompact tbody th,
+table.dataTable.supercompact tbody td {
+  padding: 2px;
+}
+
+table.dataTable thead th,
+table.dataTable thead td {
+  padding: 5px 5px; 
+  /*border: 1px solid #f5f3f3;*/
+  /*background-color: #ddecf7*/
+}
+
+table.dataTable tfoot th, table.dataTable tfoot td{
+    padding: 2px;
+}
+
+/*Bootstrap*/
+
+.panel-heading {
+  padding: 5px 10px;
+}
+
+.form-group {
+    margin-bottom: 4px;
+}
+
+.form-control {
+    height: 25px;
+    padding-left: 5px;
+    padding-bottom:0px;
+    padding-top:0px;
+}
+
+.form-horizontal .control-label {
+    padding-top: 3px;
+}
+
+/*AdminLTE*/
+
+.box-header>.box-tools-left {
+     left: 3px;
+ 
+}
+
+.input-group-sm>.form-control, .input-group-sm>.input-group-addon, .input-group-sm>.input-group-btn>.btn {
+     height: 25px; 
+     padding: 0px 5px; 
+     font-size: 14px; 
+     line-height: 1.5;
+     border-radius: 0px; 
+}
+.input-group-addon{
+    padding:1px 5px;
+}
+
+.field-validation-error{
+    background-color:red;
+    color: white;
+    font-weight: bold;
+}
+
+.amarillo{
+    background-color: #fff4b4;
+}
+
+.textbox-noline{
+    border-width: 0px;
+}
+
+.content-header{
+    padding: 8px 8px 0 8px;
+}
+
+.page-header {
+    margin: 5px 0 5px 0;
+    padding-bottom: 5px;
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 10px;
+    border-bottom: 1px solid #8e8a8a;
+}
+.content {
+    padding: 8px;
+}
+
+
+
+.select2-container--default .select2-selection--single, .select2-selection .select2-selection--single {
+    padding: 3px 3px;
+}
+
+label {
+    font-weight: 500;
+}
+
+.select2-container--default .select2-selection--single {
+     border-radius: 0px; 
+}
+
+.dataTables_wrapper .ui-toolbar {
+    padding: 2px;
+}
+
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+    border-top: 1px solid #e4d2d2;
 }

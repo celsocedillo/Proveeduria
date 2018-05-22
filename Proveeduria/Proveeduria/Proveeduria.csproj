@@ -181,6 +181,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InvMedidaController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Controllers\MedidaController.cs" />
     <Compile Include="Controllers\TipoMovimientoController.cs" />
     <Compile Include="Global.asax.cs">
@@ -228,6 +229,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModeloProveduria.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
     <Compile Include="Repositories\IGenericRepository.cs" />
@@ -7404,6 +7406,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Login\" />
     <Folder Include="Views\Referencias\" />
   </ItemGroup>
   <ItemGroup>

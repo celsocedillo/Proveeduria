@@ -26,7 +26,8 @@ function CargaDatos() {
             }
             else {
                 //var items = data.items;
-                var data = $.parseJSON(data.data);
+                //var data = $.parseJSON(data.data);
+                var data = (data.data);
                 //tipomov = data[0]; //Esto es para guardar la estructura del objeto y poder usarlo en el momento de crear uno nuevo
                 tabtipomov.clear();
                 tabtipomov.rows.add(data);
