@@ -73,3 +73,219 @@
               -------------------------------------------------------------------
               ----------     
      
+     ---------------------------- Error(2018-05-21 23:04:32.2198) --------------------------    
+              Machine Name  : DEVELOPER-PC
+   
+              Exception Type  : System.Data.Entity.Core.EntityException
+      
+              Exception Message : The underlying provider failed on Open.
+     
+              Inner Exception  : System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> Oracle.ManagedDataAccess.Client.OracleException: ORA-12154: TNS:no se ha podido resolver el identificador de conexión especificado ---> OracleInternal.Network.NetworkException: ORA-12154: TNS:no se ha podido resolver el identificador de conexión especificado
+   en OracleInternal.Network.AddressResolution..ctor(String TNSAlias, String instanceName)
+   en OracleInternal.Network.OracleCommunication.DoConnect(String tnsDescriptor)
+   en OracleInternal.Network.OracleCommunication.Connect(String tnsDescriptor, Boolean doNAHandshake, String IName)
+   en OracleInternal.ServiceObjects.OracleConnectionImpl.Connect(ConnectionString cs, Boolean bOpenEndUserSession, CriteriaCtx criteriaCtx, String instanceName)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en OracleInternal.ConnectionPool.PoolManager`3.Get(ConnectionString csWithDiffOrNewPwd, Boolean bGetForApp, CriteriaCtx criteriaCtx, String affinityInstanceName, Boolean bForceMatch)
+   en OracleInternal.ConnectionPool.OraclePoolManager.Get(ConnectionString csWithNewPassword, Boolean bGetForApp, CriteriaCtx criteriaCtx, String affinityInstanceName, Boolean bForceMatch)
+   en OracleInternal.ConnectionPool.OracleConnectionDispenser`3.Get(ConnectionString cs, PM conPM, ConnectionString pmCS, SecureString securedPassword, SecureString securedProxyPassword, CriteriaCtx criteriaCtx)
+   en Oracle.ManagedDataAccess.Client.OracleConnection.Open()
+   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute(Action operation)
+   en System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   en System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection()
+   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__9()
+   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   en System.Lazy`1.CreateValue()
+   en System.Lazy`1.LazyInitValue()
+   en System.Lazy`1.get_Value()
+   en System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Repositories.GenericRepository`1.GetAll() en C:\Users\Developer.GYE\Documents\GitHub\Proveeduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 31
+   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Users\Developer.GYE\Documents\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 34 
+Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-12154: TNS:no se ha podido resolver el identificador de conexión especificado ---> OracleInternal.Network.NetworkException (0x00002F7A): ORA-12154: TNS:no se ha podido resolver el identificador de conexión especificado
+   en OracleInternal.Network.AddressResolution..ctor(String TNSAlias, String instanceName)
+   en OracleInternal.Network.OracleCommunication.DoConnect(String tnsDescriptor)
+   en OracleInternal.Network.OracleCommunication.Connect(String tnsDescriptor, Boolean doNAHandshake, String IName)
+   en OracleInternal.ServiceObjects.OracleConnectionImpl.Connect(ConnectionString cs, Boolean bOpenEndUserSession, CriteriaCtx criteriaCtx, String instanceName)
+   en OracleInternal.ConnectionPool.PoolManager`3.Get(ConnectionString csWithDiffOrNewPwd, Boolean bGetForApp, CriteriaCtx criteriaCtx, String affinityInstanceName, Boolean bForceMatch)
+   en OracleInternal.ConnectionPool.OraclePoolManager.Get(ConnectionString csWithNewPassword, Boolean bGetForApp, CriteriaCtx criteriaCtx, String affinityInstanceName, Boolean bForceMatch)
+   en OracleInternal.ConnectionPool.OracleConnectionDispenser`3.Get(ConnectionString cs, PM conPM, ConnectionString pmCS, SecureString securedPassword, SecureString securedProxyPassword, CriteriaCtx criteriaCtx)
+   en Oracle.ManagedDataAccess.Client.OracleConnection.Open()
+   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute(Action operation)
+   en System.Data.Entity.Core.EntityClient.EntityConnection.Open() 
+OracleInternal.Network.NetworkException (0x00002F7A): ORA-12154: TNS:no se ha podido resolver el identificador de conexión especificado
+   en OracleInternal.Network.AddressResolution..ctor(String TNSAlias, String instanceName)
+   en OracleInternal.Network.OracleCommunication.DoConnect(String tnsDescriptor)
+   en OracleInternal.Network.OracleCommunication.Connect(String tnsDescriptor, Boolean doNAHandshake, String IName)
+   en OracleInternal.ServiceObjects.OracleConnectionImpl.Connect(ConnectionString cs, Boolean bOpenEndUserSession, CriteriaCtx criteriaCtx, String instanceName) 
+ 
+              Stack Trace   :    en System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   en System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection()
+   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__9()
+   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   en System.Lazy`1.CreateValue()
+   en System.Lazy`1.LazyInitValue()
+   en System.Lazy`1.get_Value()
+   en System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Repositories.GenericRepository`1.GetAll() en C:\Users\Developer.GYE\Documents\GitHub\Proveeduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 31
+   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Users\Developer.GYE\Documents\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 34
+        
+              Additional Info  : The underlying provider failed on Open.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-05-21 23:06:38.6894) --------------------------    
+              Machine Name  : DEVELOPER-PC
+   
+              Exception Type  : System.Data.Entity.Core.EntityException
+      
+              Exception Message : The underlying provider failed on Open.
+     
+              Inner Exception  : System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> Oracle.ManagedDataAccess.Client.OracleException: ORA-12154: TNS:no se ha podido resolver el identificador de conexión especificado ---> OracleInternal.Network.NetworkException: ORA-12154: TNS:no se ha podido resolver el identificador de conexión especificado
+   en OracleInternal.Network.AddressResolution..ctor(String TNSAlias, String instanceName)
+   en OracleInternal.Network.OracleCommunication.DoConnect(String tnsDescriptor)
+   en OracleInternal.Network.OracleCommunication.Connect(String tnsDescriptor, Boolean doNAHandshake, String IName)
+   en OracleInternal.ServiceObjects.OracleConnectionImpl.Connect(ConnectionString cs, Boolean bOpenEndUserSession, CriteriaCtx criteriaCtx, String instanceName)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en OracleInternal.ConnectionPool.PoolManager`3.Get(ConnectionString csWithDiffOrNewPwd, Boolean bGetForApp, CriteriaCtx criteriaCtx, String affinityInstanceName, Boolean bForceMatch)
+   en OracleInternal.ConnectionPool.OraclePoolManager.Get(ConnectionString csWithNewPassword, Boolean bGetForApp, CriteriaCtx criteriaCtx, String affinityInstanceName, Boolean bForceMatch)
+   en OracleInternal.ConnectionPool.OracleConnectionDispenser`3.Get(ConnectionString cs, PM conPM, ConnectionString pmCS, SecureString securedPassword, SecureString securedProxyPassword, CriteriaCtx criteriaCtx)
+   en Oracle.ManagedDataAccess.Client.OracleConnection.Open()
+   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute(Action operation)
+   en System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   en System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection()
+   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__9()
+   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   en System.Lazy`1.CreateValue()
+   en System.Lazy`1.LazyInitValue()
+   en System.Lazy`1.get_Value()
+   en System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Repositories.GenericRepository`1.GetAll() en C:\Users\Developer.GYE\Documents\GitHub\Proveeduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 31
+   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Users\Developer.GYE\Documents\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 34 
+Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-12154: TNS:no se ha podido resolver el identificador de conexión especificado ---> OracleInternal.Network.NetworkException (0x00002F7A): ORA-12154: TNS:no se ha podido resolver el identificador de conexión especificado
+   en OracleInternal.Network.AddressResolution..ctor(String TNSAlias, String instanceName)
+   en OracleInternal.Network.OracleCommunication.DoConnect(String tnsDescriptor)
+   en OracleInternal.Network.OracleCommunication.Connect(String tnsDescriptor, Boolean doNAHandshake, String IName)
+   en OracleInternal.ServiceObjects.OracleConnectionImpl.Connect(ConnectionString cs, Boolean bOpenEndUserSession, CriteriaCtx criteriaCtx, String instanceName)
+   en OracleInternal.ConnectionPool.PoolManager`3.Get(ConnectionString csWithDiffOrNewPwd, Boolean bGetForApp, CriteriaCtx criteriaCtx, String affinityInstanceName, Boolean bForceMatch)
+   en OracleInternal.ConnectionPool.OraclePoolManager.Get(ConnectionString csWithNewPassword, Boolean bGetForApp, CriteriaCtx criteriaCtx, String affinityInstanceName, Boolean bForceMatch)
+   en OracleInternal.ConnectionPool.OracleConnectionDispenser`3.Get(ConnectionString cs, PM conPM, ConnectionString pmCS, SecureString securedPassword, SecureString securedProxyPassword, CriteriaCtx criteriaCtx)
+   en Oracle.ManagedDataAccess.Client.OracleConnection.Open()
+   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute(Action operation)
+   en System.Data.Entity.Core.EntityClient.EntityConnection.Open() 
+OracleInternal.Network.NetworkException (0x00002F7A): ORA-12154: TNS:no se ha podido resolver el identificador de conexión especificado
+   en OracleInternal.Network.AddressResolution..ctor(String TNSAlias, String instanceName)
+   en OracleInternal.Network.OracleCommunication.DoConnect(String tnsDescriptor)
+   en OracleInternal.Network.OracleCommunication.Connect(String tnsDescriptor, Boolean doNAHandshake, String IName)
+   en OracleInternal.ServiceObjects.OracleConnectionImpl.Connect(ConnectionString cs, Boolean bOpenEndUserSession, CriteriaCtx criteriaCtx, String instanceName) 
+ 
+              Stack Trace   :    en System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   en System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection()
+   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__9()
+   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   en System.Lazy`1.CreateValue()
+   en System.Lazy`1.LazyInitValue()
+   en System.Lazy`1.get_Value()
+   en System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Repositories.GenericRepository`1.GetAll() en C:\Users\Developer.GYE\Documents\GitHub\Proveeduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 31
+   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Users\Developer.GYE\Documents\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 34
+        
+              Additional Info  : The underlying provider failed on Open.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-05-21 23:06:54.0310) --------------------------    
+              Machine Name  : DEVELOPER-PC
+   
+              Exception Type  : System.Data.Entity.Core.EntityException
+      
+              Exception Message : The underlying provider failed on Open.
+     
+              Inner Exception  : System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> Oracle.ManagedDataAccess.Client.OracleException: ORA-12154: TNS:no se ha podido resolver el identificador de conexión especificado ---> OracleInternal.Network.NetworkException: ORA-12154: TNS:no se ha podido resolver el identificador de conexión especificado
+   en OracleInternal.Network.AddressResolution..ctor(String TNSAlias, String instanceName)
+   en OracleInternal.Network.OracleCommunication.DoConnect(String tnsDescriptor)
+   en OracleInternal.Network.OracleCommunication.Connect(String tnsDescriptor, Boolean doNAHandshake, String IName)
+   en OracleInternal.ServiceObjects.OracleConnectionImpl.Connect(ConnectionString cs, Boolean bOpenEndUserSession, CriteriaCtx criteriaCtx, String instanceName)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en OracleInternal.ConnectionPool.PoolManager`3.Get(ConnectionString csWithDiffOrNewPwd, Boolean bGetForApp, CriteriaCtx criteriaCtx, String affinityInstanceName, Boolean bForceMatch)
+   en OracleInternal.ConnectionPool.OraclePoolManager.Get(ConnectionString csWithNewPassword, Boolean bGetForApp, CriteriaCtx criteriaCtx, String affinityInstanceName, Boolean bForceMatch)
+   en OracleInternal.ConnectionPool.OracleConnectionDispenser`3.Get(ConnectionString cs, PM conPM, ConnectionString pmCS, SecureString securedPassword, SecureString securedProxyPassword, CriteriaCtx criteriaCtx)
+   en Oracle.ManagedDataAccess.Client.OracleConnection.Open()
+   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute(Action operation)
+   en System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   en System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection()
+   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__9()
+   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   en System.Lazy`1.CreateValue()
+   en System.Lazy`1.LazyInitValue()
+   en System.Lazy`1.get_Value()
+   en System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Repositories.GenericRepository`1.GetAll() en C:\Users\Developer.GYE\Documents\GitHub\Proveeduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 31
+   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Users\Developer.GYE\Documents\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 34 
+Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-12154: TNS:no se ha podido resolver el identificador de conexión especificado ---> OracleInternal.Network.NetworkException (0x00002F7A): ORA-12154: TNS:no se ha podido resolver el identificador de conexión especificado
+   en OracleInternal.Network.AddressResolution..ctor(String TNSAlias, String instanceName)
+   en OracleInternal.Network.OracleCommunication.DoConnect(String tnsDescriptor)
+   en OracleInternal.Network.OracleCommunication.Connect(String tnsDescriptor, Boolean doNAHandshake, String IName)
+   en OracleInternal.ServiceObjects.OracleConnectionImpl.Connect(ConnectionString cs, Boolean bOpenEndUserSession, CriteriaCtx criteriaCtx, String instanceName)
+   en OracleInternal.ConnectionPool.PoolManager`3.Get(ConnectionString csWithDiffOrNewPwd, Boolean bGetForApp, CriteriaCtx criteriaCtx, String affinityInstanceName, Boolean bForceMatch)
+   en OracleInternal.ConnectionPool.OraclePoolManager.Get(ConnectionString csWithNewPassword, Boolean bGetForApp, CriteriaCtx criteriaCtx, String affinityInstanceName, Boolean bForceMatch)
+   en OracleInternal.ConnectionPool.OracleConnectionDispenser`3.Get(ConnectionString cs, PM conPM, ConnectionString pmCS, SecureString securedPassword, SecureString securedProxyPassword, CriteriaCtx criteriaCtx)
+   en Oracle.ManagedDataAccess.Client.OracleConnection.Open()
+   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute(Action operation)
+   en System.Data.Entity.Core.EntityClient.EntityConnection.Open() 
+OracleInternal.Network.NetworkException (0x00002F7A): ORA-12154: TNS:no se ha podido resolver el identificador de conexión especificado
+   en OracleInternal.Network.AddressResolution..ctor(String TNSAlias, String instanceName)
+   en OracleInternal.Network.OracleCommunication.DoConnect(String tnsDescriptor)
+   en OracleInternal.Network.OracleCommunication.Connect(String tnsDescriptor, Boolean doNAHandshake, String IName)
+   en OracleInternal.ServiceObjects.OracleConnectionImpl.Connect(ConnectionString cs, Boolean bOpenEndUserSession, CriteriaCtx criteriaCtx, String instanceName) 
+ 
+              Stack Trace   :    en System.Data.Entity.Core.EntityClient.EntityConnection.Open()
+   en System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection()
+   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__9()
+   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   en System.Lazy`1.CreateValue()
+   en System.Lazy`1.LazyInitValue()
+   en System.Lazy`1.get_Value()
+   en System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Repositories.GenericRepository`1.GetAll() en C:\Users\Developer.GYE\Documents\GitHub\Proveeduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 31
+   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Users\Developer.GYE\Documents\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 34
+        
+              Additional Info  : The underlying provider failed on Open.  
+              -------------------------------------------------------------------
+              ----------     
+     
