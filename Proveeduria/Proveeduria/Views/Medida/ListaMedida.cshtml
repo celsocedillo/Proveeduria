@@ -180,6 +180,10 @@
         function Grabar() {
             $('#frmMedida').parsley().validate();
             if ($('#frmMedida').parsley().isValid()) {
+                medida = {
+                    "ID_MEDIDA": $("#lblIdMedida").val(), "NOMBRE": $("#txtNombre").val()
+                };
+                //medida.ID_MEDIDA = $("#lblIdMedida").val();//new
                 medida.NOMBRE = $("#txtNombre").val();
                 var parametros = JSON.stringify(
                     {
@@ -207,7 +211,7 @@
                             $('#dlgMedida').modal('toggle');
                             swal({
                                 type: 'success',
-                                text: 'Datos grabados',
+                                text: 'Datos grabados con éxito',
                                 confirmButtonColor: '#00BCD4'
                             });
                             CargaDatos();
@@ -271,11 +275,20 @@
                     type: "POST",
                     contentType: 'application/json; charset=utf-8',
                     data: parametros,
+
                     success: function (result) {
-                        medida = result.data;
-                        $("#dlgMedida").modal('toggle');
-                        $("#lblIdMedida").text(medida.ID_MEDIDA);
-                        $("#txtNombre").val(medida.NOMBRE);
+                        if (result.resultado == "success") {
+                            $("#dlgMedida").modal('toggle');
+                            $("#lblIdMedida").text(result.ID_MEDIDA);
+                            $("#txtNombre").val(result.NOMBRE);
+                        }
+                        else {
+                            swal({
+                                type: 'error',
+                                text: 'Error al grabar los datos.',
+                                confirmButtonColor: '#00BCD4'
+                            });
+                        }
                     },
                     error: function (result) {
                         alert("Error :" + result.responseText);

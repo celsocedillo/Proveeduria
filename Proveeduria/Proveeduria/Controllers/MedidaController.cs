@@ -28,18 +28,24 @@ namespace Proveduria.Controllers
 
 
         [HttpPost]
-        public JsonResult GetMedida(int pid)
+        public ActionResult GetMedida(int pid)
         {
+            JObject jsonObject = new JObject(); 
             try
             {
+                
                 EPRTA_MEDIDA medida = unitOfWork.MedidaRepository.GetById(pid);
-                return Json(new { resultado = "success", data = medida, mensaje = "" });
-
+                jsonObject.Add("ID_MEDIDA", medida.ID_MEDIDA);
+                jsonObject.Add("NOMBRE", medida.NOMBRE);
+                jsonObject.Add("resultado", "success");
+                jsonObject.Add("mensaje", "success");
             }
             catch (Exception ex)
             {
-                return Json(new { resultado = "error", data = "", mensaje = " Error al consultar la medida, favor revisar las conecciones de base de datos => [" + ex + "]" });
+                logger.Error(ex, ex.Message);
+                jsonObject.Add("resultado", "error");
             }
+            return  Content(jsonObject.ToString(), "application/json");
         }
 
         //[HttpPost]
