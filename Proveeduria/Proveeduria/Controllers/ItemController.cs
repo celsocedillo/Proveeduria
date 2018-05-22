@@ -14,6 +14,7 @@ namespace Proveduria.Controllers
 {
     public class ItemController : Controller
     {
+        public static Usuario usuario;
         private UnitOfWork unitOfWork = new UnitOfWork();
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
@@ -30,61 +31,72 @@ namespace Proveduria.Controllers
             JObject total = new JObject();
             try
             {
+                
                 var searchValue = Request.Form.Get("search[value]");
                 var items = unitOfWork.ItemRepository.GetAll();
-                IEnumerable<EPRTA_ITEM> filteredFacturas;
+                IEnumerable < EPRTA_ITEM > filtroItems;
                 if (!String.IsNullOrEmpty(searchValue))
                 {
-                    filteredFacturas = items.Where(w => w.CODIGO.ToLower().Contains(searchValue.ToLower()) || w.DESCRIPCION.Contains(searchValue));
+                    filtroItems = items.Where(w => w.CODIGO.ToLower().Contains(searchValue.ToLower()) || w.DESCRIPCION.Contains(searchValue));
                 }
                 else
                 {
-                    filteredFacturas = items;
+                    filtroItems = items;
+
                 }
                 var sortColumnIndex = Convert.ToInt32(Request.Form.Get("order[0][column]"));
                 Func<EPRTA_ITEM, string> orderingFunction = (c => sortColumnIndex == 0 ? c.CODIGO.ToString() : sortColumnIndex == 1 ? c.DESCRIPCION : c.EPRTA_MEDIDA.NOMBRE);
                 var sortDirection = Request.Form.Get("order[0][dir]");
                 if (sortDirection == "asc")
                 {
-                    filteredFacturas = filteredFacturas.OrderBy(orderingFunction);
+                    filtroItems = filtroItems.OrderBy(orderingFunction);
                 }
                 else
                 {
-                    filteredFacturas = filteredFacturas.OrderByDescending(orderingFunction);
+                    filtroItems = filtroItems.OrderByDescending(orderingFunction);
                 }
-                IEnumerable<EPRTA_ITEM> dataShow = filteredFacturas.Skip(int.Parse(Request.Form.Get("start"))).Take(int.Parse(Request.Form.Get("length")));
-                foreach (EPRTA_ITEM item in dataShow)
-                {
-                    var accionModificar = "<a href='/Item/Item/" + item.ID_ITEM + "' class='text-inverse' data-toggle='tooltip' title='Modificar'>" +
-                                            "<i class='fa fa-pencil' aria-hidden='true'></i>" +
-                                          "</a>";
-                    var enviar = new { item.ID_ITEM, item.CODIGO, item.DESCRIPCION, MEDIDA = item.EPRTA_MEDIDA.NOMBRE, GRUPO = item.EPRTA_GRUPO.NOMBRE };
-
-
-                    JObject jsonObject = new JObject
-                    {
-                        { "ID_ITEM", item.ID_ITEM},
-                        { "CODIGO", item.CODIGO },
-                        { "DESCRIPCION", item.DESCRIPCION},
-                        { "MEDIDA", item.EPRTA_MEDIDA.NOMBRE},
-                        { "GRUPO", item.EPRTA_GRUPO.NOMBRE },
-                        { "ACCION", accionModificar}
-                    };
-                    jArray.Add(jsonObject);
-                }
-
+                IEnumerable<EPRTA_ITEM> dataShow = filtroItems.Skip(int.Parse(Request.Form.Get("start"))).Take(int.Parse(Request.Form.Get("length")));
+                //foreach (EPRTA_ITEM item in dataShow)
+                //{
+                //    var accionModificar = "<a href='/Item/Item/" + item.ID_ITEM + "' class='text-inverse' data-toggle='tooltip' title='Modificar'>" +
+                //                            "<i class='fa fa-pencil' aria-hidden='true'></i>" +
+                //                          "</a>";
+                //    JObject jsonObject = new JObject
+                //    {
+                //        { "ID_ITEM", item.ID_ITEM},
+                //        { "CODIGO", item.CODIGO },
+                //        { "DESCRIPCION", item.DESCRIPCION},
+                //        { "MEDIDA", item.EPRTA_MEDIDA.NOMBRE},
+                //        { "GRUPO", item.EPRTA_GRUPO.NOMBRE },
+                //        { "ACCION", accionModificar}
+                //    };
+                //    jArray.Add(jsonObject);
+                    
+                //}
+                var enviar = from p in dataShow
+                             select new
+                             { p.ID_ITEM,
+                               p.CODIGO,
+                               p.DESCRIPCION,
+                               GRUPO = p.EPRTA_GRUPO.NOMBRE,
+                               MEDIDA = p.EPRTA_MEDIDA.NOMBRE,
+                               ACCION = "<a href='/Item/Item/" + p.ID_ITEM + "' class='text-inverse' data-toggle='tooltip' title='Modificar'>" +
+                                        "<i class='fa fa-pencil' aria-hidden='true'></i>" +
+                                        "</a>"
+                             };
                 total.Add("draw", Request.Form.Get("draw"));
                 total.Add("recordsTotal", items.Count());
-                total.Add("recordsFiltered", filteredFacturas.Count());
-                total.Add("data", jArray);
+                //total.Add("recordsFiltered", filtroItems.Count());
+                total.Add("recordsFiltered", filtroItems.Count());
+                //total.Add("data", jArray);
+                total.Add("data", JArray.FromObject(enviar));
             }
             catch (Exception ex)
             {
                 logger.Error(ex, ex.Message);
             }
             return Content(total.ToString(), "application/json");
-
-
+            //return Json(new { datos = items, });
         }
 
         public ActionResult Item(int id)
@@ -134,24 +146,33 @@ namespace Proveduria.Controllers
             //EPRTA_ITEM record;
             try
             {
-                if (precord.ID_ITEM == 0)
+                if (precord.ESTADO.Equals("N"))
                 {
-                    //record = new EPRTA_TIPO_MOVIMIENTO();
-                    //record.NOMBRE = precord.NOMBRE;
-                    //record.INGRESO_EGRESO = precord.INGRESO_EGRESO;
-                    //record.ESTADO = "A";
-                    //unitOfWork.TipoMovimientoRepository.Insert(record);
-                    //unitOfWork.Save();
+                    if (DisponibilidadCodigo(precord.CODIGO))
+                    {
+                        precord.ESTADO = "A";
+                        unitOfWork.ItemRepository.Insert(precord);
+                        unitOfWork.Save();
+                        retorno.Add("resultado", "success");
+                        retorno.Add("data", null);
+                        retorno.Add("mensaje", "");
+                    }
+                    else
+                    {
+                        retorno.Add("resultado", "warning");
+                        retorno.Add("data", null);
+                        retorno.Add("mensaje", "Codigo de item ya se encuentra repetido");
+                    }
                 }
                 else
                 {
                     unitOfWork.ItemRepository.Update(precord);
                     unitOfWork.Save();
+                    retorno.Add("resultado", "success");
+                    retorno.Add("data", null);
+                    retorno.Add("mensaje", "");
+
                 }
-                retorno.Add("resultado", "success");
-                retorno.Add("data", null);
-                retorno.Add("mensaje", "");
-                logger.Info("Dato Grabado");
             }
             catch (Exception ex)
             {
@@ -161,6 +182,80 @@ namespace Proveduria.Controllers
                 logger.Error(ex, ex.Message);
             }
             return Content(retorno.ToString(), "application/json");
+        }
+
+        [HttpPost]
+        public ActionResult GetStockBodega(int pid)
+        {
+            JObject retorna = new JObject();
+            JArray jArray = new JArray();
+            try
+            {
+                EPRTA_ITEM item = unitOfWork.ItemRepository.GetById(pid);
+                if(item != null)
+                {
+                    if(item.EPRTA_ARTICULO_BODEGA != null)
+                    {
+                        if (item.EPRTA_ARTICULO_BODEGA.Count > 0)
+                        {
+                            //foreach (EPRTA_ARTICULO_BODEGA arti in item.EPRTA_ARTICULO_BODEGA)
+                            //{
+                            //    var stock = new
+                            //    {
+                            //        BODEGA = arti.EPRTA_BODEGA.NOMBRE,
+                            //        arti.CANTIDAD_MAXIMA,
+                            //        arti.CANTIDAD_MINIMA,
+                            //        arti.CANTIDAD_ACTUAL,
+                            //        arti.CANTIDAD_BAJA,
+                            //        arti.CANTIDAD_CRITICA
+                            //    };
+                            //    //jArray.Add(JObject.FromObject(stock));
+                            //    jArray.Add(stock);
+                            //}
+
+                            //var tmp2 = new { tmp.CODIGO, tmp.DESCRIPCION, tmp.EPRTA_ARTICULO_BODEGA };
+                            //var tmp = unitOfWork.ArticuloBodegaRepository.GetAll().Where(c => c.ID_ITEM == pid);
+
+                            var stock = from arti in item.EPRTA_ARTICULO_BODEGA
+                                        select new
+                                        {
+                                            BODEGA = arti.EPRTA_BODEGA.NOMBRE,
+                                            arti.CANTIDAD_MAXIMA,
+                                            arti.CANTIDAD_MINIMA,
+                                            arti.CANTIDAD_ACTUAL,
+                                            arti.CANTIDAD_BAJA,
+                                            arti.CANTIDAD_CRITICA
+                                        };
+                            retorna.Add("data", JArray.FromObject(stock));
+                            retorna.Add("resultado", "success");
+               
+                        }
+                    }
+                }
+
+
+          
+                
+
+            }catch(Exception ex)
+            {
+                retorna.Add("resultado", "error");
+                retorna.Add("msg", ex.Message);
+            }
+            return Content(retorna.ToString(), "application/json");
+        }
+
+        private bool DisponibilidadCodigo(string pcodigo)
+        {
+            EPRTA_ITEM item = (from p in unitOfWork.ItemRepository.GetAll() where p.CODIGO == pcodigo select p).FirstOrDefault();
+            if (item == null)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
     }

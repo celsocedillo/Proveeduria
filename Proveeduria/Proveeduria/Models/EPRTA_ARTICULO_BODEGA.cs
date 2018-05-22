@@ -14,7 +14,7 @@ namespace Proveduria.Models
     
     public partial class EPRTA_ARTICULO_BODEGA
     {
-        public byte ID_ARTIBODE { get; set; }
+        public int ID_ARTIBODE { get; set; }
         public byte ID_BODEGA { get; set; }
         public int ID_ITEM { get; set; }
         public Nullable<int> CANTIDAD_MAXIMA { get; set; }

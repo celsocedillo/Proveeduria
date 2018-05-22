@@ -13,7 +13,7 @@ function CargaDatos() {
         contentType: 'application/json; charset=utf-8',
         url: "/Item/GetListaItem",
         beforeSend: function () {
-            run_waitMe($(".box-body"), 'Cargando...');
+            run_waitMe($(".box"), 'Cargando...');
         },
         success: function (data) {
             if (data.error) {
@@ -29,10 +29,10 @@ function CargaDatos() {
                 tabitem.rows.add(data);
                 tabitem.draw();
             }
-            $(".box-body").waitMe('hide');
+            $(".box").waitMe('hide');
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            $(".box-body").waitMe('hide');
+            $(".box").waitMe('hide');
             swal({
                 type: 'error',
                 text: 'Error al cargar los datos.',
@@ -83,27 +83,38 @@ var ListaItem = function () {
                     "type": "POST",
                     "error": function () {
                         console.log("error remote load data using datatable");
+                    },
+                    'beforeSend': function (request) {
+                        run_waitMe($(".box"), 'Cargando...');
+                    },
+                    "complete": function (request) {
+                        $(".box").waitMe('hide');
                     }
                 },
+                "columnDefs":
+                    [
+                        { "targets": [0], "visible": false, "orderable": false },
+                        { "targets": [5], "orderable": false }
+                    ],
                 "columns": [
                     { "data": "ID_ITEM", "orderable": false },
                     { "data": "CODIGO", "orderable": true },
                     { "data": "DESCRIPCION", "orderable": true },
                     { "data": "MEDIDA", "orderable": true },
                     { "data": "GRUPO", "orderable": true },
-                    { "data": "ACCION"}
+                    { "data": "ACCION", "orderable": true }
                 ],
                 "order": [[0, "asc"]]
             });
 
             //CargaDatos();
 
-            tabitem.on('click', 'button.clsedit', function (e) {
-                var row = $(this).closest('tr');
-                var data = tabitem.row($(this).parents('tr')).data();
-                window.location.href = '/Item/Item/'+data.ID_ITEM;
+            //tabitem.on('click', 'button.clsedit', function (e) {
+            //    var row = $(this).closest('tr');
+            //    var data = tabitem.row($(this).parents('tr')).data();
+            //    window.location.href = '/Item/Item/'+data.ID_ITEM;
 
-            });
+            //});
 
             $("#butNuevo").on('click', function () {
                 window.location.href = '/Item/Item/0';
