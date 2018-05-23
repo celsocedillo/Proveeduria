@@ -15,6 +15,7 @@ namespace Proveduria.Repositories
         private GenericRepository<EPRTA_MEDIDA> medidaRepository = null;
         private GenericRepository<EPRTA_ITEM> itemRepository = null;
         private GenericRepository<EPRTA_ARTICULO_BODEGA> articuloBodegaRepository = null;
+        private GenericRepository<EPRTA_BODEGA> bodegaRepository = null;
 
 
         public GenericRepository<EPRTA_TIPO_MOVIMIENTO> TipoMovimientoRepository
@@ -79,6 +80,19 @@ namespace Proveduria.Repositories
                 return articuloBodegaRepository;
             }
         }
+
+        public GenericRepository<EPRTA_BODEGA> BodegaRepository
+        {
+            get
+            {
+                if (bodegaRepository == null)
+                {
+                    bodegaRepository = new GenericRepository<EPRTA_BODEGA>(context);
+                }
+                return bodegaRepository;
+            }
+        }
+
 
 
         public void Save()
