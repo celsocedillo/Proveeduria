@@ -15,6 +15,8 @@ namespace Proveduria.Controllers
 {
     public class TipoMovimientoController : Controller
     {
+
+
         private UnitOfWork unitOfWork = new UnitOfWork();
         private static Logger logger = LogManager.GetCurrentClassLogger();
         // GET: TipoMovimiento
@@ -25,39 +27,45 @@ namespace Proveduria.Controllers
         }
 
         [HttpPost]
-        public JsonResult GetTipoMovimiento(int pid)
+        public ActionResult GetTipoMovimiento(int pid)
         {
+            JObject retorno = new JObject();
             try
             {
                 EPRTA_TIPO_MOVIMIENTO tipomov = unitOfWork.TipoMovimientoRepository.GetById(pid);
-                return Json(new { resultado = "success", data = tipomov, mensaje = "" });
+                retorno.Add("resultado", "success");
+                retorno.Add("data", JObject.FromObject(tipomov));
+                //return Json(new { resultado = "success", data = new { tipomov.ID_TIPO_MOVIMIENTO, tipomov.NOMBRE, tipomov.INGRESO_EGRESO, tipomov.ESTADO }, mensaje = "" });
 
             }
             catch (Exception ex)
             {
-                return Json(new { resultado = "error", data = "", mensaje = " Error al consultar el tipo de movimiento, favor revisar las conecciones de base de datos => [" + ex + "]" });
+                retorno.Add("resultado", "error");
+                retorno.Add("msg", ex.Message);
+
+                //return Json(new { resultado = "error", data = "", mensaje = " Error al consultar el tipo de movimiento, favor revisar las conecciones de base de datos => [" + ex + "]" });
             }
+            return Content(retorno.ToString(), "application/json");
         }
 
         [HttpPost]
         public ActionResult GetListaTipoMovimiento()
         {
-            JObject retorna = new JObject();
+            JObject retorno = new JObject();
             try
             {
                 var query = from d in unitOfWork.TipoMovimientoRepository.GetAll()
                             select new { d.ID_TIPO_MOVIMIENTO, d.NOMBRE, d.INGRESO_EGRESO, d.ESTADO, TIPO_INGEGR = d.INGRESO_EGRESO.Equals("I") ? "INGRESO" : "EGRESO" };
-                retorna = new JObject();
-                retorna.Add("data", JsonConvert.SerializeObject(query));
-                retorna.Add("error", false);
-
+                retorno.Add("resultado", "success");
+                retorno.Add("data", JArray.FromObject(query));
             }
             catch (Exception ex)
             {
-                retorna.Add("error", true);
+                retorno.Add("resultado", "success");
+                retorno.Add("msg", ex.Message);
                 logger.Error(ex, ex.Message);
             }
-            return Content(retorna.ToString(), "application/json");
+            return Content(retorno.ToString(), "application/json");
         }
 
         [HttpPost]
@@ -69,8 +77,11 @@ namespace Proveduria.Controllers
             {
                 if (precord.ID_TIPO_MOVIMIENTO == 0)
                 {
-                    precord.ESTADO = "A";
-                    unitOfWork.TipoMovimientoRepository.Insert(precord);
+                    record = new EPRTA_TIPO_MOVIMIENTO();
+                    record.NOMBRE = precord.NOMBRE;
+                    record.INGRESO_EGRESO = precord.INGRESO_EGRESO;
+                    record.ESTADO = "A";
+                    unitOfWork.TipoMovimientoRepository.Insert(record);
                     unitOfWork.Save();
                 }
                 else
@@ -85,6 +96,7 @@ namespace Proveduria.Controllers
                 retorno.Add("resultado", "success");
                 retorno.Add("data", null);
                 retorno.Add("mensaje", "");
+                logger.Info("Dato Grabado");
             }
             catch(Exception ex)
             {

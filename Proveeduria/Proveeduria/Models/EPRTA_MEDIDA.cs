@@ -22,6 +22,7 @@ namespace Proveduria.Models
     
         public byte ID_MEDIDA { get; set; }
         public string NOMBRE { get; set; }
+        public string ESTADO { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EPRTA_ITEM> EPRTA_ITEM { get; set; }

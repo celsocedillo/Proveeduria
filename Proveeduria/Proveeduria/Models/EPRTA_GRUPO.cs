@@ -21,10 +21,10 @@ namespace Proveduria.Models
         }
     
         public byte ID_GRUPO { get; set; }
+        public string CODIGO { get; set; }
         public string NOMBRE { get; set; }
         public string ESTADO { get; set; }
         public string CUENTA_CONTABLE { get; set; }
-        public string CODIGO_GRUPO { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EPRTA_ITEM> EPRTA_ITEM { get; set; }

@@ -1,0 +1,105 @@
+     ---------------------------- Info(2018-05-16 10:42:09.8810) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : 
+      
+              Exception Message : 
+     
+              Inner Exception  : 
+ 
+              Stack Trace   : 
+        
+              Additional Info  : Dato Grabado  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Info(2018-05-16 10:42:25.2370) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : 
+      
+              Exception Message : 
+     
+              Inner Exception  : 
+ 
+              Stack Trace   : 
+        
+              Additional Info  : Dato Grabado  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Info(2018-05-16 11:08:18.3810) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : 
+      
+              Exception Message : 
+     
+              Inner Exception  : 
+ 
+              Stack Trace   : 
+        
+              Additional Info  : Dato Grabado  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Info(2018-05-16 11:08:48.2170) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : 
+      
+              Exception Message : 
+     
+              Inner Exception  : 
+ 
+              Stack Trace   : 
+        
+              Additional Info  : Dato Grabado  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Info(2018-05-16 11:09:15.8430) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : 
+      
+              Exception Message : 
+     
+              Inner Exception  : 
+ 
+              Stack Trace   : 
+        
+              Additional Info  : Dato Grabado  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Info(2018-05-16 11:10:39.1240) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : 
+      
+              Exception Message : 
+     
+              Inner Exception  : 
+ 
+              Stack Trace   : 
+        
+              Additional Info  : Dato Grabado  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Info(2018-05-16 11:10:52.0650) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : 
+      
+              Exception Message : 
+     
+              Inner Exception  : 
+ 
+              Stack Trace   : 
+        
+              Additional Info  : Dato Grabado  
+              -------------------------------------------------------------------
+              ----------     
+     

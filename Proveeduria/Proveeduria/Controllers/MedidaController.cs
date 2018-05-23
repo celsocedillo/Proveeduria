@@ -126,6 +126,7 @@ namespace Proveduria.Controllers
             {
                 if (precord.ID_MEDIDA == 0)
                 {
+                    precord.ESTADO = "A";
                     unitOfWork.MedidaRepository.Insert(precord);
                     unitOfWork.Save();
                 }
@@ -133,6 +134,7 @@ namespace Proveduria.Controllers
                 {
                     record = unitOfWork.MedidaRepository.GetById(precord.ID_MEDIDA);
                     record.NOMBRE = precord.NOMBRE;
+                    record.ESTADO = "A";
                     unitOfWork.MedidaRepository.Update(record);
                     unitOfWork.Save();
                 }

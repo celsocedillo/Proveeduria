@@ -180,6 +180,8 @@
     <Compile Include="Controllers\GrupoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InvMedidaController.cs" />
+    <Compile Include="Controllers\ItemController.cs" />
+    <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Controllers\MedidaController.cs" />
     <Compile Include="Controllers\TipoMovimientoController.cs" />
     <Compile Include="Global.asax.cs">
@@ -227,6 +229,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ModeloProveduria.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Models\Usuario.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
     <Compile Include="Repositories\IGenericRepository.cs" />
@@ -6875,6 +6878,10 @@
       <LastGenOutput>ModeloProveduria.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\App\InvMedida.js" />
+    <Content Include="Scripts\App\Item.js" />
+    <Content Include="Scripts\App\ListaItem.js" />
+    <Content Include="Scripts\App\Medida.js" />
+    <Content Include="Scripts\App\TipoMovimiento.js" />
     <Content Include="Scripts\App\Util.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -7359,6 +7366,7 @@
       <DependentUpon>ModeloProveduria.edmx</DependentUpon>
     </Content>
     <Content Include="Content\bower_components\_images\Sorting icons.psd" />
+    <Content Include="Content\bower_components\datatable\Spanish.json" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
@@ -7394,9 +7402,12 @@
     <Content Include="Views\TipoMovimiento\ListaTipoMovimiento.cshtml" />
     <Content Include="Views\Grupo\ListaGrupo.cshtml" />
     <Content Include="Views\Medida\ListaMedida.cshtml" />
+    <Content Include="Views\Item\ListaItem.cshtml" />
+    <Content Include="Views\Item\Item.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Login\" />
     <Folder Include="Views\Referencias\" />
   </ItemGroup>
   <ItemGroup>

@@ -8,13 +8,18 @@ namespace Proveduria.Controllers
 {
     public class HomeController : Controller
     {
+        
         public ActionResult Index()
         {
+            UsuarioController usuarioController = new UsuarioController();
+            ViewBag.usuario = UsuarioController.usuario.usuario;
+            ViewBag.nombre = UsuarioController.usuario.nombre;
             return View();
         }
 
         public ActionResult About()
         {
+            
             ViewBag.Message = "YourCierra celso application description page.";
 
             return View();

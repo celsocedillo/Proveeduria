@@ -1,0 +1,95 @@
+﻿
+@{
+    ViewBag.Title = "ListaItem";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section styles {
+    <!-- DataTables -->
+    @*<link rel="stylesheet" href=@Url.Content("/Content/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css")>*@
+
+
+}
+
+<style>
+    /*.lblMsg {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 13px;
+        font-weight: bold;
+    }*/
+    .registro_inactivo {
+        background-color: #fccfcf;
+    }
+</style>
+
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Items
+    </h1>
+</section>
+
+<!-- Main content -->
+<section class="content">
+
+    <p>
+    </p>
+
+    <!-- begin panel -->
+    <div class="box">
+        <div class="box-body no-padding">
+            <div class="btn-group">
+                <button id="butNuevo" class="btn btn-primary btn-xs btn-flat">
+                    <i class="fa fa-plus"></i>  Nuevo
+                </button>
+            </div>
+            <table id="tabItem" class="table table-striped hover compact">
+                <thead>
+                    <tr>
+                        <th>
+                            Id
+                        </th>
+                        <th>
+                            Código
+                        </th>
+                        <th>
+                            Nombre
+                        </th>
+                        <th>
+                            Medida
+                        </th>
+                        <th>
+                            Grupo
+                        </th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+
+        </div>
+    </div>
+    <!-- end panel -->
+
+    
+
+</section>
+
+@section scripts {
+    <!-- DataTables -->
+    @*<script src=@Url.Content("/Content/bower_components/datatables.net/js/jquery.dataTables.min.js")></script>
+        <script src=@Url.Content("/Content/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js")></script>*@
+
+    <script type="text/javascript" src=@Url.Content("/Scripts/App/ListaItem.js")></script>
+    <script type="text/javascript">
+
+
+        $(document).ready(function () {
+            ListaItem.init();
+        });
+
+
+    </script>
+}
+
