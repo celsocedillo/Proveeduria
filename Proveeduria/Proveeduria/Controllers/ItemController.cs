@@ -258,5 +258,12 @@ namespace Proveduria.Controllers
             }
         }
 
+        protected override void Dispose(bool disposing)
+        {
+            unitOfWork.Dispose();
+            base.Dispose(disposing);
+        }
+
+
     }
 }

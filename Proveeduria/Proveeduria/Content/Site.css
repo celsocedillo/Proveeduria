@@ -142,3 +142,7 @@ label {
 .table > tfoot > tr > td {
     border-top: 1px solid #e4d2d2;
 }
+
+table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
+    background-color: #bfb5b5;
+}

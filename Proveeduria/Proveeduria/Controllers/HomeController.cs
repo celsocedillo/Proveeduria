@@ -14,6 +14,8 @@ namespace Proveduria.Controllers
             UsuarioController usuarioController = new UsuarioController();
             ViewBag.usuario = UsuarioController.usuario.usuario;
             ViewBag.nombre = UsuarioController.usuario.nombre;
+            Session["usuario"] = "CCEDILLO";
+            Session["nombre"] = "Celso Cedillo";
             return View();
         }
 

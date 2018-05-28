@@ -123,13 +123,22 @@
           <Property Name="ESTADO" Type="varchar2" MaxLength="1" />
         </EntityType>
         <!--Errores durante la generación:
-advertencia 6013: La tabla o vista 'PROVEDURIA.TAB_MIGRACION' no tiene definida una clave principal y no es posible inferir ninguna clave principal válida. Esta tabla o vista se ha excluido. Para usar la entidad, necesitará revisar el esquema, agregar las claves correctas y quitar sus comentarios.
-        <EntityType Name="TAB_MIGRACION">
-          <Property Name="TABLA" Type="varchar2" MaxLength="150" />
-          <Property Name="IDN" Type="number" Precision="10" Scale="0" />
-          <Property Name="IDV" Type="number" Precision="10" Scale="0" />
-          <Property Name="IDS" Type="varchar2" MaxLength="60" />
-        </EntityType>-->
+advertencia 6002: La tabla o vista 'PROVEDURIA.VW_EMPLEADO' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="VW_EMPLEADO">
+          <Key>
+            <PropertyRef Name="CODIGO" />
+          </Key>
+          <Property Name="CODIGO" Type="number" Precision="6" Scale="0" Nullable="false" />
+          <Property Name="CEDULA" Type="varchar2" MaxLength="15" Nullable="false" />
+          <Property Name="EMPLEADO" Type="varchar2" MaxLength="123" />
+          <Property Name="GRADO_ID" Type="number" Precision="6" Scale="0" />
+          <Property Name="GRADO" Type="varchar2" MaxLength="20" Nullable="false" />
+          <Property Name="CARGO_ID" Type="number" Precision="6" Scale="0" />
+          <Property Name="CARGO" Type="varchar2" MaxLength="80" Nullable="false" />
+          <Property Name="DIRECCION_ID" Type="number" Precision="4" Scale="0" />
+          <Property Name="USUARIO" Type="varchar2" MaxLength="15" />
+          <Property Name="ESTADO" Type="varchar2" MaxLength="1" Nullable="false" />
+        </EntityType>
         <Association Name="EPRCN_ARTBOD_ITEM_FK">
           <End Role="EPRTA_ITEM" Type="Self.EPRTA_ITEM" Multiplicity="1" />
           <End Role="EPRTA_ARTICULO_BODEGA" Type="Self.EPRTA_ARTICULO_BODEGA" Multiplicity="*" />
@@ -264,6 +273,20 @@ advertencia 6013: La tabla o vista 'PROVEDURIA.TAB_MIGRACION' no tiene definida 
           <EntitySet Name="EPRTA_MOVIMIENTO_DETALLE" EntityType="Self.EPRTA_MOVIMIENTO_DETALLE" Schema="PROVEDURIA" store:Type="Tables" />
           <EntitySet Name="EPRTA_SECUENCIA" EntityType="Self.EPRTA_SECUENCIA" Schema="PROVEDURIA" store:Type="Tables" />
           <EntitySet Name="EPRTA_TIPO_MOVIMIENTO" EntityType="Self.EPRTA_TIPO_MOVIMIENTO" Schema="PROVEDURIA" store:Type="Tables" />
+          <EntitySet Name="VW_EMPLEADO" EntityType="Self.VW_EMPLEADO" store:Type="Views" store:Schema="PROVEDURIA">
+            <DefiningQuery>SELECT 
+"VW_EMPLEADO"."CODIGO" AS "CODIGO", 
+"VW_EMPLEADO"."CEDULA" AS "CEDULA", 
+"VW_EMPLEADO"."EMPLEADO" AS "EMPLEADO", 
+"VW_EMPLEADO"."GRADO_ID" AS "GRADO_ID", 
+"VW_EMPLEADO"."GRADO" AS "GRADO", 
+"VW_EMPLEADO"."CARGO_ID" AS "CARGO_ID", 
+"VW_EMPLEADO"."CARGO" AS "CARGO", 
+"VW_EMPLEADO"."DIRECCION_ID" AS "DIRECCION_ID", 
+"VW_EMPLEADO"."USUARIO" AS "USUARIO", 
+"VW_EMPLEADO"."ESTADO" AS "ESTADO"
+FROM "PROVEDURIA"."VW_EMPLEADO" "VW_EMPLEADO"</DefiningQuery>
+          </EntitySet>
           <AssociationSet Name="EPRCN_ARTBOD_ITEM_FK" Association="Self.EPRCN_ARTBOD_ITEM_FK">
             <End Role="EPRTA_ITEM" EntitySet="EPRTA_ITEM" />
             <End Role="EPRTA_ARTICULO_BODEGA" EntitySet="EPRTA_ARTICULO_BODEGA" />
@@ -359,6 +382,7 @@ advertencia 6013: La tabla o vista 'PROVEDURIA.TAB_MIGRACION' no tiene definida 
             <End Role="EPRTA_TIPO_MOVIMIENTO" EntitySet="EPRTA_TIPO_MOVIMIENTO" />
             <End Role="EPRTA_SECUENCIA" EntitySet="EPRTA_SECUENCIA" />
           </AssociationSet>
+          <EntitySet Name="VW_EMPLEADO" EntityType="ModelProveduria.VW_EMPLEADO" />
         </EntityContainer>
         <EntityType Name="EPRTA_ARTICULO_BODEGA">
           <Key>
@@ -621,6 +645,21 @@ advertencia 6013: La tabla o vista 'PROVEDURIA.TAB_MIGRACION' no tiene definida 
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="VW_EMPLEADO">
+          <Key>
+            <PropertyRef Name="CODIGO" />
+          </Key>
+          <Property Name="CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="CEDULA" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="EMPLEADO" Type="String" MaxLength="123" FixedLength="false" Unicode="false" />
+          <Property Name="GRADO_ID" Type="Int32" />
+          <Property Name="GRADO" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CARGO_ID" Type="Int32" />
+          <Property Name="CARGO" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="DIRECCION_ID" Type="Int16" />
+          <Property Name="USUARIO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -750,6 +789,22 @@ advertencia 6013: La tabla o vista 'PROVEDURIA.TAB_MIGRACION' no tiene definida 
                 <ScalarProperty Name="INGRESO_EGRESO" ColumnName="INGRESO_EGRESO" />
                 <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
                 <ScalarProperty Name="ID_TIPO_MOVIMIENTO" ColumnName="ID_TIPO_MOVIMIENTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VW_EMPLEADO">
+            <EntityTypeMapping TypeName="ModelProveduria.VW_EMPLEADO">
+              <MappingFragment StoreEntitySet="VW_EMPLEADO">
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="USUARIO" ColumnName="USUARIO" />
+                <ScalarProperty Name="DIRECCION_ID" ColumnName="DIRECCION_ID" />
+                <ScalarProperty Name="CARGO" ColumnName="CARGO" />
+                <ScalarProperty Name="CARGO_ID" ColumnName="CARGO_ID" />
+                <ScalarProperty Name="GRADO" ColumnName="GRADO" />
+                <ScalarProperty Name="GRADO_ID" ColumnName="GRADO_ID" />
+                <ScalarProperty Name="EMPLEADO" ColumnName="EMPLEADO" />
+                <ScalarProperty Name="CEDULA" ColumnName="CEDULA" />
+                <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

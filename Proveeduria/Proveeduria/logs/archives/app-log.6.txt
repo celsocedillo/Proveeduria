@@ -1,78 +1,64 @@
-     ---------------------------- Error(2018-04-27 11:40:55.5651) --------------------------    
+     ---------------------------- Error(2018-05-08 17:02:43.1243) --------------------------    
               Machine Name  : CCEDILLO
    
-              Exception Type  : System.ArgumentException
+              Exception Type  : System.NullReferenceException
       
-              Exception Message : Can not add Newtonsoft.Json.Linq.JValue to Newtonsoft.Json.Linq.JObject.
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
      
-              Inner Exception  : System.ArgumentException: Can not add Newtonsoft.Json.Linq.JValue to Newtonsoft.Json.Linq.JObject.
-   en Newtonsoft.Json.Linq.JObject.ValidateToken(JToken o, JToken existing)
-   en Newtonsoft.Json.Linq.JContainer.InsertItem(Int32 index, JToken item, Boolean skipParentCheck)
-   en Newtonsoft.Json.Linq.JObject.InsertItem(Int32 index, JToken item, Boolean skipParentCheck)
-   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
-   en Newtonsoft.Json.Linq.JContainer.Add(Object content)
-   en Proveduria.Controllers.TipoMovimientoController.GetListaTipoMovimiento() en C:\Emapag\Produccion\Proveduria\Proveeduria\WebApplicationMvc\Controllers\TipoMovimientoController.cs:línea 52 
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.TipoMovimientoController.Grabar(EPRTA_TIPO_MOVIMIENTO precord) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\TipoMovimientoController.cs:línea 70 
  
-              Stack Trace   :    en Newtonsoft.Json.Linq.JObject.ValidateToken(JToken o, JToken existing)
-   en Newtonsoft.Json.Linq.JContainer.InsertItem(Int32 index, JToken item, Boolean skipParentCheck)
-   en Newtonsoft.Json.Linq.JObject.InsertItem(Int32 index, JToken item, Boolean skipParentCheck)
-   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
-   en Newtonsoft.Json.Linq.JContainer.Add(Object content)
-   en Proveduria.Controllers.TipoMovimientoController.GetListaTipoMovimiento() en C:\Emapag\Produccion\Proveduria\Proveeduria\WebApplicationMvc\Controllers\TipoMovimientoController.cs:línea 52
+              Stack Trace   :    en Proveduria.Controllers.TipoMovimientoController.Grabar(EPRTA_TIPO_MOVIMIENTO precord) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\TipoMovimientoController.cs:línea 70
         
-              Additional Info  : Can not add Newtonsoft.Json.Linq.JValue to Newtonsoft.Json.Linq.JObject.  
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-04-27 11:42:11.9849) --------------------------    
+     ---------------------------- Error(2018-05-08 17:18:25.5225) --------------------------    
               Machine Name  : CCEDILLO
    
-              Exception Type  : System.ArgumentException
+              Exception Type  : System.NullReferenceException
       
-              Exception Message : Can not add Newtonsoft.Json.Linq.JValue to Newtonsoft.Json.Linq.JObject.
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
      
-              Inner Exception  : System.ArgumentException: Can not add Newtonsoft.Json.Linq.JValue to Newtonsoft.Json.Linq.JObject.
-   en Newtonsoft.Json.Linq.JObject.ValidateToken(JToken o, JToken existing)
-   en Newtonsoft.Json.Linq.JContainer.InsertItem(Int32 index, JToken item, Boolean skipParentCheck)
-   en Newtonsoft.Json.Linq.JObject.InsertItem(Int32 index, JToken item, Boolean skipParentCheck)
-   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
-   en Newtonsoft.Json.Linq.JContainer.Add(Object content)
-   en Proveduria.Controllers.TipoMovimientoController.GetListaTipoMovimiento() en C:\Emapag\Produccion\Proveduria\Proveeduria\WebApplicationMvc\Controllers\TipoMovimientoController.cs:línea 52 
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.TipoMovimientoController.Grabar(EPRTA_TIPO_MOVIMIENTO precord) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\TipoMovimientoController.cs:línea 70 
  
-              Stack Trace   :    en Newtonsoft.Json.Linq.JObject.ValidateToken(JToken o, JToken existing)
-   en Newtonsoft.Json.Linq.JContainer.InsertItem(Int32 index, JToken item, Boolean skipParentCheck)
-   en Newtonsoft.Json.Linq.JObject.InsertItem(Int32 index, JToken item, Boolean skipParentCheck)
-   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
-   en Newtonsoft.Json.Linq.JContainer.Add(Object content)
-   en Proveduria.Controllers.TipoMovimientoController.GetListaTipoMovimiento() en C:\Emapag\Produccion\Proveduria\Proveeduria\WebApplicationMvc\Controllers\TipoMovimientoController.cs:línea 52
+              Stack Trace   :    en Proveduria.Controllers.TipoMovimientoController.Grabar(EPRTA_TIPO_MOVIMIENTO precord) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\TipoMovimientoController.cs:línea 70
         
-              Additional Info  : Can not add Newtonsoft.Json.Linq.JValue to Newtonsoft.Json.Linq.JObject.  
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-04-27 11:42:23.7560) --------------------------    
+     ---------------------------- Error(2018-05-08 17:36:17.5937) --------------------------    
               Machine Name  : CCEDILLO
    
-              Exception Type  : System.ArgumentException
+              Exception Type  : System.NullReferenceException
       
-              Exception Message : Can not add Newtonsoft.Json.Linq.JValue to Newtonsoft.Json.Linq.JObject.
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
      
-              Inner Exception  : System.ArgumentException: Can not add Newtonsoft.Json.Linq.JValue to Newtonsoft.Json.Linq.JObject.
-   en Newtonsoft.Json.Linq.JObject.ValidateToken(JToken o, JToken existing)
-   en Newtonsoft.Json.Linq.JContainer.InsertItem(Int32 index, JToken item, Boolean skipParentCheck)
-   en Newtonsoft.Json.Linq.JObject.InsertItem(Int32 index, JToken item, Boolean skipParentCheck)
-   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
-   en Newtonsoft.Json.Linq.JContainer.Add(Object content)
-   en Proveduria.Controllers.TipoMovimientoController.GetListaTipoMovimiento() en C:\Emapag\Produccion\Proveduria\Proveeduria\WebApplicationMvc\Controllers\TipoMovimientoController.cs:línea 52 
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.TipoMovimientoController.Grabar(EPRTA_TIPO_MOVIMIENTO precord) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\TipoMovimientoController.cs:línea 70 
  
-              Stack Trace   :    en Newtonsoft.Json.Linq.JObject.ValidateToken(JToken o, JToken existing)
-   en Newtonsoft.Json.Linq.JContainer.InsertItem(Int32 index, JToken item, Boolean skipParentCheck)
-   en Newtonsoft.Json.Linq.JObject.InsertItem(Int32 index, JToken item, Boolean skipParentCheck)
-   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
-   en Newtonsoft.Json.Linq.JContainer.Add(Object content)
-   en Proveduria.Controllers.TipoMovimientoController.GetListaTipoMovimiento() en C:\Emapag\Produccion\Proveduria\Proveeduria\WebApplicationMvc\Controllers\TipoMovimientoController.cs:línea 52
+              Stack Trace   :    en Proveduria.Controllers.TipoMovimientoController.Grabar(EPRTA_TIPO_MOVIMIENTO precord) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\TipoMovimientoController.cs:línea 70
         
-              Additional Info  : Can not add Newtonsoft.Json.Linq.JValue to Newtonsoft.Json.Linq.JObject.  
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-05-08 17:40:14.3354) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.TipoMovimientoController.Grabar(EPRTA_TIPO_MOVIMIENTO precord) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\TipoMovimientoController.cs:línea 70 
+ 
+              Stack Trace   :    en Proveduria.Controllers.TipoMovimientoController.Grabar(EPRTA_TIPO_MOVIMIENTO precord) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\TipoMovimientoController.cs:línea 70
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
               -------------------------------------------------------------------
               ----------     
      
