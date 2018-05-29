@@ -232,6 +232,9 @@
       <DependentUpon>ModeloProveduria.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\VW_EMPLEADO.cs">
+      <DependentUpon>ModeloProveduria.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
     <Compile Include="Repositories\IGenericRepository.cs" />
@@ -6883,6 +6886,7 @@
     <Content Include="Scripts\App\Item.js" />
     <Content Include="Scripts\App\ListaItem.js" />
     <Content Include="Scripts\App\ListaSolicitud.js" />
+    <Content Include="Scripts\App\Solicitud.js" />
     <Content Include="Scripts\App\TipoMovimiento.js" />
     <Content Include="Scripts\App\Util.js" />
     <Content Include="Scripts\bootstrap.js" />
@@ -7407,6 +7411,7 @@
     <Content Include="Views\Item\ListaItem.cshtml" />
     <Content Include="Views\Item\Item.cshtml" />
     <Content Include="Views\Solicitud\ListaSolicitud.cshtml" />
+    <Content Include="Views\Solicitud\Solicitud.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

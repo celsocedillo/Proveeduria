@@ -33,10 +33,10 @@ namespace Proveduria.Models
         public string OBSERVACION { get; set; }
         public byte ID_GRUPO { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EPRTA_ARTICULO_BODEGA> EPRTA_ARTICULO_BODEGA { get; set; }
         public virtual EPRTA_GRUPO EPRTA_GRUPO { get; set; }
         public virtual EPRTA_MEDIDA EPRTA_MEDIDA { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EPRTA_ARTICULO_BODEGA> EPRTA_ARTICULO_BODEGA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EPRTA_MOVIMIENTO_DETALLE> EPRTA_MOVIMIENTO_DETALLE { get; set; }
     }

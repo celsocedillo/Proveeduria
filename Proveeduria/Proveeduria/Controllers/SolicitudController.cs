@@ -61,7 +61,11 @@ namespace Proveduria.Controllers
                                FECHA_APROBACION = p.FECHA_APROBACION.HasValue ? p.FECHA_APROBACION.Value.ToString("dd/MM/yyyy") : null,
                                EMPLEADO_SOLICITA = us.EMPLEADO,
                                EMPLEADO_APRUEBA = ua.EMPLEADO,
-                               EMPLEADO_AUTORIZA = ut.EMPLEADO
+                               EMPLEADO_AUTORIZA = ut.EMPLEADO,
+                               ACCION = "<a href='/Solicitud/Solicitud/" + p.ID_MOVIMIENTO + "' class='text-inverse' data-toggle='tooltip' title='Modificar'>" +
+                                        "<i class='fa fa-pencil' aria-hidden='true'></i>" +
+                                        "</a>"
+
                            }).ToList();
                 enviar.Add("resultado", "success");
                 enviar.Add("data", JArray.FromObject(tmp));
@@ -76,47 +80,54 @@ namespace Proveduria.Controllers
 
         }
 
-        [HttpPost]
-        public ActionResult GetSolicitud(int psolicitud_id)
+        public ActionResult Solicitud(int id)
         {
-            JArray jArray = new JArray();
-            JObject enviar = new JObject();
+            //JArray jArray = new JArray();
+            //JObject enviar = new JObject();
+            EPRTA_MOVIMIENTO movimiento = null;
             try
             {
-                var movimiento = unitOfWork.MovimientoRepository.GetById(psolicitud_id);
+                movimiento = unitOfWork.MovimientoRepository.GetById(id);
                 var empleados = (from e in unitOfWork.EmpleadoRepository.GetAll() select e);
-                var tmp = new
-                {
-                    movimiento.ID_MOVIMIENTO,
-                    movimiento.ANIO,
-                    movimiento.NUMERO_MOVIMIENTO,
-                    FECHA_SOLICITUD = movimiento.FECHA_SOLICITUD.HasValue ? movimiento.FECHA_SOLICITUD.Value.ToString("dd/MM/yyyy") : null,
-                    movimiento.OBSERVACION,
-                    movimiento.ID_TIPO_MOVIMIENTO,
-                    movimiento.ESTADO,
-                    NOMBREESTADO = (
-                                        movimiento.ESTADO.Equals("D") ? "DESPACHADO" :
-                                        movimiento.ESTADO.Equals("E") ? "ANULADO" :
-                                        movimiento.ESTADO.Equals("A") ? "AUTORIZADO" :
-                                        movimiento.ESTADO.Equals("S") ? "SOLICITADO" : null),
-                    movimiento.USUARIO_AUTORIZA,
-                    movimiento.USUARIO_APRUEBA,
-                    FECHA_AUTORIZACION = movimiento.FECHA_AUTORIZACION.HasValue ? movimiento.FECHA_AUTORIZACION.Value.ToString("dd/MM/yyyy") : null,
-                    FECHA_APROBACION = movimiento.FECHA_APROBACION.HasValue ? movimiento.FECHA_APROBACION.Value.ToString("dd/MM/yyyy") : null,
-                    EMPLEADO_SOLICITA = (from us in empleados where us.USUARIO == movimiento.USUARIO_SOLICITA select us.EMPLEADO),
-                    EMPLEADO_APRUEBA = (from ua in empleados where ua.USUARIO == movimiento.USUARIO_APRUEBA select ua.EMPLEADO),
-                    EMPLEADO_AUTORIZA = (from ut in empleados where ut.USUARIO == movimiento.USUARIO_AUTORIZA select ut.EMPLEADO)
-                };
-                enviar.Add("resultado", "success");
-                enviar.Add("data", JObject.FromObject(tmp));
+
+                ViewBag.usuario_solicita = (string)(from p in empleados where p.USUARIO == movimiento.USUARIO_SOLICITA select p.EMPLEADO).FirstOrDefault();
+                ViewBag.usuario_aprueba = (from p in empleados where p.USUARIO == movimiento.USUARIO_APRUEBA select p.EMPLEADO).FirstOrDefault();
+                ViewBag.usuario_autoriza = (from p in empleados where p.USUARIO == movimiento.USUARIO_AUTORIZA select p.EMPLEADO).FirstOrDefault();
+
+                //var empleados = (from e in unitOfWork.EmpleadoRepository.GetAll() select e);
+                //var tmp = new
+                //{
+                //    movimiento.ID_MOVIMIENTO,
+                //    movimiento.ANIO,
+                //    movimiento.NUMERO_MOVIMIENTO,
+                //    FECHA_SOLICITUD = movimiento.FECHA_SOLICITUD.HasValue ? movimiento.FECHA_SOLICITUD.Value.ToString("dd/MM/yyyy") : null,
+                //    movimiento.OBSERVACION,
+                //    movimiento.ID_TIPO_MOVIMIENTO,
+                //    movimiento.ESTADO,
+                //    NOMBREESTADO = (
+                //                        movimiento.ESTADO.Equals("D") ? "DESPACHADO" :
+                //                        movimiento.ESTADO.Equals("E") ? "ANULADO" :
+                //                        movimiento.ESTADO.Equals("A") ? "AUTORIZADO" :
+                //                        movimiento.ESTADO.Equals("S") ? "SOLICITADO" : null
+                //                   ),
+                //    movimiento.USUARIO_AUTORIZA,
+                //    movimiento.USUARIO_APRUEBA,
+                //    FECHA_AUTORIZACION = movimiento.FECHA_AUTORIZACION.HasValue ? movimiento.FECHA_AUTORIZACION.Value.ToString("dd/MM/yyyy") : null,
+                //    FECHA_APROBACION = movimiento.FECHA_APROBACION.HasValue ? movimiento.FECHA_APROBACION.Value.ToString("dd/MM/yyyy") : null,
+                //    EMPLEADO_SOLICITA = (from us in empleados where us.USUARIO == movimiento.USUARIO_SOLICITA select us.EMPLEADO),
+                //    EMPLEADO_APRUEBA = (from ua in empleados where ua.USUARIO == movimiento.USUARIO_APRUEBA select ua.EMPLEADO),
+                //    EMPLEADO_AUTORIZA = (from ut in empleados where ut.USUARIO == movimiento.USUARIO_AUTORIZA select ut.EMPLEADO)
+                //};
+                //enviar.Add("resultado", "success");
+                //enviar.Add("data", JObject.FromObject(tmp));
             }
             catch (Exception ex)
             {
                 logger.Error(ex, ex.Message);
-                enviar.Add("resultado", "error");
-                enviar.Add("msg", ex.Message);
+                //enviar.Add("resultado", "error");
+                //enviar.Add("msg", ex.Message);
             }
-            return Content(enviar.ToString(), "application/json");
+            return View(movimiento);
 
         }
         protected override void Dispose(bool disposing)

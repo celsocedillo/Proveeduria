@@ -65,7 +65,8 @@ var ListaSolicitud = function () {
                     { "data": 'OBSERVACION' },
                     { "data": 'NOMBREESTADO' },
                     { "data": 'FECHA_SOLICITUD' },
-                    { "data": 'FECHA_APROBACION' }
+                    { "data": 'FECHA_APROBACION' },
+                    { "data": "ACCION", "orderable": true }
                 ]
             });
 
