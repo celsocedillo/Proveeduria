@@ -7415,6 +7415,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Reports\" />
     <Folder Include="Views\Login\" />
     <Folder Include="Views\Referencias\" />
   </ItemGroup>
