@@ -5,7 +5,11 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <Diagram DiagramId="79bb910bf7124bd586e47d114c90bc62" Name="Diagram1" ZoomLevel="47" >
+=======
+      <Diagram DiagramId="79bb910bf7124bd586e47d114c90bc62" Name="Diagram1" ZoomLevel="36" >
+>>>>>>> ddb219dc79e1f788cb7fc7b1a265a943679dc45c
         <EntityTypeShape EntityType="ModelProveduria.VW_EMPLEADO" Width="1.5" PointX="26.625" PointY="1.875" />
         <EntityTypeShape EntityType="ModelProveduria.EPRTA_BODEGA" Width="1.5" PointX="23.125" PointY="2" />
         <EntityTypeShape EntityType="ModelProveduria.EPRTA_GRUPO" Width="1.5" PointX="1.5" PointY="2.25" />

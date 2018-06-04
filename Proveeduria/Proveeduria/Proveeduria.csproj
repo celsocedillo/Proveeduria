@@ -239,6 +239,12 @@
       <DependentUpon>ModeloProveduria.tt</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reports\Cr_Egreso_Bodega.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Cr_Egreso_Bodega.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reports\Cr_Requisicion_Bodega.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -7476,6 +7482,10 @@
     <TypeScriptCompile Include="Content\bower_components\moment\moment.d.ts" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reports\Cr_Egreso_Bodega.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Cr_Egreso_Bodega.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\Cr_Requisicion_Bodega.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Cr_Requisicion_Bodega.cs</LastGenOutput>

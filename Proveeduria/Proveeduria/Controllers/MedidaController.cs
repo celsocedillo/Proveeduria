@@ -32,18 +32,24 @@ namespace Proveduria.Controllers
 
 
         [HttpPost]
-        public JsonResult GetMedida(int pid)
+        public ActionResult GetMedida(int pid)
         {
+            JObject jsonObject = new JObject();
             try
             {
-                EPRTA_MEDIDA medida = unitOfWork.MedidaRepository.GetById(pid);
-                return Json(new { resultado = "success", data = medida, mensaje = "" });
 
+                EPRTA_MEDIDA medida = unitOfWork.MedidaRepository.GetById(pid);
+                jsonObject.Add("ID_MEDIDA", medida.ID_MEDIDA);
+                jsonObject.Add("NOMBRE", medida.NOMBRE);
+                jsonObject.Add("resultado", "success");
+                jsonObject.Add("mensaje", "success");
             }
             catch (Exception ex)
             {
-                return Json(new { resultado = "error", data = "", mensaje = " Error al consultar la medida, favor revisar las conecciones de base de datos => [" + ex + "]" });
+                logger.Error(ex, ex.Message);
+                jsonObject.Add("resultado", "error");
             }
+            return Content(jsonObject.ToString(), "application/json");
         }
 
         //[HttpPost]
@@ -107,7 +113,7 @@ namespace Proveduria.Controllers
                 //unitOfWork.Dispose();
                 jObject.Add("error", false);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 jObject.Add("error", true);
                 logger.Error(ex, ex.Message);
@@ -124,6 +130,7 @@ namespace Proveduria.Controllers
             {
                 if (precord.ID_MEDIDA == 0)
                 {
+                    precord.ESTADO = "A";
                     unitOfWork.MedidaRepository.Insert(precord);
                     unitOfWork.Save();
                 }
@@ -131,6 +138,7 @@ namespace Proveduria.Controllers
                 {
                     record = unitOfWork.MedidaRepository.GetById(precord.ID_MEDIDA);
                     record.NOMBRE = precord.NOMBRE;
+                    record.ESTADO = "A";
                     unitOfWork.MedidaRepository.Update(record);
                     unitOfWork.Save();
                 }
@@ -138,7 +146,7 @@ namespace Proveduria.Controllers
                 retorno.Add("data", null);
                 retorno.Add("mensaje", "");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 retorno.Add("resultado", "error");
                 retorno.Add("data", null);
