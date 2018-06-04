@@ -10,7 +10,11 @@ using Proveduria.Repositories;
 using System.Net;
 using System.Data.Entity;
 using NLog;
-
+using System.IO;
+using System.Data;
+using CrystalDecisions.CrystalReports.Engine;
+using System.Data.SqlClient;
+using Proveduria.Reports.DataSetReportsTableAdapters;
 
 namespace Proveduria.Controllers
 {
@@ -89,6 +93,39 @@ namespace Proveduria.Controllers
                 logger.Error(ex, ex.Message);
             }
             return Content(jObject.ToString(), "application/json");
+        }
+
+
+        [HttpGet]
+        public FileResult ExportPdf()
+        {
+            Stream stream = null;
+            var nombreArchivo = "";
+            int IdMovimiento = 1313;
+            try
+            {
+                object objetos = new object();
+                EntitiesProveduria db = new EntitiesProveduria();
+                SqlConnectionStringBuilder builderVenta = new SqlConnectionStringBuilder(db.Database.Connection.ConnectionString);
+                SP_ORDEN_INGRESO_BODEGATableAdapter tableAdapter = new SP_ORDEN_INGRESO_BODEGATableAdapter();
+
+                DataTable dataTable = tableAdapter.GetData(out objetos);
+                String pathReport = Path.Combine(HttpRuntime.AppDomainAppPath, "Reports\\Cr_Orden_Ingreso_Bodega.rpt");
+                ReportDocument reportDocument = new ReportDocument();
+                reportDocument.Load(pathReport);
+                reportDocument.SetDataSource(dataTable);
+
+                reportDocument.SetDatabaseLogon(builderVenta.UserID, builderVenta.Password);
+
+                stream = reportDocument.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                stream.Seek(0, SeekOrigin.Begin);
+                nombreArchivo = "ORDEN_ING_BODEGA.pdf";
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, ex.Message);
+            }
+            return File(stream, "application/pdf", nombreArchivo);
         }
 
         [HttpPost]
