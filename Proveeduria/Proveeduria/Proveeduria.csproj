@@ -177,6 +177,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BodegaController.cs" />
     <Compile Include="Controllers\GrupoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InvMedidaController.cs" />
@@ -6882,10 +6883,12 @@
       <DependentUpon>ModeloProveduria.edmx</DependentUpon>
       <LastGenOutput>ModeloProveduria.cs</LastGenOutput>
     </Content>
+    <Content Include="Scripts\App\Bodega.js" />
     <Content Include="Scripts\App\InvMedida.js" />
     <Content Include="Scripts\App\Item.js" />
     <Content Include="Scripts\App\ListaItem.js" />
     <Content Include="Scripts\App\ListaSolicitud.js" />
+    <Content Include="Scripts\App\Medida.js" />
     <Content Include="Scripts\App\Solicitud.js" />
     <Content Include="Scripts\App\TipoMovimiento.js" />
     <Content Include="Scripts\App\Util.js" />
@@ -7412,6 +7415,7 @@
     <Content Include="Views\Item\Item.cshtml" />
     <Content Include="Views\Solicitud\ListaSolicitud.cshtml" />
     <Content Include="Views\Solicitud\Solicitud.cshtml" />
+    <Content Include="Views\Bodega\ListaBodega.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

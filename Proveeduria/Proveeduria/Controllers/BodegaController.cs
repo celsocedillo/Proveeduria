@@ -14,29 +14,30 @@ using NLog;
 
 namespace Proveduria.Controllers
 {
-    public class MedidaController : Controller
+    public class BodegaController : Controller
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
         private static Logger logger = LogManager.GetCurrentClassLogger();
 
-        // GET: Medida
-        public ActionResult ListaMedida()
+        // GET: Bodega
+        public ActionResult ListaBodega()
         {
-            List<EPRTA_MEDIDA> lmedida = unitOfWork.MedidaRepository.GetAll().ToList();
-            return View(lmedida);
+            List<EPRTA_BODEGA> lbodega = unitOfWork.BodegaRepository.GetAll().ToList();
+            return View(lbodega);
         }
 
-
         [HttpPost]
-        public ActionResult GetMedida(int pid)
+        public ActionResult GetBodega(int pid)
         {
             JObject jsonObject = new JObject();
             try
             {
 
-                EPRTA_MEDIDA medida = unitOfWork.MedidaRepository.GetById(pid);
-                jsonObject.Add("ID_MEDIDA", medida.ID_MEDIDA);
-                jsonObject.Add("NOMBRE", medida.NOMBRE);
+                EPRTA_BODEGA bodega = unitOfWork.BodegaRepository.GetById(pid);
+                jsonObject.Add("ID_BODEGA", bodega.ID_BODEGA);
+                jsonObject.Add("NOMBRE", bodega.NOMBRE);
+                jsonObject.Add("CUENTA_CONTABLE", bodega.CUENTA_CONTABLE);
+                jsonObject.Add("ESTADO", bodega.ESTADO);
                 jsonObject.Add("resultado", "success");
                 jsonObject.Add("mensaje", "success");
             }
@@ -44,47 +45,19 @@ namespace Proveduria.Controllers
             {
                 logger.Error(ex, ex.Message);
                 jsonObject.Add("resultado", "error");
+                jsonObject.Add("msg", ex.Message);
             }
             return Content(jsonObject.ToString(), "application/json");
         }
 
-        //[HttpPost]
-        //public ActionResult GetListaMedida()
-        //{
-        //    JArray jArray = new JArray();
-        //    JObject total = new JObject();
-        //    try
-        //    {
-        //        var query = from d in unitOfWork.MedidaRepository.GetAll()
-        //                    select d;
-        //        foreach (EPRTA_MEDIDA item in query)
-        //        {
-        //            JObject jsonObject = new JObject
-        //            {
-        //                { "ID_MEDIDA", item.ID_MEDIDA },
-        //                { "NOMBRE", item.NOMBRE }
-        //            };
-        //            jArray.Add(jsonObject);
-        //        }
-        //        total = new JObject();
-        //        total.Add("items", jArray);
-        //        total.Add("error", false);
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        total.Add("error", true);
-        //        logger.Error(ex, ex.Message);
-        //    }
-        //    return Content(total.ToString(), "application/json");
-        //}
         [HttpPost]
-        public ActionResult GetListaMedida()
+        public ActionResult GetListaBodega()
         {
             JObject retorna = new JObject();
             try
             {
-                var query = from d in unitOfWork.MedidaRepository.GetAll()
-                            select new { d.ID_MEDIDA, d.NOMBRE };
+                var query = from d in unitOfWork.BodegaRepository.GetAll()
+                            select new { d.ID_BODEGA, d.NOMBRE, d.CUENTA_CONTABLE, d.ESTADO };
                 retorna = new JObject();
                 retorna.Add("data", JsonConvert.SerializeObject(query));
                 retorna.Add("error", false);
@@ -92,19 +65,20 @@ namespace Proveduria.Controllers
             catch (Exception ex)
             {
                 retorna.Add("error", true);
+                retorna.Add("resultado", "error");
+                retorna.Add("msg", ex.Message);
                 logger.Error(ex, ex.Message);
             }
             return Content(retorna.ToString(), "application/json");
         }
 
-
         [HttpPost]
-        public ActionResult Create(EPRTA_MEDIDA medida)
+        public ActionResult Create(EPRTA_BODEGA bodega)
         {
             JObject jObject = new JObject();
             try
             {
-                unitOfWork.MedidaRepository.Insert(medida);
+                unitOfWork.BodegaRepository.Insert(bodega);
                 unitOfWork.Save();
                 //unitOfWork.Dispose();
                 jObject.Add("error", false);
@@ -118,29 +92,31 @@ namespace Proveduria.Controllers
         }
 
         [HttpPost]
-        public ActionResult Grabar(EPRTA_MEDIDA precord)
+        public ActionResult Grabar(EPRTA_BODEGA precord)
         {
             JObject retorno = new JObject();
-            EPRTA_MEDIDA record;
+            EPRTA_BODEGA record = new EPRTA_BODEGA();
             try
             {
-                if (precord.ID_MEDIDA == 0)
+                if (precord.ID_BODEGA == 0)
                 {
                     precord.ESTADO = "A";
-                    unitOfWork.MedidaRepository.Insert(precord);
+                    unitOfWork.BodegaRepository.Insert(precord);
                     unitOfWork.Save();
                 }
                 else
                 {
-                    record = unitOfWork.MedidaRepository.GetById(precord.ID_MEDIDA);
+                    record = unitOfWork.BodegaRepository.GetById(precord.ID_BODEGA);
                     record.NOMBRE = precord.NOMBRE;
+                    record.CUENTA_CONTABLE = precord.CUENTA_CONTABLE;
                     record.ESTADO = "A";
-                    unitOfWork.MedidaRepository.Update(record);
+                    unitOfWork.BodegaRepository.Update(record);
                     unitOfWork.Save();
                 }
                 retorno.Add("resultado", "success");
                 retorno.Add("data", null);
                 retorno.Add("mensaje", "");
+                logger.Info("Dato Grabado");
             }
             catch (Exception ex)
             {
@@ -157,6 +133,8 @@ namespace Proveduria.Controllers
             unitOfWork.Dispose();
             base.Dispose(disposing);
         }
+
+
 
     }
 }
