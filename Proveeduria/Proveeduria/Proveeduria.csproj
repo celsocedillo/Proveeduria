@@ -180,6 +180,7 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\BodegaController.cs" />
     <Compile Include="Controllers\GrupoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InvMedidaController.cs" />
@@ -249,6 +250,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>Cr_Egreso_Bodega.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reports\Cr_Orden_Ingreso_Bodega.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Cr_Orden_Ingreso_Bodega.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\Cr_Requisicion_Bodega.cs">
@@ -7458,6 +7465,7 @@
     <Content Include="Views\Solicitud\ListaSolicitud.cshtml" />
     <Content Include="Views\Solicitud\Solicitud.cshtml" />
     <Content Include="Views\Medida\ExportPdf.cshtml" />
+    <Content Include="Views\Bodega\ListaBodega.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -7495,6 +7503,10 @@
     <EmbeddedResource Include="Reports\Cr_Egreso_Bodega.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Cr_Egreso_Bodega.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Cr_Orden_Ingreso_Bodega.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Cr_Orden_Ingreso_Bodega.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Cr_Requisicion_Bodega.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
