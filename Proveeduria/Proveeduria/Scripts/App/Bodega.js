@@ -1,6 +1,7 @@
-﻿var tabmedida;
+﻿
+var tabbodega;
 var ldata = [];
-var medida;
+var bodega;
 
 
 function CargaDatos() {
@@ -12,7 +13,7 @@ function CargaDatos() {
         datatype: "json",
         data: null,
         contentType: 'application/json; charset=utf-8',
-        url: "/Medida/GetListaMedida",
+        url: "/Bodega/GetListaBodega",
         beforeSend: function () {
             run_waitMe($(".box-body"), 'win8', 'Cargando...');
         },
@@ -26,12 +27,11 @@ function CargaDatos() {
             }
             else {
                 //var items = data.items;
-                var data = $.parseJSON(data.data);
+                var dato = $.parseJSON(data.data);
                 //tipomov = data[0]; //Esto es para guardar la estructura del objeto y poder usarlo en el momento de crear uno nuevo
-                tabmedida.clear();
-                tabmedida.rows.add(data);
-
-                tabmedida.draw();
+                tabbodega.clear();
+                tabbodega.rows.add(dato);
+                tabbodega.draw();
             }
             $(".box-body").waitMe('hide');
             $this.button('reset');
@@ -52,24 +52,26 @@ function CargaDatos() {
 
 }
 
-function LimpiarFormularioMedida() {
-    $("#lblIdMedida").text("");
+function LimpiarFormularioBodega() {
+    $("#lblIdBodega").text("");
     $("#txtNombre").val("");
+    $("#txtCuentaContable").val("");
 }
 
 
 
 function Grabar() {
-    $('#frmMedida').parsley().validate();
-    if ($('#frmMedida').parsley().isValid()) {
-        medida = {
-            "ID_MEDIDA": $("#lblIdMedida").text(),
-            "NOMBRE": $("#txtNombre").val()
+    $('#frmBodega').parsley().validate();
+    if ($('#frmBodega').parsley().isValid()) {
+        bodega = {
+            "ID_BODEGA": $("#lblIdBodega").text(),
+            "NOMBRE": $("#txtNombre").val(),
+            "CUENTA_CONTABLE": $("#txtCuentaContable").val()
         };
 
         var parametros = JSON.stringify(
             {
-                precord: medida
+                precord: bodega
             });
         $.ajax({
             type: "POST",
@@ -77,9 +79,9 @@ function Grabar() {
             datatype: "json",
             data: parametros,
             contentType: 'application/json; charset=utf-8',
-            url: "/Medida/Grabar",
+            url: "/Bodega/Grabar",
             beforeSend: function () {
-                run_waitMe($("#dlgMedida"), 'win8', 'Cargando...');
+                run_waitMe($("#dlgBodega"), 'win8', 'Cargando...');
             },
             success: function (data) {
                 if (data.error) {
@@ -90,7 +92,7 @@ function Grabar() {
                     });
                 }
                 else {
-                    $('#dlgMedida').modal('toggle');
+                    $('#dlgBodega').modal('toggle');
                     swal({
                         type: 'success',
                         text: 'Datos grabados con éxito',
@@ -98,11 +100,11 @@ function Grabar() {
                     });
                     CargaDatos();
                 }
-                $("#dlgMedida").waitMe('hide');
+                $("#dlgBodega").waitMe('hide');
                 //$this.button('reset');
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                $("#dlgMedida").waitMe('hide');
+                $("#dlgBodega").waitMe('hide');
                 //$this.button('reset');
                 swal({
                     type: 'error',
@@ -119,12 +121,12 @@ function Grabar() {
 }
 
 //$(document).ready(function () {
-//    tabmedida = $('#tabMedida').DataTable({
+//    tabbodega = $('#tabBodega').DataTable({
 
-var Medida = function () {
+var Bodega = function () {
     return {
         init: function () {
-            tabmedida = $('#tabMedida').DataTable({
+            tabbodega = $('#tabBodega').DataTable({
                 "paging": true,
                 "searching": false,
                 //"filter": false,
@@ -133,39 +135,41 @@ var Medida = function () {
                 "columnDefs":
                     [
                         { "targets": [0],/* "width": "10%",*/ "visible": true, "orderable": false },
-                        { "targets": [2],/* "width": "10%",*/ "defaultContent": '<button id="butEditar" type="button" class="btn btn-default btn-xs clsedit"><i class="fa fa-pencil"></i></button>' }
+                        { "targets": [3],/* "width": "10%",*/ "defaultContent": '<button id="butEditar" type="button" class="btn btn-default btn-xs clsedit"><i class="fa fa-pencil"></i></button>' }
                     ],
                 "data": ldata,
                 //"rowCallback": function (row, data, dataIndex) {
                 //},
                 "columns": [
-                    { "data": 'ID_MEDIDA' },
-                    { "data": 'NOMBRE' }
+                    { "data": 'ID_BODEGA' },
+                    { "data": 'NOMBRE' },
+                    { "data": 'CUENTA_CONTABLE' }
                 ]
             });
 
             CargaDatos();
 
-            tabmedida.on('click', 'button.clsedit', function (e) {
+            tabbodega.on('click', 'button.clsedit', function (e) {
                 var row = $(this).closest('tr');
-                var data = tabmedida.row($(this).parents('tr')).data();
+                var data = tabbodega.row($(this).parents('tr')).data();
                 var parametros = JSON.stringify(
                     {
-                        pid: data.ID_MEDIDA
+                        pid: data.ID_BODEGA
                     });
 
                 $.ajax({
                     dataType: 'JSON',
-                    //url: '@Url.Action("GetMedida", "Medida")',
-                    url: '/Medida/GetMedida',
+                    //url: '@Url.Action("GetBodega", "Bodega")',
+                    url: '/Bodega/GetBodega',
                     type: "POST",
                     contentType: 'application/json; charset=utf-8',
                     data: parametros,
                     success: function (result) {
-                        if (result.resultado.text == "success") {
-                            $("#dlgMedida").modal('toggle');
-                            $("#lblIdMedida").text(result.ID_MEDIDA);
+                        if (result.resultado == "success") {
+                            $("#dlgBodega").modal('toggle');
+                            $("#lblIdBodega").text(result.ID_BODEGA);
                             $("#txtNombre").val(result.NOMBRE);
+                            $("#txtCuentaContable").val(result.CUENTA_CONTABLE);
                         }
                         else {
                             swal({
@@ -187,24 +191,11 @@ var Medida = function () {
                 Grabar();
             });
 
-            $("#butNuevoMedida").on("click", function () {
-                medida = { ID_MEDIDA: 0, NOMBRE: "" };
-                //if (medida == null) {
-                //    medida = { ID_MEDIDA: 0, NOMBRE: "", ESTADO: "N" };
-                //} else {
-                //    medida.ID_MEDIDA = 0;
-                //    medida.NOMBRE = "";
-                //}
-                LimpiarFormularioMedida();
-                $("#dlgMedida").modal('toggle');
+            $("#butNuevoBodega").on("click", function () {
+                bodega = { ID_BODEGA: 0, NOMBRE: "", CUENTA_CONTABLE: "", ESTADO: "A" };
+                LimpiarFormularioBodega();
+                $("#dlgBodega").modal('toggle');
             });
-
-//});
         }
     };
 }();
-            //});
-        }
-    };
-}();
-

@@ -5,8 +5,16 @@
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
 <<<<<<< HEAD
+<<<<<<< HEAD
       <Deduria.VW_DEPARTAMENTO
         <EntityTypeShape EntityType="ModelProveduria.VW_DEPARTAMENTO" Width="1.5" PointX="2.4685904302022377" PointY="5.1298378729866059" />" Width="1.5" PointX="9.2532691272223691" PointY="29.908273442605637" />
+=======
+<<<<<<< HEAD
+      <Diagram DiagramId="79bb910bf7124bd586e47d114c90bc62" Name="Diagram1" ZoomLevel="47" >
+=======
+      <Diagram DiagramId="79bb910bf7124bd586e47d114c90bc62" Name="Diagram1" ZoomLevel="36" >
+>>>>>>> ddb219dc79e1f788cb7fc7b1a265a943679dc45c
+>>>>>>> 3457bb0d013b5ed4921aa58c0c6e2351f8ca94dd
         <EntityTypeShape EntityType="ModelProveduria.VW_EMPLEADO" Width="1.5" PointX="26.625" PointY="1.875" />
         <EntityTypeShape EntityType="ModelProveduria.EPRTA_BODEGA" Width="1.5" PointX="23.125" PointY="2" />
         <EntityTypeShape EntityType="ModelProveduria.EPRTA_GRUPO" Width="1.5" PointX="1.5" PointY="2.25" />

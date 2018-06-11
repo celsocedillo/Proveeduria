@@ -26,3 +26,57 @@
               -------------------------------------------------------------------
               ----------     
      
+     ---------------------------- Error(2018-06-04 15:25:55.4176) --------------------------    
+              Machine Name  : MSANCAN2
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType7`2 <>h__TransparentIdentifier2) en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40 
+ 
+              Stack Trace   :    en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType7`2 <>h__TransparentIdentifier2) en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Info(2018-06-04 15:26:19.0210) --------------------------    
+              Machine Name  : MSANCAN2
+   
+              Exception Type  : 
+      
+              Exception Message : 
+     
+              Inner Exception  : 
+ 
+              Stack Trace   : 
+        
+              Additional Info  : Dato Grabado  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Info(2018-06-04 15:26:31.4224) --------------------------    
+              Machine Name  : MSANCAN2
+   
+              Exception Type  : 
+      
+              Exception Message : 
+     
+              Inner Exception  : 
+ 
+              Stack Trace   : 
+        
+              Additional Info  : Dato Grabado  
+              -------------------------------------------------------------------
+              ----------     
+     

@@ -10,7 +10,11 @@ using Proveduria.Repositories;
 using System.Net;
 using System.Data.Entity;
 using NLog;
-
+using System.IO;
+using System.Data.SqlClient;
+using Proveduria.Reports.DataSetReportsTableAdapters;
+using System.Data;
+using CrystalDecisions.CrystalReports.Engine;
 
 namespace Proveduria.Controllers
 {
@@ -30,10 +34,9 @@ namespace Proveduria.Controllers
         [HttpPost]
         public ActionResult GetMedida(int pid)
         {
-            JObject jsonObject = new JObject(); 
+            JObject jsonObject = new JObject();
             try
             {
-                
                 EPRTA_MEDIDA medida = unitOfWork.MedidaRepository.GetById(pid);
                 jsonObject.Add("ID_MEDIDA", medida.ID_MEDIDA);
                 jsonObject.Add("NOMBRE", medida.NOMBRE);
@@ -45,7 +48,8 @@ namespace Proveduria.Controllers
                 logger.Error(ex, ex.Message);
                 jsonObject.Add("resultado", "error");
             }
-            return  Content(jsonObject.ToString(), "application/json");
+            return Content(jsonObject.ToString(), "application/json");
+
         }
 
         //[HttpPost]
@@ -109,7 +113,7 @@ namespace Proveduria.Controllers
                 //unitOfWork.Dispose();
                 jObject.Add("error", false);
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 jObject.Add("error", true);
                 logger.Error(ex, ex.Message);
@@ -142,7 +146,7 @@ namespace Proveduria.Controllers
                 retorno.Add("data", null);
                 retorno.Add("mensaje", "");
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 retorno.Add("resultado", "error");
                 retorno.Add("data", null);
@@ -150,6 +154,72 @@ namespace Proveduria.Controllers
                 logger.Error(ex, ex.Message);
             }
             return Content(retorno.ToString(), "application/json");
+        }
+
+        [HttpGet]
+        public FileResult ExportPdf()
+        {
+            Stream stream = null;
+            var nombreArchivo = "";
+            int IdMovimiento = 1313;
+            try
+            {
+                //object objetos = new object();
+                //EntitiesProveduria db = new EntitiesProveduria();
+                //SqlConnectionStringBuilder builderVenta = new SqlConnectionStringBuilder(db.Database.Connection.ConnectionString);
+                //SP_REQUISICION_BODEGATableAdapter tableAdapter = new SP_REQUISICION_BODEGATableAdapter();
+
+                //DataTable dataTable = tableAdapter.GetData(IdMovimiento, out objetos);
+                //String pathReport = Path.Combine(HttpRuntime.AppDomainAppPath, "Reports\\Cr_Requisicion_Bodega.rpt");
+                //ReportDocument reportDocument = new ReportDocument();
+                //reportDocument.Load(pathReport);
+                //reportDocument.SetDataSource(dataTable);
+
+                //reportDocument.SetDatabaseLogon(builderVenta.UserID, builderVenta.Password);
+
+                //stream = reportDocument.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                //stream.Seek(0, SeekOrigin.Begin);
+                //nombreArchivo = "REQUISICION.pdf";
+
+                //object objetos = new object();
+                //EntitiesProveduria db = new EntitiesProveduria();
+                //SqlConnectionStringBuilder builderVenta = new SqlConnectionStringBuilder(db.Database.Connection.ConnectionString);
+                //SP_EGRESO_BODEGATableAdapter tableAdapter = new SP_EGRESO_BODEGATableAdapter();
+
+                //DataTable dataTable = tableAdapter.GetData(IdMovimiento, out objetos);
+                //String pathReport = Path.Combine(HttpRuntime.AppDomainAppPath, "Reports\\Cr_Egreso_Bodega.rpt");
+                //ReportDocument reportDocument = new ReportDocument();
+                //reportDocument.Load(pathReport);
+                //reportDocument.SetDataSource(dataTable);
+
+                //reportDocument.SetDatabaseLogon(builderVenta.UserID, builderVenta.Password);
+
+                //stream = reportDocument.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                //stream.Seek(0, SeekOrigin.Begin);
+                //nombreArchivo = "EGRESO.pdf";
+
+                object objetos = new object();
+                EntitiesProveduria db = new EntitiesProveduria();
+                SqlConnectionStringBuilder builderVenta = new SqlConnectionStringBuilder(db.Database.Connection.ConnectionString);
+                SP_CORTE_INVENTARIOTableAdapter tableAdapter = new SP_CORTE_INVENTARIOTableAdapter();
+
+                DataTable dataTable = tableAdapter.GetData(out objetos);
+                String pathReport = Path.Combine(HttpRuntime.AppDomainAppPath, "Reports\\Cr_Corte_Inventario.rpt");
+                ReportDocument reportDocument = new ReportDocument();
+                reportDocument.Load(pathReport);
+                reportDocument.SetDataSource(dataTable);
+
+                reportDocument.SetDatabaseLogon(builderVenta.UserID, builderVenta.Password);
+
+                stream = reportDocument.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                stream.Seek(0, SeekOrigin.Begin);
+                nombreArchivo = "CORTE_INVENTARIO.pdf";
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, ex.Message);
+            }
+            return File(stream, "application/pdf", nombreArchivo);
         }
 
         protected override void Dispose(bool disposing)
