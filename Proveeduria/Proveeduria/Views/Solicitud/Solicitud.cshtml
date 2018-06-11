@@ -18,90 +18,138 @@
     </p>
 
     <!-- begin panel -->
-    <div class="box box-primary">
+    <div class="box  box-primary">
         <div class="box-body ">
-            <form id="frmSolicitud" class="form-horizontal" data-parsley-validate>
-                <div class="col-sm-7">
-                    <div class="form-group">
-                        <label class="col-sm-2 control-label">Solicitud :</label>
-                        <div class="col-sm-4">
-                            <label class="form-control">@Model.ANIO - @Model.NUMERO_MOVIMIENTO</label>
+            <div class="row">
+                <form id="frmSolicitud" class="form-horizontal" data-parsley-validate>
+                    <div class="col-sm-7">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Solicitud :</label>
+                            <div class="col-sm-4">
+                                <label class="form-control">@Model.ANIO - @Model.NUMERO_MOVIMIENTO</label>
+                            </div>
+                            <label class="col-sm-2 control-label">Estado :</label>
+                            <div class="col-sm-4">
+                                <label class="form-control">
+                                    @(Model.ESTADO.Equals("D") ? "Despachado" :
+      Model.ESTADO.Equals("E") ? "Anulado" :
+      Model.ESTADO.Equals("A") ? "Autorizdo" :
+      Model.ESTADO.Equals("S") ? "Solicitado" : ""
+                                    )
+                                </label>
+                            </div>
+
                         </div>
-                        <label class="col-sm-2 control-label">Estado :</label>
-                        <div class="col-sm-4">
-                            <label class="form-control btn-success">
-                                @(Model.ESTADO.Equals("D") ? "Despachado" : 
-                                  Model.ESTADO.Equals("E") ? "Anulado" : 
-                                  Model.ESTADO.Equals("A") ? "Autorizdo" : 
-                                  Model.ESTADO.Equals("S") ? "Solicitado" : ""
-                                  )
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Departamento :</label>
+                            <div class="col-sm-10">
+                                <label class="form-control">@ViewBag.departamento_solicitud</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Observacion :</label>
+                            <div class="col-sm-10">
+                                @Html.TextAreaFor(m => m.OBSERVACION, new { @class = "form-control", required = "required", style = "text-transform:uppercase", rows = "5", @data_parsley_minlength = 15 })
+                            </div>
+                        </div>
+
+
+                    </div>
+                    <div class="col-sm-5">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Solicita :</label>
+                            <div class="col-sm-7">
+                                <label class="form-control">@ViewBag.usuario_solicita</label>
+                            </div>
+                            <div class="col-sm-3">
+                                <label class="form-control">@(Model.FECHA_SOLICITUD.HasValue ? Model.FECHA_SOLICITUD.Value.ToString("dd/MM/yyyy") : null)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Autoriza :</label>
+                            <div class="col-sm-7">
+                                <label class="form-control">@ViewBag.usuario_autoriza</label>
+                            </div>
+                            <div class="col-sm-3">
+                                <label class="form-control">@(Model.FECHA_AUTORIZACION.HasValue ? Model.FECHA_AUTORIZACION.Value.ToString("dd/MM/yyyy") : null)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Aprueba :</label>
+                            <div class="col-sm-7">
+                                <label class="form-control">@ViewBag.usuario_aprueba</label>
+                            </div>
+                            <div class="col-sm-3">
+                                <label class="form-control">@(Model.FECHA_APROBACION.HasValue ? Model.FECHA_APROBACION.Value.ToString("dd/MM/yyyy") : null)</label>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="box-footer">
+            <button type="button" id="btnGrabar" class="btn btn-primary btn-sm">Grabar</button>
+            <button type="button" id="btnCancelar" class="btn btn-default btn-sm">Cancelar</button>
+        </div>
+
+    </div>
+
+    <div class="box box-default">
+        <div class="box-header">
+            <h2 class="box-title">Items Solicitados</h2>
+        </div>
+        <div class="box-body no-padding ">
+            <div class="row">
+                <div class="col-sm-12">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <label class="control-label col-md-1" for="Nacionalidad">
+                                Producto
                             </label>
-                </div>
+                            <div class="col-md-6">
+                                <select class="form-control" id="sltItem" name="sltItem" style="width:100%"></select>
+                            </div>
+                            <div class="col-md-2">
+                                <button id="btnAgregarItem" type="button" class="btn btn-sm btn-default" >
+                                    <i class="fa fa-plus" aria-hidden="true"></i>  Agregar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
 
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Observacion :</label>
-                <div class="col-sm-10">
-                    @Html.TextAreaFor(m => m.OBSERVACION, new { @class = "form-control", required = "required", style = "text-transform:uppercase" })
                 </div>
             </div>
-
-        </div>
-        <div class="col-sm-5">
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Solicita :</label>
-                <div class="col-sm-7">
-                    <label class="form-control">@ViewBag.usuario_solicita</label>
-                </div>
-                <div class="col-sm-3">
-                    <label class="form-control">@(Model.FECHA_SOLICITUD.HasValue ? Model.FECHA_SOLICITUD.Value.ToString("dd/MM/yyyy") : null)</label>
+            <div class="row">
+                <div class="col-sm-12">
+                    <table id="tabItems" class="table table-striped hover compact">
+                        <thead>
+                            <tr>
+                                <th>Codigo</th>
+                                <th>Item</th>
+                                <th width="100px">Cantidad</th>
+                                <th>Unidad</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            @{ if (Model.ESTADO == "D")
+                                {
+                                    foreach (var item in Model.EPRTA_MOVIMIENTO_DETALLE)
+                                    {
+                                        <tr>
+                                            <td>@item.EPRTA_ITEM.CODIGO</td>
+                                            <td>@item.EPRTA_ITEM.DESCRIPCION</td>
+                                            <td>@item.CANTIDAD_PEDIDO</td>
+                                            <td>@item.EPRTA_ITEM.EPRTA_MEDIDA.NOMBRE</td>
+                                            <td></td>
+                                        </tr>
+                                    }
+                                }
+                            }
+                        </tbody>
+                    </table>
                 </div>
             </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Autoriza :</label>
-                <div class="col-sm-7">
-                    <label class="form-control">@ViewBag.usuario_autoriza</label>
-                </div>
-                <div class="col-sm-3">
-                    <label class="form-control">@(Model.FECHA_AUTORIZACION.HasValue ? Model.FECHA_AUTORIZACION.Value.ToString("dd/MM/yyyy") : null)</label>
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="col-sm-2 control-label">Aprueba :</label>
-                <div class="col-sm-7">
-                    <label class="form-control">@ViewBag.usuario_aprueba</label>
-                </div>
-                <div class="col-sm-3">
-                    <label class="form-control">@(Model.FECHA_APROBACION.HasValue ? Model.FECHA_APROBACION.Value.ToString("dd/MM/yyyy") : null)</label>
-                </div>
-            </div>
-        </div>
-        </form>
-        <table id="tabItems" class="table table-striped hover compact">
-            <thead>
-                <tr>
-                    <th>
-                        Codigo
-                    </th>
-                    <th>
-                        Item
-                    </th>
-                    <th>
-                        Cantidad
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach (var item in Model.EPRTA_MOVIMIENTO_DETALLE)
-                {
-                <tr>
-                    <td>@item.EPRTA_ITEM.CODIGO</td>
-                    <td>@item.EPRTA_ITEM.DESCRIPCION</td>
-                    <td>@item.CANTIDAD_PEDIDO</td>
-                </tr>
-                }
-            </tbody>
-        </table>
         </div>
     </div>
     <!-- end panel -->
@@ -109,6 +157,8 @@
 
 
 </section>
+
+
 
 @section scripts {
     <!-- DataTables -->
@@ -118,10 +168,42 @@
     <script type="text/javascript" src=@Url.Content("/Scripts/App/Solicitud.js")></script>
     <script type="text/javascript">
 
+        var detalleMovimiento;
+
+        var solicitudId =@Html.Raw(Model.ID_MOVIMIENTO);
+        var estadoSolicitud = "@Html.Raw(Model.ESTADO)";
+
+        @{
+            bool rz_registro_nuevo;
+            var tmp = (from p in Model.EPRTA_MOVIMIENTO_DETALLE
+                       select new
+                       {
+                           p.ID_DETALLE,
+                           p.ID_MOVIMIENTO,
+                           p.ID_ITEM,
+                           p.CANTIDAD_PEDIDO,
+                           p.ESTADO,
+                           CODIGO = p.EPRTA_ITEM.CODIGO,
+                           DESCRIPCION = p.EPRTA_ITEM.DESCRIPCION,
+                           UNIDAD = p.EPRTA_ITEM.EPRTA_MEDIDA.NOMBRE
+                       });
+            if (Model.ID_MOVIMIENTO == 0)
+            {
+                rz_registro_nuevo = true;
+            }
+            else
+            {
+                rz_registro_nuevo = false;
+            }
+        }
+
+        detalleMovimiento = @Html.Raw(Json.Encode(tmp));
+        registro_nuevo = @Html.Raw(Json.Encode(rz_registro_nuevo));
 
         $(document).ready(function () {
             Solicitud.init();
         });
+
 
 
     </script>

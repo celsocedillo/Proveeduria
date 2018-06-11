@@ -50,7 +50,8 @@ var ListaSolicitud = function () {
     return {
         init: function () {
 
-
+            //$.fn.dataTable.moment('D-M-Y');
+            $.fn.dataTable.moment('DD/MM/YYYY');
             tabSolicitud = $('#tabSolicitud').DataTable({
                 "autoWidth": false,
                 "data": ldata,
@@ -72,7 +73,9 @@ var ListaSolicitud = function () {
 
             CargaDatos();
 
-
+            $("#butNuevo").on('click', function () {
+                window.location.href = '/Solicitud/Solicitud/0';
+            });
 
 
 

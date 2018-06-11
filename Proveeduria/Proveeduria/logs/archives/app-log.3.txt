@@ -1,105 +1,147 @@
-     ---------------------------- Info(2018-05-16 10:42:09.8810) --------------------------    
+     ---------------------------- Error(2018-05-31 11:30:42.3966) --------------------------    
               Machine Name  : CCEDILLO
    
-              Exception Type  : 
+              Exception Type  : System.Data.Entity.Core.EntityCommandExecutionException
       
-              Exception Message : 
+              Exception Message : An error occurred while executing the command definition. See the inner exception for details.
      
-              Inner Exception  : 
+              Inner Exception  : System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> Oracle.ManagedDataAccess.Client.OracleException: ORA-12570: Sesión de Red: error de lectura de paquete inesperado ---> OracleInternal.Network.NetworkException: ORA-12570: Sesión de Red: error de lectura de paquete inesperado ---> System.Net.Sockets.SocketException: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
+   en System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   en OracleInternal.Network.ReaderStream.Read(OraBuf OB)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en OracleInternal.Network.ReaderStream.Read(OraBuf OB)
+   en OracleInternal.TTC.OraBufReader.GetDataFromNetwork()
+   en OracleInternal.TTC.OraBufReader.Read(Boolean bIgnoreData)
+   en OracleInternal.TTC.MarshallingEngine.UnmarshalUB1(Boolean bIgnoreData)
+   en OracleInternal.TTC.TTCExecuteSql.ReceiveExecuteResponse(Accessor[]& defineAccessors, Accessor[] bindAccessors, Boolean bHasReturningParams, SQLMetaData& sqlMetaData, SqlStatementType statementType, Int64 noOfRowsFetchedLastTime, Int32 noOfRowsToFetch, Int32& noOfRowsFetched, Int64& queryId, Int32 longFetchSize, Int64 initialLOBFetchSize, Int64[] scnFromExecution, Boolean bAllInputBinds, Int32 arrayBindCount, DataUnmarshaller& dataUnmarshaller, MarshalBindParameterValueHelper& marshalBindParamsHelper, Int64[]& rowsAffectedByArrayBind, Boolean bDefineDone, Boolean& bMoreThanOneRowAffectedByDmlWithRetClause, List`1& implicitRSList, Boolean bLOBArrayFetchRequired)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en Oracle.ManagedDataAccess.Client.OracleException.HandleError(OracleTraceLevel level, OracleTraceTag tag, Exception ex, OracleLogicalTransaction oracleLogicalTransaction)
+   en OracleInternal.TTC.TTCExecuteSql.ReceiveExecuteResponse(Accessor[]& defineAccessors, Accessor[] bindAccessors, Boolean bHasReturningParams, SQLMetaData& sqlMetaData, SqlStatementType statementType, Int64 noOfRowsFetchedLastTime, Int32 noOfRowsToFetch, Int32& noOfRowsFetched, Int64& queryId, Int32 longFetchSize, Int64 initialLOBFetchSize, Int64[] scnFromExecution, Boolean bAllInputBinds, Int32 arrayBindCount, DataUnmarshaller& dataUnmarshaller, MarshalBindParameterValueHelper& marshalBindParamsHelper, Int64[]& rowsAffectedByArrayBind, Boolean bDefineDone, Boolean& bMoreThanOneRowAffectedByDmlWithRetClause, List`1& implicitRSList, Boolean bLOBArrayFetchRequired)
+   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
+   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
+   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<>c__DisplayClassb.<Reader>b__8()
+   en System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TInterceptionContext,TResult](Func`1 operation, TInterceptionContext interceptionContext, Action`1 executing, Action`1 executed)
+   en System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   en System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   en System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__a()
+   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__9()
+   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   en System.Lazy`1.CreateValue()
+   en System.Lazy`1.LazyInitValue()
+   en System.Lazy`1.get_Value()
+   en System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Repositories.GenericRepository`1.GetAll() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 31
+   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 36 
+Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-12570: Sesión de Red: error de lectura de paquete inesperado ---> OracleInternal.Network.NetworkException (0x80004005): ORA-12570: Sesión de Red: error de lectura de paquete inesperado ---> System.Net.Sockets.SocketException (0x80004005): Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
+   en System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   en OracleInternal.Network.ReaderStream.Read(OraBuf OB)
+   en OracleInternal.Network.ReaderStream.Read(OraBuf OB)
+   en OracleInternal.TTC.OraBufReader.GetDataFromNetwork()
+   en OracleInternal.TTC.OraBufReader.Read(Boolean bIgnoreData)
+   en OracleInternal.TTC.MarshallingEngine.UnmarshalUB1(Boolean bIgnoreData)
+   en OracleInternal.TTC.TTCExecuteSql.ReceiveExecuteResponse(Accessor[]& defineAccessors, Accessor[] bindAccessors, Boolean bHasReturningParams, SQLMetaData& sqlMetaData, SqlStatementType statementType, Int64 noOfRowsFetchedLastTime, Int32 noOfRowsToFetch, Int32& noOfRowsFetched, Int64& queryId, Int32 longFetchSize, Int64 initialLOBFetchSize, Int64[] scnFromExecution, Boolean bAllInputBinds, Int32 arrayBindCount, DataUnmarshaller& dataUnmarshaller, MarshalBindParameterValueHelper& marshalBindParamsHelper, Int64[]& rowsAffectedByArrayBind, Boolean bDefineDone, Boolean& bMoreThanOneRowAffectedByDmlWithRetClause, List`1& implicitRSList, Boolean bLOBArrayFetchRequired)
+   en Oracle.ManagedDataAccess.Client.OracleException.HandleError(OracleTraceLevel level, OracleTraceTag tag, Exception ex, OracleLogicalTransaction oracleLogicalTransaction)
+   en OracleInternal.TTC.TTCExecuteSql.ReceiveExecuteResponse(Accessor[]& defineAccessors, Accessor[] bindAccessors, Boolean bHasReturningParams, SQLMetaData& sqlMetaData, SqlStatementType statementType, Int64 noOfRowsFetchedLastTime, Int32 noOfRowsToFetch, Int32& noOfRowsFetched, Int64& queryId, Int32 longFetchSize, Int64 initialLOBFetchSize, Int64[] scnFromExecution, Boolean bAllInputBinds, Int32 arrayBindCount, DataUnmarshaller& dataUnmarshaller, MarshalBindParameterValueHelper& marshalBindParamsHelper, Int64[]& rowsAffectedByArrayBind, Boolean bDefineDone, Boolean& bMoreThanOneRowAffectedByDmlWithRetClause, List`1& implicitRSList, Boolean bLOBArrayFetchRequired)
+   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
+   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
+   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<>c__DisplayClassb.<Reader>b__8()
+   en System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TInterceptionContext,TResult](Func`1 operation, TInterceptionContext interceptionContext, Action`1 executing, Action`1 executed)
+   en System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   en System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior) 
+OracleInternal.Network.NetworkException (0x80004005): ORA-12570: Sesión de Red: error de lectura de paquete inesperado ---> System.Net.Sockets.SocketException (0x80004005): Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
+   en System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   en OracleInternal.Network.ReaderStream.Read(OraBuf OB)
+   en OracleInternal.Network.ReaderStream.Read(OraBuf OB)
+   en OracleInternal.TTC.OraBufReader.GetDataFromNetwork()
+   en OracleInternal.TTC.OraBufReader.Read(Boolean bIgnoreData)
+   en OracleInternal.TTC.MarshallingEngine.UnmarshalUB1(Boolean bIgnoreData)
+   en OracleInternal.TTC.TTCExecuteSql.ReceiveExecuteResponse(Accessor[]& defineAccessors, Accessor[] bindAccessors, Boolean bHasReturningParams, SQLMetaData& sqlMetaData, SqlStatementType statementType, Int64 noOfRowsFetchedLastTime, Int32 noOfRowsToFetch, Int32& noOfRowsFetched, Int64& queryId, Int32 longFetchSize, Int64 initialLOBFetchSize, Int64[] scnFromExecution, Boolean bAllInputBinds, Int32 arrayBindCount, DataUnmarshaller& dataUnmarshaller, MarshalBindParameterValueHelper& marshalBindParamsHelper, Int64[]& rowsAffectedByArrayBind, Boolean bDefineDone, Boolean& bMoreThanOneRowAffectedByDmlWithRetClause, List`1& implicitRSList, Boolean bLOBArrayFetchRequired) 
+System.Net.Sockets.SocketException (0x80004005): Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
+   en System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   en OracleInternal.Network.ReaderStream.Read(OraBuf OB) 
  
-              Stack Trace   : 
+              Stack Trace   :    en System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   en System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__a()
+   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__9()
+   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   en System.Lazy`1.CreateValue()
+   en System.Lazy`1.LazyInitValue()
+   en System.Lazy`1.get_Value()
+   en System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Repositories.GenericRepository`1.GetAll() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 31
+   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 36
         
-              Additional Info  : Dato Grabado  
+              Additional Info  : An error occurred while executing the command definition. See the inner exception for details.  
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Info(2018-05-16 10:42:25.2370) --------------------------    
+     ---------------------------- Error(2018-05-31 11:55:45.4785) --------------------------    
               Machine Name  : CCEDILLO
    
-              Exception Type  : 
+              Exception Type  : System.NullReferenceException
       
-              Exception Message : 
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
      
-              Inner Exception  : 
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType6`2 <>h__TransparentIdentifier2) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40 
  
-              Stack Trace   : 
+              Stack Trace   :    en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType6`2 <>h__TransparentIdentifier2) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40
         
-              Additional Info  : Dato Grabado  
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Info(2018-05-16 11:08:18.3810) --------------------------    
+     ---------------------------- Error(2018-05-31 12:28:04.1833) --------------------------    
               Machine Name  : CCEDILLO
    
-              Exception Type  : 
+              Exception Type  : System.NullReferenceException
       
-              Exception Message : 
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
      
-              Inner Exception  : 
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType6`2 <>h__TransparentIdentifier2) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40 
  
-              Stack Trace   : 
+              Stack Trace   :    en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType6`2 <>h__TransparentIdentifier2) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40
         
-              Additional Info  : Dato Grabado  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Info(2018-05-16 11:08:48.2170) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : 
-      
-              Exception Message : 
-     
-              Inner Exception  : 
- 
-              Stack Trace   : 
-        
-              Additional Info  : Dato Grabado  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Info(2018-05-16 11:09:15.8430) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : 
-      
-              Exception Message : 
-     
-              Inner Exception  : 
- 
-              Stack Trace   : 
-        
-              Additional Info  : Dato Grabado  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Info(2018-05-16 11:10:39.1240) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : 
-      
-              Exception Message : 
-     
-              Inner Exception  : 
- 
-              Stack Trace   : 
-        
-              Additional Info  : Dato Grabado  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Info(2018-05-16 11:10:52.0650) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : 
-      
-              Exception Message : 
-     
-              Inner Exception  : 
- 
-              Stack Trace   : 
-        
-              Additional Info  : Dato Grabado  
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
               -------------------------------------------------------------------
               ----------     
      

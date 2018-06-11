@@ -99,6 +99,36 @@ namespace Proveduria.Controllers
             //return Json(new { datos = items, });
         }
 
+
+        [HttpPost]
+        public ActionResult SearchItemsFiltro(string filtro, string pagina)
+        {
+           JObject retorna = new JObject();
+            try
+            {
+                if (filtro != null)
+                {
+                    var list = (from d in unitOfWork.ItemRepository.GetAll()
+                                where (d.DESCRIPCION.ToLower().Contains(filtro.ToLower()) || d.CODIGO.ToLower().Contains(filtro.ToLower()))
+                                select new
+                                {
+                                    id = d.ID_ITEM,
+                                    d.CODIGO,
+                                    d.DESCRIPCION,
+                                    d.ID_MEDIDA,
+                                    MEDIDA = d.EPRTA_MEDIDA.NOMBRE
+                                }
+                       ).Take(int.Parse(pagina)).ToList();
+                    retorna.Add("items", JArray.FromObject(list));
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, ex.Message);
+            }
+            return Content(retorna.ToString(), "application/json");
+        }
+
         public ActionResult Item(int id)
         {
 
@@ -140,6 +170,7 @@ namespace Proveduria.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
         public ActionResult Grabar(EPRTA_ITEM precord)
         {
             JObject retorno = new JObject();

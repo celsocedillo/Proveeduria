@@ -38,9 +38,9 @@ namespace Proveduria.Controllers
             {
                 var emp = (from e in unitOfWork.EmpleadoRepository.GetAll() select e);
                 var tmp = (from p in unitOfWork.MovimientoRepository.GetAll()
-                           join us in emp on p.USUARIO_SOLICITA equals us.USUARIO
-                           join ua in emp on p.USUARIO_APRUEBA equals ua.USUARIO
-                           join ut in emp on p.USUARIO_AUTORIZA equals ut.USUARIO
+                           join us in emp on p.USUARIO_SOLICITA equals us.USUARIO 
+                           join ua in emp on p.USUARIO_APRUEBA equals ua.USUARIO into pa from ua in pa.DefaultIfEmpty()
+                           join ut in emp on p.USUARIO_AUTORIZA equals ut.USUARIO into pt from ut in pt.DefaultIfEmpty()
                            where p.USUARIO_SOLICITA == Session["usuario"].ToString() && p.ID_TIPO_MOVIMIENTO == 2
                            select new {
                                p.ID_MOVIMIENTO,
@@ -60,10 +60,10 @@ namespace Proveduria.Controllers
                                FECHA_AUTORIZACION = p.FECHA_AUTORIZACION.HasValue ? p.FECHA_AUTORIZACION.Value.ToString("dd/MM/yyyy") : null,
                                FECHA_APROBACION = p.FECHA_APROBACION.HasValue ? p.FECHA_APROBACION.Value.ToString("dd/MM/yyyy") : null,
                                EMPLEADO_SOLICITA = us.EMPLEADO,
-                               EMPLEADO_APRUEBA = ua.EMPLEADO,
-                               EMPLEADO_AUTORIZA = ut.EMPLEADO,
+                               EMPLEADO_APRUEBA = ua == null ? null : ua.EMPLEADO,
+                               EMPLEADO_AUTORIZA = ut == null ? null : ut.EMPLEADO,
                                ACCION = "<a href='/Solicitud/Solicitud/" + p.ID_MOVIMIENTO + "' class='text-inverse' data-toggle='tooltip' title='Modificar'>" +
-                                        "<i class='fa fa-pencil' aria-hidden='true'></i>" +
+                                        "<i class='fa fa-search' aria-hidden='true'></i>" +
                                         "</a>"
 
                            }).ToList();
@@ -80,6 +80,7 @@ namespace Proveduria.Controllers
 
         }
 
+        [HttpGet]
         public ActionResult Solicitud(int id)
         {
             //JArray jArray = new JArray();
@@ -87,12 +88,24 @@ namespace Proveduria.Controllers
             EPRTA_MOVIMIENTO movimiento = null;
             try
             {
-                movimiento = unitOfWork.MovimientoRepository.GetById(id);
-                var empleados = (from e in unitOfWork.EmpleadoRepository.GetAll() select e);
 
-                ViewBag.usuario_solicita = (string)(from p in empleados where p.USUARIO == movimiento.USUARIO_SOLICITA select p.EMPLEADO).FirstOrDefault();
-                ViewBag.usuario_aprueba = (from p in empleados where p.USUARIO == movimiento.USUARIO_APRUEBA select p.EMPLEADO).FirstOrDefault();
-                ViewBag.usuario_autoriza = (from p in empleados where p.USUARIO == movimiento.USUARIO_AUTORIZA select p.EMPLEADO).FirstOrDefault();
+                if (id>0)
+                {
+                    var empleados = (from e in unitOfWork.EmpleadoRepository.GetAll() select e);
+                    movimiento = unitOfWork.MovimientoRepository.GetById(id);
+                    ViewBag.usuario_solicita = (string)(from p in empleados where p.USUARIO == movimiento.USUARIO_SOLICITA select p.EMPLEADO).FirstOrDefault();
+                    ViewBag.usuario_aprueba = movimiento.USUARIO_APRUEBA != null ? (from p in empleados where p.USUARIO == movimiento.USUARIO_APRUEBA select p.EMPLEADO).FirstOrDefault() : null;
+                    ViewBag.usuario_autoriza = movimiento.USUARIO_AUTORIZA != null ?  (from p in empleados where p.USUARIO == movimiento.USUARIO_AUTORIZA select p.EMPLEADO).FirstOrDefault() : null;
+                    ViewBag.departamento_solicitud = unitOfWork.DepartamentoRepository.GetById(movimiento.ID_DEPARTAMENTO_SOLICITA).DESCRIPCION;
+                }
+                else
+                {
+                    movimiento = new EPRTA_MOVIMIENTO();
+                    movimiento.ESTADO = "S";
+                    movimiento.ID_DEPARTAMENTO_SOLICITA = Convert.ToByte(Session["departamento_id"]);
+                    ViewBag.departamento_solicitud = Session["departamento"];
+                }
+
 
                 //var empleados = (from e in unitOfWork.EmpleadoRepository.GetAll() select e);
                 //var tmp = new
@@ -128,6 +141,97 @@ namespace Proveduria.Controllers
                 //enviar.Add("msg", ex.Message);
             }
             return View(movimiento);
+
+        }
+
+        [HttpPost]
+        public ActionResult Grabar(EPRTA_MOVIMIENTO pmovimiento, bool pregistro_nuevo)
+        {
+            JObject retorno = new JObject();
+            if (pregistro_nuevo)
+            {
+                try
+                {
+                    EPRTA_MOVIMIENTO movimiento = new EPRTA_MOVIMIENTO();
+                    movimiento.OBSERVACION = pmovimiento.OBSERVACION.ToUpper();
+                    movimiento.USUARIO_SOLICITA = Session["usuario"].ToString();
+                    movimiento.FECHA_SOLICITUD = DateTime.Now;
+                    movimiento.ESTADO = "S";
+                    movimiento.ID_DEPARTAMENTO_SOLICITA = Convert.ToByte(Session["id_departamento"].ToString());
+                    movimiento.ANIO = (short)DateTime.Now.Year;
+                    movimiento.ID_TIPO_MOVIMIENTO = 2;
+                    movimiento.ID_BODEGA = 1;
+
+                    EPRTA_SECUENCIA secuencia = unitOfWork.SecuenciaRepository.GetAll().Where(p => p.ID_TIPO_MOVIMIENTO == 2 && p.ANIO == movimiento.ANIO).FirstOrDefault();
+                    movimiento.NUMERO_MOVIMIENTO = (int)secuencia.SECUENCIA;
+
+                    foreach (EPRTA_MOVIMIENTO_DETALLE detalle in pmovimiento.EPRTA_MOVIMIENTO_DETALLE)
+                    {
+                        detalle.ESTADO = "A";
+                        movimiento.EPRTA_MOVIMIENTO_DETALLE.Add(detalle);
+                    }
+                    secuencia.SECUENCIA++;
+                    unitOfWork.MovimientoRepository.Insert(movimiento);
+                    unitOfWork.SecuenciaRepository.Update(secuencia);
+                    unitOfWork.Save();
+
+
+                    retorno.Add("resultado", "success");
+                    retorno.Add("data", null);
+                    retorno.Add("mensaje", "");
+                }
+                catch(Exception ex)
+                {
+                    retorno.Add("resultado", "error");
+                    retorno.Add("data", null);
+                    retorno.Add("mensaje", ex.ToString());
+                    logger.Error(ex, ex.Message);
+                }
+
+            }
+            else
+            {
+                try
+                {
+                    EPRTA_MOVIMIENTO movimiento = unitOfWork.MovimientoRepository.GetById(pmovimiento.ID_MOVIMIENTO);
+                    foreach (EPRTA_MOVIMIENTO_DETALLE detalle in pmovimiento.EPRTA_MOVIMIENTO_DETALLE)
+                    {
+                        if (detalle.ID_DETALLE == 0)
+                        {
+                            detalle.ID_MOVIMIENTO = movimiento.ID_MOVIMIENTO;
+                            detalle.EPRTA_MOVIMIENTO = movimiento;
+                            movimiento.EPRTA_MOVIMIENTO_DETALLE.Add(detalle);
+                        }
+                        else
+                        {
+                            if (detalle.ESTADO == "E")
+                            {
+                                movimiento.EPRTA_MOVIMIENTO_DETALLE.Remove(movimiento.EPRTA_MOVIMIENTO_DETALLE.Where(p => p.ID_DETALLE == detalle.ID_DETALLE).FirstOrDefault());
+                                
+                            }
+                            else
+                            {
+                                movimiento.EPRTA_MOVIMIENTO_DETALLE.Where(p => p.ID_DETALLE == detalle.ID_DETALLE).FirstOrDefault().CANTIDAD_PEDIDO = detalle.CANTIDAD_PEDIDO;
+                            }
+                                
+
+                        }
+                    }
+                    unitOfWork.MovimientoRepository.Update(movimiento);
+                    unitOfWork.Save();
+                    retorno.Add("resultado", "success");
+                    retorno.Add("data", null);
+                    retorno.Add("mensaje", "");
+                }
+                catch(Exception ex)
+                {
+                    retorno.Add("resultado", "error");
+                    retorno.Add("data", null);
+                    retorno.Add("mensaje", ex.ToString());
+                    logger.Error(ex, ex.Message);
+                }
+            }
+            return Content(retorno.ToString(), "application/json");
 
         }
         protected override void Dispose(bool disposing)

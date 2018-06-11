@@ -1,4 +1,4 @@
-     ---------------------------- Error(2018-05-18 08:31:27.3672) --------------------------    
+     ---------------------------- Error(2018-06-05 12:03:19.6001) --------------------------    
               Machine Name  : CCEDILLO
    
               Exception Type  : System.Data.Entity.Core.EntityCommandExecutionException
@@ -43,7 +43,7 @@
    en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
    en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
    en Proveduria.Repositories.GenericRepository`1.GetAll() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 31
-   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 34 
+   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 109 
 Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-12570: Sesión de Red: error de lectura de paquete inesperado ---> OracleInternal.Network.NetworkException (0x80004005): ORA-12570: Sesión de Red: error de lectura de paquete inesperado ---> System.Net.Sockets.SocketException (0x80004005): Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
    en System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
    en OracleInternal.Network.ReaderStream.Read(OraBuf OB)
@@ -91,9 +91,165 @@ System.Net.Sockets.SocketException (0x80004005): Se produjo un error durante el 
    en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
    en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
    en Proveduria.Repositories.GenericRepository`1.GetAll() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 31
-   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 34
+   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 109
         
               Additional Info  : An error occurred while executing the command definition. See the inner exception for details.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-05 12:05:34.4781) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.ItemController.<>c__DisplayClass5_0.<SearchItemsFiltro>b__0(EPRTA_ITEM d) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 110
+   en System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 109 
+ 
+              Stack Trace   :    en Proveduria.Controllers.ItemController.<>c__DisplayClass5_0.<SearchItemsFiltro>b__0(EPRTA_ITEM d) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 110
+   en System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 109
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-05 12:05:44.4581) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.ItemController.<>c__DisplayClass5_0.<SearchItemsFiltro>b__0(EPRTA_ITEM d) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 110
+   en System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 109 
+ 
+              Stack Trace   :    en Proveduria.Controllers.ItemController.<>c__DisplayClass5_0.<SearchItemsFiltro>b__0(EPRTA_ITEM d) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 110
+   en System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 109
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-05 12:09:36.3631) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.ItemController.<>c__DisplayClass5_0.<SearchItemsFiltro>b__0(EPRTA_ITEM d) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 110
+   en System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 109 
+ 
+              Stack Trace   :    en Proveduria.Controllers.ItemController.<>c__DisplayClass5_0.<SearchItemsFiltro>b__0(EPRTA_ITEM d) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 110
+   en System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 109
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-05 12:09:41.5071) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.ItemController.<>c__DisplayClass5_0.<SearchItemsFiltro>b__0(EPRTA_ITEM d) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 110
+   en System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 109 
+ 
+              Stack Trace   :    en Proveduria.Controllers.ItemController.<>c__DisplayClass5_0.<SearchItemsFiltro>b__0(EPRTA_ITEM d) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 110
+   en System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 109
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-05 12:22:44.0821) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.ItemController.<>c__DisplayClass5_0.<SearchItemsFiltro>b__0(EPRTA_ITEM d) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 110
+   en System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 109 
+ 
+              Stack Trace   :    en Proveduria.Controllers.ItemController.<>c__DisplayClass5_0.<SearchItemsFiltro>b__0(EPRTA_ITEM d) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 110
+   en System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 109
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-05 12:23:31.1151) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.ItemController.<>c__DisplayClass5_0.<SearchItemsFiltro>b__0(EPRTA_ITEM d) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 110
+   en System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 109 
+ 
+              Stack Trace   :    en Proveduria.Controllers.ItemController.<>c__DisplayClass5_0.<SearchItemsFiltro>b__0(EPRTA_ITEM d) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 110
+   en System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 109
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
               -------------------------------------------------------------------
               ----------     
      

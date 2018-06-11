@@ -1,144 +1,28 @@
-     ---------------------------- Error(2018-05-28 15:17:49.9392) --------------------------    
+     ---------------------------- Error(2018-06-09 00:52:18.2268) --------------------------    
               Machine Name  : CCEDILLO
    
-              Exception Type  : System.NullReferenceException
+              Exception Type  : System.InvalidOperationException
       
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+              Exception Message : The operation failed: The relationship could not be changed because one or more of the foreign-key properties is non-nullable. When a change is made to a relationship, the related foreign-key property is set to a null value. If the foreign-key does not support null values, a new relationship must be defined, the foreign-key property must be assigned another non-null value, or the unrelated object must be deleted.
      
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType6`2 <>h__TransparentIdentifier2) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
-   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40 
+              Inner Exception  : System.InvalidOperationException: The operation failed: The relationship could not be changed because one or more of the foreign-key properties is non-nullable. When a change is made to a relationship, the related foreign-key property is set to a null value. If the foreign-key does not support null values, a new relationship must be defined, the foreign-key property must be assigned another non-null value, or the unrelated object must be deleted.
+   en System.Data.Entity.Core.Objects.ObjectContext.PrepareToSaveChanges(SaveOptions options)
+   en System.Data.Entity.Core.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   en System.Data.Entity.Internal.InternalContext.SaveChanges()
+   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   en System.Data.Entity.DbContext.SaveChanges()
+   en Proveduria.Repositories.UnitOfWork.Save() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\UnitOfWork.cs:línea 149
+   en Proveduria.Controllers.SolicitudController.Grabar(EPRTA_MOVIMIENTO pmovimiento, Boolean pregistro_nuevo) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 220 
  
-              Stack Trace   :    en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType6`2 <>h__TransparentIdentifier2) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
-   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40
+              Stack Trace   :    en System.Data.Entity.Core.Objects.ObjectContext.PrepareToSaveChanges(SaveOptions options)
+   en System.Data.Entity.Core.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   en System.Data.Entity.Internal.InternalContext.SaveChanges()
+   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   en System.Data.Entity.DbContext.SaveChanges()
+   en Proveduria.Repositories.UnitOfWork.Save() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\UnitOfWork.cs:línea 149
+   en Proveduria.Controllers.SolicitudController.Grabar(EPRTA_MOVIMIENTO pmovimiento, Boolean pregistro_nuevo) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 220
         
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-05-28 15:21:42.6034) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType6`2 <>h__TransparentIdentifier2) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
-   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40 
- 
-              Stack Trace   :    en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType6`2 <>h__TransparentIdentifier2) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
-   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40
-        
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-05-28 15:33:44.7286) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType6`2 <>h__TransparentIdentifier2) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
-   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40 
- 
-              Stack Trace   :    en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType6`2 <>h__TransparentIdentifier2) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
-   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40
-        
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-05-28 15:38:01.4653) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType6`2 <>h__TransparentIdentifier2) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
-   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40 
- 
-              Stack Trace   :    en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType6`2 <>h__TransparentIdentifier2) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
-   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40
-        
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-05-28 15:39:52.9125) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType6`2 <>h__TransparentIdentifier2) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
-   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40 
- 
-              Stack Trace   :    en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType6`2 <>h__TransparentIdentifier2) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
-   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40
-        
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-05-28 15:40:20.5602) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType6`2 <>h__TransparentIdentifier2) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
-   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40 
- 
-              Stack Trace   :    en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType6`2 <>h__TransparentIdentifier2) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
-   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40
-        
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              Additional Info  : The operation failed: The relationship could not be changed because one or more of the foreign-key properties is non-nullable. When a change is made to a relationship, the related foreign-key property is set to a null value. If the foreign-key does not support null values, a new relationship must be defined, the foreign-key property must be assigned another non-null value, or the unrelated object must be deleted.  
               -------------------------------------------------------------------
               ----------     
      

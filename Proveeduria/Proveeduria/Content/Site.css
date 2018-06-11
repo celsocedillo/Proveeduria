@@ -141,8 +141,49 @@ label {
 .table > tbody > tr > td,
 .table > tfoot > tr > td {
     border-top: 1px solid #e4d2d2;
+
 }
 
 table.dataTable.hover tbody tr:hover, table.dataTable.display tbody tr:hover {
-    background-color: #bfb5b5;
+    background-color: #b4d1e6;
+}
+
+.ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr {
+     border-top-right-radius: 0px; 
+}
+
+.ui-corner-all, .ui-corner-top, .ui-corner-left, .ui-corner-tl {
+    border-top-left-radius: 0px /*{cornerRadius}*/;
+}
+
+table.dataTable thead th, table.dataTable tfoot th {
+  font-weight:normal; 
+  color: black;
+}
+
+.ui-widget-header {
+    background: #f1efef;
+    border: 1px solid #ccc;
+}
+
+.dataTables_wrapper .dataTables_filter input {
+    -webkit-appearance: textfield;
+}
+
+.box-header.with-border {
+    border-bottom: 1px solid #ccc;
+}
+
+.box{
+    margin-bottom:10px;
+}
+
+.box-footer {
+    padding: 5px;
+ }
+
+.no-spin::-webkit-inner-spin-button, .no-spin::-webkit-outer-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0 !important;
+    -moz-appearance: textfield !important;
 }

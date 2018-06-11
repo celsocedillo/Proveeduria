@@ -123,6 +123,19 @@
           <Property Name="ESTADO" Type="varchar2" MaxLength="1" />
         </EntityType>
         <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'PROVEDURIA.VW_DEPARTAMENTO' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="VW_DEPARTAMENTO">
+          <Key>
+            <PropertyRef Name="CODIGO" />
+          </Key>
+          <Property Name="DIRECCION" Type="number" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="CODIGO" Type="number" Precision="3" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="ESTADO" Type="varchar2" MaxLength="1" Nullable="false" />
+          <Property Name="SIGLA" Type="varchar2" MaxLength="7" />
+          <Property Name="CARGO" Type="number" Precision="6" Scale="0" />
+        </EntityType>
+        <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'PROVEDURIA.VW_EMPLEADO' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VW_EMPLEADO">
           <Key>
@@ -273,6 +286,16 @@ advertencia 6002: La tabla o vista 'PROVEDURIA.VW_EMPLEADO' no tiene definida ni
           <EntitySet Name="EPRTA_MOVIMIENTO_DETALLE" EntityType="Self.EPRTA_MOVIMIENTO_DETALLE" Schema="PROVEDURIA" store:Type="Tables" />
           <EntitySet Name="EPRTA_SECUENCIA" EntityType="Self.EPRTA_SECUENCIA" Schema="PROVEDURIA" store:Type="Tables" />
           <EntitySet Name="EPRTA_TIPO_MOVIMIENTO" EntityType="Self.EPRTA_TIPO_MOVIMIENTO" Schema="PROVEDURIA" store:Type="Tables" />
+          <EntitySet Name="VW_DEPARTAMENTO" EntityType="Self.VW_DEPARTAMENTO" store:Type="Views" store:Schema="PROVEDURIA">
+            <DefiningQuery>SELECT 
+"VW_DEPARTAMENTO"."DIRECCION" AS "DIRECCION", 
+"VW_DEPARTAMENTO"."CODIGO" AS "CODIGO", 
+"VW_DEPARTAMENTO"."DESCRIPCION" AS "DESCRIPCION", 
+"VW_DEPARTAMENTO"."ESTADO" AS "ESTADO", 
+"VW_DEPARTAMENTO"."SIGLA" AS "SIGLA", 
+"VW_DEPARTAMENTO"."CARGO" AS "CARGO"
+FROM "PROVEDURIA"."VW_DEPARTAMENTO" "VW_DEPARTAMENTO"</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="VW_EMPLEADO" EntityType="Self.VW_EMPLEADO" store:Type="Views" store:Schema="PROVEDURIA">
             <DefiningQuery>SELECT 
 "VW_EMPLEADO"."CODIGO" AS "CODIGO", 
@@ -333,23 +356,17 @@ FROM "PROVEDURIA"."VW_EMPLEADO" "VW_EMPLEADO"</DefiningQuery>
     <edmx:ConceptualModels>
       <Schema Namespace="ModelProveduria" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="EntitiesProveduria" annotation:LazyLoadingEnabled="true" >
+          <EntitySet Name="EPRTA_ARTICULO_BODEGA" EntityType="ModelProveduria.EPRTA_ARTICULO_BODEGA" />
           <EntitySet Name="EPRTA_BODEGA" EntityType="ModelProveduria.EPRTA_BODEGA" />
           <EntitySet Name="EPRTA_GRUPO" EntityType="ModelProveduria.EPRTA_GRUPO" />
           <EntitySet Name="EPRTA_ITEM" EntityType="ModelProveduria.EPRTA_ITEM" />
           <EntitySet Name="EPRTA_MEDIDA" EntityType="ModelProveduria.EPRTA_MEDIDA" />
-          <EntitySet Name="EPRTA_TIPO_MOVIMIENTO" EntityType="ModelProveduria.EPRTA_TIPO_MOVIMIENTO" />
-          <AssociationSet Name="INV_ITEMS_EPRTA_GRUPO_FK" Association="ModelProveduria.INV_ITEMS_EPRTA_GRUPO_FK">
-            <End Role="EPRTA_GRUPO" EntitySet="EPRTA_GRUPO" />
-            <End Role="EPRTA_ITEM" EntitySet="EPRTA_ITEM" />
-          </AssociationSet>
-          <AssociationSet Name="EPRCN_ITEM_MEDIDA_FK" Association="ModelProveduria.EPRCN_ITEM_MEDIDA_FK">
-            <End Role="EPRTA_MEDIDA" EntitySet="EPRTA_MEDIDA" />
-            <End Role="EPRTA_ITEM" EntitySet="EPRTA_ITEM" />
-          </AssociationSet>
-          <EntitySet Name="EPRTA_ARTICULO_BODEGA" EntityType="ModelProveduria.EPRTA_ARTICULO_BODEGA" />
           <EntitySet Name="EPRTA_MOVIMIENTO" EntityType="ModelProveduria.EPRTA_MOVIMIENTO" />
           <EntitySet Name="EPRTA_MOVIMIENTO_DETALLE" EntityType="ModelProveduria.EPRTA_MOVIMIENTO_DETALLE" />
           <EntitySet Name="EPRTA_SECUENCIA" EntityType="ModelProveduria.EPRTA_SECUENCIA" />
+          <EntitySet Name="EPRTA_TIPO_MOVIMIENTO" EntityType="ModelProveduria.EPRTA_TIPO_MOVIMIENTO" />
+          <EntitySet Name="VW_DEPARTAMENTO" EntityType="ModelProveduria.VW_DEPARTAMENTO" />
+          <EntitySet Name="VW_EMPLEADO" EntityType="ModelProveduria.VW_EMPLEADO" />
           <AssociationSet Name="EPRCN_ARTBOD_ITEM_FK" Association="ModelProveduria.EPRCN_ARTBOD_ITEM_FK">
             <End Role="EPRTA_ITEM" EntitySet="EPRTA_ITEM" />
             <End Role="EPRTA_ARTICULO_BODEGA" EntitySet="EPRTA_ARTICULO_BODEGA" />
@@ -361,6 +378,14 @@ FROM "PROVEDURIA"."VW_EMPLEADO" "VW_EMPLEADO"</DefiningQuery>
           <AssociationSet Name="EPRCN_MOVIMIENTO_BODEGA_FK" Association="ModelProveduria.EPRCN_MOVIMIENTO_BODEGA_FK">
             <End Role="EPRTA_BODEGA" EntitySet="EPRTA_BODEGA" />
             <End Role="EPRTA_MOVIMIENTO" EntitySet="EPRTA_MOVIMIENTO" />
+          </AssociationSet>
+          <AssociationSet Name="INV_ITEMS_EPRTA_GRUPO_FK" Association="ModelProveduria.INV_ITEMS_EPRTA_GRUPO_FK">
+            <End Role="EPRTA_GRUPO" EntitySet="EPRTA_GRUPO" />
+            <End Role="EPRTA_ITEM" EntitySet="EPRTA_ITEM" />
+          </AssociationSet>
+          <AssociationSet Name="EPRCN_ITEM_MEDIDA_FK" Association="ModelProveduria.EPRCN_ITEM_MEDIDA_FK">
+            <End Role="EPRTA_MEDIDA" EntitySet="EPRTA_MEDIDA" />
+            <End Role="EPRTA_ITEM" EntitySet="EPRTA_ITEM" />
           </AssociationSet>
           <AssociationSet Name="EPRCN_MOVDET_ITEM_FK" Association="ModelProveduria.EPRCN_MOVDET_ITEM_FK">
             <End Role="EPRTA_ITEM" EntitySet="EPRTA_ITEM" />
@@ -382,8 +407,27 @@ FROM "PROVEDURIA"."VW_EMPLEADO" "VW_EMPLEADO"</DefiningQuery>
             <End Role="EPRTA_TIPO_MOVIMIENTO" EntitySet="EPRTA_TIPO_MOVIMIENTO" />
             <End Role="EPRTA_SECUENCIA" EntitySet="EPRTA_SECUENCIA" />
           </AssociationSet>
-          <EntitySet Name="VW_EMPLEADO" EntityType="ModelProveduria.VW_EMPLEADO" />
         </EntityContainer>
+        <EntityType Name="EPRTA_ARTICULO_BODEGA">
+          <Key>
+            <PropertyRef Name="ID_ARTIBODE" />
+          </Key>
+          <Property Name="ID_ARTIBODE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_BODEGA" Type="Byte" Nullable="false" />
+          <Property Name="ID_ITEM" Type="Int32" Nullable="false" />
+          <Property Name="CANTIDAD_MAXIMA" Type="Int32" />
+          <Property Name="CANTIDAD_ACTUAL" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="CANTIDAD_INICIO" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="CANTIDAD_CRITICA" Type="Int32" />
+          <Property Name="CANTIDAD_MINIMA" Type="Int32" />
+          <Property Name="CANTIDAD_BAJA" Type="Decimal" Precision="8" Scale="2" />
+          <Property Name="CANTIDAD_OC" Type="Int32" />
+          <Property Name="VALOR" Type="Decimal" Precision="9" Scale="3" />
+          <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="UBICACION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EPRTA_ITEM" Relationship="ModelProveduria.EPRCN_ARTBOD_ITEM_FK" FromRole="EPRTA_ARTICULO_BODEGA" ToRole="EPRTA_ITEM" />
+          <NavigationProperty Name="EPRTA_BODEGA" Relationship="ModelProveduria.EPRTA_ARTBOD_BODEGA_FK" FromRole="EPRTA_ARTICULO_BODEGA" ToRole="EPRTA_BODEGA" />
+        </EntityType>
         <EntityType Name="EPRTA_BODEGA">
           <Key>
             <PropertyRef Name="ID_BODEGA" />
@@ -421,9 +465,9 @@ FROM "PROVEDURIA"."VW_EMPLEADO" "VW_EMPLEADO"</DefiningQuery>
           <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="OBSERVACION" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="ID_GRUPO" Type="Byte" Nullable="false" />
+          <NavigationProperty Name="EPRTA_ARTICULO_BODEGA" Relationship="ModelProveduria.EPRCN_ARTBOD_ITEM_FK" FromRole="EPRTA_ITEM" ToRole="EPRTA_ARTICULO_BODEGA" />
           <NavigationProperty Name="EPRTA_GRUPO" Relationship="ModelProveduria.INV_ITEMS_EPRTA_GRUPO_FK" FromRole="EPRTA_ITEM" ToRole="EPRTA_GRUPO" />
           <NavigationProperty Name="EPRTA_MEDIDA" Relationship="ModelProveduria.EPRCN_ITEM_MEDIDA_FK" FromRole="EPRTA_ITEM" ToRole="EPRTA_MEDIDA" />
-          <NavigationProperty Name="EPRTA_ARTICULO_BODEGA" Relationship="ModelProveduria.EPRCN_ARTBOD_ITEM_FK" FromRole="EPRTA_ITEM" ToRole="EPRTA_ARTICULO_BODEGA" />
           <NavigationProperty Name="EPRTA_MOVIMIENTO_DETALLE" Relationship="ModelProveduria.EPRCN_MOVDET_ITEM_FK" FromRole="EPRTA_ITEM" ToRole="EPRTA_MOVIMIENTO_DETALLE" />
         </EntityType>
         <EntityType Name="EPRTA_MEDIDA">
@@ -434,65 +478,6 @@ FROM "PROVEDURIA"."VW_EMPLEADO" "VW_EMPLEADO"</DefiningQuery>
           <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="EPRTA_ITEM" Relationship="ModelProveduria.EPRCN_ITEM_MEDIDA_FK" FromRole="EPRTA_MEDIDA" ToRole="EPRTA_ITEM" />
-        </EntityType>
-        <EntityType Name="EPRTA_TIPO_MOVIMIENTO">
-          <Key>
-            <PropertyRef Name="ID_TIPO_MOVIMIENTO" />
-          </Key>
-          <Property Name="ID_TIPO_MOVIMIENTO" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="INGRESO_EGRESO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="EPRTA_MOVIMIENTO" Relationship="ModelProveduria.EPRCN_MOVIMIENTO_TIPMOV_FK" FromRole="EPRTA_TIPO_MOVIMIENTO" ToRole="EPRTA_MOVIMIENTO" />
-          <NavigationProperty Name="EPRTA_SECUENCIA" Relationship="ModelProveduria.EPRCN_SECUENCIA_TIPMOV_FK" FromRole="EPRTA_TIPO_MOVIMIENTO" ToRole="EPRTA_SECUENCIA" />
-        </EntityType>
-        <Association Name="INV_ITEMS_EPRTA_GRUPO_FK">
-          <End Type="ModelProveduria.EPRTA_GRUPO" Role="EPRTA_GRUPO" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="ModelProveduria.EPRTA_ITEM" Role="EPRTA_ITEM" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EPRTA_GRUPO">
-              <PropertyRef Name="ID_GRUPO" />
-            </Principal>
-            <Dependent Role="EPRTA_ITEM">
-              <PropertyRef Name="ID_GRUPO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="EPRCN_ITEM_MEDIDA_FK">
-          <End Type="ModelProveduria.EPRTA_MEDIDA" Role="EPRTA_MEDIDA" Multiplicity="1">
-            <OnDelete Action="Cascade" />
-          </End>
-          <End Type="ModelProveduria.EPRTA_ITEM" Role="EPRTA_ITEM" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EPRTA_MEDIDA">
-              <PropertyRef Name="ID_MEDIDA" />
-            </Principal>
-            <Dependent Role="EPRTA_ITEM">
-              <PropertyRef Name="ID_MEDIDA" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <EntityType Name="EPRTA_ARTICULO_BODEGA">
-          <Key>
-            <PropertyRef Name="ID_ARTIBODE" />
-          </Key>
-          <Property Name="ID_ARTIBODE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ID_BODEGA" Type="Byte" Nullable="false" />
-          <Property Name="ID_ITEM" Type="Int32" Nullable="false" />
-          <Property Name="CANTIDAD_MAXIMA" Type="Int32" />
-          <Property Name="CANTIDAD_ACTUAL" Type="Decimal" Precision="8" Scale="2" />
-          <Property Name="CANTIDAD_INICIO" Type="Decimal" Precision="8" Scale="2" />
-          <Property Name="CANTIDAD_CRITICA" Type="Int32" />
-          <Property Name="CANTIDAD_MINIMA" Type="Int32" />
-          <Property Name="CANTIDAD_BAJA" Type="Decimal" Precision="8" Scale="2" />
-          <Property Name="CANTIDAD_OC" Type="Int32" />
-          <Property Name="VALOR" Type="Decimal" Precision="9" Scale="3" />
-          <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="UBICACION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="EPRTA_ITEM" Relationship="ModelProveduria.EPRCN_ARTBOD_ITEM_FK" FromRole="EPRTA_ARTICULO_BODEGA" ToRole="EPRTA_ITEM" />
-          <NavigationProperty Name="EPRTA_BODEGA" Relationship="ModelProveduria.EPRTA_ARTBOD_BODEGA_FK" FromRole="EPRTA_ARTICULO_BODEGA" ToRole="EPRTA_BODEGA" />
         </EntityType>
         <EntityType Name="EPRTA_MOVIMIENTO">
           <Key>
@@ -549,6 +534,43 @@ FROM "PROVEDURIA"."VW_EMPLEADO" "VW_EMPLEADO"</DefiningQuery>
           <Property Name="FECHA_ULTIMA_SECUENCIA" Type="DateTime" />
           <NavigationProperty Name="EPRTA_TIPO_MOVIMIENTO" Relationship="ModelProveduria.EPRCN_SECUENCIA_TIPMOV_FK" FromRole="EPRTA_SECUENCIA" ToRole="EPRTA_TIPO_MOVIMIENTO" />
         </EntityType>
+        <EntityType Name="EPRTA_TIPO_MOVIMIENTO">
+          <Key>
+            <PropertyRef Name="ID_TIPO_MOVIMIENTO" />
+          </Key>
+          <Property Name="ID_TIPO_MOVIMIENTO" Type="Byte" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="NOMBRE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="INGRESO_EGRESO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EPRTA_MOVIMIENTO" Relationship="ModelProveduria.EPRCN_MOVIMIENTO_TIPMOV_FK" FromRole="EPRTA_TIPO_MOVIMIENTO" ToRole="EPRTA_MOVIMIENTO" />
+          <NavigationProperty Name="EPRTA_SECUENCIA" Relationship="ModelProveduria.EPRCN_SECUENCIA_TIPMOV_FK" FromRole="EPRTA_TIPO_MOVIMIENTO" ToRole="EPRTA_SECUENCIA" />
+        </EntityType>
+        <EntityType Name="VW_DEPARTAMENTO">
+          <Key>
+            <PropertyRef Name="CODIGO" />
+          </Key>
+          <Property Name="DIRECCION" Type="Int16" Nullable="false" />
+          <Property Name="CODIGO" Type="Byte" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="SIGLA" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="CARGO" Type="Int32" />
+        </EntityType>
+        <EntityType Name="VW_EMPLEADO">
+          <Key>
+            <PropertyRef Name="CODIGO" />
+          </Key>
+          <Property Name="CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="CEDULA" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="EMPLEADO" Type="String" MaxLength="123" FixedLength="false" Unicode="false" />
+          <Property Name="GRADO_ID" Type="Int32" />
+          <Property Name="GRADO" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CARGO_ID" Type="Int32" />
+          <Property Name="CARGO" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="DIRECCION_ID" Type="Int16" />
+          <Property Name="USUARIO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
         <Association Name="EPRCN_ARTBOD_ITEM_FK">
           <End Type="ModelProveduria.EPRTA_ITEM" Role="EPRTA_ITEM" Multiplicity="1" />
           <End Type="ModelProveduria.EPRTA_ARTICULO_BODEGA" Role="EPRTA_ARTICULO_BODEGA" Multiplicity="*" />
@@ -582,6 +604,34 @@ FROM "PROVEDURIA"."VW_EMPLEADO" "VW_EMPLEADO"</DefiningQuery>
             </Principal>
             <Dependent Role="EPRTA_MOVIMIENTO">
               <PropertyRef Name="ID_BODEGA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="INV_ITEMS_EPRTA_GRUPO_FK">
+          <End Type="ModelProveduria.EPRTA_GRUPO" Role="EPRTA_GRUPO" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ModelProveduria.EPRTA_ITEM" Role="EPRTA_ITEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EPRTA_GRUPO">
+              <PropertyRef Name="ID_GRUPO" />
+            </Principal>
+            <Dependent Role="EPRTA_ITEM">
+              <PropertyRef Name="ID_GRUPO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EPRCN_ITEM_MEDIDA_FK">
+          <End Type="ModelProveduria.EPRTA_MEDIDA" Role="EPRTA_MEDIDA" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Type="ModelProveduria.EPRTA_ITEM" Role="EPRTA_ITEM" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EPRTA_MEDIDA">
+              <PropertyRef Name="ID_MEDIDA" />
+            </Principal>
+            <Dependent Role="EPRTA_ITEM">
+              <PropertyRef Name="ID_MEDIDA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -645,27 +695,31 @@ FROM "PROVEDURIA"."VW_EMPLEADO" "VW_EMPLEADO"</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="VW_EMPLEADO">
-          <Key>
-            <PropertyRef Name="CODIGO" />
-          </Key>
-          <Property Name="CODIGO" Type="Int32" Nullable="false" />
-          <Property Name="CEDULA" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="EMPLEADO" Type="String" MaxLength="123" FixedLength="false" Unicode="false" />
-          <Property Name="GRADO_ID" Type="Int32" />
-          <Property Name="GRADO" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="CARGO_ID" Type="Int32" />
-          <Property Name="CARGO" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
-          <Property Name="DIRECCION_ID" Type="Int16" />
-          <Property Name="USUARIO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
-        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ModelProveduriaStoreContainer" CdmEntityContainer="EntitiesProveduria" >
+          <EntitySetMapping Name="EPRTA_ARTICULO_BODEGA">
+            <EntityTypeMapping TypeName="ModelProveduria.EPRTA_ARTICULO_BODEGA">
+              <MappingFragment StoreEntitySet="EPRTA_ARTICULO_BODEGA">
+                <ScalarProperty Name="UBICACION" ColumnName="UBICACION" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="VALOR" ColumnName="VALOR" />
+                <ScalarProperty Name="CANTIDAD_OC" ColumnName="CANTIDAD_OC" />
+                <ScalarProperty Name="CANTIDAD_BAJA" ColumnName="CANTIDAD_BAJA" />
+                <ScalarProperty Name="CANTIDAD_MINIMA" ColumnName="CANTIDAD_MINIMA" />
+                <ScalarProperty Name="CANTIDAD_CRITICA" ColumnName="CANTIDAD_CRITICA" />
+                <ScalarProperty Name="CANTIDAD_INICIO" ColumnName="CANTIDAD_INICIO" />
+                <ScalarProperty Name="CANTIDAD_ACTUAL" ColumnName="CANTIDAD_ACTUAL" />
+                <ScalarProperty Name="CANTIDAD_MAXIMA" ColumnName="CANTIDAD_MAXIMA" />
+                <ScalarProperty Name="ID_ITEM" ColumnName="ID_ITEM" />
+                <ScalarProperty Name="ID_BODEGA" ColumnName="ID_BODEGA" />
+                <ScalarProperty Name="ID_ARTIBODE" ColumnName="ID_ARTIBODE" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="EPRTA_BODEGA">
             <EntityTypeMapping TypeName="ModelProveduria.EPRTA_BODEGA">
               <MappingFragment StoreEntitySet="EPRTA_BODEGA">
@@ -710,35 +764,6 @@ FROM "PROVEDURIA"."VW_EMPLEADO" "VW_EMPLEADO"</DefiningQuery>
                 <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
                 <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
                 <ScalarProperty Name="ID_MEDIDA" ColumnName="ID_MEDIDA" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="EPRTA_TIPO_MOVIMIENTO">
-            <EntityTypeMapping TypeName="ModelProveduria.EPRTA_TIPO_MOVIMIENTO">
-              <MappingFragment StoreEntitySet="EPRTA_TIPO_MOVIMIENTO">
-                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
-                <ScalarProperty Name="INGRESO_EGRESO" ColumnName="INGRESO_EGRESO" />
-                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
-                <ScalarProperty Name="ID_TIPO_MOVIMIENTO" ColumnName="ID_TIPO_MOVIMIENTO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="EPRTA_ARTICULO_BODEGA">
-            <EntityTypeMapping TypeName="ModelProveduria.EPRTA_ARTICULO_BODEGA">
-              <MappingFragment StoreEntitySet="EPRTA_ARTICULO_BODEGA">
-                <ScalarProperty Name="UBICACION" ColumnName="UBICACION" />
-                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
-                <ScalarProperty Name="VALOR" ColumnName="VALOR" />
-                <ScalarProperty Name="CANTIDAD_OC" ColumnName="CANTIDAD_OC" />
-                <ScalarProperty Name="CANTIDAD_BAJA" ColumnName="CANTIDAD_BAJA" />
-                <ScalarProperty Name="CANTIDAD_MINIMA" ColumnName="CANTIDAD_MINIMA" />
-                <ScalarProperty Name="CANTIDAD_CRITICA" ColumnName="CANTIDAD_CRITICA" />
-                <ScalarProperty Name="CANTIDAD_INICIO" ColumnName="CANTIDAD_INICIO" />
-                <ScalarProperty Name="CANTIDAD_ACTUAL" ColumnName="CANTIDAD_ACTUAL" />
-                <ScalarProperty Name="CANTIDAD_MAXIMA" ColumnName="CANTIDAD_MAXIMA" />
-                <ScalarProperty Name="ID_ITEM" ColumnName="ID_ITEM" />
-                <ScalarProperty Name="ID_BODEGA" ColumnName="ID_BODEGA" />
-                <ScalarProperty Name="ID_ARTIBODE" ColumnName="ID_ARTIBODE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -789,6 +814,28 @@ FROM "PROVEDURIA"."VW_EMPLEADO" "VW_EMPLEADO"</DefiningQuery>
                 <ScalarProperty Name="ANIO" ColumnName="ANIO" />
                 <ScalarProperty Name="ID_TIPO_MOVIMIENTO" ColumnName="ID_TIPO_MOVIMIENTO" />
                 <ScalarProperty Name="ID_SECUENCIA" ColumnName="ID_SECUENCIA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EPRTA_TIPO_MOVIMIENTO">
+            <EntityTypeMapping TypeName="ModelProveduria.EPRTA_TIPO_MOVIMIENTO">
+              <MappingFragment StoreEntitySet="EPRTA_TIPO_MOVIMIENTO">
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="INGRESO_EGRESO" ColumnName="INGRESO_EGRESO" />
+                <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
+                <ScalarProperty Name="ID_TIPO_MOVIMIENTO" ColumnName="ID_TIPO_MOVIMIENTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VW_DEPARTAMENTO">
+            <EntityTypeMapping TypeName="ModelProveduria.VW_DEPARTAMENTO">
+              <MappingFragment StoreEntitySet="VW_DEPARTAMENTO">
+                <ScalarProperty Name="CARGO" ColumnName="CARGO" />
+                <ScalarProperty Name="SIGLA" ColumnName="SIGLA" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

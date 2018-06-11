@@ -232,6 +232,9 @@
       <DependentUpon>ModeloProveduria.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Usuario.cs" />
+    <Compile Include="Models\VW_DEPARTAMENTO.cs">
+      <DependentUpon>ModeloProveduria.tt</DependentUpon>
+    </Compile>
     <Compile Include="Models\VW_EMPLEADO.cs">
       <DependentUpon>ModeloProveduria.tt</DependentUpon>
     </Compile>
@@ -3540,6 +3543,7 @@
     <Content Include="Content\bower_components\fullcalendar\dist\locale\zh-cn.js" />
     <Content Include="Content\bower_components\fullcalendar\dist\locale\zh-tw.js" />
     <Content Include="Content\bower_components\fullcalendar\LICENSE.txt" />
+    <Content Include="Content\bower_components\moment\datetime-moment.js" />
     <Content Include="Content\bower_components\parsley\es.js" />
     <Content Include="Content\bower_components\parsley\parsley.css" />
     <Content Include="Content\bower_components\parsley\parsley_2.8.1.min.js" />
@@ -7373,6 +7377,7 @@
     </Content>
     <Content Include="Content\bower_components\_images\Sorting icons.psd" />
     <Content Include="Content\bower_components\datatable\Spanish.json" />
+    <Content Include="Content\bower_components\moment\moment-2221-min.js" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
