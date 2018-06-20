@@ -53,11 +53,16 @@ function Grabar() {
     $('#frmItem').parsley().validate();
     if ($('#frmItem').parsley().isValid()) {
         var forma = serializaForma($("#frmItem"));
+        var parametros = (
+            {
+                precord: forma
+            }); 
         $.ajax({
             type: "POST",
             traditional: true,
             datatype: "json",
             data: JSON.stringify(forma),
+            //data: parametros,
             contentType: 'application/json; charset=utf-8',
             url: "/Item/Grabar",
             beforeSend: function () {
@@ -138,6 +143,7 @@ return {
             $("#CODIGO").prop('readonly', true);
         }
 
+        $("#ESTADO").select2({ showSearchInput: false });
     }
 };
 }();

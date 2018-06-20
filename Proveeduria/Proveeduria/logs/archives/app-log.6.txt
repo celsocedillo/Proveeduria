@@ -1,4 +1,8 @@
+<<<<<<< HEAD
      ---------------------------- Error(2018-05-14 09:26:38.8208) --------------------------    
+=======
+     ---------------------------- Error(2018-06-06 14:43:08.8570) --------------------------    
+>>>>>>> ad2e99e07967d8a2b7f666aa9b878ff0a48143b1
               Machine Name  : CCEDILLO
    
               Exception Type  : System.Data.Entity.Core.EntityCommandExecutionException
@@ -43,7 +47,11 @@
    en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
    en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
    en Proveduria.Repositories.GenericRepository`1.GetAll() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 31
+<<<<<<< HEAD
    en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 32 
+=======
+   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 39 
+>>>>>>> ad2e99e07967d8a2b7f666aa9b878ff0a48143b1
 Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-12570: Sesión de Red: error de lectura de paquete inesperado ---> OracleInternal.Network.NetworkException (0x80004005): ORA-12570: Sesión de Red: error de lectura de paquete inesperado ---> System.Net.Sockets.SocketException (0x80004005): Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
    en System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
    en OracleInternal.Network.ReaderStream.Read(OraBuf OB)
@@ -91,12 +99,17 @@ System.Net.Sockets.SocketException (0x80004005): Se produjo un error durante el 
    en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
    en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
    en Proveduria.Repositories.GenericRepository`1.GetAll() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 31
+<<<<<<< HEAD
    en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 32
+=======
+   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 39
+>>>>>>> ad2e99e07967d8a2b7f666aa9b878ff0a48143b1
         
               Additional Info  : An error occurred while executing the command definition. See the inner exception for details.  
               -------------------------------------------------------------------
               ----------     
      
+<<<<<<< HEAD
      ---------------------------- Info(2018-05-14 12:00:45.8107) --------------------------    
               Machine Name  : CCEDILLO
    
@@ -284,6 +297,63 @@ System.Net.Sockets.SocketException (0x80004005): Se produjo un error durante el 
       
               Exception Message : An error occurred while executing the command definition. See the inner exception for details.
      
+=======
+     ---------------------------- Error(2018-06-06 14:43:15.6310) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_14(<>f__AnonymousType9`2 <>h__TransparentIdentifier4) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40 
+ 
+              Stack Trace   :    en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_14(<>f__AnonymousType9`2 <>h__TransparentIdentifier4) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-06 15:25:15.4050) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_14(<>f__AnonymousType9`2 <>h__TransparentIdentifier4) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40 
+ 
+              Stack Trace   :    en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_14(<>f__AnonymousType9`2 <>h__TransparentIdentifier4) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-06 16:29:51.2100) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.Data.Entity.Core.EntityCommandExecutionException
+      
+              Exception Message : An error occurred while executing the command definition. See the inner exception for details.
+     
+>>>>>>> ad2e99e07967d8a2b7f666aa9b878ff0a48143b1
               Inner Exception  : System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> Oracle.ManagedDataAccess.Client.OracleException: ORA-12570: Sesión de Red: error de lectura de paquete inesperado ---> OracleInternal.Network.NetworkException: ORA-12570: Sesión de Red: error de lectura de paquete inesperado ---> System.Net.Sockets.SocketException: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
    en System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
    en OracleInternal.Network.ReaderStream.Read(OraBuf OB)
@@ -322,7 +392,11 @@ System.Net.Sockets.SocketException (0x80004005): Se produjo un error durante el 
    en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
    en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
    en Proveduria.Repositories.GenericRepository`1.GetAll() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 31
+<<<<<<< HEAD
    en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 32 
+=======
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 94 
+>>>>>>> ad2e99e07967d8a2b7f666aa9b878ff0a48143b1
 Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-12570: Sesión de Red: error de lectura de paquete inesperado ---> OracleInternal.Network.NetworkException (0x80004005): ORA-12570: Sesión de Red: error de lectura de paquete inesperado ---> System.Net.Sockets.SocketException (0x80004005): Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
    en System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
    en OracleInternal.Network.ReaderStream.Read(OraBuf OB)
@@ -354,6 +428,7 @@ OracleInternal.Network.NetworkException (0x80004005): ORA-12570: Sesión de Red: 
 System.Net.Sockets.SocketException (0x80004005): Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
    en System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
    en OracleInternal.Network.ReaderStream.Read(OraBuf OB) 
+<<<<<<< HEAD
  
               Stack Trace   :    en System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
    en System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
@@ -388,6 +463,27 @@ System.Net.Sockets.SocketException (0x80004005): Se produjo un error durante el 
               Stack Trace   : 
         
               Additional Info  : Dato Grabado  
+=======
+ 
+              Stack Trace   :    en System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   en System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__a()
+   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__9()
+   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   en System.Lazy`1.CreateValue()
+   en System.Lazy`1.LazyInitValue()
+   en System.Lazy`1.get_Value()
+   en System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Repositories.GenericRepository`1.GetAll() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 31
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 94
+        
+              Additional Info  : An error occurred while executing the command definition. See the inner exception for details.  
+>>>>>>> ad2e99e07967d8a2b7f666aa9b878ff0a48143b1
               -------------------------------------------------------------------
               ----------     
      

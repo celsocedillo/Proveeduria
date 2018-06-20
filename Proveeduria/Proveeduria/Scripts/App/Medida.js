@@ -26,10 +26,11 @@ function CargaDatos() {
             }
             else {
                 //var items = data.items;
-                var dato = $.parseJSON(data.data);
+                var data = $.parseJSON(data.data);
                 //tipomov = data[0]; //Esto es para guardar la estructura del objeto y poder usarlo en el momento de crear uno nuevo
                 tabmedida.clear();
-                tabmedida.rows.add(dato);
+                tabmedida.rows.add(data);
+
                 tabmedida.draw();
             }
             $(".box-body").waitMe('hide');
@@ -197,8 +198,8 @@ var Medida = function () {
                 LimpiarFormularioMedida();
                 $("#dlgMedida").modal('toggle');
             });
-
-            //});
         }
     };
+            //});
 }();
+

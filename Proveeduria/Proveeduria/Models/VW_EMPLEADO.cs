@@ -24,5 +24,9 @@ namespace Proveduria.Models
         public Nullable<short> DIRECCION_ID { get; set; }
         public string USUARIO { get; set; }
         public string ESTADO { get; set; }
+        public Nullable<byte> DEPARTAMENTO_ID { get; set; }
+        public string DEPARTAMENTO { get; set; }
+        public string USUARIO_JEFE_DEPARTAMENTO { get; set; }
+        public string DIRECCION { get; set; }
     }
 }

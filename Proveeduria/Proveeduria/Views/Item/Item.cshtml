@@ -9,8 +9,6 @@
 @section styles {
     <!-- DataTables -->
     @*<link rel="stylesheet" href=@Url.Content("/Content/bower_components/datatables.net-bs/css/dataTables.bootstrap.min.css")>*@
-    <link rel="stylesheet" href=@Url.Content("/Content/bower_components/datatable/jquery.dataTables.css")>
-    <link rel="stylesheet" href=@Url.Content("/Content/bower_components/datatable/dataTables.jqueryui.min.css")>
 
 
 }
@@ -42,10 +40,13 @@
 
     <!-- begin panel -->
     <div class="box box-primary">
-        
-        <div class="box-body">
-            <div class="row">
-                <form id="frmItem" class="form-horizontal" data-parsley-validate>
+        @using (Html.BeginForm("Item", "Item", FormMethod.Post, new { id = "frmItem", @class = "form-horizontal", @data_parsley_validate = "" }))
+        {
+            @Html.AntiForgeryToken()
+        @*<form id="frmItem" class="form-horizontal" data-parsley-validate>*@
+            <div class="box-body">
+                <div class="row">
+
                     @Html.HiddenFor(m => m.ID_ITEM)
                     @Html.HiddenFor(m => m.ESTADO)
                     @Html.HiddenFor(m => m.FECHA_ULTIMO_EGRESO)
@@ -92,8 +93,6 @@
 
                         <div class="form-group">
                             <div class="col-sm-offset-2 col-sm-10">
-                                <button type="button" id="btnGrabar" class="btn btn-primary btn-sm">Grabar</button>
-                                <button type="button" id="btnCancelar" class="btn btn-default btn-sm">Cancelar</button>
                             </div>
                         </div>
                     </div>
@@ -113,14 +112,25 @@
                         </div>
                     </div>
 
-                </form>
-            </div>
 
-            <div class="row">
-                <div class="col-sm-12">
-                    <p class="page-header">Stock por bodega</p>
                 </div>
             </div>
+            <div class="box-footer">
+                <button type="button" id="btnGrabar" class="btn btn-primary btn-sm">Grabar</button>
+                <button type="button" id="btnCancelar" class="btn btn-default btn-sm">Cancelar</button>
+
+            </div>
+        @*</form>*@
+
+        }
+    </div>
+    <!-- end panel -->
+
+    <div class="box box-default">
+        <div class="box-header">
+            <h2 class="box-title">Stock por bodega</h2>
+        </div>
+        <div class="box-body no-padding">
             <table id="tabStock" class="table table-striped hover compact">
                 <thead>
                     <tr>
@@ -169,12 +179,8 @@
                 </tr>}
                 </tbody>
             </table>
-
         </div>
-        
     </div>
-    <!-- end panel -->
-
 
 
 </section>
@@ -183,9 +189,7 @@
     <!-- DataTables -->
     @*<script src=@Url.Content("/Content/bower_components/datatables.net/js/jquery.dataTables.min.js")></script>
         <script src=@Url.Content("/Content/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js")></script>*@
-    <script src=@Url.Content("/Content/bower_components/datatable/jquery.dataTables.js")></script>
-    <script src=@Url.Content("/Content/bower_components/datatable/dataTables.jqueryui.min.js")></script>
-
+    
     <script type="text/javascript" src=@Url.Content("/Scripts/App/Item.js")></script>
     <script type="text/javascript">
         @*@{ 

@@ -37,7 +37,6 @@ namespace Proveduria.Controllers
             JObject jsonObject = new JObject();
             try
             {
-
                 EPRTA_MEDIDA medida = unitOfWork.MedidaRepository.GetById(pid);
                 jsonObject.Add("ID_MEDIDA", medida.ID_MEDIDA);
                 jsonObject.Add("NOMBRE", medida.NOMBRE);
@@ -50,6 +49,7 @@ namespace Proveduria.Controllers
                 jsonObject.Add("resultado", "error");
             }
             return Content(jsonObject.ToString(), "application/json");
+
         }
 
         //[HttpPost]
