@@ -55,7 +55,7 @@ var ListaSolicitud = function () {
             tabSolicitud = $('#tabSolicitud').DataTable({
                 "autoWidth": false,
                 "data": ldata,
-                "order" : [[4, "desc"]],
+                "order" : [[5, "desc"]],
                 "columnDefs":
                     [
                         { "targets": [1], "className": "text-right" }
@@ -65,6 +65,7 @@ var ListaSolicitud = function () {
                     { "data": 'NUMERO_MOVIMIENTO' },
                     { "data": 'OBSERVACION' },
                     { "data": 'NOMBREESTADO' },
+                    { "data": 'USUARIO_SOLICITA' },
                     { "data": 'FECHA_SOLICITUD' },
                     { "data": 'FECHA_APROBACION' },
                     { "data": "ACCION", "orderable": true }

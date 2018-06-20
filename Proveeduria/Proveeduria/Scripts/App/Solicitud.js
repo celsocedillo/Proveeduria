@@ -4,7 +4,7 @@ function agregarItem(item) {
     if (item.ID_ITEM !== undefined) {
         producto = item.DESCRIPCION;
         var cantidad = `<div class="col-md-1">
-                            <input id=txtcant${item.ID_ITEM} name="detalle-cantidad" type="number" style="width: 75px;" class="form-control text-right txtcant no-spin" value="1" min=0 step="any" required>
+                            <input id=txtcant${item.ID_ITEM} name="detalle-cantidad" type="number" style="width: 75px;" class="form-control text-right txtcant no-spin" value="${item.CANTIDAD_PEDIDO}" min=0 step="any" required>
                         </div>`;
         //var eliminar = `<a title="Eliminar" class="remove">
         //                    <span class="fa-stack fa-1x text-inverse">
@@ -18,11 +18,11 @@ function agregarItem(item) {
         row.push(item.DESCRIPCION);
         row.push(cantidad);
         row.push(item.UNIDAD);
-        row.push(eliminar);
+        row.push(item.ID_DETALLE);
         var index = tabItems.row.add(row).draw(false).index();
         tabItems.rows(index).nodes().to$().attr("data-id_item", item.ID_ITEM);
         tabItems.rows(index).nodes().to$().attr("data-id_detalle", item.ID_DETALLE);
-        tabItems.rows(index).nodes().to$().attr("data-estado", "E");
+        tabItems.rows(index).nodes().to$().attr("data-estado", item.ESTADO);
         tabItems.columns.adjust().draw();
 
         $("#txtcant" + item.ID_ITEM).on('keypress', function (e) {
@@ -77,9 +77,16 @@ function Grabar() {
                 });
             });
 
+            //if ($('#ESTADO').val() == "A")
+            //{
+            //    estadoSolicitud = $('#ESTADO').val();
+            //}
+
+            
             solicitud = {
                 "ID_MOVIMIENTO": solicitudId,
                 "OBSERVACION": $("#OBSERVACION").val(),
+                "ESTADO": $('#ESTADO').val(),
                 "EPRTA_MOVIMIENTO_DETALLE": solicitudDetalle
             }
             var parametros = JSON.stringify({
@@ -104,7 +111,7 @@ function Grabar() {
                             timer: 20000,
                             confirmButtonColor: '#00BCD4'
                         }).then(function () {
-                            window.location.href = '/Item/ListaItem';
+                            window.location.href = '/Solicitud/ListaSolicitud';
                         });
 
                     }
@@ -153,11 +160,15 @@ var Solicitud = function () {
                 "info": false,
                 "columnDefs":
                     [
-                        { "targets": [2], "className": "text-right" }
-                    ]
+                        { "targets": [2], "className": "text-right" },
+                        { "targets": [4], "checkboxes": { 'selectRow': false } },
+                    ],
+                "select": {
+                    "style" : "multi"
+                }
             });
 
-            if (estadoSolicitud == "S") {
+            if (estadoSolicitud == "S" || estadoSolicitud == "A") {
                 for (i in detalleMovimiento) {
                     agregarItem(detalleMovimiento[i]);
                 }
@@ -212,16 +223,44 @@ var Solicitud = function () {
                     ID_ITEM: selected.val(),
                     CODIGO: selected.data("codigo"),
                     DESCRIPCION: selected.data("descripcion"),
-                    UNIDAD: selected.data("unidad")
+                    UNIDAD: selected.data("unidad"),
+                    CANTIDAD_PEDIDO: 1,
+                    ID_DETALLE : 0
                 }
                 agregarItem(item);
             });
 
             $("#btnGrabar").on('click', function () {
                 Grabar();
-            })
-            
-            
+            });
+
+            $("#btnEliminarItem").on('click', function () {
+                var filas = tabItems.column(4).checkboxes.selected();
+
+                if (filas.length > 0) {
+                    var titulo;
+                    if (filas.length == 1) { titulo = '¿Seguro desea eliminar el registro seleccionado?'; }
+                    else { titulo = '¿Seguro desea eliminar los ' + filas.length + ' registros seleccionados?'; }
+                    swal({
+                        text: titulo,
+                        type: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#00BCD4',
+                        cancelButtonColor: '#EF5350',
+                        confirmButtonText: 'Aceptar',
+                        cancelButtonText: 'Cancelar'
+                    }).then(function () {
+                        tabItems.$("input[type='checkbox']").each(function () {
+                            if (this.checked) {
+                                var fila = $(this).closest('tr');
+                                fila.attr('data-estado', 'E');
+                                fila.css('display', 'none');
+                            }
+                        });
+                    });
+
+                }
+            });
         }
     };
 }();

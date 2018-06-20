@@ -16,6 +16,7 @@ namespace Proveduria.Repositories
         private GenericRepository<EPRTA_ITEM> itemRepository = null;
         private GenericRepository<EPRTA_ARTICULO_BODEGA> articuloBodegaRepository = null;
         private GenericRepository<EPRTA_MOVIMIENTO> movimientoRepository = null;
+        private GenericRepository<EPRTA_MOVIMIENTO_DETALLE> movimientoDetalleRepository = null;
         private GenericRepository<EPRTA_SECUENCIA> secuenciaRepository = null;
         private GenericRepository<EPRTA_BODEGA> bodegaRepository = null;
         private GenericRepository<VW_DEPARTAMENTO> departamentoRepository = null;
@@ -95,6 +96,19 @@ namespace Proveduria.Repositories
                 return movimientoRepository;
             }
         }
+
+        public GenericRepository<EPRTA_MOVIMIENTO_DETALLE> MovimientoDetalleRepository
+        {
+            get
+            {
+                if (movimientoDetalleRepository == null)
+                {
+                    movimientoDetalleRepository = new GenericRepository<EPRTA_MOVIMIENTO_DETALLE>(context);
+                }
+                return movimientoDetalleRepository;
+            }
+        }
+
 
         public GenericRepository<EPRTA_SECUENCIA> SecuenciaRepository
         {

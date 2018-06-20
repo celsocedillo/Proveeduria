@@ -170,7 +170,7 @@ namespace Proveduria.Controllers
         }
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        //[ValidateAntiForgeryToken]
         public ActionResult Grabar(EPRTA_ITEM precord)
         {
             JObject retorno = new JObject();

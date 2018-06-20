@@ -36,39 +36,87 @@ namespace Proveduria.Controllers
             JObject enviar = new JObject();
             try
             {
-                var emp = (from e in unitOfWork.EmpleadoRepository.GetAll() select e);
-                var tmp = (from p in unitOfWork.MovimientoRepository.GetAll()
-                           join us in emp on p.USUARIO_SOLICITA equals us.USUARIO 
-                           join ua in emp on p.USUARIO_APRUEBA equals ua.USUARIO into pa from ua in pa.DefaultIfEmpty()
-                           join ut in emp on p.USUARIO_AUTORIZA equals ut.USUARIO into pt from ut in pt.DefaultIfEmpty()
-                           where p.USUARIO_SOLICITA == Session["usuario"].ToString() && p.ID_TIPO_MOVIMIENTO == 2
-                           select new {
-                               p.ID_MOVIMIENTO,
-                               p.ANIO,
-                               p.NUMERO_MOVIMIENTO,
-                               FECHA_SOLICITUD = p.FECHA_SOLICITUD.HasValue ? p.FECHA_SOLICITUD.Value.ToString("dd/MM/yyyy") : null,
-                               p.OBSERVACION,
-                               p.ID_TIPO_MOVIMIENTO,
-                               p.ESTADO,
-                               NOMBREESTADO = (
-                                        p.ESTADO.Equals("D") ? "DESPACHADO" :
-                                        p.ESTADO.Equals("E") ? "ANULADO" :
-                                        p.ESTADO.Equals("A") ? "AUTORIZADO" :
-                                        p.ESTADO.Equals("S") ? "SOLICITADO":null ),
-                               p.USUARIO_AUTORIZA,
-                               p.USUARIO_APRUEBA,
-                               FECHA_AUTORIZACION = p.FECHA_AUTORIZACION.HasValue ? p.FECHA_AUTORIZACION.Value.ToString("dd/MM/yyyy") : null,
-                               FECHA_APROBACION = p.FECHA_APROBACION.HasValue ? p.FECHA_APROBACION.Value.ToString("dd/MM/yyyy") : null,
-                               EMPLEADO_SOLICITA = us.EMPLEADO,
-                               EMPLEADO_APRUEBA = ua == null ? null : ua.EMPLEADO,
-                               EMPLEADO_AUTORIZA = ut == null ? null : ut.EMPLEADO,
-                               ACCION = "<a href='/Solicitud/Solicitud/" + p.ID_MOVIMIENTO + "' class='text-inverse' data-toggle='tooltip' title='Modificar'>" +
-                                        "<i class='fa fa-search' aria-hidden='true'></i>" +
-                                        "</a>"
+                if (Session["usuario"].ToString().Equals(Session["usuario_jefe"].ToString()))
+                {
+                    var emp = (from e in unitOfWork.EmpleadoRepository.GetAll() select e);
+                    var tmp = (from p in unitOfWork.MovimientoRepository.GetAll()
+                               join us in emp on p.USUARIO_SOLICITA equals us.USUARIO
+                               join ua in emp on p.USUARIO_APRUEBA equals ua.USUARIO into pa
+                               from ua in pa.DefaultIfEmpty()
+                               join ut in emp on p.USUARIO_AUTORIZA equals ut.USUARIO into pt
+                               from ut in pt.DefaultIfEmpty()
+                               where p.ID_DEPARTAMENTO_SOLICITA == Convert.ToByte(Session["id_departamento"].ToString()) && p.ID_TIPO_MOVIMIENTO == 2
+                               select new
+                               {
+                                   p.ID_MOVIMIENTO,
+                                   p.ANIO,
+                                   p.NUMERO_MOVIMIENTO,
+                                   FECHA_SOLICITUD = p.FECHA_SOLICITUD.HasValue ? p.FECHA_SOLICITUD.Value.ToString("dd/MM/yyyy") : null,
+                                   p.OBSERVACION,
+                                   p.ID_TIPO_MOVIMIENTO,
+                                   p.ESTADO,
+                                   NOMBREESTADO = (
+                                            p.ESTADO.Equals("D") ? "DESPACHADO" :
+                                            p.ESTADO.Equals("E") ? "ANULADO" :
+                                            p.ESTADO.Equals("A") ? "AUTORIZADO" :
+                                            p.ESTADO.Equals("S") ? "SOLICITADO" : null),
+                                   p.USUARIO_SOLICITA,
+                                   p.USUARIO_AUTORIZA,
+                                   p.USUARIO_APRUEBA,
+                                   FECHA_AUTORIZACION = p.FECHA_AUTORIZACION.HasValue ? p.FECHA_AUTORIZACION.Value.ToString("dd/MM/yyyy") : null,
+                                   FECHA_APROBACION = p.FECHA_APROBACION.HasValue ? p.FECHA_APROBACION.Value.ToString("dd/MM/yyyy") : null,
+                                   EMPLEADO_SOLICITA = us.EMPLEADO,
+                                   EMPLEADO_APRUEBA = ua == null ? null : ua.EMPLEADO,
+                                   EMPLEADO_AUTORIZA = ut == null ? null : ut.EMPLEADO,
+                                   ACCION = "<a href='/Solicitud/Solicitud/" + p.ID_MOVIMIENTO + "' class='text-inverse' data-toggle='tooltip' title='Modificar'>" +
+                                            "<i class='fa fa-search' aria-hidden='true'></i>" +
+                                            "</a>"
 
-                           }).ToList();
-                enviar.Add("resultado", "success");
-                enviar.Add("data", JArray.FromObject(tmp));
+                               }).ToList();
+                    enviar.Add("resultado", "success");
+                    enviar.Add("data", JArray.FromObject(tmp));
+                }
+                else
+                {
+                    var emp = (from e in unitOfWork.EmpleadoRepository.GetAll() select e);
+                    var tmp = (from p in unitOfWork.MovimientoRepository.GetAll()
+                               join us in emp on p.USUARIO_SOLICITA equals us.USUARIO
+                               join ua in emp on p.USUARIO_APRUEBA equals ua.USUARIO into pa
+                               from ua in pa.DefaultIfEmpty()
+                               join ut in emp on p.USUARIO_AUTORIZA equals ut.USUARIO into pt
+                               from ut in pt.DefaultIfEmpty()
+                               where p.USUARIO_SOLICITA == Session["usuario"].ToString() && p.ID_TIPO_MOVIMIENTO == 2
+                               select new
+                               {
+                                   p.ID_MOVIMIENTO,
+                                   p.ANIO,
+                                   p.NUMERO_MOVIMIENTO,
+                                   FECHA_SOLICITUD = p.FECHA_SOLICITUD.HasValue ? p.FECHA_SOLICITUD.Value.ToString("dd/MM/yyyy") : null,
+                                   p.OBSERVACION,
+                                   p.ID_TIPO_MOVIMIENTO,
+                                   p.ESTADO,
+                                   NOMBREESTADO = (
+                                            p.ESTADO.Equals("D") ? "DESPACHADO" :
+                                            p.ESTADO.Equals("E") ? "ANULADO" :
+                                            p.ESTADO.Equals("A") ? "AUTORIZADO" :
+                                            p.ESTADO.Equals("S") ? "SOLICITADO" : null),
+                                   p.USUARIO_SOLICITA,
+                                   p.USUARIO_AUTORIZA,
+                                   p.USUARIO_APRUEBA,
+                                   FECHA_AUTORIZACION = p.FECHA_AUTORIZACION.HasValue ? p.FECHA_AUTORIZACION.Value.ToString("dd/MM/yyyy") : null,
+                                   FECHA_APROBACION = p.FECHA_APROBACION.HasValue ? p.FECHA_APROBACION.Value.ToString("dd/MM/yyyy") : null,
+                                   EMPLEADO_SOLICITA = us.EMPLEADO,
+                                   EMPLEADO_APRUEBA = ua == null ? null : ua.EMPLEADO,
+                                   EMPLEADO_AUTORIZA = ut == null ? null : ut.EMPLEADO,
+                                   ACCION = "<a href='/Solicitud/Solicitud/" + p.ID_MOVIMIENTO + "' class='text-inverse' data-toggle='tooltip' title='Modificar'>" +
+                                            "<i class='fa fa-search' aria-hidden='true'></i>" +
+                                            "</a>"
+
+                               }).ToList();
+                    enviar.Add("resultado", "success");
+                    enviar.Add("data", JArray.FromObject(tmp));
+                }
+
             }
             catch (Exception ex)
             {
@@ -189,32 +237,45 @@ namespace Proveduria.Controllers
                 }
 
             }
-            else
+            else //Registro a modificar
             {
                 try
                 {
                     EPRTA_MOVIMIENTO movimiento = unitOfWork.MovimientoRepository.GetById(pmovimiento.ID_MOVIMIENTO);
+                    movimiento.OBSERVACION = pmovimiento.OBSERVACION;
+                    if (pmovimiento.ESTADO == "A")
+                    {
+                        movimiento.ESTADO = "A";
+                        movimiento.USUARIO_AUTORIZA = Session["usuario"].ToString();
+                        movimiento.FECHA_AUTORIZACION = DateTime.Now;
+                    }else if(pmovimiento.ESTADO == "S")
+                    {
+                        movimiento.ESTADO = "S";
+                        movimiento.USUARIO_AUTORIZA = null;
+                        movimiento.FECHA_AUTORIZACION = null;
+                    }
+
+
                     foreach (EPRTA_MOVIMIENTO_DETALLE detalle in pmovimiento.EPRTA_MOVIMIENTO_DETALLE)
                     {
-                        if (detalle.ID_DETALLE == 0)
+                        if (detalle.ID_DETALLE == 0) //Si no tiene un id no existe en la base y se tiene que registrar
                         {
                             detalle.ID_MOVIMIENTO = movimiento.ID_MOVIMIENTO;
                             detalle.EPRTA_MOVIMIENTO = movimiento;
+                            detalle.ESTADO = "A";
                             movimiento.EPRTA_MOVIMIENTO_DETALLE.Add(detalle);
                         }
                         else
                         {
-                            if (detalle.ESTADO == "E")
+                            if (detalle.ESTADO == "E" && detalle.ID_DETALLE > 0)  //Si tiene un id se busca en la base para eliminarlo
                             {
-                                movimiento.EPRTA_MOVIMIENTO_DETALLE.Remove(movimiento.EPRTA_MOVIMIENTO_DETALLE.Where(p => p.ID_DETALLE == detalle.ID_DETALLE).FirstOrDefault());
-                                
+                                //EPRTA_MOVIMIENTO_DETALLE registro_eliminar = unitOfWork.MovimientoDetalleRepository.GetById(detalle.ID_DETALLE);
+                                unitOfWork.MovimientoDetalleRepository.Delete(detalle.ID_DETALLE);
                             }
                             else
                             {
                                 movimiento.EPRTA_MOVIMIENTO_DETALLE.Where(p => p.ID_DETALLE == detalle.ID_DETALLE).FirstOrDefault().CANTIDAD_PEDIDO = detalle.CANTIDAD_PEDIDO;
                             }
-                                
-
                         }
                     }
                     unitOfWork.MovimientoRepository.Update(movimiento);
@@ -234,6 +295,7 @@ namespace Proveduria.Controllers
             return Content(retorno.ToString(), "application/json");
 
         }
+
         protected override void Dispose(bool disposing)
         {
             unitOfWork.Dispose();

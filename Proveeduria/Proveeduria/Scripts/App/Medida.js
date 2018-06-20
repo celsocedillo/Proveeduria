@@ -198,13 +198,8 @@ var Medida = function () {
                 LimpiarFormularioMedida();
                 $("#dlgMedida").modal('toggle');
             });
-
-//});
         }
     };
-}();
             //});
-        }
-    };
 }();
 

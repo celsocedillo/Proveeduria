@@ -126,7 +126,10 @@
 advertencia 6002: La tabla o vista 'PROVEDURIA.VW_DEPARTAMENTO' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VW_DEPARTAMENTO">
           <Key>
+            <PropertyRef Name="DIRECCION" />
             <PropertyRef Name="CODIGO" />
+            <PropertyRef Name="DESCRIPCION" />
+            <PropertyRef Name="ESTADO" />
           </Key>
           <Property Name="DIRECCION" Type="number" Precision="5" Scale="0" Nullable="false" />
           <Property Name="CODIGO" Type="number" Precision="3" Scale="0" Nullable="false" />
@@ -140,6 +143,12 @@ advertencia 6002: La tabla o vista 'PROVEDURIA.VW_EMPLEADO' no tiene definida ni
         <EntityType Name="VW_EMPLEADO">
           <Key>
             <PropertyRef Name="CODIGO" />
+            <PropertyRef Name="CEDULA" />
+            <PropertyRef Name="GRADO" />
+            <PropertyRef Name="CARGO" />
+            <PropertyRef Name="DEPARTAMENTO" />
+            <PropertyRef Name="DIRECCION" />
+            <PropertyRef Name="ESTADO" />
           </Key>
           <Property Name="CODIGO" Type="number" Precision="6" Scale="0" Nullable="false" />
           <Property Name="CEDULA" Type="varchar2" MaxLength="15" Nullable="false" />
@@ -148,7 +157,11 @@ advertencia 6002: La tabla o vista 'PROVEDURIA.VW_EMPLEADO' no tiene definida ni
           <Property Name="GRADO" Type="varchar2" MaxLength="20" Nullable="false" />
           <Property Name="CARGO_ID" Type="number" Precision="6" Scale="0" />
           <Property Name="CARGO" Type="varchar2" MaxLength="80" Nullable="false" />
+          <Property Name="DEPARTAMENTO_ID" Type="number" Precision="3" Scale="0" />
+          <Property Name="DEPARTAMENTO" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="USUARIO_JEFE_DEPARTAMENTO" Type="varchar2" MaxLength="15" />
           <Property Name="DIRECCION_ID" Type="number" Precision="4" Scale="0" />
+          <Property Name="DIRECCION" Type="varchar2" MaxLength="255" Nullable="false" />
           <Property Name="USUARIO" Type="varchar2" MaxLength="15" />
           <Property Name="ESTADO" Type="varchar2" MaxLength="1" Nullable="false" />
         </EntityType>
@@ -305,7 +318,11 @@ FROM "PROVEDURIA"."VW_DEPARTAMENTO" "VW_DEPARTAMENTO"</DefiningQuery>
 "VW_EMPLEADO"."GRADO" AS "GRADO", 
 "VW_EMPLEADO"."CARGO_ID" AS "CARGO_ID", 
 "VW_EMPLEADO"."CARGO" AS "CARGO", 
+"VW_EMPLEADO"."DEPARTAMENTO_ID" AS "DEPARTAMENTO_ID", 
+"VW_EMPLEADO"."DEPARTAMENTO" AS "DEPARTAMENTO", 
+"VW_EMPLEADO"."USUARIO_JEFE_DEPARTAMENTO" AS "USUARIO_JEFE_DEPARTAMENTO", 
 "VW_EMPLEADO"."DIRECCION_ID" AS "DIRECCION_ID", 
+"VW_EMPLEADO"."DIRECCION" AS "DIRECCION", 
 "VW_EMPLEADO"."USUARIO" AS "USUARIO", 
 "VW_EMPLEADO"."ESTADO" AS "ESTADO"
 FROM "PROVEDURIA"."VW_EMPLEADO" "VW_EMPLEADO"</DefiningQuery>
@@ -407,7 +424,7 @@ FROM "PROVEDURIA"."VW_EMPLEADO" "VW_EMPLEADO"</DefiningQuery>
             <End Role="EPRTA_TIPO_MOVIMIENTO" EntitySet="EPRTA_TIPO_MOVIMIENTO" />
             <End Role="EPRTA_SECUENCIA" EntitySet="EPRTA_SECUENCIA" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="EPRTA_ARTICULO_BODEGA">
           <Key>
             <PropertyRef Name="ID_ARTIBODE" />
@@ -427,7 +444,7 @@ FROM "PROVEDURIA"."VW_EMPLEADO" "VW_EMPLEADO"</DefiningQuery>
           <Property Name="UBICACION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="EPRTA_ITEM" Relationship="ModelProveduria.EPRCN_ARTBOD_ITEM_FK" FromRole="EPRTA_ARTICULO_BODEGA" ToRole="EPRTA_ITEM" />
           <NavigationProperty Name="EPRTA_BODEGA" Relationship="ModelProveduria.EPRTA_ARTBOD_BODEGA_FK" FromRole="EPRTA_ARTICULO_BODEGA" ToRole="EPRTA_BODEGA" />
-        </EntityType>
+          </EntityType>
         <EntityType Name="EPRTA_BODEGA">
           <Key>
             <PropertyRef Name="ID_BODEGA" />
@@ -547,7 +564,10 @@ FROM "PROVEDURIA"."VW_EMPLEADO" "VW_EMPLEADO"</DefiningQuery>
         </EntityType>
         <EntityType Name="VW_DEPARTAMENTO">
           <Key>
+            <PropertyRef Name="DIRECCION" />
             <PropertyRef Name="CODIGO" />
+            <PropertyRef Name="DESCRIPCION" />
+            <PropertyRef Name="ESTADO" />
           </Key>
           <Property Name="DIRECCION" Type="Int16" Nullable="false" />
           <Property Name="CODIGO" Type="Byte" Nullable="false" />
@@ -559,6 +579,12 @@ FROM "PROVEDURIA"."VW_EMPLEADO" "VW_EMPLEADO"</DefiningQuery>
         <EntityType Name="VW_EMPLEADO">
           <Key>
             <PropertyRef Name="CODIGO" />
+            <PropertyRef Name="CEDULA" />
+            <PropertyRef Name="GRADO" />
+            <PropertyRef Name="CARGO" />
+            <PropertyRef Name="ESTADO" />
+            <PropertyRef Name="DEPARTAMENTO" />
+            <PropertyRef Name="DIRECCION" />
           </Key>
           <Property Name="CODIGO" Type="Int32" Nullable="false" />
           <Property Name="CEDULA" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
@@ -570,6 +596,10 @@ FROM "PROVEDURIA"."VW_EMPLEADO" "VW_EMPLEADO"</DefiningQuery>
           <Property Name="DIRECCION_ID" Type="Int16" />
           <Property Name="USUARIO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="DEPARTAMENTO_ID" Type="Byte" />
+          <Property Name="DEPARTAMENTO" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="USUARIO_JEFE_DEPARTAMENTO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="DIRECCION" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="EPRCN_ARTBOD_ITEM_FK">
           <End Type="ModelProveduria.EPRTA_ITEM" Role="EPRTA_ITEM" Multiplicity="1" />
@@ -842,6 +872,10 @@ FROM "PROVEDURIA"."VW_EMPLEADO" "VW_EMPLEADO"</DefiningQuery>
           <EntitySetMapping Name="VW_EMPLEADO">
             <EntityTypeMapping TypeName="ModelProveduria.VW_EMPLEADO">
               <MappingFragment StoreEntitySet="VW_EMPLEADO">
+                <ScalarProperty Name="DIRECCION" ColumnName="DIRECCION" />
+                <ScalarProperty Name="USUARIO_JEFE_DEPARTAMENTO" ColumnName="USUARIO_JEFE_DEPARTAMENTO" />
+                <ScalarProperty Name="DEPARTAMENTO" ColumnName="DEPARTAMENTO" />
+                <ScalarProperty Name="DEPARTAMENTO_ID" ColumnName="DEPARTAMENTO_ID" />
                 <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
                 <ScalarProperty Name="USUARIO" ColumnName="USUARIO" />
                 <ScalarProperty Name="DIRECCION_ID" ColumnName="DIRECCION_ID" />
@@ -855,7 +889,7 @@ FROM "PROVEDURIA"."VW_EMPLEADO" "VW_EMPLEADO"</DefiningQuery>
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-        </EntityContainerMapping>
+          </EntityContainerMapping>
       </Mapping>
     </edmx:Mappings>
   </edmx:Runtime>

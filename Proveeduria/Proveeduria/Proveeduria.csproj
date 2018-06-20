@@ -3424,6 +3424,9 @@
     <Content Include="Content\bower_components\ckeditor\skins\moono\images\spinner.gif" />
     <Content Include="Content\bower_components\ckeditor\skins\moono\skin.js" />
     <Content Include="Content\bower_components\ckeditor\styles.js" />
+    <Content Include="Content\bower_components\datatable-checkboxes\dataTables.checkboxes.css" />
+    <Content Include="Content\bower_components\datatable-checkboxes\dataTables.checkboxes.js" />
+    <Content Include="Content\bower_components\datatable-checkboxes\dataTables.checkboxes.min.js" />
     <Content Include="Content\bower_components\datatables.net-bs\css\dataTables.bootstrap.css" />
     <Content Include="Content\bower_components\datatables.net-bs\css\dataTables.bootstrap.min.css" />
     <Content Include="Content\bower_components\datatables.net-bs\js\dataTables.bootstrap.js" />
