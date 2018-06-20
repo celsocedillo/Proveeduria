@@ -1,292 +1,198 @@
-<<<<<<< HEAD
-     ---------------------------- Error(2018-05-24 11:55:49.3686) --------------------------    
+     ---------------------------- Error(2018-05-28 15:17:49.9392) --------------------------    
               Machine Name  : CCEDILLO
    
-              Exception Type  : System.InvalidOperationException
+              Exception Type  : System.NullReferenceException
       
-              Exception Message : El objeto que acepta valores Null debe tener un valor.
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
      
-              Inner Exception  : System.InvalidOperationException: El objeto que acepta valores Null debe tener un valor.
-   en System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
-   en System.Nullable`1.get_Value()
-   en Proveduria.Controllers.SolicitudController.<>c.<GetListaSolicitud>b__4_1(EPRTA_MOVIMIENTO p) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 41
-   en System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType6`2 <>h__TransparentIdentifier2) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
    en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
    en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 39 
+   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40 
  
-              Stack Trace   :    en System.ThrowHelper.ThrowInvalidOperationException(ExceptionResource resource)
-   en System.Nullable`1.get_Value()
-   en Proveduria.Controllers.SolicitudController.<>c.<GetListaSolicitud>b__4_1(EPRTA_MOVIMIENTO p) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 41
-   en System.Linq.Enumerable.WhereSelectListIterator`2.MoveNext()
+              Stack Trace   :    en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType6`2 <>h__TransparentIdentifier2) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
    en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
    en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 39
+   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40
         
-              Additional Info  : El objeto que acepta valores Null debe tener un valor.  
-=======
-     ---------------------------- Error(2018-05-23 10:27:42.8389) --------------------------    
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-05-28 15:21:42.6034) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType6`2 <>h__TransparentIdentifier2) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40 
+ 
+              Stack Trace   :    en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType6`2 <>h__TransparentIdentifier2) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-05-28 15:33:44.7286) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType6`2 <>h__TransparentIdentifier2) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40 
+ 
+              Stack Trace   :    en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType6`2 <>h__TransparentIdentifier2) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-05-28 15:38:01.4653) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType6`2 <>h__TransparentIdentifier2) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40 
+ 
+              Stack Trace   :    en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType6`2 <>h__TransparentIdentifier2) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-05-28 15:39:52.9125) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType6`2 <>h__TransparentIdentifier2) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40 
+ 
+              Stack Trace   :    en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType6`2 <>h__TransparentIdentifier2) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-05-28 15:40:20.5602) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType6`2 <>h__TransparentIdentifier2) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40 
+ 
+              Stack Trace   :    en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType6`2 <>h__TransparentIdentifier2) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-04 15:25:55.4176) --------------------------    
               Machine Name  : MSANCAN2
    
-              Exception Type  : System.Data.Entity.Validation.DbEntityValidationException
+              Exception Type  : System.NullReferenceException
       
-              Exception Message : Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
      
-              Inner Exception  : System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
-   en System.Data.Entity.Internal.InternalContext.SaveChanges()
-   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
-   en System.Data.Entity.DbContext.SaveChanges()
-   en Proveduria.Repositories.UnitOfWork.Save() en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Repositories\UnitOfWork.cs:línea 72
-   en Proveduria.Controllers.MedidaController.Grabar(EPRTA_MEDIDA precord) en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\MedidaController.cs:línea 130 
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType7`2 <>h__TransparentIdentifier2) en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40 
  
-              Stack Trace   :    en System.Data.Entity.Internal.InternalContext.SaveChanges()
-   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
-   en System.Data.Entity.DbContext.SaveChanges()
-   en Proveduria.Repositories.UnitOfWork.Save() en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Repositories\UnitOfWork.cs:línea 72
-   en Proveduria.Controllers.MedidaController.Grabar(EPRTA_MEDIDA precord) en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\MedidaController.cs:línea 130
+              Stack Trace   :    en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType7`2 <>h__TransparentIdentifier2) en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40
         
-              Additional Info  : Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.  
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-05-23 10:28:15.4569) --------------------------    
+     ---------------------------- Info(2018-06-04 15:26:19.0210) --------------------------    
               Machine Name  : MSANCAN2
    
-              Exception Type  : System.Data.Entity.Validation.DbEntityValidationException
+              Exception Type  : 
       
-              Exception Message : Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
+              Exception Message : 
      
-              Inner Exception  : System.Data.Entity.Validation.DbEntityValidationException: Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.
-   en System.Data.Entity.Internal.InternalContext.SaveChanges()
-   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
-   en System.Data.Entity.DbContext.SaveChanges()
-   en Proveduria.Repositories.UnitOfWork.Save() en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Repositories\UnitOfWork.cs:línea 72
-   en Proveduria.Controllers.MedidaController.Grabar(EPRTA_MEDIDA precord) en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\MedidaController.cs:línea 130 
+              Inner Exception  : 
  
-              Stack Trace   :    en System.Data.Entity.Internal.InternalContext.SaveChanges()
-   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
-   en System.Data.Entity.DbContext.SaveChanges()
-   en Proveduria.Repositories.UnitOfWork.Save() en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Repositories\UnitOfWork.cs:línea 72
-   en Proveduria.Controllers.MedidaController.Grabar(EPRTA_MEDIDA precord) en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\MedidaController.cs:línea 130
+              Stack Trace   : 
         
-              Additional Info  : Validation failed for one or more entities. See 'EntityValidationErrors' property for more details.  
+              Additional Info  : Dato Grabado  
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-05-21 23:04:32.2198) --------------------------    
-              Machine Name  : DEVELOPER-PC
+     ---------------------------- Info(2018-06-04 15:26:31.4224) --------------------------    
+              Machine Name  : MSANCAN2
    
-              Exception Type  : System.Data.Entity.Core.EntityException
+              Exception Type  : 
       
-              Exception Message : The underlying provider failed on Open.
+              Exception Message : 
      
-              Inner Exception  : System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> Oracle.ManagedDataAccess.Client.OracleException: ORA-12154: TNS:no se ha podido resolver el identificador de conexión especificado ---> OracleInternal.Network.NetworkException: ORA-12154: TNS:no se ha podido resolver el identificador de conexión especificado
-   en OracleInternal.Network.AddressResolution..ctor(String TNSAlias, String instanceName)
-   en OracleInternal.Network.OracleCommunication.DoConnect(String tnsDescriptor)
-   en OracleInternal.Network.OracleCommunication.Connect(String tnsDescriptor, Boolean doNAHandshake, String IName)
-   en OracleInternal.ServiceObjects.OracleConnectionImpl.Connect(ConnectionString cs, Boolean bOpenEndUserSession, CriteriaCtx criteriaCtx, String instanceName)
-   --- Fin del seguimiento de la pila de la excepción interna ---
-   en OracleInternal.ConnectionPool.PoolManager`3.Get(ConnectionString csWithDiffOrNewPwd, Boolean bGetForApp, CriteriaCtx criteriaCtx, String affinityInstanceName, Boolean bForceMatch)
-   en OracleInternal.ConnectionPool.OraclePoolManager.Get(ConnectionString csWithNewPassword, Boolean bGetForApp, CriteriaCtx criteriaCtx, String affinityInstanceName, Boolean bForceMatch)
-   en OracleInternal.ConnectionPool.OracleConnectionDispenser`3.Get(ConnectionString cs, PM conPM, ConnectionString pmCS, SecureString securedPassword, SecureString securedProxyPassword, CriteriaCtx criteriaCtx)
-   en Oracle.ManagedDataAccess.Client.OracleConnection.Open()
-   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute(Action operation)
-   en System.Data.Entity.Core.EntityClient.EntityConnection.Open()
-   --- Fin del seguimiento de la pila de la excepción interna ---
-   en System.Data.Entity.Core.EntityClient.EntityConnection.Open()
-   en System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection()
-   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__9()
-   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
-   en System.Lazy`1.CreateValue()
-   en System.Lazy`1.LazyInitValue()
-   en System.Lazy`1.get_Value()
-   en System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Repositories.GenericRepository`1.GetAll() en C:\Users\Developer.GYE\Documents\GitHub\Proveeduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 31
-   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Users\Developer.GYE\Documents\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 34 
-Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-12154: TNS:no se ha podido resolver el identificador de conexión especificado ---> OracleInternal.Network.NetworkException (0x00002F7A): ORA-12154: TNS:no se ha podido resolver el identificador de conexión especificado
-   en OracleInternal.Network.AddressResolution..ctor(String TNSAlias, String instanceName)
-   en OracleInternal.Network.OracleCommunication.DoConnect(String tnsDescriptor)
-   en OracleInternal.Network.OracleCommunication.Connect(String tnsDescriptor, Boolean doNAHandshake, String IName)
-   en OracleInternal.ServiceObjects.OracleConnectionImpl.Connect(ConnectionString cs, Boolean bOpenEndUserSession, CriteriaCtx criteriaCtx, String instanceName)
-   en OracleInternal.ConnectionPool.PoolManager`3.Get(ConnectionString csWithDiffOrNewPwd, Boolean bGetForApp, CriteriaCtx criteriaCtx, String affinityInstanceName, Boolean bForceMatch)
-   en OracleInternal.ConnectionPool.OraclePoolManager.Get(ConnectionString csWithNewPassword, Boolean bGetForApp, CriteriaCtx criteriaCtx, String affinityInstanceName, Boolean bForceMatch)
-   en OracleInternal.ConnectionPool.OracleConnectionDispenser`3.Get(ConnectionString cs, PM conPM, ConnectionString pmCS, SecureString securedPassword, SecureString securedProxyPassword, CriteriaCtx criteriaCtx)
-   en Oracle.ManagedDataAccess.Client.OracleConnection.Open()
-   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute(Action operation)
-   en System.Data.Entity.Core.EntityClient.EntityConnection.Open() 
-OracleInternal.Network.NetworkException (0x00002F7A): ORA-12154: TNS:no se ha podido resolver el identificador de conexión especificado
-   en OracleInternal.Network.AddressResolution..ctor(String TNSAlias, String instanceName)
-   en OracleInternal.Network.OracleCommunication.DoConnect(String tnsDescriptor)
-   en OracleInternal.Network.OracleCommunication.Connect(String tnsDescriptor, Boolean doNAHandshake, String IName)
-   en OracleInternal.ServiceObjects.OracleConnectionImpl.Connect(ConnectionString cs, Boolean bOpenEndUserSession, CriteriaCtx criteriaCtx, String instanceName) 
+              Inner Exception  : 
  
-              Stack Trace   :    en System.Data.Entity.Core.EntityClient.EntityConnection.Open()
-   en System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection()
-   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__9()
-   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
-   en System.Lazy`1.CreateValue()
-   en System.Lazy`1.LazyInitValue()
-   en System.Lazy`1.get_Value()
-   en System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Repositories.GenericRepository`1.GetAll() en C:\Users\Developer.GYE\Documents\GitHub\Proveeduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 31
-   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Users\Developer.GYE\Documents\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 34
+              Stack Trace   : 
         
-              Additional Info  : The underlying provider failed on Open.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-05-21 23:06:38.6894) --------------------------    
-              Machine Name  : DEVELOPER-PC
-   
-              Exception Type  : System.Data.Entity.Core.EntityException
-      
-              Exception Message : The underlying provider failed on Open.
-     
-              Inner Exception  : System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> Oracle.ManagedDataAccess.Client.OracleException: ORA-12154: TNS:no se ha podido resolver el identificador de conexión especificado ---> OracleInternal.Network.NetworkException: ORA-12154: TNS:no se ha podido resolver el identificador de conexión especificado
-   en OracleInternal.Network.AddressResolution..ctor(String TNSAlias, String instanceName)
-   en OracleInternal.Network.OracleCommunication.DoConnect(String tnsDescriptor)
-   en OracleInternal.Network.OracleCommunication.Connect(String tnsDescriptor, Boolean doNAHandshake, String IName)
-   en OracleInternal.ServiceObjects.OracleConnectionImpl.Connect(ConnectionString cs, Boolean bOpenEndUserSession, CriteriaCtx criteriaCtx, String instanceName)
-   --- Fin del seguimiento de la pila de la excepción interna ---
-   en OracleInternal.ConnectionPool.PoolManager`3.Get(ConnectionString csWithDiffOrNewPwd, Boolean bGetForApp, CriteriaCtx criteriaCtx, String affinityInstanceName, Boolean bForceMatch)
-   en OracleInternal.ConnectionPool.OraclePoolManager.Get(ConnectionString csWithNewPassword, Boolean bGetForApp, CriteriaCtx criteriaCtx, String affinityInstanceName, Boolean bForceMatch)
-   en OracleInternal.ConnectionPool.OracleConnectionDispenser`3.Get(ConnectionString cs, PM conPM, ConnectionString pmCS, SecureString securedPassword, SecureString securedProxyPassword, CriteriaCtx criteriaCtx)
-   en Oracle.ManagedDataAccess.Client.OracleConnection.Open()
-   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute(Action operation)
-   en System.Data.Entity.Core.EntityClient.EntityConnection.Open()
-   --- Fin del seguimiento de la pila de la excepción interna ---
-   en System.Data.Entity.Core.EntityClient.EntityConnection.Open()
-   en System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection()
-   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__9()
-   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
-   en System.Lazy`1.CreateValue()
-   en System.Lazy`1.LazyInitValue()
-   en System.Lazy`1.get_Value()
-   en System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Repositories.GenericRepository`1.GetAll() en C:\Users\Developer.GYE\Documents\GitHub\Proveeduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 31
-   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Users\Developer.GYE\Documents\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 34 
-Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-12154: TNS:no se ha podido resolver el identificador de conexión especificado ---> OracleInternal.Network.NetworkException (0x00002F7A): ORA-12154: TNS:no se ha podido resolver el identificador de conexión especificado
-   en OracleInternal.Network.AddressResolution..ctor(String TNSAlias, String instanceName)
-   en OracleInternal.Network.OracleCommunication.DoConnect(String tnsDescriptor)
-   en OracleInternal.Network.OracleCommunication.Connect(String tnsDescriptor, Boolean doNAHandshake, String IName)
-   en OracleInternal.ServiceObjects.OracleConnectionImpl.Connect(ConnectionString cs, Boolean bOpenEndUserSession, CriteriaCtx criteriaCtx, String instanceName)
-   en OracleInternal.ConnectionPool.PoolManager`3.Get(ConnectionString csWithDiffOrNewPwd, Boolean bGetForApp, CriteriaCtx criteriaCtx, String affinityInstanceName, Boolean bForceMatch)
-   en OracleInternal.ConnectionPool.OraclePoolManager.Get(ConnectionString csWithNewPassword, Boolean bGetForApp, CriteriaCtx criteriaCtx, String affinityInstanceName, Boolean bForceMatch)
-   en OracleInternal.ConnectionPool.OracleConnectionDispenser`3.Get(ConnectionString cs, PM conPM, ConnectionString pmCS, SecureString securedPassword, SecureString securedProxyPassword, CriteriaCtx criteriaCtx)
-   en Oracle.ManagedDataAccess.Client.OracleConnection.Open()
-   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute(Action operation)
-   en System.Data.Entity.Core.EntityClient.EntityConnection.Open() 
-OracleInternal.Network.NetworkException (0x00002F7A): ORA-12154: TNS:no se ha podido resolver el identificador de conexión especificado
-   en OracleInternal.Network.AddressResolution..ctor(String TNSAlias, String instanceName)
-   en OracleInternal.Network.OracleCommunication.DoConnect(String tnsDescriptor)
-   en OracleInternal.Network.OracleCommunication.Connect(String tnsDescriptor, Boolean doNAHandshake, String IName)
-   en OracleInternal.ServiceObjects.OracleConnectionImpl.Connect(ConnectionString cs, Boolean bOpenEndUserSession, CriteriaCtx criteriaCtx, String instanceName) 
- 
-              Stack Trace   :    en System.Data.Entity.Core.EntityClient.EntityConnection.Open()
-   en System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection()
-   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__9()
-   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
-   en System.Lazy`1.CreateValue()
-   en System.Lazy`1.LazyInitValue()
-   en System.Lazy`1.get_Value()
-   en System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Repositories.GenericRepository`1.GetAll() en C:\Users\Developer.GYE\Documents\GitHub\Proveeduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 31
-   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Users\Developer.GYE\Documents\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 34
-        
-              Additional Info  : The underlying provider failed on Open.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-05-21 23:06:54.0310) --------------------------    
-              Machine Name  : DEVELOPER-PC
-   
-              Exception Type  : System.Data.Entity.Core.EntityException
-      
-              Exception Message : The underlying provider failed on Open.
-     
-              Inner Exception  : System.Data.Entity.Core.EntityException: The underlying provider failed on Open. ---> Oracle.ManagedDataAccess.Client.OracleException: ORA-12154: TNS:no se ha podido resolver el identificador de conexión especificado ---> OracleInternal.Network.NetworkException: ORA-12154: TNS:no se ha podido resolver el identificador de conexión especificado
-   en OracleInternal.Network.AddressResolution..ctor(String TNSAlias, String instanceName)
-   en OracleInternal.Network.OracleCommunication.DoConnect(String tnsDescriptor)
-   en OracleInternal.Network.OracleCommunication.Connect(String tnsDescriptor, Boolean doNAHandshake, String IName)
-   en OracleInternal.ServiceObjects.OracleConnectionImpl.Connect(ConnectionString cs, Boolean bOpenEndUserSession, CriteriaCtx criteriaCtx, String instanceName)
-   --- Fin del seguimiento de la pila de la excepción interna ---
-   en OracleInternal.ConnectionPool.PoolManager`3.Get(ConnectionString csWithDiffOrNewPwd, Boolean bGetForApp, CriteriaCtx criteriaCtx, String affinityInstanceName, Boolean bForceMatch)
-   en OracleInternal.ConnectionPool.OraclePoolManager.Get(ConnectionString csWithNewPassword, Boolean bGetForApp, CriteriaCtx criteriaCtx, String affinityInstanceName, Boolean bForceMatch)
-   en OracleInternal.ConnectionPool.OracleConnectionDispenser`3.Get(ConnectionString cs, PM conPM, ConnectionString pmCS, SecureString securedPassword, SecureString securedProxyPassword, CriteriaCtx criteriaCtx)
-   en Oracle.ManagedDataAccess.Client.OracleConnection.Open()
-   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute(Action operation)
-   en System.Data.Entity.Core.EntityClient.EntityConnection.Open()
-   --- Fin del seguimiento de la pila de la excepción interna ---
-   en System.Data.Entity.Core.EntityClient.EntityConnection.Open()
-   en System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection()
-   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__9()
-   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
-   en System.Lazy`1.CreateValue()
-   en System.Lazy`1.LazyInitValue()
-   en System.Lazy`1.get_Value()
-   en System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Repositories.GenericRepository`1.GetAll() en C:\Users\Developer.GYE\Documents\GitHub\Proveeduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 31
-   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Users\Developer.GYE\Documents\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 34 
-Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-12154: TNS:no se ha podido resolver el identificador de conexión especificado ---> OracleInternal.Network.NetworkException (0x00002F7A): ORA-12154: TNS:no se ha podido resolver el identificador de conexión especificado
-   en OracleInternal.Network.AddressResolution..ctor(String TNSAlias, String instanceName)
-   en OracleInternal.Network.OracleCommunication.DoConnect(String tnsDescriptor)
-   en OracleInternal.Network.OracleCommunication.Connect(String tnsDescriptor, Boolean doNAHandshake, String IName)
-   en OracleInternal.ServiceObjects.OracleConnectionImpl.Connect(ConnectionString cs, Boolean bOpenEndUserSession, CriteriaCtx criteriaCtx, String instanceName)
-   en OracleInternal.ConnectionPool.PoolManager`3.Get(ConnectionString csWithDiffOrNewPwd, Boolean bGetForApp, CriteriaCtx criteriaCtx, String affinityInstanceName, Boolean bForceMatch)
-   en OracleInternal.ConnectionPool.OraclePoolManager.Get(ConnectionString csWithNewPassword, Boolean bGetForApp, CriteriaCtx criteriaCtx, String affinityInstanceName, Boolean bForceMatch)
-   en OracleInternal.ConnectionPool.OracleConnectionDispenser`3.Get(ConnectionString cs, PM conPM, ConnectionString pmCS, SecureString securedPassword, SecureString securedProxyPassword, CriteriaCtx criteriaCtx)
-   en Oracle.ManagedDataAccess.Client.OracleConnection.Open()
-   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute(Action operation)
-   en System.Data.Entity.Core.EntityClient.EntityConnection.Open() 
-OracleInternal.Network.NetworkException (0x00002F7A): ORA-12154: TNS:no se ha podido resolver el identificador de conexión especificado
-   en OracleInternal.Network.AddressResolution..ctor(String TNSAlias, String instanceName)
-   en OracleInternal.Network.OracleCommunication.DoConnect(String tnsDescriptor)
-   en OracleInternal.Network.OracleCommunication.Connect(String tnsDescriptor, Boolean doNAHandshake, String IName)
-   en OracleInternal.ServiceObjects.OracleConnectionImpl.Connect(ConnectionString cs, Boolean bOpenEndUserSession, CriteriaCtx criteriaCtx, String instanceName) 
- 
-              Stack Trace   :    en System.Data.Entity.Core.EntityClient.EntityConnection.Open()
-   en System.Data.Entity.Core.Objects.ObjectContext.EnsureConnection()
-   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__9()
-   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
-   en System.Lazy`1.CreateValue()
-   en System.Lazy`1.LazyInitValue()
-   en System.Lazy`1.get_Value()
-   en System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Repositories.GenericRepository`1.GetAll() en C:\Users\Developer.GYE\Documents\GitHub\Proveeduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 31
-   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Users\Developer.GYE\Documents\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 34
-        
-              Additional Info  : The underlying provider failed on Open.  
->>>>>>> 56088a7798cef424200c0ae1e7a2202cc6a82829
+              Additional Info  : Dato Grabado  
               -------------------------------------------------------------------
               ----------     
      

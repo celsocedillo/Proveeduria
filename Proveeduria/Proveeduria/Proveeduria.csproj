@@ -252,11 +252,10 @@
       <DependentUpon>Cr_Egreso_Bodega.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\Cr_Orden_Ingreso_Bodega.cs">
+    <Compile Include="Reports\Cr_Ingreso_Bodega.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Cr_Orden_Ingreso_Bodega.rpt</DependentUpon>
-      <SubType>Component</SubType>
+      <DependentUpon>Cr_Ingreso_Bodega.rpt</DependentUpon>
     </Compile>
     <Compile Include="Reports\Cr_Requisicion_Bodega.cs">
       <AutoGen>True</AutoGen>
@@ -7504,9 +7503,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Cr_Egreso_Bodega.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Cr_Orden_Ingreso_Bodega.rpt">
+    <EmbeddedResource Include="Reports\Cr_Ingreso_Bodega.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Cr_Orden_Ingreso_Bodega.cs</LastGenOutput>
+      <LastGenOutput>Cr_Ingreso_Bodega.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Cr_Requisicion_Bodega.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
