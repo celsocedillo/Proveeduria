@@ -34,5 +34,7 @@ namespace Proveduria.Models
         public virtual DbSet<EPRTA_MOVIMIENTO_DETALLE> EPRTA_MOVIMIENTO_DETALLE { get; set; }
         public virtual DbSet<EPRTA_SECUENCIA> EPRTA_SECUENCIA { get; set; }
         public virtual DbSet<EPRTA_TIPO_MOVIMIENTO> EPRTA_TIPO_MOVIMIENTO { get; set; }
+        public virtual DbSet<VW_DEPARTAMENTO> VW_DEPARTAMENTO { get; set; }
+        public virtual DbSet<VW_EMPLEADO> VW_EMPLEADO { get; set; }
     }
 }
