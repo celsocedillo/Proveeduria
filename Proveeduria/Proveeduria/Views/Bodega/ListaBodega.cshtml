@@ -50,11 +50,8 @@
                 <button id="butNuevoBodega" class="btn btn-primary btn-xs btn-flat">
                     <i class="fa fa-plus"></i>  Nuevo
                 </button>
-                <button id="butPdf" class="btn btn-primary btn-xs btn-flat">
-                    <i class="fa fa-file-pdf-o" aria-hidden="true"></i>  PDF
-                </button>
-                <button id="ingresoBodegaPdf" class="btn btn-primary btn-xs btn-flat">
-                    <i class="fa fa-file-pdf-o" aria-hidden="true"></i>  Ingreso PDF
+                <button id="ingBodegaPdf" class="btn btn-primary btn-xs btn-flat">
+                    <i class="fa fa-file-pdf-o" aria-hidden="true"></i>  Ingreso Bodega PDF
                 </button>
 
             </div>
@@ -143,10 +140,10 @@
 
             Bodega.init();
 
-
-            $("#butPdf").on("click", function () {
+            $("#ingBodegaPdf").on("click", function () {
                 window.location.href = "/Bodega/ExportPdf";
             });
+
         });
 
     </script>

@@ -96,6 +96,7 @@ namespace Proveduria.Controllers
         }
 
 
+
         [HttpGet]
         public FileResult ExportPdf()
         {
@@ -106,20 +107,20 @@ namespace Proveduria.Controllers
             {
                 object objetos = new object();
                 EntitiesProveduria db = new EntitiesProveduria();
-                SqlConnectionStringBuilder builderVenta = new SqlConnectionStringBuilder(db.Database.Connection.ConnectionString);
-                SP_ORDEN_INGRESO_BODEGATableAdapter tableAdapter = new SP_ORDEN_INGRESO_BODEGATableAdapter();
+                SqlConnectionStringBuilder builderOrden = new SqlConnectionStringBuilder(db.Database.Connection.ConnectionString);
+                SP_INGRESO_BODEGATableAdapter tableAdapter = new SP_INGRESO_BODEGATableAdapter();
 
-                DataTable dataTable = tableAdapter.GetData(out objetos);
-                String pathReport = Path.Combine(HttpRuntime.AppDomainAppPath, "Reports\\Cr_Orden_Ingreso_Bodega.rpt");
+                DataTable dataTable = tableAdapter.GetData(IdMovimiento, out objetos);
+                String pathReport = Path.Combine(HttpRuntime.AppDomainAppPath, "Reports\\Cr_Ingreso_Bodega1.rpt");
                 ReportDocument reportDocument = new ReportDocument();
                 reportDocument.Load(pathReport);
                 reportDocument.SetDataSource(dataTable);
 
-                reportDocument.SetDatabaseLogon(builderVenta.UserID, builderVenta.Password);
+                reportDocument.SetDatabaseLogon(builderOrden.UserID, builderOrden.Password);
 
                 stream = reportDocument.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
                 stream.Seek(0, SeekOrigin.Begin);
-                nombreArchivo = "ORDEN_ING_BODEGA.pdf";
+                nombreArchivo = "INGRESO_BODEGA.pdf";
             }
             catch (Exception ex)
             {
@@ -127,6 +128,8 @@ namespace Proveduria.Controllers
             }
             return File(stream, "application/pdf", nombreArchivo);
         }
+
+        //nombreArchivo
 
         [HttpPost]
         public ActionResult Grabar(EPRTA_BODEGA precord)
