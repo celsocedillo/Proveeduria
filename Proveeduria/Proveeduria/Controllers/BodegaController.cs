@@ -96,7 +96,6 @@ namespace Proveduria.Controllers
         }
 
 
-
         [HttpGet]
         public FileResult ExportPdf()
         {
@@ -129,7 +128,6 @@ namespace Proveduria.Controllers
             return File(stream, "application/pdf", nombreArchivo);
         }
 
-        //nombreArchivo
 
         [HttpPost]
         public ActionResult Grabar(EPRTA_BODEGA precord)

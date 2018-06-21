@@ -15,6 +15,7 @@ using System.Data.SqlClient;
 using Proveduria.Reports.DataSetReportsTableAdapters;
 using System.Data;
 using CrystalDecisions.CrystalReports.Engine;
+using ClosedXML.Excel;
 
 namespace Proveduria.Controllers
 {
@@ -220,6 +221,65 @@ namespace Proveduria.Controllers
                 logger.Error(ex, ex.Message);
             }
             return File(stream, "application/pdf", nombreArchivo);
+        }
+
+        [HttpGet]
+        public FileResult ExportToExcel() //String fechaInicio, String fechaFin
+        {
+            MemoryStream stream = new MemoryStream();
+            try
+            {
+                //DateTime fi = DateTime.Parse(fechaInicio);
+                //DateTime ff = DateTime.Parse(fechaFin);
+                var query = from d in unitOfWork.MedidaRepository.GetAll()
+                            //where (d.FechaEmision >= fi && d.FechaEmision <= ff)
+                            select d;
+                DataTable dt = new DataTable("Medidas");
+                dt.Columns.Add("IdMedida");
+                dt.Columns.Add("Nombre");
+                dt.Columns.Add("Estado");
+                //dt.Columns.Add("Establecimiento");
+                //dt.Columns.Add("PuntoEmision");
+                //dt.Columns.Add("Secuencial");
+                //dt.Columns.Add("NumeroAutorizacion");
+                //dt.Columns.Add("Estado");
+                //dt.Columns.Add("Descuento", typeof(decimal));
+                //dt.Columns.Add("PorcentajeIva", typeof(decimal));
+                //dt.Columns.Add("BaseIvaCero", typeof(decimal));
+                //dt.Columns.Add("BaseIva", typeof(decimal));
+                //dt.Columns.Add("ValorIva", typeof(decimal));
+                //dt.Columns.Add("ImporteTotal", typeof(decimal));
+                foreach (EPRTA_MEDIDA item in query)
+                {
+                    dt.Rows.Add(item.ID_MEDIDA,
+                        item.NOMBRE,
+                        item.ESTADO);
+                        //item.Establecimiento,
+                        //item.PuntoEmision,
+                        //item.Secuencial,
+                        //item.NumeroAutorizacion,
+                        //item.Estado,
+                        //item.TotalDescuento,
+                        //item.PorcentajeIva,
+                        //item.BaseIvaCero,
+                        //item.BaseIva,
+                        //item.ValorIva,
+                        //item.ImporteTotal);
+                }
+                using (XLWorkbook workbook = new XLWorkbook())
+                {
+                    workbook.Worksheets.Add(dt);
+                    using (stream = new MemoryStream())
+                    {
+                        workbook.SaveAs(stream);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, ex.Message);
+            }
+            return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Medidas.xlsx");
         }
 
         protected override void Dispose(bool disposing)
