@@ -16,14 +16,14 @@ namespace Proveduria.Reports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class Cr_Orden_Ingreso_Bodega : ReportClass {
+    public class Cr_Ingreso_Bodega1 : ReportClass {
         
-        public Cr_Orden_Ingreso_Bodega() {
+        public Cr_Ingreso_Bodega1() {
         }
         
         public override string ResourceName {
             get {
-                return "Cr_Orden_Ingreso_Bodega.rpt";
+                return "Cr_Ingreso_Bodega1.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Proveduria.Reports {
         
         public override string FullResourceName {
             get {
-                return "Proveduria.Reports.Cr_Orden_Ingreso_Bodega.rpt";
+                return "Proveduria.Reports.Cr_Ingreso_Bodega1.rpt";
             }
             set {
                 // Do nothing
@@ -66,7 +66,7 @@ namespace Proveduria.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
+        public CrystalDecisions.CrystalReports.Engine.Section GroupHeaderSection1 {
             get {
                 return this.ReportDefinition.Sections[2];
             }
@@ -74,7 +74,7 @@ namespace Proveduria.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
+        public CrystalDecisions.CrystalReports.Engine.Section Section3 {
             get {
                 return this.ReportDefinition.Sections[3];
             }
@@ -82,17 +82,33 @@ namespace Proveduria.Reports {
         
         [Browsable(false)]
         [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
-        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+        public CrystalDecisions.CrystalReports.Engine.Section GroupFooterSection1 {
             get {
                 return this.ReportDefinition.Sections[4];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.CrystalReports.Engine.Section Section4 {
+            get {
+                return this.ReportDefinition.Sections[5];
+            }
+        }
+        
+        [Browsable(false)]
+        [DesignerSerializationVisibilityAttribute(System.ComponentModel.DesignerSerializationVisibility.Hidden)]
+        public CrystalDecisions.CrystalReports.Engine.Section Section5 {
+            get {
+                return this.ReportDefinition.Sections[6];
             }
         }
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCr_Orden_Ingreso_Bodega : Component, ICachedReport {
+    public class CachedCr_Ingreso_Bodega1 : Component, ICachedReport {
         
-        public CachedCr_Orden_Ingreso_Bodega() {
+        public CachedCr_Ingreso_Bodega1() {
         }
         
         [Browsable(false)]
@@ -129,7 +145,7 @@ namespace Proveduria.Reports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            Cr_Orden_Ingreso_Bodega rpt = new Cr_Orden_Ingreso_Bodega();
+            Cr_Ingreso_Bodega1 rpt = new Cr_Ingreso_Bodega1();
             rpt.Site = this.Site;
             return rpt;
         }

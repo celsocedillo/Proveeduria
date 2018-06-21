@@ -30,8 +30,11 @@ namespace Proveduria.Reports {
         
         private SP_CORTE_INVENTARIODataTable tableSP_CORTE_INVENTARIO;
         
+<<<<<<< HEAD
         private SP_INGRESO_BODEGADataTable tableSP_INGRESO_BODEGA;
         
+=======
+>>>>>>> f3a4c66a2e1db86ecc357cf046e8096883086d1a
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -69,9 +72,12 @@ namespace Proveduria.Reports {
                 if ((ds.Tables["SP_CORTE_INVENTARIO"] != null)) {
                     base.Tables.Add(new SP_CORTE_INVENTARIODataTable(ds.Tables["SP_CORTE_INVENTARIO"]));
                 }
+<<<<<<< HEAD
                 if ((ds.Tables["SP_INGRESO_BODEGA"] != null)) {
                     base.Tables.Add(new SP_INGRESO_BODEGADataTable(ds.Tables["SP_INGRESO_BODEGA"]));
                 }
+=======
+>>>>>>> f3a4c66a2e1db86ecc357cf046e8096883086d1a
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -122,6 +128,7 @@ namespace Proveduria.Reports {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+<<<<<<< HEAD
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public SP_INGRESO_BODEGADataTable SP_INGRESO_BODEGA {
@@ -132,6 +139,8 @@ namespace Proveduria.Reports {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+=======
+>>>>>>> f3a4c66a2e1db86ecc357cf046e8096883086d1a
         [global::System.ComponentModel.BrowsableAttribute(true)]
         [global::System.ComponentModel.DesignerSerializationVisibilityAttribute(global::System.ComponentModel.DesignerSerializationVisibility.Visible)]
         public override global::System.Data.SchemaSerializationMode SchemaSerializationMode {
@@ -206,9 +215,12 @@ namespace Proveduria.Reports {
                 if ((ds.Tables["SP_CORTE_INVENTARIO"] != null)) {
                     base.Tables.Add(new SP_CORTE_INVENTARIODataTable(ds.Tables["SP_CORTE_INVENTARIO"]));
                 }
+<<<<<<< HEAD
                 if ((ds.Tables["SP_INGRESO_BODEGA"] != null)) {
                     base.Tables.Add(new SP_INGRESO_BODEGADataTable(ds.Tables["SP_INGRESO_BODEGA"]));
                 }
+=======
+>>>>>>> f3a4c66a2e1db86ecc357cf046e8096883086d1a
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
                 this.Namespace = ds.Namespace;
@@ -260,12 +272,15 @@ namespace Proveduria.Reports {
                     this.tableSP_CORTE_INVENTARIO.InitVars();
                 }
             }
+<<<<<<< HEAD
             this.tableSP_INGRESO_BODEGA = ((SP_INGRESO_BODEGADataTable)(base.Tables["SP_INGRESO_BODEGA"]));
             if ((initTable == true)) {
                 if ((this.tableSP_INGRESO_BODEGA != null)) {
                     this.tableSP_INGRESO_BODEGA.InitVars();
                 }
             }
+=======
+>>>>>>> f3a4c66a2e1db86ecc357cf046e8096883086d1a
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -282,8 +297,11 @@ namespace Proveduria.Reports {
             base.Tables.Add(this.tableSP_EGRESO_BODEGA);
             this.tableSP_CORTE_INVENTARIO = new SP_CORTE_INVENTARIODataTable();
             base.Tables.Add(this.tableSP_CORTE_INVENTARIO);
+<<<<<<< HEAD
             this.tableSP_INGRESO_BODEGA = new SP_INGRESO_BODEGADataTable();
             base.Tables.Add(this.tableSP_INGRESO_BODEGA);
+=======
+>>>>>>> f3a4c66a2e1db86ecc357cf046e8096883086d1a
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -306,12 +324,15 @@ namespace Proveduria.Reports {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+<<<<<<< HEAD
         private bool ShouldSerializeSP_INGRESO_BODEGA() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+=======
+>>>>>>> f3a4c66a2e1db86ecc357cf046e8096883086d1a
         private void SchemaChanged(object sender, global::System.ComponentModel.CollectionChangeEventArgs e) {
             if ((e.Action == global::System.ComponentModel.CollectionChangeAction.Remove)) {
                 this.InitVars();
@@ -374,9 +395,12 @@ namespace Proveduria.Reports {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public delegate void SP_CORTE_INVENTARIORowChangeEventHandler(object sender, SP_CORTE_INVENTARIORowChangeEvent e);
         
+<<<<<<< HEAD
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public delegate void SP_INGRESO_BODEGARowChangeEventHandler(object sender, SP_INGRESO_BODEGARowChangeEvent e);
         
+=======
+>>>>>>> f3a4c66a2e1db86ecc357cf046e8096883086d1a
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
@@ -1526,6 +1550,7 @@ namespace Proveduria.Reports {
         }
         
         /// <summary>
+<<<<<<< HEAD
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
@@ -1910,6 +1935,8 @@ namespace Proveduria.Reports {
         }
         
         /// <summary>
+=======
+>>>>>>> f3a4c66a2e1db86ecc357cf046e8096883086d1a
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class SP_REQUISICION_BODEGARow : global::System.Data.DataRow {
@@ -2670,6 +2697,7 @@ namespace Proveduria.Reports {
         }
         
         /// <summary>
+<<<<<<< HEAD
         ///Represents strongly named DataRow class.
         ///</summary>
         public partial class SP_INGRESO_BODEGARow : global::System.Data.DataRow {
@@ -2917,6 +2945,8 @@ namespace Proveduria.Reports {
         }
         
         /// <summary>
+=======
+>>>>>>> f3a4c66a2e1db86ecc357cf046e8096883086d1a
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -3017,6 +3047,7 @@ namespace Proveduria.Reports {
                 }
             }
         }
+<<<<<<< HEAD
         
         /// <summary>
         ///Row event argument class
@@ -3051,6 +3082,8 @@ namespace Proveduria.Reports {
                 }
             }
         }
+=======
+>>>>>>> f3a4c66a2e1db86ecc357cf046e8096883086d1a
     }
 }
 namespace Proveduria.Reports.DataSetReportsTableAdapters {
@@ -3691,6 +3724,7 @@ namespace Proveduria.Reports.DataSetReportsTableAdapters {
     }
     
     /// <summary>
+<<<<<<< HEAD
     ///Represents the connection and commands used to retrieve and save data.
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
@@ -3909,6 +3943,8 @@ namespace Proveduria.Reports.DataSetReportsTableAdapters {
     }
     
     /// <summary>
+=======
+>>>>>>> f3a4c66a2e1db86ecc357cf046e8096883086d1a
     ///TableAdapterManager is used to coordinate TableAdapters in the dataset to enable Hierarchical Update scenarios
     ///</summary>
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]

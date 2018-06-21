@@ -50,11 +50,12 @@ var ListaSolicitud = function () {
     return {
         init: function () {
 
-
+            //$.fn.dataTable.moment('D-M-Y');
+            $.fn.dataTable.moment('DD/MM/YYYY');
             tabSolicitud = $('#tabSolicitud').DataTable({
                 "autoWidth": false,
                 "data": ldata,
-                "order" : [[4, "desc"]],
+                "order" : [[5, "desc"]],
                 "columnDefs":
                     [
                         { "targets": [1], "className": "text-right" }
@@ -64,6 +65,7 @@ var ListaSolicitud = function () {
                     { "data": 'NUMERO_MOVIMIENTO' },
                     { "data": 'OBSERVACION' },
                     { "data": 'NOMBREESTADO' },
+                    { "data": 'USUARIO_SOLICITA' },
                     { "data": 'FECHA_SOLICITUD' },
                     { "data": 'FECHA_APROBACION' },
                     { "data": "ACCION", "orderable": true }
@@ -72,7 +74,9 @@ var ListaSolicitud = function () {
 
             CargaDatos();
 
-
+            $("#butNuevo").on('click', function () {
+                window.location.href = '/Solicitud/Solicitud/0';
+            });
 
 
 

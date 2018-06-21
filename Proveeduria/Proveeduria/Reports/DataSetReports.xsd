@@ -90,6 +90,7 @@
             </Mappings>
             <Sources />
           </TableAdapter>
+<<<<<<< HEAD
           <TableAdapter BaseClass="System.ComponentModel.Component" DataAccessorModifier="AutoLayout, AnsiClass, Class, Public" DataAccessorName="SP_INGRESO_BODEGATableAdapter" GeneratorDataComponentClassName="SP_INGRESO_BODEGATableAdapter" Name="SP_INGRESO_BODEGA" UserDataComponentName="SP_INGRESO_BODEGATableAdapter">
             <MainSource>
               <DbSource ConnectionRef="ConnectionStringReports (Web.config)" DbObjectName="PROVEDURIA.SP_INGRESO_BODEGA" DbObjectType="StoredProcedure" FillMethodModifier="Public" FillMethodName="Fill" GenerateMethods="Both" GenerateShortCommands="false" GeneratorGetMethodName="GetData" GeneratorSourceName="Fill" GetMethodModifier="Public" GetMethodName="GetData" QueryType="Rowset" ScalarCallRetval="System.Object, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" UseOptimisticConcurrency="false" UserGetMethodName="GetData" UserSourceName="Fill">
@@ -118,6 +119,8 @@
             </Mappings>
             <Sources />
           </TableAdapter>
+=======
+>>>>>>> f3a4c66a2e1db86ecc357cf046e8096883086d1a
         </Tables>
         <Sources />
       </DataSource>
@@ -300,6 +303,7 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+<<<<<<< HEAD
         <xs:element name="SP_INGRESO_BODEGA" msprop:Generator_TableClassName="SP_INGRESO_BODEGADataTable" msprop:Generator_TableVarName="tableSP_INGRESO_BODEGA" msprop:Generator_TablePropName="SP_INGRESO_BODEGA" msprop:Generator_RowDeletingName="SP_INGRESO_BODEGARowDeleting" msprop:Generator_RowChangingName="SP_INGRESO_BODEGARowChanging" msprop:Generator_RowEvHandlerName="SP_INGRESO_BODEGARowChangeEventHandler" msprop:Generator_RowDeletedName="SP_INGRESO_BODEGARowDeleted" msprop:Generator_UserTableName="SP_INGRESO_BODEGA" msprop:Generator_RowChangedName="SP_INGRESO_BODEGARowChanged" msprop:Generator_RowEvArgName="SP_INGRESO_BODEGARowChangeEvent" msprop:Generator_RowClassName="SP_INGRESO_BODEGARow">
           <xs:complexType>
             <xs:sequence>
@@ -364,6 +368,8 @@
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+=======
+>>>>>>> f3a4c66a2e1db86ecc357cf046e8096883086d1a
       </xs:choice>
     </xs:complexType>
   </xs:element>

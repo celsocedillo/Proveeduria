@@ -1,393 +1,501 @@
-     ---------------------------- Error(2018-05-14 09:26:38.8208) --------------------------    
+<<<<<<< HEAD
+     ---------------------------- Info(2018-05-15 12:19:15.5793) --------------------------    
               Machine Name  : CCEDILLO
    
-              Exception Type  : System.Data.Entity.Core.EntityCommandExecutionException
+              Exception Type  : 
       
-              Exception Message : An error occurred while executing the command definition. See the inner exception for details.
+              Exception Message : 
      
-              Inner Exception  : System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> Oracle.ManagedDataAccess.Client.OracleException: ORA-12570: Sesión de Red: error de lectura de paquete inesperado ---> OracleInternal.Network.NetworkException: ORA-12570: Sesión de Red: error de lectura de paquete inesperado ---> System.Net.Sockets.SocketException: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
-   en System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
-   en OracleInternal.Network.ReaderStream.Read(OraBuf OB)
-   --- Fin del seguimiento de la pila de la excepción interna ---
-   en OracleInternal.Network.ReaderStream.Read(OraBuf OB)
-   en OracleInternal.TTC.OraBufReader.GetDataFromNetwork()
-   en OracleInternal.TTC.OraBufReader.Read(Boolean bIgnoreData)
-   en OracleInternal.TTC.MarshallingEngine.UnmarshalUB1(Boolean bIgnoreData)
-   en OracleInternal.TTC.TTCExecuteSql.ReceiveExecuteResponse(Accessor[]& defineAccessors, Accessor[] bindAccessors, Boolean bHasReturningParams, SQLMetaData& sqlMetaData, SqlStatementType statementType, Int64 noOfRowsFetchedLastTime, Int32 noOfRowsToFetch, Int32& noOfRowsFetched, Int64& queryId, Int32 longFetchSize, Int64 initialLOBFetchSize, Int64[] scnFromExecution, Boolean bAllInputBinds, Int32 arrayBindCount, DataUnmarshaller& dataUnmarshaller, MarshalBindParameterValueHelper& marshalBindParamsHelper, Int64[]& rowsAffectedByArrayBind, Boolean bDefineDone, Boolean& bMoreThanOneRowAffectedByDmlWithRetClause, List`1& implicitRSList, Boolean bLOBArrayFetchRequired)
-   --- Fin del seguimiento de la pila de la excepción interna ---
-   en Oracle.ManagedDataAccess.Client.OracleException.HandleError(OracleTraceLevel level, OracleTraceTag tag, Exception ex, OracleLogicalTransaction oracleLogicalTransaction)
-   en OracleInternal.TTC.TTCExecuteSql.ReceiveExecuteResponse(Accessor[]& defineAccessors, Accessor[] bindAccessors, Boolean bHasReturningParams, SQLMetaData& sqlMetaData, SqlStatementType statementType, Int64 noOfRowsFetchedLastTime, Int32 noOfRowsToFetch, Int32& noOfRowsFetched, Int64& queryId, Int32 longFetchSize, Int64 initialLOBFetchSize, Int64[] scnFromExecution, Boolean bAllInputBinds, Int32 arrayBindCount, DataUnmarshaller& dataUnmarshaller, MarshalBindParameterValueHelper& marshalBindParamsHelper, Int64[]& rowsAffectedByArrayBind, Boolean bDefineDone, Boolean& bMoreThanOneRowAffectedByDmlWithRetClause, List`1& implicitRSList, Boolean bLOBArrayFetchRequired)
-   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
-   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
-   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   en System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
-   en System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<>c__DisplayClassb.<Reader>b__8()
-   en System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TInterceptionContext,TResult](Func`1 operation, TInterceptionContext interceptionContext, Action`1 executing, Action`1 executed)
-   en System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
-   en System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   en System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
-   en System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
-   --- Fin del seguimiento de la pila de la excepción interna ---
-   en System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+              Inner Exception  : 
+ 
+              Stack Trace   : 
+        
+              Additional Info  : Dato Grabado  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Info(2018-05-15 12:21:10.4952) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : 
+      
+              Exception Message : 
+     
+              Inner Exception  : 
+ 
+              Stack Trace   : 
+        
+              Additional Info  : Dato Grabado  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Info(2018-05-15 12:58:33.2081) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : 
+      
+              Exception Message : 
+     
+              Inner Exception  : 
+ 
+              Stack Trace   : 
+        
+              Additional Info  : Dato Grabado  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Info(2018-05-15 12:59:24.1732) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : 
+      
+              Exception Message : 
+     
+              Inner Exception  : 
+ 
+              Stack Trace   : 
+        
+              Additional Info  : Dato Grabado  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Info(2018-05-15 15:06:46.1483) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : 
+      
+              Exception Message : 
+     
+              Inner Exception  : 
+ 
+              Stack Trace   : 
+        
+              Additional Info  : Dato Grabado  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Info(2018-05-15 16:09:02.2368) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : 
+      
+              Exception Message : 
+     
+              Inner Exception  : 
+ 
+              Stack Trace   : 
+        
+              Additional Info  : Dato Grabado  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-05-15 16:54:40.8567) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : Could not determine JSON object type for type <>f__AnonymousType1`5[System.Int32,System.String,System.String,System.String,System.String].
+     
+              Inner Exception  : System.ArgumentException: Could not determine JSON object type for type <>f__AnonymousType1`5[System.Int32,System.String,System.String,System.String,System.String].
+   en Newtonsoft.Json.Linq.JValue.GetValueType(Nullable`1 current, Object value)
+   en Newtonsoft.Json.Linq.JContainer.CreateFromContent(Object content)
+   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
+   en Newtonsoft.Json.Linq.JContainer.Add(Object content)
+   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 74 
+ 
+              Stack Trace   :    en Newtonsoft.Json.Linq.JValue.GetValueType(Nullable`1 current, Object value)
+   en Newtonsoft.Json.Linq.JContainer.CreateFromContent(Object content)
+   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
+   en Newtonsoft.Json.Linq.JContainer.Add(Object content)
+   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 74
+        
+              Additional Info  : Could not determine JSON object type for type <>f__AnonymousType1`5[System.Int32,System.String,System.String,System.String,System.String].  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-05-15 16:55:17.4833) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : Could not determine JSON object type for type <>f__AnonymousType1`5[System.Int32,System.String,System.String,System.String,System.String].
+     
+              Inner Exception  : System.ArgumentException: Could not determine JSON object type for type <>f__AnonymousType1`5[System.Int32,System.String,System.String,System.String,System.String].
+   en Newtonsoft.Json.Linq.JValue.GetValueType(Nullable`1 current, Object value)
+   en Newtonsoft.Json.Linq.JContainer.CreateFromContent(Object content)
+   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
+   en Newtonsoft.Json.Linq.JContainer.Add(Object content)
+   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 74 
+ 
+              Stack Trace   :    en Newtonsoft.Json.Linq.JValue.GetValueType(Nullable`1 current, Object value)
+   en Newtonsoft.Json.Linq.JContainer.CreateFromContent(Object content)
+   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
+   en Newtonsoft.Json.Linq.JContainer.Add(Object content)
+   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 74
+        
+              Additional Info  : Could not determine JSON object type for type <>f__AnonymousType1`5[System.Int32,System.String,System.String,System.String,System.String].  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-05-15 16:56:48.6735) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : Could not determine JSON object type for type System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA.
+     
+              Inner Exception  : System.ArgumentException: Could not determine JSON object type for type System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA.
+   en Newtonsoft.Json.Linq.JValue.GetValueType(Nullable`1 current, Object value)
+   en Newtonsoft.Json.Linq.JContainer.CreateFromContent(Object content)
+   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
+   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
+   en Newtonsoft.Json.Linq.JContainer.Add(Object content)
+   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 81 
+ 
+              Stack Trace   :    en Newtonsoft.Json.Linq.JValue.GetValueType(Nullable`1 current, Object value)
+   en Newtonsoft.Json.Linq.JContainer.CreateFromContent(Object content)
+   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
+   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
+   en Newtonsoft.Json.Linq.JContainer.Add(Object content)
+   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 81
+        
+              Additional Info  : Could not determine JSON object type for type System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-05-15 16:56:58.7825) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : Could not determine JSON object type for type System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA.
+     
+              Inner Exception  : System.ArgumentException: Could not determine JSON object type for type System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA.
+   en Newtonsoft.Json.Linq.JValue.GetValueType(Nullable`1 current, Object value)
+   en Newtonsoft.Json.Linq.JContainer.CreateFromContent(Object content)
+   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
+   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
+   en Newtonsoft.Json.Linq.JContainer.Add(Object content)
+   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 81 
+ 
+              Stack Trace   :    en Newtonsoft.Json.Linq.JValue.GetValueType(Nullable`1 current, Object value)
+   en Newtonsoft.Json.Linq.JContainer.CreateFromContent(Object content)
+   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
+   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
+   en Newtonsoft.Json.Linq.JContainer.Add(Object content)
+   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 81
+        
+              Additional Info  : Could not determine JSON object type for type System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-05-15 17:11:48.9795) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : Newtonsoft.Json.JsonSerializationException
+      
+              Exception Message : Self referencing loop detected for property 'EPRTA_ITEM' with type 'System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA'. Path '[0].EPRTA_ARTICULO_BODEGA[0]'.
+     
+              Inner Exception  : Newtonsoft.Json.JsonSerializationException: Self referencing loop detected for property 'EPRTA_ITEM' with type 'System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA'. Path '[0].EPRTA_ARTICULO_BODEGA[0]'.
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   en Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   en Newtonsoft.Json.JsonConvert.SerializeObjectInternal(Object value, Type type, JsonSerializer jsonSerializer)
+   en Newtonsoft.Json.JsonConvert.SerializeObject(Object value)
+   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 81 
+ 
+              Stack Trace   :    en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   en Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   en Newtonsoft.Json.JsonConvert.SerializeObjectInternal(Object value, Type type, JsonSerializer jsonSerializer)
+   en Newtonsoft.Json.JsonConvert.SerializeObject(Object value)
+   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 81
+        
+              Additional Info  : Self referencing loop detected for property 'EPRTA_ITEM' with type 'System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA'. Path '[0].EPRTA_ARTICULO_BODEGA[0]'.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-05-15 17:19:09.3725) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : Newtonsoft.Json.JsonSerializationException
+      
+              Exception Message : Self referencing loop detected for property 'EPRTA_ITEM' with type 'System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA'. Path '[0].EPRTA_ARTICULO_BODEGA[0]'.
+     
+              Inner Exception  : Newtonsoft.Json.JsonSerializationException: Self referencing loop detected for property 'EPRTA_ITEM' with type 'System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA'. Path '[0].EPRTA_ARTICULO_BODEGA[0]'.
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   en Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   en Newtonsoft.Json.JsonConvert.SerializeObjectInternal(Object value, Type type, JsonSerializer jsonSerializer)
+   en Newtonsoft.Json.JsonConvert.SerializeObject(Object value)
+   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 81 
+ 
+              Stack Trace   :    en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   en Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   en Newtonsoft.Json.JsonConvert.SerializeObjectInternal(Object value, Type type, JsonSerializer jsonSerializer)
+   en Newtonsoft.Json.JsonConvert.SerializeObject(Object value)
+   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 81
+        
+              Additional Info  : Self referencing loop detected for property 'EPRTA_ITEM' with type 'System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA'. Path '[0].EPRTA_ARTICULO_BODEGA[0]'.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-05-15 17:20:16.9623) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : Newtonsoft.Json.JsonSerializationException
+      
+              Exception Message : Self referencing loop detected for property 'EPRTA_ITEM' with type 'System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA'. Path '[0].EPRTA_ARTICULO_BODEGA[0]'.
+     
+              Inner Exception  : Newtonsoft.Json.JsonSerializationException: Self referencing loop detected for property 'EPRTA_ITEM' with type 'System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA'. Path '[0].EPRTA_ARTICULO_BODEGA[0]'.
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   en Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   en Newtonsoft.Json.JsonConvert.SerializeObjectInternal(Object value, Type type, JsonSerializer jsonSerializer)
+   en Newtonsoft.Json.JsonConvert.SerializeObject(Object value)
+   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 81 
+ 
+              Stack Trace   :    en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   en Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   en Newtonsoft.Json.JsonConvert.SerializeObjectInternal(Object value, Type type, JsonSerializer jsonSerializer)
+   en Newtonsoft.Json.JsonConvert.SerializeObject(Object value)
+   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 81
+        
+              Additional Info  : Self referencing loop detected for property 'EPRTA_ITEM' with type 'System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA'. Path '[0].EPRTA_ARTICULO_BODEGA[0]'.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-05-15 17:38:58.8065) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.InvalidCastException
+      
+              Exception Message : No se puede convertir un objeto de tipo 'Newtonsoft.Json.Linq.JArray' al tipo 'Newtonsoft.Json.Linq.JObject'.
+     
+              Inner Exception  : System.InvalidCastException: No se puede convertir un objeto de tipo 'Newtonsoft.Json.Linq.JArray' al tipo 'Newtonsoft.Json.Linq.JObject'.
+   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 83 
+ 
+              Stack Trace   :    en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 83
+        
+              Additional Info  : No se puede convertir un objeto de tipo 'Newtonsoft.Json.Linq.JArray' al tipo 'Newtonsoft.Json.Linq.JObject'.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Info(2018-05-15 21:42:39.2760) --------------------------    
+              Machine Name  : CCEDILLO
+=======
+     ---------------------------- Error(2018-06-09 00:52:18.2268) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.InvalidOperationException
+      
+              Exception Message : The operation failed: The relationship could not be changed because one or more of the foreign-key properties is non-nullable. When a change is made to a relationship, the related foreign-key property is set to a null value. If the foreign-key does not support null values, a new relationship must be defined, the foreign-key property must be assigned another non-null value, or the unrelated object must be deleted.
+     
+              Inner Exception  : System.InvalidOperationException: The operation failed: The relationship could not be changed because one or more of the foreign-key properties is non-nullable. When a change is made to a relationship, the related foreign-key property is set to a null value. If the foreign-key does not support null values, a new relationship must be defined, the foreign-key property must be assigned another non-null value, or the unrelated object must be deleted.
+   en System.Data.Entity.Core.Objects.ObjectContext.PrepareToSaveChanges(SaveOptions options)
+   en System.Data.Entity.Core.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   en System.Data.Entity.Internal.InternalContext.SaveChanges()
+   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   en System.Data.Entity.DbContext.SaveChanges()
+   en Proveduria.Repositories.UnitOfWork.Save() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\UnitOfWork.cs:línea 149
+   en Proveduria.Controllers.SolicitudController.Grabar(EPRTA_MOVIMIENTO pmovimiento, Boolean pregistro_nuevo) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 220 
+ 
+              Stack Trace   :    en System.Data.Entity.Core.Objects.ObjectContext.PrepareToSaveChanges(SaveOptions options)
+   en System.Data.Entity.Core.Objects.ObjectContext.SaveChanges(SaveOptions options)
+   en System.Data.Entity.Internal.InternalContext.SaveChanges()
+   en System.Data.Entity.Internal.LazyInternalContext.SaveChanges()
+   en System.Data.Entity.DbContext.SaveChanges()
+   en Proveduria.Repositories.UnitOfWork.Save() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\UnitOfWork.cs:línea 149
+   en Proveduria.Controllers.SolicitudController.Grabar(EPRTA_MOVIMIENTO pmovimiento, Boolean pregistro_nuevo) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 220
+        
+              Additional Info  : The operation failed: The relationship could not be changed because one or more of the foreign-key properties is non-nullable. When a change is made to a relationship, the related foreign-key property is set to a null value. If the foreign-key does not support null values, a new relationship must be defined, the foreign-key property must be assigned another non-null value, or the unrelated object must be deleted.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-04 15:25:55.4176) --------------------------    
+              Machine Name  : MSANCAN2
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType7`2 <>h__TransparentIdentifier2) en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40 
+ 
+              Stack Trace   :    en Proveduria.Controllers.SolicitudController.<GetListaSolicitud>b__4_10(<>f__AnonymousType7`2 <>h__TransparentIdentifier2) en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 44
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 40
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Info(2018-06-04 15:26:19.0210) --------------------------    
+              Machine Name  : MSANCAN2
+>>>>>>> ad2e99e07967d8a2b7f666aa9b878ff0a48143b1
+   
+              Exception Type  : 
+      
+              Exception Message : 
+     
+              Inner Exception  : 
+ 
+              Stack Trace   : 
+        
+              Additional Info  : Dato Grabado  
+              -------------------------------------------------------------------
+              ----------     
+     
+<<<<<<< HEAD
+     ---------------------------- Error(2018-05-15 23:16:48.6824) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : Newtonsoft.Json.JsonSerializationException
+      
+              Exception Message : Error getting value from 'EPRTA_ARTICULO_BODEGA' on 'System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA'.
+     
+              Inner Exception  : Newtonsoft.Json.JsonSerializationException: Error getting value from 'EPRTA_ARTICULO_BODEGA' on 'System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA'. ---> System.InvalidCastException: La conversión especificada no es válida.
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetByte(Int32 i)
+   en System.Data.Entity.Core.Objects.Internal.ShapedBufferedDataRecord.ReadByte(DbDataReader reader, Int32 ordinal)
+   en System.Data.Entity.Core.Objects.Internal.ShapedBufferedDataRecord.Initialize(DbDataReader reader, DbSpatialDataReader spatialDataReader, Type[] columnTypes, Boolean[] nullableColumns)
+   en System.Data.Entity.Core.Objects.Internal.ShapedBufferedDataRecord.Initialize(String providerManifestToken, DbProviderServices providerServices, DbDataReader reader, Type[] columnTypes, Boolean[] nullableColumns)
+   en System.Data.Entity.Core.Objects.Internal.BufferedDataReader.Initialize(String providerManifestToken, DbProviderServices providerServices, Type[] columnTypes, Boolean[] nullableColumns)
    en System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
    en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__a()
    en System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
    en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__9()
    en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
    en System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
-   en System.Lazy`1.CreateValue()
-   en System.Lazy`1.LazyInitValue()
-   en System.Lazy`1.get_Value()
-   en System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Repositories.GenericRepository`1.GetAll() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 31
-   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 32 
-Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-12570: Sesión de Red: error de lectura de paquete inesperado ---> OracleInternal.Network.NetworkException (0x80004005): ORA-12570: Sesión de Red: error de lectura de paquete inesperado ---> System.Net.Sockets.SocketException (0x80004005): Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
-   en System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
-   en OracleInternal.Network.ReaderStream.Read(OraBuf OB)
-   en OracleInternal.Network.ReaderStream.Read(OraBuf OB)
-   en OracleInternal.TTC.OraBufReader.GetDataFromNetwork()
-   en OracleInternal.TTC.OraBufReader.Read(Boolean bIgnoreData)
-   en OracleInternal.TTC.MarshallingEngine.UnmarshalUB1(Boolean bIgnoreData)
-   en OracleInternal.TTC.TTCExecuteSql.ReceiveExecuteResponse(Accessor[]& defineAccessors, Accessor[] bindAccessors, Boolean bHasReturningParams, SQLMetaData& sqlMetaData, SqlStatementType statementType, Int64 noOfRowsFetchedLastTime, Int32 noOfRowsToFetch, Int32& noOfRowsFetched, Int64& queryId, Int32 longFetchSize, Int64 initialLOBFetchSize, Int64[] scnFromExecution, Boolean bAllInputBinds, Int32 arrayBindCount, DataUnmarshaller& dataUnmarshaller, MarshalBindParameterValueHelper& marshalBindParamsHelper, Int64[]& rowsAffectedByArrayBind, Boolean bDefineDone, Boolean& bMoreThanOneRowAffectedByDmlWithRetClause, List`1& implicitRSList, Boolean bLOBArrayFetchRequired)
-   en Oracle.ManagedDataAccess.Client.OracleException.HandleError(OracleTraceLevel level, OracleTraceTag tag, Exception ex, OracleLogicalTransaction oracleLogicalTransaction)
-   en OracleInternal.TTC.TTCExecuteSql.ReceiveExecuteResponse(Accessor[]& defineAccessors, Accessor[] bindAccessors, Boolean bHasReturningParams, SQLMetaData& sqlMetaData, SqlStatementType statementType, Int64 noOfRowsFetchedLastTime, Int32 noOfRowsToFetch, Int32& noOfRowsFetched, Int64& queryId, Int32 longFetchSize, Int64 initialLOBFetchSize, Int64[] scnFromExecution, Boolean bAllInputBinds, Int32 arrayBindCount, DataUnmarshaller& dataUnmarshaller, MarshalBindParameterValueHelper& marshalBindParamsHelper, Int64[]& rowsAffectedByArrayBind, Boolean bDefineDone, Boolean& bMoreThanOneRowAffectedByDmlWithRetClause, List`1& implicitRSList, Boolean bLOBArrayFetchRequired)
-   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
-   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
-   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   en System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
-   en System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<>c__DisplayClassb.<Reader>b__8()
-   en System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TInterceptionContext,TResult](Func`1 operation, TInterceptionContext interceptionContext, Action`1 executing, Action`1 executed)
-   en System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
-   en System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   en System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
-   en System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior) 
-OracleInternal.Network.NetworkException (0x80004005): ORA-12570: Sesión de Red: error de lectura de paquete inesperado ---> System.Net.Sockets.SocketException (0x80004005): Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
-   en System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
-   en OracleInternal.Network.ReaderStream.Read(OraBuf OB)
-   en OracleInternal.Network.ReaderStream.Read(OraBuf OB)
-   en OracleInternal.TTC.OraBufReader.GetDataFromNetwork()
-   en OracleInternal.TTC.OraBufReader.Read(Boolean bIgnoreData)
-   en OracleInternal.TTC.MarshallingEngine.UnmarshalUB1(Boolean bIgnoreData)
-   en OracleInternal.TTC.TTCExecuteSql.ReceiveExecuteResponse(Accessor[]& defineAccessors, Accessor[] bindAccessors, Boolean bHasReturningParams, SQLMetaData& sqlMetaData, SqlStatementType statementType, Int64 noOfRowsFetchedLastTime, Int32 noOfRowsToFetch, Int32& noOfRowsFetched, Int64& queryId, Int32 longFetchSize, Int64 initialLOBFetchSize, Int64[] scnFromExecution, Boolean bAllInputBinds, Int32 arrayBindCount, DataUnmarshaller& dataUnmarshaller, MarshalBindParameterValueHelper& marshalBindParamsHelper, Int64[]& rowsAffectedByArrayBind, Boolean bDefineDone, Boolean& bMoreThanOneRowAffectedByDmlWithRetClause, List`1& implicitRSList, Boolean bLOBArrayFetchRequired) 
-System.Net.Sockets.SocketException (0x80004005): Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
-   en System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
-   en OracleInternal.Network.ReaderStream.Read(OraBuf OB) 
- 
-              Stack Trace   :    en System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.Execute(MergeOption mergeOption)
+   en System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Load(List`1 collection, MergeOption mergeOption)
+   en System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Load(MergeOption mergeOption)
+   en System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.DeferredLoad()
+   en System.Data.Entity.Core.Objects.Internal.LazyLoadBehavior.LoadProperty[TItem](TItem propertyValue, String relationshipName, String targetRoleName, Boolean mustBeNull, Object wrapperObject)
+   en System.Data.Entity.Core.Objects.Internal.LazyLoadBehavior.<>c__DisplayClass7`2.<GetInterceptorDelegate>b__1(TProxy proxy, TItem item)
+   en System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA.get_EPRTA_ARTICULO_BODEGA()
+   en GetEPRTA_ARTICULO_BODEGA(Object )
+   en Newtonsoft.Json.Serialization.DynamicValueProvider.GetValue(Object target)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en Newtonsoft.Json.Serialization.DynamicValueProvider.GetValue(Object target)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   en Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   en Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   en Newtonsoft.Json.Linq.JArray.FromObject(Object o, JsonSerializer jsonSerializer)
+   en Newtonsoft.Json.Linq.JArray.FromObject(Object o)
+   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 91 
+System.InvalidCastException: La conversión especificada no es válida.
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetByte(Int32 i)
+   en System.Data.Entity.Core.Objects.Internal.ShapedBufferedDataRecord.ReadByte(DbDataReader reader, Int32 ordinal)
+   en System.Data.Entity.Core.Objects.Internal.ShapedBufferedDataRecord.Initialize(DbDataReader reader, DbSpatialDataReader spatialDataReader, Type[] columnTypes, Boolean[] nullableColumns)
+   en System.Data.Entity.Core.Objects.Internal.ShapedBufferedDataRecord.Initialize(String providerManifestToken, DbProviderServices providerServices, DbDataReader reader, Type[] columnTypes, Boolean[] nullableColumns)
+   en System.Data.Entity.Core.Objects.Internal.BufferedDataReader.Initialize(String providerManifestToken, DbProviderServices providerServices, Type[] columnTypes, Boolean[] nullableColumns)
    en System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
    en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__a()
    en System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
    en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__9()
    en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
    en System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
-   en System.Lazy`1.CreateValue()
-   en System.Lazy`1.LazyInitValue()
-   en System.Lazy`1.get_Value()
-   en System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Repositories.GenericRepository`1.GetAll() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 31
-   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 32
-        
-              Additional Info  : An error occurred while executing the command definition. See the inner exception for details.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Info(2018-05-14 12:00:45.8107) --------------------------    
-              Machine Name  : CCEDILLO
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.Execute(MergeOption mergeOption)
+   en System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Load(List`1 collection, MergeOption mergeOption)
+   en System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Load(MergeOption mergeOption)
+   en System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.DeferredLoad()
+   en System.Data.Entity.Core.Objects.Internal.LazyLoadBehavior.LoadProperty[TItem](TItem propertyValue, String relationshipName, String targetRoleName, Boolean mustBeNull, Object wrapperObject)
+   en System.Data.Entity.Core.Objects.Internal.LazyLoadBehavior.<>c__DisplayClass7`2.<GetInterceptorDelegate>b__1(TProxy proxy, TItem item)
+   en System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA.get_EPRTA_ARTICULO_BODEGA()
+   en GetEPRTA_ARTICULO_BODEGA(Object )
+   en Newtonsoft.Json.Serialization.DynamicValueProvider.GetValue(Object target) 
+=======
+     ---------------------------- Info(2018-06-04 15:26:31.4224) --------------------------    
+              Machine Name  : MSANCAN2
    
               Exception Type  : 
       
               Exception Message : 
      
               Inner Exception  : 
+>>>>>>> ad2e99e07967d8a2b7f666aa9b878ff0a48143b1
  
-              Stack Trace   : 
+              Stack Trace   :    en Newtonsoft.Json.Serialization.DynamicValueProvider.GetValue(Object target)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
+   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
+   en Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
+   en Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
+   en Newtonsoft.Json.Linq.JArray.FromObject(Object o, JsonSerializer jsonSerializer)
+   en Newtonsoft.Json.Linq.JArray.FromObject(Object o)
+   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 91
         
-              Additional Info  : Dato Grabado  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Info(2018-05-14 15:29:44.9618) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : 
-      
-              Exception Message : 
-     
-              Inner Exception  : 
- 
-              Stack Trace   : 
-        
-              Additional Info  : Dato Grabado  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Info(2018-05-14 16:15:29.0998) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : 
-      
-              Exception Message : 
-     
-              Inner Exception  : 
- 
-              Stack Trace   : 
-        
-              Additional Info  : Dato Grabado  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Info(2018-05-14 16:15:47.4852) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : 
-      
-              Exception Message : 
-     
-              Inner Exception  : 
- 
-              Stack Trace   : 
-        
-              Additional Info  : Dato Grabado  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Info(2018-05-14 16:16:14.9872) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : 
-      
-              Exception Message : 
-     
-              Inner Exception  : 
- 
-              Stack Trace   : 
-        
-              Additional Info  : Dato Grabado  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Info(2018-05-14 16:43:04.9231) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : 
-      
-              Exception Message : 
-     
-              Inner Exception  : 
- 
-              Stack Trace   : 
-        
-              Additional Info  : Dato Grabado  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Info(2018-05-14 16:48:24.3161) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : 
-      
-              Exception Message : 
-     
-              Inner Exception  : 
- 
-              Stack Trace   : 
-        
-              Additional Info  : Dato Grabado  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Info(2018-05-14 16:48:34.5897) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : 
-      
-              Exception Message : 
-     
-              Inner Exception  : 
- 
-              Stack Trace   : 
-        
-              Additional Info  : Dato Grabado  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Info(2018-05-14 17:11:10.8492) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : 
-      
-              Exception Message : 
-     
-              Inner Exception  : 
- 
-              Stack Trace   : 
-        
-              Additional Info  : Dato Grabado  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Info(2018-05-14 17:11:28.8431) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : 
-      
-              Exception Message : 
-     
-              Inner Exception  : 
- 
-              Stack Trace   : 
-        
-              Additional Info  : Dato Grabado  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Info(2018-05-14 17:11:59.2981) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : 
-      
-              Exception Message : 
-     
-              Inner Exception  : 
- 
-              Stack Trace   : 
-        
-              Additional Info  : Dato Grabado  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Info(2018-05-14 17:12:34.0332) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : 
-      
-              Exception Message : 
-     
-              Inner Exception  : 
- 
-              Stack Trace   : 
-        
-              Additional Info  : Dato Grabado  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-05-14 17:17:23.0606) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.Data.Entity.Core.EntityCommandExecutionException
-      
-              Exception Message : An error occurred while executing the command definition. See the inner exception for details.
-     
-              Inner Exception  : System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> Oracle.ManagedDataAccess.Client.OracleException: ORA-12570: Sesión de Red: error de lectura de paquete inesperado ---> OracleInternal.Network.NetworkException: ORA-12570: Sesión de Red: error de lectura de paquete inesperado ---> System.Net.Sockets.SocketException: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
-   en System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
-   en OracleInternal.Network.ReaderStream.Read(OraBuf OB)
-   --- Fin del seguimiento de la pila de la excepción interna ---
-   en OracleInternal.Network.ReaderStream.Read(OraBuf OB)
-   en OracleInternal.TTC.OraBufReader.GetDataFromNetwork()
-   en OracleInternal.TTC.OraBufReader.Read(Boolean bIgnoreData)
-   en OracleInternal.TTC.MarshallingEngine.UnmarshalUB1(Boolean bIgnoreData)
-   en OracleInternal.TTC.TTCExecuteSql.ReceiveExecuteResponse(Accessor[]& defineAccessors, Accessor[] bindAccessors, Boolean bHasReturningParams, SQLMetaData& sqlMetaData, SqlStatementType statementType, Int64 noOfRowsFetchedLastTime, Int32 noOfRowsToFetch, Int32& noOfRowsFetched, Int64& queryId, Int32 longFetchSize, Int64 initialLOBFetchSize, Int64[] scnFromExecution, Boolean bAllInputBinds, Int32 arrayBindCount, DataUnmarshaller& dataUnmarshaller, MarshalBindParameterValueHelper& marshalBindParamsHelper, Int64[]& rowsAffectedByArrayBind, Boolean bDefineDone, Boolean& bMoreThanOneRowAffectedByDmlWithRetClause, List`1& implicitRSList, Boolean bLOBArrayFetchRequired)
-   --- Fin del seguimiento de la pila de la excepción interna ---
-   en Oracle.ManagedDataAccess.Client.OracleException.HandleError(OracleTraceLevel level, OracleTraceTag tag, Exception ex, OracleLogicalTransaction oracleLogicalTransaction)
-   en OracleInternal.TTC.TTCExecuteSql.ReceiveExecuteResponse(Accessor[]& defineAccessors, Accessor[] bindAccessors, Boolean bHasReturningParams, SQLMetaData& sqlMetaData, SqlStatementType statementType, Int64 noOfRowsFetchedLastTime, Int32 noOfRowsToFetch, Int32& noOfRowsFetched, Int64& queryId, Int32 longFetchSize, Int64 initialLOBFetchSize, Int64[] scnFromExecution, Boolean bAllInputBinds, Int32 arrayBindCount, DataUnmarshaller& dataUnmarshaller, MarshalBindParameterValueHelper& marshalBindParamsHelper, Int64[]& rowsAffectedByArrayBind, Boolean bDefineDone, Boolean& bMoreThanOneRowAffectedByDmlWithRetClause, List`1& implicitRSList, Boolean bLOBArrayFetchRequired)
-   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
-   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
-   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   en System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
-   en System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<>c__DisplayClassb.<Reader>b__8()
-   en System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TInterceptionContext,TResult](Func`1 operation, TInterceptionContext interceptionContext, Action`1 executing, Action`1 executed)
-   en System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
-   en System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   en System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
-   en System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
-   --- Fin del seguimiento de la pila de la excepción interna ---
-   en System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
-   en System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__a()
-   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__9()
-   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
-   en System.Lazy`1.CreateValue()
-   en System.Lazy`1.LazyInitValue()
-   en System.Lazy`1.get_Value()
-   en System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Repositories.GenericRepository`1.GetAll() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 31
-   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 32 
-Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-12570: Sesión de Red: error de lectura de paquete inesperado ---> OracleInternal.Network.NetworkException (0x80004005): ORA-12570: Sesión de Red: error de lectura de paquete inesperado ---> System.Net.Sockets.SocketException (0x80004005): Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
-   en System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
-   en OracleInternal.Network.ReaderStream.Read(OraBuf OB)
-   en OracleInternal.Network.ReaderStream.Read(OraBuf OB)
-   en OracleInternal.TTC.OraBufReader.GetDataFromNetwork()
-   en OracleInternal.TTC.OraBufReader.Read(Boolean bIgnoreData)
-   en OracleInternal.TTC.MarshallingEngine.UnmarshalUB1(Boolean bIgnoreData)
-   en OracleInternal.TTC.TTCExecuteSql.ReceiveExecuteResponse(Accessor[]& defineAccessors, Accessor[] bindAccessors, Boolean bHasReturningParams, SQLMetaData& sqlMetaData, SqlStatementType statementType, Int64 noOfRowsFetchedLastTime, Int32 noOfRowsToFetch, Int32& noOfRowsFetched, Int64& queryId, Int32 longFetchSize, Int64 initialLOBFetchSize, Int64[] scnFromExecution, Boolean bAllInputBinds, Int32 arrayBindCount, DataUnmarshaller& dataUnmarshaller, MarshalBindParameterValueHelper& marshalBindParamsHelper, Int64[]& rowsAffectedByArrayBind, Boolean bDefineDone, Boolean& bMoreThanOneRowAffectedByDmlWithRetClause, List`1& implicitRSList, Boolean bLOBArrayFetchRequired)
-   en Oracle.ManagedDataAccess.Client.OracleException.HandleError(OracleTraceLevel level, OracleTraceTag tag, Exception ex, OracleLogicalTransaction oracleLogicalTransaction)
-   en OracleInternal.TTC.TTCExecuteSql.ReceiveExecuteResponse(Accessor[]& defineAccessors, Accessor[] bindAccessors, Boolean bHasReturningParams, SQLMetaData& sqlMetaData, SqlStatementType statementType, Int64 noOfRowsFetchedLastTime, Int32 noOfRowsToFetch, Int32& noOfRowsFetched, Int64& queryId, Int32 longFetchSize, Int64 initialLOBFetchSize, Int64[] scnFromExecution, Boolean bAllInputBinds, Int32 arrayBindCount, DataUnmarshaller& dataUnmarshaller, MarshalBindParameterValueHelper& marshalBindParamsHelper, Int64[]& rowsAffectedByArrayBind, Boolean bDefineDone, Boolean& bMoreThanOneRowAffectedByDmlWithRetClause, List`1& implicitRSList, Boolean bLOBArrayFetchRequired)
-   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
-   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
-   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   en System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
-   en System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<>c__DisplayClassb.<Reader>b__8()
-   en System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TInterceptionContext,TResult](Func`1 operation, TInterceptionContext interceptionContext, Action`1 executing, Action`1 executed)
-   en System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
-   en System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
-   en System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
-   en System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior) 
-OracleInternal.Network.NetworkException (0x80004005): ORA-12570: Sesión de Red: error de lectura de paquete inesperado ---> System.Net.Sockets.SocketException (0x80004005): Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
-   en System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
-   en OracleInternal.Network.ReaderStream.Read(OraBuf OB)
-   en OracleInternal.Network.ReaderStream.Read(OraBuf OB)
-   en OracleInternal.TTC.OraBufReader.GetDataFromNetwork()
-   en OracleInternal.TTC.OraBufReader.Read(Boolean bIgnoreData)
-   en OracleInternal.TTC.MarshallingEngine.UnmarshalUB1(Boolean bIgnoreData)
-   en OracleInternal.TTC.TTCExecuteSql.ReceiveExecuteResponse(Accessor[]& defineAccessors, Accessor[] bindAccessors, Boolean bHasReturningParams, SQLMetaData& sqlMetaData, SqlStatementType statementType, Int64 noOfRowsFetchedLastTime, Int32 noOfRowsToFetch, Int32& noOfRowsFetched, Int64& queryId, Int32 longFetchSize, Int64 initialLOBFetchSize, Int64[] scnFromExecution, Boolean bAllInputBinds, Int32 arrayBindCount, DataUnmarshaller& dataUnmarshaller, MarshalBindParameterValueHelper& marshalBindParamsHelper, Int64[]& rowsAffectedByArrayBind, Boolean bDefineDone, Boolean& bMoreThanOneRowAffectedByDmlWithRetClause, List`1& implicitRSList, Boolean bLOBArrayFetchRequired) 
-System.Net.Sockets.SocketException (0x80004005): Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
-   en System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
-   en OracleInternal.Network.ReaderStream.Read(OraBuf OB) 
- 
-              Stack Trace   :    en System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
-   en System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__a()
-   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__9()
-   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
-   en System.Lazy`1.CreateValue()
-   en System.Lazy`1.LazyInitValue()
-   en System.Lazy`1.get_Value()
-   en System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Repositories.GenericRepository`1.GetAll() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 31
-   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 32
-        
-              Additional Info  : An error occurred while executing the command definition. See the inner exception for details.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Info(2018-05-14 17:17:36.7440) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : 
-      
-              Exception Message : 
-     
-              Inner Exception  : 
- 
-              Stack Trace   : 
-        
-              Additional Info  : Dato Grabado  
+              Additional Info  : Error getting value from 'EPRTA_ARTICULO_BODEGA' on 'System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA'.  
               -------------------------------------------------------------------
               ----------     
      

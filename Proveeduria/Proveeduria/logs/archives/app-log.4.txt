@@ -1,433 +1,1544 @@
-     ---------------------------- Info(2018-05-15 12:19:15.5793) --------------------------    
+<<<<<<< HEAD
+     ---------------------------- Info(2018-05-16 10:42:09.8810) --------------------------    
+=======
+     ---------------------------- Error(2018-06-11 11:44:10.2283) --------------------------    
+>>>>>>> ad2e99e07967d8a2b7f666aa9b878ff0a48143b1
               Machine Name  : CCEDILLO
    
-              Exception Type  : 
+              Exception Type  : Oracle.ManagedDataAccess.Client.OracleException
       
-              Exception Message : 
+              Exception Message : ORA-06550: línea 1, columna 7:
+PLS-00201: identifier 'PROVEDURIA.SP_ORDEN_INGRESO_BODEGA' must be declared
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
      
-              Inner Exception  : 
+              Inner Exception  : Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-06550: línea 1, columna 7:
+PLS-00201: identifier 'PROVEDURIA.SP_ORDEN_INGRESO_BODEGA' must be declared
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+   en OracleInternal.ServiceObjects.OracleConnectionImpl.VerifyExecution(Int32& cursorId, Boolean bThrowArrayBindRelatedErrors, SqlStatementType sqlStatementType, Int32 arrayBindCount, OracleException& exceptionForArrayBindDML, Boolean& hasMoreRowsInDB, Boolean bFirstIterationDone)
+   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
+   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_ORDEN_INGRESO_BODEGATableAdapter.GetData(Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 3585
+   en Proveduria.Controllers.BodegaController.ExportPdf() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\BodegaController.cs:línea 112 
  
-              Stack Trace   : 
+              Stack Trace   :    en OracleInternal.ServiceObjects.OracleConnectionImpl.VerifyExecution(Int32& cursorId, Boolean bThrowArrayBindRelatedErrors, SqlStatementType sqlStatementType, Int32 arrayBindCount, OracleException& exceptionForArrayBindDML, Boolean& hasMoreRowsInDB, Boolean bFirstIterationDone)
+   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
+   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_ORDEN_INGRESO_BODEGATableAdapter.GetData(Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 3585
+   en Proveduria.Controllers.BodegaController.ExportPdf() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\BodegaController.cs:línea 112
         
-              Additional Info  : Dato Grabado  
+              Additional Info  : ORA-06550: línea 1, columna 7:
+PLS-00201: identifier 'PROVEDURIA.SP_ORDEN_INGRESO_BODEGA' must be declared
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored  
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Info(2018-05-15 12:21:10.4952) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : 
-      
-              Exception Message : 
-     
-              Inner Exception  : 
- 
-              Stack Trace   : 
-        
-              Additional Info  : Dato Grabado  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Info(2018-05-15 12:58:33.2081) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : 
-      
-              Exception Message : 
-     
-              Inner Exception  : 
- 
-              Stack Trace   : 
-        
-              Additional Info  : Dato Grabado  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Info(2018-05-15 12:59:24.1732) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : 
-      
-              Exception Message : 
-     
-              Inner Exception  : 
- 
-              Stack Trace   : 
-        
-              Additional Info  : Dato Grabado  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Info(2018-05-15 15:06:46.1483) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : 
-      
-              Exception Message : 
-     
-              Inner Exception  : 
- 
-              Stack Trace   : 
-        
-              Additional Info  : Dato Grabado  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Info(2018-05-15 16:09:02.2368) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : 
-      
-              Exception Message : 
-     
-              Inner Exception  : 
- 
-              Stack Trace   : 
-        
-              Additional Info  : Dato Grabado  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-05-15 16:54:40.8567) --------------------------    
+<<<<<<< HEAD
+     ---------------------------- Info(2018-05-16 10:42:25.2370) --------------------------    
+=======
+     ---------------------------- Error(2018-06-11 12:06:11.4770) --------------------------    
+>>>>>>> ad2e99e07967d8a2b7f666aa9b878ff0a48143b1
               Machine Name  : CCEDILLO
    
               Exception Type  : System.ArgumentException
       
-              Exception Message : Could not determine JSON object type for type <>f__AnonymousType1`5[System.Int32,System.String,System.String,System.String,System.String].
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
      
-              Inner Exception  : System.ArgumentException: Could not determine JSON object type for type <>f__AnonymousType1`5[System.Int32,System.String,System.String,System.String,System.String].
-   en Newtonsoft.Json.Linq.JValue.GetValueType(Nullable`1 current, Object value)
-   en Newtonsoft.Json.Linq.JContainer.CreateFromContent(Object content)
-   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
-   en Newtonsoft.Json.Linq.JContainer.Add(Object content)
-   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 74 
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
  
-              Stack Trace   :    en Newtonsoft.Json.Linq.JValue.GetValueType(Nullable`1 current, Object value)
-   en Newtonsoft.Json.Linq.JContainer.CreateFromContent(Object content)
-   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
-   en Newtonsoft.Json.Linq.JContainer.Add(Object content)
-   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 74
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
         
-              Additional Info  : Could not determine JSON object type for type <>f__AnonymousType1`5[System.Int32,System.String,System.String,System.String,System.String].  
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-05-15 16:55:17.4833) --------------------------    
+<<<<<<< HEAD
+     ---------------------------- Info(2018-05-16 11:08:18.3810) --------------------------    
+=======
+     ---------------------------- Error(2018-06-11 12:06:28.1080) --------------------------    
+>>>>>>> ad2e99e07967d8a2b7f666aa9b878ff0a48143b1
               Machine Name  : CCEDILLO
    
               Exception Type  : System.ArgumentException
       
-              Exception Message : Could not determine JSON object type for type <>f__AnonymousType1`5[System.Int32,System.String,System.String,System.String,System.String].
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
      
-              Inner Exception  : System.ArgumentException: Could not determine JSON object type for type <>f__AnonymousType1`5[System.Int32,System.String,System.String,System.String,System.String].
-   en Newtonsoft.Json.Linq.JValue.GetValueType(Nullable`1 current, Object value)
-   en Newtonsoft.Json.Linq.JContainer.CreateFromContent(Object content)
-   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
-   en Newtonsoft.Json.Linq.JContainer.Add(Object content)
-   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 74 
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
  
-              Stack Trace   :    en Newtonsoft.Json.Linq.JValue.GetValueType(Nullable`1 current, Object value)
-   en Newtonsoft.Json.Linq.JContainer.CreateFromContent(Object content)
-   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
-   en Newtonsoft.Json.Linq.JContainer.Add(Object content)
-   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 74
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
         
-              Additional Info  : Could not determine JSON object type for type <>f__AnonymousType1`5[System.Int32,System.String,System.String,System.String,System.String].  
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-05-15 16:56:48.6735) --------------------------    
+<<<<<<< HEAD
+     ---------------------------- Info(2018-05-16 11:08:48.2170) --------------------------    
+=======
+     ---------------------------- Error(2018-06-11 12:14:25.4109) --------------------------    
+>>>>>>> ad2e99e07967d8a2b7f666aa9b878ff0a48143b1
               Machine Name  : CCEDILLO
    
               Exception Type  : System.ArgumentException
       
-              Exception Message : Could not determine JSON object type for type System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA.
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
      
-              Inner Exception  : System.ArgumentException: Could not determine JSON object type for type System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA.
-   en Newtonsoft.Json.Linq.JValue.GetValueType(Nullable`1 current, Object value)
-   en Newtonsoft.Json.Linq.JContainer.CreateFromContent(Object content)
-   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
-   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
-   en Newtonsoft.Json.Linq.JContainer.Add(Object content)
-   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 81 
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
  
-              Stack Trace   :    en Newtonsoft.Json.Linq.JValue.GetValueType(Nullable`1 current, Object value)
-   en Newtonsoft.Json.Linq.JContainer.CreateFromContent(Object content)
-   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
-   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
-   en Newtonsoft.Json.Linq.JContainer.Add(Object content)
-   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 81
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
         
-              Additional Info  : Could not determine JSON object type for type System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA.  
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-05-15 16:56:58.7825) --------------------------    
+<<<<<<< HEAD
+     ---------------------------- Info(2018-05-16 11:09:15.8430) --------------------------    
+=======
+     ---------------------------- Error(2018-06-11 12:14:55.9420) --------------------------    
+>>>>>>> ad2e99e07967d8a2b7f666aa9b878ff0a48143b1
               Machine Name  : CCEDILLO
    
               Exception Type  : System.ArgumentException
       
-              Exception Message : Could not determine JSON object type for type System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA.
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
      
-              Inner Exception  : System.ArgumentException: Could not determine JSON object type for type System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA.
-   en Newtonsoft.Json.Linq.JValue.GetValueType(Nullable`1 current, Object value)
-   en Newtonsoft.Json.Linq.JContainer.CreateFromContent(Object content)
-   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
-   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
-   en Newtonsoft.Json.Linq.JContainer.Add(Object content)
-   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 81 
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
  
-              Stack Trace   :    en Newtonsoft.Json.Linq.JValue.GetValueType(Nullable`1 current, Object value)
-   en Newtonsoft.Json.Linq.JContainer.CreateFromContent(Object content)
-   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
-   en Newtonsoft.Json.Linq.JContainer.AddInternal(Int32 index, Object content, Boolean skipParentCheck)
-   en Newtonsoft.Json.Linq.JContainer.Add(Object content)
-   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 81
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
         
-              Additional Info  : Could not determine JSON object type for type System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA.  
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-05-15 17:11:48.9795) --------------------------    
+<<<<<<< HEAD
+     ---------------------------- Info(2018-05-16 11:10:39.1240) --------------------------    
+=======
+     ---------------------------- Error(2018-06-11 12:16:31.5161) --------------------------    
+>>>>>>> ad2e99e07967d8a2b7f666aa9b878ff0a48143b1
               Machine Name  : CCEDILLO
    
-              Exception Type  : Newtonsoft.Json.JsonSerializationException
+              Exception Type  : System.ArgumentException
       
-              Exception Message : Self referencing loop detected for property 'EPRTA_ITEM' with type 'System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA'. Path '[0].EPRTA_ARTICULO_BODEGA[0]'.
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
      
-              Inner Exception  : Newtonsoft.Json.JsonSerializationException: Self referencing loop detected for property 'EPRTA_ITEM' with type 'System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA'. Path '[0].EPRTA_ARTICULO_BODEGA[0]'.
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
-   en Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
-   en Newtonsoft.Json.JsonConvert.SerializeObjectInternal(Object value, Type type, JsonSerializer jsonSerializer)
-   en Newtonsoft.Json.JsonConvert.SerializeObject(Object value)
-   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 81 
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
  
-              Stack Trace   :    en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
-   en Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
-   en Newtonsoft.Json.JsonConvert.SerializeObjectInternal(Object value, Type type, JsonSerializer jsonSerializer)
-   en Newtonsoft.Json.JsonConvert.SerializeObject(Object value)
-   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 81
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
         
-              Additional Info  : Self referencing loop detected for property 'EPRTA_ITEM' with type 'System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA'. Path '[0].EPRTA_ARTICULO_BODEGA[0]'.  
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-05-15 17:19:09.3725) --------------------------    
+<<<<<<< HEAD
+     ---------------------------- Info(2018-05-16 11:10:52.0650) --------------------------    
+=======
+     ---------------------------- Error(2018-06-11 12:17:33.2037) --------------------------    
               Machine Name  : CCEDILLO
    
-              Exception Type  : Newtonsoft.Json.JsonSerializationException
+              Exception Type  : System.ArgumentException
       
-              Exception Message : Self referencing loop detected for property 'EPRTA_ITEM' with type 'System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA'. Path '[0].EPRTA_ARTICULO_BODEGA[0]'.
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
      
-              Inner Exception  : Newtonsoft.Json.JsonSerializationException: Self referencing loop detected for property 'EPRTA_ITEM' with type 'System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA'. Path '[0].EPRTA_ARTICULO_BODEGA[0]'.
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
-   en Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
-   en Newtonsoft.Json.JsonConvert.SerializeObjectInternal(Object value, Type type, JsonSerializer jsonSerializer)
-   en Newtonsoft.Json.JsonConvert.SerializeObject(Object value)
-   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 81 
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
  
-              Stack Trace   :    en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
-   en Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
-   en Newtonsoft.Json.JsonConvert.SerializeObjectInternal(Object value, Type type, JsonSerializer jsonSerializer)
-   en Newtonsoft.Json.JsonConvert.SerializeObject(Object value)
-   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 81
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
         
-              Additional Info  : Self referencing loop detected for property 'EPRTA_ITEM' with type 'System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA'. Path '[0].EPRTA_ARTICULO_BODEGA[0]'.  
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-05-15 17:20:16.9623) --------------------------    
+     ---------------------------- Error(2018-06-11 12:21:37.2391) --------------------------    
               Machine Name  : CCEDILLO
    
-              Exception Type  : Newtonsoft.Json.JsonSerializationException
+              Exception Type  : System.ArgumentException
       
-              Exception Message : Self referencing loop detected for property 'EPRTA_ITEM' with type 'System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA'. Path '[0].EPRTA_ARTICULO_BODEGA[0]'.
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
      
-              Inner Exception  : Newtonsoft.Json.JsonSerializationException: Self referencing loop detected for property 'EPRTA_ITEM' with type 'System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA'. Path '[0].EPRTA_ARTICULO_BODEGA[0]'.
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
-   en Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
-   en Newtonsoft.Json.JsonConvert.SerializeObjectInternal(Object value, Type type, JsonSerializer jsonSerializer)
-   en Newtonsoft.Json.JsonConvert.SerializeObject(Object value)
-   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 81 
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
  
-              Stack Trace   :    en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CheckForCircularReference(JsonWriter writer, Object value, JsonProperty property, JsonContract contract, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
-   en Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
-   en Newtonsoft.Json.JsonConvert.SerializeObjectInternal(Object value, Type type, JsonSerializer jsonSerializer)
-   en Newtonsoft.Json.JsonConvert.SerializeObject(Object value)
-   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 81
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
         
-              Additional Info  : Self referencing loop detected for property 'EPRTA_ITEM' with type 'System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA'. Path '[0].EPRTA_ARTICULO_BODEGA[0]'.  
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-05-15 17:38:58.8065) --------------------------    
+     ---------------------------- Error(2018-06-11 12:22:30.7305) --------------------------    
               Machine Name  : CCEDILLO
    
-              Exception Type  : System.InvalidCastException
+              Exception Type  : System.ArgumentException
       
-              Exception Message : No se puede convertir un objeto de tipo 'Newtonsoft.Json.Linq.JArray' al tipo 'Newtonsoft.Json.Linq.JObject'.
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
      
-              Inner Exception  : System.InvalidCastException: No se puede convertir un objeto de tipo 'Newtonsoft.Json.Linq.JArray' al tipo 'Newtonsoft.Json.Linq.JObject'.
-   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 83 
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
  
-              Stack Trace   :    en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 83
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
         
-              Additional Info  : No se puede convertir un objeto de tipo 'Newtonsoft.Json.Linq.JArray' al tipo 'Newtonsoft.Json.Linq.JObject'.  
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Info(2018-05-15 21:42:39.2760) --------------------------    
+     ---------------------------- Error(2018-06-11 12:22:58.7963) --------------------------    
               Machine Name  : CCEDILLO
    
-              Exception Type  : 
+              Exception Type  : System.ArgumentException
       
-              Exception Message : 
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
      
-              Inner Exception  : 
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
  
-              Stack Trace   : 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
         
-              Additional Info  : Dato Grabado  
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-05-15 23:16:48.6824) --------------------------    
+     ---------------------------- Error(2018-06-11 12:25:01.8916) --------------------------    
               Machine Name  : CCEDILLO
    
-              Exception Type  : Newtonsoft.Json.JsonSerializationException
+              Exception Type  : System.ArgumentException
       
-              Exception Message : Error getting value from 'EPRTA_ARTICULO_BODEGA' on 'System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA'.
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
      
-              Inner Exception  : Newtonsoft.Json.JsonSerializationException: Error getting value from 'EPRTA_ARTICULO_BODEGA' on 'System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA'. ---> System.InvalidCastException: La conversión especificada no es válida.
-   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetByte(Int32 i)
-   en System.Data.Entity.Core.Objects.Internal.ShapedBufferedDataRecord.ReadByte(DbDataReader reader, Int32 ordinal)
-   en System.Data.Entity.Core.Objects.Internal.ShapedBufferedDataRecord.Initialize(DbDataReader reader, DbSpatialDataReader spatialDataReader, Type[] columnTypes, Boolean[] nullableColumns)
-   en System.Data.Entity.Core.Objects.Internal.ShapedBufferedDataRecord.Initialize(String providerManifestToken, DbProviderServices providerServices, DbDataReader reader, Type[] columnTypes, Boolean[] nullableColumns)
-   en System.Data.Entity.Core.Objects.Internal.BufferedDataReader.Initialize(String providerManifestToken, DbProviderServices providerServices, Type[] columnTypes, Boolean[] nullableColumns)
-   en System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__a()
-   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__9()
-   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.Execute(MergeOption mergeOption)
-   en System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Load(List`1 collection, MergeOption mergeOption)
-   en System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Load(MergeOption mergeOption)
-   en System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.DeferredLoad()
-   en System.Data.Entity.Core.Objects.Internal.LazyLoadBehavior.LoadProperty[TItem](TItem propertyValue, String relationshipName, String targetRoleName, Boolean mustBeNull, Object wrapperObject)
-   en System.Data.Entity.Core.Objects.Internal.LazyLoadBehavior.<>c__DisplayClass7`2.<GetInterceptorDelegate>b__1(TProxy proxy, TItem item)
-   en System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA.get_EPRTA_ARTICULO_BODEGA()
-   en GetEPRTA_ARTICULO_BODEGA(Object )
-   en Newtonsoft.Json.Serialization.DynamicValueProvider.GetValue(Object target)
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 12:36:01.5805) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 12:40:07.5161) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 12:40:47.0451) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 12:41:59.4043) --------------------------    
+>>>>>>> ad2e99e07967d8a2b7f666aa9b878ff0a48143b1
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+<<<<<<< HEAD
+=======
+     ---------------------------- Error(2018-06-11 12:42:58.5152) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 12:43:18.7263) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 12:52:51.6448) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 14:50:54.1112) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 14:54:02.4062) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 14:58:41.0722) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 14:58:55.6302) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 15:00:03.3392) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 15:00:26.4340) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 15:08:22.7727) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 15:22:55.8840) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 15:24:09.9944) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 15:24:31.4675) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 15:24:36.6000) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 15:25:30.8715) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 15:31:10.1764) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 16:13:37.8358) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.Data.Entity.Core.EntityCommandExecutionException
+      
+              Exception Message : An error occurred while executing the command definition. See the inner exception for details.
+     
+              Inner Exception  : System.Data.Entity.Core.EntityCommandExecutionException: An error occurred while executing the command definition. See the inner exception for details. ---> Oracle.ManagedDataAccess.Client.OracleException: ORA-12570: Sesión de Red: error de lectura de paquete inesperado ---> OracleInternal.Network.NetworkException: ORA-12570: Sesión de Red: error de lectura de paquete inesperado ---> System.Net.Sockets.SocketException: Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
+   en System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   en OracleInternal.Network.ReaderStream.Read(OraBuf OB)
    --- Fin del seguimiento de la pila de la excepción interna ---
-   en Newtonsoft.Json.Serialization.DynamicValueProvider.GetValue(Object target)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
-   en Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
-   en Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
-   en Newtonsoft.Json.Linq.JArray.FromObject(Object o, JsonSerializer jsonSerializer)
-   en Newtonsoft.Json.Linq.JArray.FromObject(Object o)
-   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 91 
-System.InvalidCastException: La conversión especificada no es válida.
-   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetByte(Int32 i)
-   en System.Data.Entity.Core.Objects.Internal.ShapedBufferedDataRecord.ReadByte(DbDataReader reader, Int32 ordinal)
-   en System.Data.Entity.Core.Objects.Internal.ShapedBufferedDataRecord.Initialize(DbDataReader reader, DbSpatialDataReader spatialDataReader, Type[] columnTypes, Boolean[] nullableColumns)
-   en System.Data.Entity.Core.Objects.Internal.ShapedBufferedDataRecord.Initialize(String providerManifestToken, DbProviderServices providerServices, DbDataReader reader, Type[] columnTypes, Boolean[] nullableColumns)
-   en System.Data.Entity.Core.Objects.Internal.BufferedDataReader.Initialize(String providerManifestToken, DbProviderServices providerServices, Type[] columnTypes, Boolean[] nullableColumns)
+   en OracleInternal.Network.ReaderStream.Read(OraBuf OB)
+   en OracleInternal.TTC.OraBufReader.GetDataFromNetwork()
+   en OracleInternal.TTC.OraBufReader.Read(Boolean bIgnoreData)
+   en OracleInternal.TTC.MarshallingEngine.UnmarshalUB1(Boolean bIgnoreData)
+   en OracleInternal.TTC.TTCExecuteSql.ReceiveExecuteResponse(Accessor[]& defineAccessors, Accessor[] bindAccessors, Boolean bHasReturningParams, SQLMetaData& sqlMetaData, SqlStatementType statementType, Int64 noOfRowsFetchedLastTime, Int32 noOfRowsToFetch, Int32& noOfRowsFetched, Int64& queryId, Int32 longFetchSize, Int64 initialLOBFetchSize, Int64[] scnFromExecution, Boolean bAllInputBinds, Int32 arrayBindCount, DataUnmarshaller& dataUnmarshaller, MarshalBindParameterValueHelper& marshalBindParamsHelper, Int64[]& rowsAffectedByArrayBind, Boolean bDefineDone, Boolean& bMoreThanOneRowAffectedByDmlWithRetClause, List`1& implicitRSList, Boolean bLOBArrayFetchRequired)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en Oracle.ManagedDataAccess.Client.OracleException.HandleError(OracleTraceLevel level, OracleTraceTag tag, Exception ex, OracleLogicalTransaction oracleLogicalTransaction)
+   en OracleInternal.TTC.TTCExecuteSql.ReceiveExecuteResponse(Accessor[]& defineAccessors, Accessor[] bindAccessors, Boolean bHasReturningParams, SQLMetaData& sqlMetaData, SqlStatementType statementType, Int64 noOfRowsFetchedLastTime, Int32 noOfRowsToFetch, Int32& noOfRowsFetched, Int64& queryId, Int32 longFetchSize, Int64 initialLOBFetchSize, Int64[] scnFromExecution, Boolean bAllInputBinds, Int32 arrayBindCount, DataUnmarshaller& dataUnmarshaller, MarshalBindParameterValueHelper& marshalBindParamsHelper, Int64[]& rowsAffectedByArrayBind, Boolean bDefineDone, Boolean& bMoreThanOneRowAffectedByDmlWithRetClause, List`1& implicitRSList, Boolean bLOBArrayFetchRequired)
+   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
+   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
+   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<>c__DisplayClassb.<Reader>b__8()
+   en System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TInterceptionContext,TResult](Func`1 operation, TInterceptionContext interceptionContext, Action`1 executing, Action`1 executed)
+   en System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   en System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
    en System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
    en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__a()
    en System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
    en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__9()
    en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
    en System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
-   en System.Data.Entity.Core.Objects.ObjectQuery`1.Execute(MergeOption mergeOption)
-   en System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Load(List`1 collection, MergeOption mergeOption)
-   en System.Data.Entity.Core.Objects.DataClasses.EntityCollection`1.Load(MergeOption mergeOption)
-   en System.Data.Entity.Core.Objects.DataClasses.RelatedEnd.DeferredLoad()
-   en System.Data.Entity.Core.Objects.Internal.LazyLoadBehavior.LoadProperty[TItem](TItem propertyValue, String relationshipName, String targetRoleName, Boolean mustBeNull, Object wrapperObject)
-   en System.Data.Entity.Core.Objects.Internal.LazyLoadBehavior.<>c__DisplayClass7`2.<GetInterceptorDelegate>b__1(TProxy proxy, TItem item)
-   en System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA.get_EPRTA_ARTICULO_BODEGA()
-   en GetEPRTA_ARTICULO_BODEGA(Object )
-   en Newtonsoft.Json.Serialization.DynamicValueProvider.GetValue(Object target) 
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   en System.Lazy`1.CreateValue()
+   en System.Lazy`1.LazyInitValue()
+   en System.Lazy`1.get_Value()
+   en System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Repositories.GenericRepository`1.GetAll() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 31
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 94 
+Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-12570: Sesión de Red: error de lectura de paquete inesperado ---> OracleInternal.Network.NetworkException (0x80004005): ORA-12570: Sesión de Red: error de lectura de paquete inesperado ---> System.Net.Sockets.SocketException (0x80004005): Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
+   en System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   en OracleInternal.Network.ReaderStream.Read(OraBuf OB)
+   en OracleInternal.Network.ReaderStream.Read(OraBuf OB)
+   en OracleInternal.TTC.OraBufReader.GetDataFromNetwork()
+   en OracleInternal.TTC.OraBufReader.Read(Boolean bIgnoreData)
+   en OracleInternal.TTC.MarshallingEngine.UnmarshalUB1(Boolean bIgnoreData)
+   en OracleInternal.TTC.TTCExecuteSql.ReceiveExecuteResponse(Accessor[]& defineAccessors, Accessor[] bindAccessors, Boolean bHasReturningParams, SQLMetaData& sqlMetaData, SqlStatementType statementType, Int64 noOfRowsFetchedLastTime, Int32 noOfRowsToFetch, Int32& noOfRowsFetched, Int64& queryId, Int32 longFetchSize, Int64 initialLOBFetchSize, Int64[] scnFromExecution, Boolean bAllInputBinds, Int32 arrayBindCount, DataUnmarshaller& dataUnmarshaller, MarshalBindParameterValueHelper& marshalBindParamsHelper, Int64[]& rowsAffectedByArrayBind, Boolean bDefineDone, Boolean& bMoreThanOneRowAffectedByDmlWithRetClause, List`1& implicitRSList, Boolean bLOBArrayFetchRequired)
+   en Oracle.ManagedDataAccess.Client.OracleException.HandleError(OracleTraceLevel level, OracleTraceTag tag, Exception ex, OracleLogicalTransaction oracleLogicalTransaction)
+   en OracleInternal.TTC.TTCExecuteSql.ReceiveExecuteResponse(Accessor[]& defineAccessors, Accessor[] bindAccessors, Boolean bHasReturningParams, SQLMetaData& sqlMetaData, SqlStatementType statementType, Int64 noOfRowsFetchedLastTime, Int32 noOfRowsToFetch, Int32& noOfRowsFetched, Int64& queryId, Int32 longFetchSize, Int64 initialLOBFetchSize, Int64[] scnFromExecution, Boolean bAllInputBinds, Int32 arrayBindCount, DataUnmarshaller& dataUnmarshaller, MarshalBindParameterValueHelper& marshalBindParamsHelper, Int64[]& rowsAffectedByArrayBind, Boolean bDefineDone, Boolean& bMoreThanOneRowAffectedByDmlWithRetClause, List`1& implicitRSList, Boolean bLOBArrayFetchRequired)
+   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
+   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
+   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.<>c__DisplayClassb.<Reader>b__8()
+   en System.Data.Entity.Infrastructure.Interception.InternalDispatcher`1.Dispatch[TInterceptionContext,TResult](Func`1 operation, TInterceptionContext interceptionContext, Action`1 executing, Action`1 executed)
+   en System.Data.Entity.Infrastructure.Interception.DbCommandDispatcher.Reader(DbCommand command, DbCommandInterceptionContext interceptionContext)
+   en System.Data.Entity.Internal.InterceptableDbCommand.ExecuteDbDataReader(CommandBehavior behavior)
+   en System.Data.Common.DbCommand.ExecuteReader(CommandBehavior behavior)
+   en System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior) 
+OracleInternal.Network.NetworkException (0x80004005): ORA-12570: Sesión de Red: error de lectura de paquete inesperado ---> System.Net.Sockets.SocketException (0x80004005): Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
+   en System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   en OracleInternal.Network.ReaderStream.Read(OraBuf OB)
+   en OracleInternal.Network.ReaderStream.Read(OraBuf OB)
+   en OracleInternal.TTC.OraBufReader.GetDataFromNetwork()
+   en OracleInternal.TTC.OraBufReader.Read(Boolean bIgnoreData)
+   en OracleInternal.TTC.MarshallingEngine.UnmarshalUB1(Boolean bIgnoreData)
+   en OracleInternal.TTC.TTCExecuteSql.ReceiveExecuteResponse(Accessor[]& defineAccessors, Accessor[] bindAccessors, Boolean bHasReturningParams, SQLMetaData& sqlMetaData, SqlStatementType statementType, Int64 noOfRowsFetchedLastTime, Int32 noOfRowsToFetch, Int32& noOfRowsFetched, Int64& queryId, Int32 longFetchSize, Int64 initialLOBFetchSize, Int64[] scnFromExecution, Boolean bAllInputBinds, Int32 arrayBindCount, DataUnmarshaller& dataUnmarshaller, MarshalBindParameterValueHelper& marshalBindParamsHelper, Int64[]& rowsAffectedByArrayBind, Boolean bDefineDone, Boolean& bMoreThanOneRowAffectedByDmlWithRetClause, List`1& implicitRSList, Boolean bLOBArrayFetchRequired) 
+System.Net.Sockets.SocketException (0x80004005): Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
+   en System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
+   en OracleInternal.Network.ReaderStream.Read(OraBuf OB) 
  
-              Stack Trace   :    en Newtonsoft.Json.Serialization.DynamicValueProvider.GetValue(Object target)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.CalculatePropertyValues(JsonWriter writer, Object value, JsonContainerContract contract, JsonProperty member, JsonProperty property, JsonContract& memberContract, Object& memberValue)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeObject(JsonWriter writer, Object value, JsonObjectContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeList(JsonWriter writer, IEnumerable values, JsonArrayContract contract, JsonProperty member, JsonContainerContract collectionContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.SerializeValue(JsonWriter writer, Object value, JsonContract valueContract, JsonProperty member, JsonContainerContract containerContract, JsonProperty containerProperty)
-   en Newtonsoft.Json.Serialization.JsonSerializerInternalWriter.Serialize(JsonWriter jsonWriter, Object value, Type objectType)
-   en Newtonsoft.Json.JsonSerializer.SerializeInternal(JsonWriter jsonWriter, Object value, Type objectType)
-   en Newtonsoft.Json.Linq.JToken.FromObjectInternal(Object o, JsonSerializer jsonSerializer)
-   en Newtonsoft.Json.Linq.JArray.FromObject(Object o, JsonSerializer jsonSerializer)
-   en Newtonsoft.Json.Linq.JArray.FromObject(Object o)
-   en Proveduria.Controllers.ItemController.GetListaItem() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 91
+              Stack Trace   :    en System.Data.Entity.Core.EntityClient.Internal.EntityCommandDefinition.ExecuteStoreCommands(EntityCommand entityCommand, CommandBehavior behavior)
+   en System.Data.Entity.Core.Objects.Internal.ObjectQueryExecutionPlan.Execute[TResultType](ObjectContext context, ObjectParameterCollection parameterValues)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__a()
+   en System.Data.Entity.Core.Objects.ObjectContext.ExecuteInTransaction[T](Func`1 func, IDbExecutionStrategy executionStrategy, Boolean startLocalTransaction, Boolean releaseConnectionOnSuccess)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.<>c__DisplayClassb.<GetResults>b__9()
+   en System.Data.Entity.Infrastructure.DefaultExecutionStrategy.Execute[TResult](Func`1 operation)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.GetResults(Nullable`1 forMergeOption)
+   en System.Data.Entity.Core.Objects.ObjectQuery`1.<System.Collections.Generic.IEnumerable<T>.GetEnumerator>b__0()
+   en System.Lazy`1.CreateValue()
+   en System.Lazy`1.LazyInitValue()
+   en System.Lazy`1.get_Value()
+   en System.Data.Entity.Internal.LazyEnumerator`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Repositories.GenericRepository`1.GetAll() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 31
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 94
         
-              Additional Info  : Error getting value from 'EPRTA_ARTICULO_BODEGA' on 'System.Data.Entity.DynamicProxies.EPRTA_ITEM_A706D225ACEB3EE7C477F6BCA8925AFCD18506D10DC47BB4CA328FD6280BA5CA'.  
+              Additional Info  : An error occurred while executing the command definition. See the inner exception for details.  
               -------------------------------------------------------------------
               ----------     
      
+     ---------------------------- Error(2018-06-11 16:14:08.2088) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 16:19:51.3648) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 16:20:09.1888) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 16:20:34.1468) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 16:23:41.5158) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 16:24:59.2488) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 16:26:08.8118) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 16:27:31.3138) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 16:29:55.6638) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 16:31:30.0528) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 16:32:34.1958) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 16:36:45.2658) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 16:38:33.3238) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 16:39:21.7508) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 16:48:19.0868) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 16:51:53.9948) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 16:52:16.9278) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 16:53:47.8918) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 16:54:42.1818) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 16:56:41.1568) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-06-11 16:57:14.9968) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentException
+      
+              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+     
+              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues
+   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99 
+ 
+              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
+   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
+   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
+   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
+   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 99
+        
+              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
+Nombre del parámetro: keyValues  
+              -------------------------------------------------------------------
+              ----------     
+     
+>>>>>>> ad2e99e07967d8a2b7f666aa9b878ff0a48143b1
