@@ -96,37 +96,37 @@ namespace Proveduria.Controllers
         }
 
 
-        [HttpGet]
-        public FileResult ExportPdf()
-        {
-            Stream stream = null;
-            var nombreArchivo = "";
-            int IdMovimiento = 1313;
-            try
-            {
-                object objetos = new object();
-                EntitiesProveduria db = new EntitiesProveduria();
-                SqlConnectionStringBuilder builderVenta = new SqlConnectionStringBuilder(db.Database.Connection.ConnectionString);
-                SP_ORDEN_INGRESO_BODEGATableAdapter tableAdapter = new SP_ORDEN_INGRESO_BODEGATableAdapter();
+        //[HttpGet]
+        //public FileResult ExportPdf()
+        //{
+        //    Stream stream = null;
+        //    var nombreArchivo = "";
+        //    int IdMovimiento = 1313;
+        //    try
+        //    {
+        //        object objetos = new object();
+        //        EntitiesProveduria db = new EntitiesProveduria();
+        //        SqlConnectionStringBuilder builderVenta = new SqlConnectionStringBuilder(db.Database.Connection.ConnectionString);
+        //        SP_ORDEN_INGRESO_BODEGATableAdapter tableAdapter = new SP_ORDEN_INGRESO_BODEGATableAdapter();
 
-                DataTable dataTable = tableAdapter.GetData(out objetos);
-                String pathReport = Path.Combine(HttpRuntime.AppDomainAppPath, "Reports\\Cr_Orden_Ingreso_Bodega.rpt");
-                ReportDocument reportDocument = new ReportDocument();
-                reportDocument.Load(pathReport);
-                reportDocument.SetDataSource(dataTable);
+        //        DataTable dataTable = tableAdapter.GetData(out objetos);
+        //        String pathReport = Path.Combine(HttpRuntime.AppDomainAppPath, "Reports\\Cr_Orden_Ingreso_Bodega.rpt");
+        //        ReportDocument reportDocument = new ReportDocument();
+        //        reportDocument.Load(pathReport);
+        //        reportDocument.SetDataSource(dataTable);
 
-                reportDocument.SetDatabaseLogon(builderVenta.UserID, builderVenta.Password);
+        //        reportDocument.SetDatabaseLogon(builderVenta.UserID, builderVenta.Password);
 
-                stream = reportDocument.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
-                stream.Seek(0, SeekOrigin.Begin);
-                nombreArchivo = "ORDEN_ING_BODEGA.pdf";
-            }
-            catch (Exception ex)
-            {
-                logger.Error(ex, ex.Message);
-            }
-            return File(stream, "application/pdf", nombreArchivo);
-        }
+        //        stream = reportDocument.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+        //        stream.Seek(0, SeekOrigin.Begin);
+        //        nombreArchivo = "ORDEN_ING_BODEGA.pdf";
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        logger.Error(ex, ex.Message);
+        //    }
+        //    return File(stream, "application/pdf", nombreArchivo);
+        //}
 
         [HttpPost]
         public ActionResult Grabar(EPRTA_BODEGA precord)

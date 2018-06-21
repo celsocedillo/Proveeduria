@@ -52,6 +52,9 @@
                 <button id="butPdf" class="btn btn-primary btn-xs btn-flat">
                     <i class="fa fa-file-pdf-o" aria-hidden="true"></i>  PDF
                 </button>
+                <button id="butExcel" class="btn btn-primary btn-xs btn-flat">
+                    <i class="fa fa-file-pdf-o" aria-hidden="true"></i>  Excel
+                </button>
             </div>
             @*<table id="tabMedida" class="compact stripe dataTable hover">*@
             <table id="tabMedida" class="table table-striped hover compact">
@@ -125,6 +128,9 @@
         $(document).ready(function () {
             $("#butPdf").on("click", function () {
                 window.location.href = "/Medida/ExportPdf";
+            });
+            $("#butExcel").on("click", function () {
+                window.location.href = "/Medida/ExportToExcel";
             });
             Medida.init();
         });
