@@ -248,12 +248,6 @@
       <DependentUpon>ModeloProveduria.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Usuario.cs" />
-    <Compile Include="Models\VW_DEPARTAMENTO.cs">
-      <DependentUpon>ModeloProveduria.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Models\VW_EMPLEADO.cs">
-      <DependentUpon>ModeloProveduria.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Reports\Cr_Corte_Inventario.cs">
       <AutoGen>True</AutoGen>
@@ -278,14 +272,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Cr_Requisicion_Bodega.rpt</DependentUpon>
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\DataSetReports.cs">
-      <DependentUpon>DataSetReports.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\DataSetReports.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>DataSetReports.xsd</DependentUpon>
     </Compile>
     <Compile Include="Reports\Ejemplo.cs">
       <AutoGen>True</AutoGen>
@@ -7438,17 +7424,6 @@
     <Content Include="Content\bower_components\datatable\Spanish.json" />
     <Content Include="Content\bower_components\moment\moment-2221-min.js" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
-    <Content Include="Reports\DataSetReports.xsc">
-      <DependentUpon>DataSetReports.xsd</DependentUpon>
-    </Content>
-    <None Include="Reports\DataSetReports.xsd">
-      <SubType>Designer</SubType>
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSetReports.Designer.cs</LastGenOutput>
-    </None>
-    <Content Include="Reports\DataSetReports.xss">
-      <DependentUpon>DataSetReports.xsd</DependentUpon>
-    </Content>
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
