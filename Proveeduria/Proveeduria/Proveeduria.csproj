@@ -248,9 +248,6 @@
       <DependentUpon>ModeloProveduria.edmx</DependentUpon>
     </Compile>
     <Compile Include="Models\Usuario.cs" />
-    <Compile Include="Models\VW_DEPARTAMENTO.cs">
-      <DependentUpon>ModeloProveduria.tt</DependentUpon>
-    </Compile>
     <Compile Include="Models\VW_EMPLEADO.cs">
       <DependentUpon>ModeloProveduria.tt</DependentUpon>
     </Compile>
@@ -267,16 +264,10 @@
       <DependentUpon>Cr_Egreso_Bodega.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\Cr_Ingreso_Bodega.cs">
+    <Compile Include="Reports\Cr_Orden_Ingreso_Bodega.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Cr_Ingreso_Bodega.rpt</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\Cr_Ingreso_Bodega1.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Cr_Ingreso_Bodega1.rpt</DependentUpon>
-      <SubType>Component</SubType>
+      <DependentUpon>Cr_Orden_Ingreso_Bodega.rpt</DependentUpon>
     </Compile>
     <Compile Include="Reports\Cr_Requisicion_Bodega.cs">
       <AutoGen>True</AutoGen>
@@ -3441,9 +3432,6 @@
     <Content Include="Content\bower_components\ckeditor\skins\moono\images\spinner.gif" />
     <Content Include="Content\bower_components\ckeditor\skins\moono\skin.js" />
     <Content Include="Content\bower_components\ckeditor\styles.js" />
-    <Content Include="Content\bower_components\datatable-checkboxes\dataTables.checkboxes.css" />
-    <Content Include="Content\bower_components\datatable-checkboxes\dataTables.checkboxes.js" />
-    <Content Include="Content\bower_components\datatable-checkboxes\dataTables.checkboxes.min.js" />
     <Content Include="Content\bower_components\datatables.net-bs\css\dataTables.bootstrap.css" />
     <Content Include="Content\bower_components\datatables.net-bs\css\dataTables.bootstrap.min.css" />
     <Content Include="Content\bower_components\datatables.net-bs\js\dataTables.bootstrap.js" />
@@ -3602,7 +3590,6 @@
     <Content Include="Content\bower_components\fullcalendar\dist\locale\zh-cn.js" />
     <Content Include="Content\bower_components\fullcalendar\dist\locale\zh-tw.js" />
     <Content Include="Content\bower_components\fullcalendar\LICENSE.txt" />
-    <Content Include="Content\bower_components\moment\datetime-moment.js" />
     <Content Include="Content\bower_components\parsley\es.js" />
     <Content Include="Content\bower_components\parsley\parsley.css" />
     <Content Include="Content\bower_components\parsley\parsley_2.8.1.min.js" />
@@ -6945,12 +6932,10 @@
       <DependentUpon>ModeloProveduria.edmx</DependentUpon>
       <LastGenOutput>ModeloProveduria.cs</LastGenOutput>
     </Content>
-    <Content Include="Scripts\App\Bodega.js" />
     <Content Include="Scripts\App\InvMedida.js" />
     <Content Include="Scripts\App\Item.js" />
     <Content Include="Scripts\App\ListaItem.js" />
     <Content Include="Scripts\App\ListaSolicitud.js" />
-    <Content Include="Scripts\App\Medida.js" />
     <Content Include="Scripts\App\Solicitud.js" />
     <Content Include="Scripts\App\TipoMovimiento.js" />
     <Content Include="Scripts\App\Util.js" />
@@ -7438,7 +7423,6 @@
     </Content>
     <Content Include="Content\bower_components\_images\Sorting icons.psd" />
     <Content Include="Content\bower_components\datatable\Spanish.json" />
-    <Content Include="Content\bower_components\moment\moment-2221-min.js" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
     <Content Include="Reports\DataSetReports.xsc">
       <DependentUpon>DataSetReports.xsd</DependentUpon>
@@ -7531,13 +7515,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Cr_Egreso_Bodega.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Cr_Ingreso_Bodega.rpt">
+    <EmbeddedResource Include="Reports\Cr_Orden_Ingreso_Bodega.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Cr_Ingreso_Bodega.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Cr_Ingreso_Bodega1.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Cr_Ingreso_Bodega1.cs</LastGenOutput>
+      <LastGenOutput>Cr_Orden_Ingreso_Bodega.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Cr_Requisicion_Bodega.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
