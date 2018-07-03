@@ -16,14 +16,14 @@ namespace Proveduria.Reports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class Cr_Ingreso_Bodega1 : ReportClass {
+    public class Cr_Ingreso_Bodega : ReportClass {
         
-        public Cr_Ingreso_Bodega1() {
+        public Cr_Ingreso_Bodega() {
         }
         
         public override string ResourceName {
             get {
-                return "Cr_Ingreso_Bodega1.rpt";
+                return "Cr_Ingreso_Bodega.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Proveduria.Reports {
         
         public override string FullResourceName {
             get {
-                return "Proveduria.Reports.Cr_Ingreso_Bodega1.rpt";
+                return "Proveduria.Reports.Cr_Ingreso_Bodega.rpt";
             }
             set {
                 // Do nothing
@@ -106,9 +106,9 @@ namespace Proveduria.Reports {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCr_Ingreso_Bodega1 : Component, ICachedReport {
+    public class CachedCr_Ingreso_Bodega : Component, ICachedReport {
         
-        public CachedCr_Ingreso_Bodega1() {
+        public CachedCr_Ingreso_Bodega() {
         }
         
         [Browsable(false)]
@@ -145,7 +145,7 @@ namespace Proveduria.Reports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            Cr_Ingreso_Bodega1 rpt = new Cr_Ingreso_Bodega1();
+            Cr_Ingreso_Bodega rpt = new Cr_Ingreso_Bodega();
             rpt.Site = this.Site;
             return rpt;
         }

@@ -61,6 +61,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="ClosedXML, Version=0.93.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ClosedXML.0.93.0\lib\net40\ClosedXML.dll</HintPath>
+    </Reference>
     <Reference Include="CrystalDecisions.CrystalReports.Engine, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.ReportSource, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
     <Reference Include="CrystalDecisions.Shared, Version=13.0.3500.0, Culture=neutral, PublicKeyToken=692fbea5521e1304, processorArchitecture=MSIL" />
@@ -149,6 +152,7 @@
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
@@ -256,10 +260,11 @@
       <DependentUpon>Cr_Egreso_Bodega.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\Cr_Orden_Ingreso_Bodega.cs">
+    <Compile Include="Reports\Cr_Ingreso_Bodega.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>Cr_Orden_Ingreso_Bodega.rpt</DependentUpon>
+      <DependentUpon>Cr_Ingreso_Bodega.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reports\Cr_Requisicion_Bodega.cs">
       <AutoGen>True</AutoGen>
@@ -271,12 +276,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>DataSetReports.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\Ejemplo.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Ejemplo.rpt</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Repositories\GenericRepository.cs" />
     <Compile Include="Repositories\IGenericRepository.cs" />
@@ -7517,17 +7516,13 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Cr_Egreso_Bodega.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Cr_Orden_Ingreso_Bodega.rpt">
+    <EmbeddedResource Include="Reports\Cr_Ingreso_Bodega.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Cr_Orden_Ingreso_Bodega.cs</LastGenOutput>
+      <LastGenOutput>Cr_Ingreso_Bodega.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\Cr_Requisicion_Bodega.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Cr_Requisicion_Bodega.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\Ejemplo.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Ejemplo.cs</LastGenOutput>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
