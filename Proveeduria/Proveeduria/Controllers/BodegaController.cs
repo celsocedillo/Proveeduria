@@ -15,6 +15,7 @@ using System.Data;
 using CrystalDecisions.CrystalReports.Engine;
 using System.Data.SqlClient;
 using Proveduria.Reports.DataSetReportsTableAdapters;
+using ClosedXML.Excel;
 
 namespace Proveduria.Controllers
 {
@@ -165,6 +166,46 @@ namespace Proveduria.Controllers
             }
             return Content(retorno.ToString(), "application/json");
         }
+
+        [HttpGet]
+        public FileResult ExportToExcel() //String fechaInicio, String fechaFin
+        {
+            System.IO.MemoryStream stream = new MemoryStream();
+            try
+            {
+                //DateTime fi = DateTime.Parse(fechaInicio);
+                //DateTime ff = DateTime.Parse(fechaFin);
+                var query = from d in unitOfWork.BodegaRepository.GetAll()
+                                //where (d.FechaEmision >= fi && d.FechaEmision <= ff)
+                            select d;
+                DataTable dt = new DataTable("Bodega");
+                dt.Columns.Add("IdBodega");
+                dt.Columns.Add("Nombre");
+                dt.Columns.Add("CuentaContable");
+                dt.Columns.Add("Estado");
+                foreach (EPRTA_BODEGA item in query)
+                {
+                    dt.Rows.Add(item.ID_BODEGA,
+                                item.NOMBRE,
+                                item.CUENTA_CONTABLE,
+                                item.ESTADO);
+                }
+                using (XLWorkbook workbook = new XLWorkbook())
+                {
+                    workbook.Worksheets.Add(dt);
+                    using (stream = new MemoryStream())
+                    {
+                        workbook.SaveAs(stream);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, ex.Message);
+            }
+            return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Bodega.xlsx");
+        }
+
 
         protected override void Dispose(bool disposing)
         {

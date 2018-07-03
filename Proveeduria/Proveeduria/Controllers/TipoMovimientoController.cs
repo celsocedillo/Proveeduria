@@ -10,6 +10,9 @@ using System.Data.Entity;
 using Newtonsoft.Json.Linq;
 using NLog;
 using Newtonsoft.Json;
+using System.IO;
+using System.Data;
+using ClosedXML.Excel;
 
 namespace Proveduria.Controllers
 {
@@ -107,6 +110,48 @@ namespace Proveduria.Controllers
             }
             return Content(retorno.ToString(), "application/json");
         }
+
+
+        [HttpGet]
+        public FileResult ExportToExcel() //String fechaInicio, String fechaFin
+        {
+            System.IO.MemoryStream stream = new MemoryStream();
+            try
+            {
+                //DateTime fi = DateTime.Parse(fechaInicio);
+                //DateTime ff = DateTime.Parse(fechaFin);
+                var query = from d in unitOfWork.TipoMovimientoRepository.GetAll()
+                                //where (d.FechaEmision >= fi && d.FechaEmision <= ff)
+                            select d;
+                DataTable dt = new DataTable("TipoMovimiento");
+                dt.Columns.Add("IdTipoMovimiento");
+                dt.Columns.Add("Nombre");
+                dt.Columns.Add("Tipo");
+                dt.Columns.Add("Estado");
+                foreach (EPRTA_TIPO_MOVIMIENTO item in query)
+                {
+                    dt.Rows.Add(item.ID_TIPO_MOVIMIENTO,
+                        item.NOMBRE,
+                        //item.INGRESO_EGRESO,
+                        item.INGRESO_EGRESO.Equals("I") ? "INGRESO" : "EGRESO",
+                        item.ESTADO);
+                }
+                using (XLWorkbook workbook = new XLWorkbook())
+                {
+                    workbook.Worksheets.Add(dt);
+                    using (stream = new MemoryStream())
+                    {
+                        workbook.SaveAs(stream);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, ex.Message);
+            }
+            return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "TipoMovimiento.xlsx");
+        }
+
 
         protected override void Dispose(bool disposing)
         {
