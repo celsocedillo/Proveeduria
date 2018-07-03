@@ -38,6 +38,8 @@ namespace Proveduria.Models
         public Nullable<System.DateTime> FECHA_ANULA { get; set; }
         public string MOTIVO_ANULA { get; set; }
         public Nullable<int> ID_MOVIMIENTO_RELACION { get; set; }
+        public Nullable<short> ANIO_DOCUMENTO_REFERENCIA { get; set; }
+        public Nullable<int> NUMERO_DOCUMENTO_REFERENCIA { get; set; }
     
         public virtual EPRTA_BODEGA EPRTA_BODEGA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -88,6 +88,8 @@
           <Property Name="FECHA_ANULA" Type="date" />
           <Property Name="MOTIVO_ANULA" Type="varchar2" MaxLength="250" />
           <Property Name="ID_MOVIMIENTO_RELACION" Type="number" Precision="8" Scale="0" />
+          <Property Name="ANIO_DOCUMENTO_REFERENCIA" Type="number" Precision="4" Scale="0" />
+          <Property Name="NUMERO_DOCUMENTO_REFERENCIA" Type="number" Precision="8" Scale="0" />
         </EntityType>
         <EntityType Name="EPRTA_MOVIMIENTO_DETALLE">
           <Key>
@@ -382,6 +384,8 @@ FROM "PROVEDURIA"."VW_EMPLEADO" "VW_EMPLEADO"</DefiningQuery>
           <EntitySet Name="EPRTA_MOVIMIENTO_DETALLE" EntityType="ModelProveduria.EPRTA_MOVIMIENTO_DETALLE" />
           <EntitySet Name="EPRTA_SECUENCIA" EntityType="ModelProveduria.EPRTA_SECUENCIA" />
           <EntitySet Name="EPRTA_TIPO_MOVIMIENTO" EntityType="ModelProveduria.EPRTA_TIPO_MOVIMIENTO" />
+          <EntitySet Name="VW_DEPARTAMENTO" EntityType="ModelProveduria.VW_DEPARTAMENTO" />
+          <EntitySet Name="VW_EMPLEADO" EntityType="ModelProveduria.VW_EMPLEADO" />
           <AssociationSet Name="EPRCN_ARTBOD_ITEM_FK" Association="ModelProveduria.EPRCN_ARTBOD_ITEM_FK">
             <End Role="EPRTA_ITEM" EntitySet="EPRTA_ITEM" />
             <End Role="EPRTA_ARTICULO_BODEGA" EntitySet="EPRTA_ARTICULO_BODEGA" />
@@ -422,8 +426,6 @@ FROM "PROVEDURIA"."VW_EMPLEADO" "VW_EMPLEADO"</DefiningQuery>
             <End Role="EPRTA_TIPO_MOVIMIENTO" EntitySet="EPRTA_TIPO_MOVIMIENTO" />
             <End Role="EPRTA_SECUENCIA" EntitySet="EPRTA_SECUENCIA" />
           </AssociationSet>
-          <EntitySet Name="VW_DEPARTAMENTO" EntityType="ModelProveduria.VW_DEPARTAMENTO" />
-          <EntitySet Name="VW_EMPLEADO" EntityType="ModelProveduria.VW_EMPLEADO" />
           </EntityContainer>
         <EntityType Name="EPRTA_ARTICULO_BODEGA">
           <Key>
@@ -518,6 +520,8 @@ FROM "PROVEDURIA"."VW_EMPLEADO" "VW_EMPLEADO"</DefiningQuery>
           <Property Name="FECHA_ANULA" Type="DateTime" />
           <Property Name="MOTIVO_ANULA" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="ID_MOVIMIENTO_RELACION" Type="Int32" />
+          <Property Name="ANIO_DOCUMENTO_REFERENCIA" Type="Int16" />
+          <Property Name="NUMERO_DOCUMENTO_REFERENCIA" Type="Int32" />
           <NavigationProperty Name="EPRTA_BODEGA" Relationship="ModelProveduria.EPRCN_MOVIMIENTO_BODEGA_FK" FromRole="EPRTA_MOVIMIENTO" ToRole="EPRTA_BODEGA" />
           <NavigationProperty Name="EPRTA_MOVIMIENTO_DETALLE" Relationship="ModelProveduria.EPRCN_MOVDET_MOVIMIENTO_FK" FromRole="EPRTA_MOVIMIENTO" ToRole="EPRTA_MOVIMIENTO_DETALLE" />
           <NavigationProperty Name="EPRTA_MOVIMIENTO1" Relationship="ModelProveduria.EPRCN_MOVIMIENTO_MOVIMIENTO_FK" FromRole="EPRTA_MOVIMIENTO" ToRole="EPRTA_MOVIMIENTO1" />
@@ -561,6 +565,45 @@ FROM "PROVEDURIA"."VW_EMPLEADO" "VW_EMPLEADO"</DefiningQuery>
           <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="EPRTA_MOVIMIENTO" Relationship="ModelProveduria.EPRCN_MOVIMIENTO_TIPMOV_FK" FromRole="EPRTA_TIPO_MOVIMIENTO" ToRole="EPRTA_MOVIMIENTO" />
           <NavigationProperty Name="EPRTA_SECUENCIA" Relationship="ModelProveduria.EPRCN_SECUENCIA_TIPMOV_FK" FromRole="EPRTA_TIPO_MOVIMIENTO" ToRole="EPRTA_SECUENCIA" />
+        </EntityType>
+        <EntityType Name="VW_DEPARTAMENTO">
+          <Key>
+            <PropertyRef Name="DIRECCION" />
+            <PropertyRef Name="CODIGO" />
+            <PropertyRef Name="DESCRIPCION" />
+            <PropertyRef Name="ESTADO" />
+          </Key>
+          <Property Name="DIRECCION" Type="Int16" Nullable="false" />
+          <Property Name="CODIGO" Type="Byte" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="SIGLA" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="CARGO" Type="Int32" />
+        </EntityType>
+        <EntityType Name="VW_EMPLEADO">
+          <Key>
+            <PropertyRef Name="CODIGO" />
+            <PropertyRef Name="CEDULA" />
+            <PropertyRef Name="GRADO" />
+            <PropertyRef Name="CARGO" />
+            <PropertyRef Name="DEPARTAMENTO" />
+            <PropertyRef Name="DIRECCION" />
+            <PropertyRef Name="ESTADO" />
+          </Key>
+          <Property Name="CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="CEDULA" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="EMPLEADO" Type="String" MaxLength="123" FixedLength="false" Unicode="false" />
+          <Property Name="GRADO_ID" Type="Int32" />
+          <Property Name="GRADO" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CARGO_ID" Type="Int32" />
+          <Property Name="CARGO" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="DEPARTAMENTO_ID" Type="Byte" />
+          <Property Name="DEPARTAMENTO" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="USUARIO_JEFE_DEPARTAMENTO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="DIRECCION_ID" Type="Int16" />
+          <Property Name="DIRECCION" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="USUARIO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="EPRCN_ARTBOD_ITEM_FK">
           <End Type="ModelProveduria.EPRTA_ITEM" Role="EPRTA_ITEM" Multiplicity="1" />
@@ -686,45 +729,6 @@ FROM "PROVEDURIA"."VW_EMPLEADO" "VW_EMPLEADO"</DefiningQuery>
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <EntityType Name="VW_DEPARTAMENTO">
-          <Key>
-            <PropertyRef Name="DIRECCION" />
-            <PropertyRef Name="CODIGO" />
-            <PropertyRef Name="DESCRIPCION" />
-            <PropertyRef Name="ESTADO" />
-          </Key>
-          <Property Name="DIRECCION" Type="Int16" Nullable="false" />
-          <Property Name="CODIGO" Type="Byte" Nullable="false" />
-          <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="SIGLA" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
-          <Property Name="CARGO" Type="Int32" />
-        </EntityType>
-        <EntityType Name="VW_EMPLEADO">
-          <Key>
-            <PropertyRef Name="CODIGO" />
-            <PropertyRef Name="CEDULA" />
-            <PropertyRef Name="GRADO" />
-            <PropertyRef Name="CARGO" />
-            <PropertyRef Name="DEPARTAMENTO" />
-            <PropertyRef Name="DIRECCION" />
-            <PropertyRef Name="ESTADO" />
-          </Key>
-          <Property Name="CODIGO" Type="Int32" Nullable="false" />
-          <Property Name="CEDULA" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="EMPLEADO" Type="String" MaxLength="123" FixedLength="false" Unicode="false" />
-          <Property Name="GRADO_ID" Type="Int32" />
-          <Property Name="GRADO" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="CARGO_ID" Type="Int32" />
-          <Property Name="CARGO" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
-          <Property Name="DEPARTAMENTO_ID" Type="Byte" />
-          <Property Name="DEPARTAMENTO" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="USUARIO_JEFE_DEPARTAMENTO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="DIRECCION_ID" Type="Int16" />
-          <Property Name="DIRECCION" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="USUARIO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
-        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -800,6 +804,8 @@ FROM "PROVEDURIA"."VW_EMPLEADO" "VW_EMPLEADO"</DefiningQuery>
           <EntitySetMapping Name="EPRTA_MOVIMIENTO">
             <EntityTypeMapping TypeName="ModelProveduria.EPRTA_MOVIMIENTO">
               <MappingFragment StoreEntitySet="EPRTA_MOVIMIENTO">
+                <ScalarProperty Name="NUMERO_DOCUMENTO_REFERENCIA" ColumnName="NUMERO_DOCUMENTO_REFERENCIA" />
+                <ScalarProperty Name="ANIO_DOCUMENTO_REFERENCIA" ColumnName="ANIO_DOCUMENTO_REFERENCIA" />
                 <ScalarProperty Name="ID_MOVIMIENTO_RELACION" ColumnName="ID_MOVIMIENTO_RELACION" />
                 <ScalarProperty Name="MOTIVO_ANULA" ColumnName="MOTIVO_ANULA" />
                 <ScalarProperty Name="FECHA_ANULA" ColumnName="FECHA_ANULA" />
