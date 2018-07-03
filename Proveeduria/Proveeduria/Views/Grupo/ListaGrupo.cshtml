@@ -25,10 +25,12 @@
 
 <!-- Main content -->
 <section class="content">
-
     <p>
         <button class="btn btn-primary" onclick="location.href='@Url.Action("Create", "InvMedida")'">
             <i class="fa fa-plus"></i>  CREAR
+        </button>
+        <button id="butExcel" class="btn btn-primary btn-xs btn-flat">
+            <i class="fa fa-table" aria-hidden="true"></i>  Excel
         </button>
     </p>
 
@@ -107,7 +109,10 @@
                     "orderable": false
                 }]
             });
-        });
+            $("#butExcel").on("click", function () {
+                window.location.href = "/Medida/ExportToExcel";
+            });
+        });   
     </script>
 }
 

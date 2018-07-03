@@ -15,6 +15,7 @@ using System.Data.SqlClient;
 using Proveduria.Reports.DataSetReportsTableAdapters;
 using System.Data;
 using CrystalDecisions.CrystalReports.Engine;
+using ClosedXML.Excel;
 
 namespace Proveduria.Controllers
 {
@@ -221,6 +222,82 @@ namespace Proveduria.Controllers
             }
             return File(stream, "application/pdf", nombreArchivo);
         }
+
+        [HttpGet]
+        public FileResult ExportToExcel() //String fechaInicio, String fechaFin
+        {
+            MemoryStream stream = new MemoryStream();
+            try
+            {
+                //DateTime fi = DateTime.Parse(fechaInicio);
+                //DateTime ff = DateTime.Parse(fechaFin);
+                var query = from d in unitOfWork.MedidaRepository.GetAll()
+                                            select d;
+                DataTable dt = new DataTable("Medidas");
+                dt.Columns.Add("IdMedida");
+                dt.Columns.Add("Nombre");
+                dt.Columns.Add("Estado");
+                foreach (EPRTA_MEDIDA item in query)
+                {
+                    dt.Rows.Add(item.ID_MEDIDA,
+                        item.NOMBRE,
+                        item.ESTADO);
+                }
+                using (XLWorkbook workbook = new XLWorkbook())
+                {
+                    workbook.Worksheets.Add(dt);
+                    using (stream = new MemoryStream())
+                    {
+                        workbook.SaveAs(stream);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, ex.Message);
+            }
+            return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Medidas.xlsx");
+        }
+
+        //public FileResult ExportToExcel() //String fechaInicio, String fechaFin
+        //{
+        //    MemoryStream stream = new MemoryStream();
+        //    try
+        //    {
+        //        //DateTime fi = DateTime.Parse(fechaInicio);
+        //        //DateTime ff = DateTime.Parse(fechaFin);
+        //        var query = from d in unitOfWork.MedidaRepository.GetAll()
+        //                        //where (d.FechaEmision >= fi && d.FechaEmision <= ff)
+        //                    select d;
+        //        DataTable dt = new DataTable("Grupos");
+        //        dt.Columns.Add("IdGrupo");
+        //        dt.Columns.Add("Codigo");
+        //        dt.Columns.Add("Nombre");
+        //        dt.Columns.Add("Estado");
+        //        dt.Columns.Add("CtaContable");
+        //        foreach (EPRTA_GRUPO item in query)
+        //        {
+        //            dt.Rows.Add(item.ID_GRUPO,
+        //                item.CODIGO,
+        //                item.NOMBRE,
+        //                item.ESTADO,
+        //                item.CUENTA_CONTABLE);
+        //        }
+        //        using (XLWorkbook workbook = new XLWorkbook())
+        //        {
+        //            workbook.Worksheets.Add(dt);
+        //            using (stream = new MemoryStream())
+        //            {
+        //                workbook.SaveAs(stream);
+        //            }
+        //        }
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        logger.Error(ex, ex.Message);
+        //    }
+        //    return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "Grupos.xlsx");
+        //}
 
         protected override void Dispose(bool disposing)
         {

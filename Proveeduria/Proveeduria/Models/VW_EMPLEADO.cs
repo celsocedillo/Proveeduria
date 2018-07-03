@@ -21,12 +21,12 @@ namespace Proveduria.Models
         public string GRADO { get; set; }
         public Nullable<int> CARGO_ID { get; set; }
         public string CARGO { get; set; }
-        public Nullable<short> DIRECCION_ID { get; set; }
-        public string USUARIO { get; set; }
-        public string ESTADO { get; set; }
         public Nullable<byte> DEPARTAMENTO_ID { get; set; }
         public string DEPARTAMENTO { get; set; }
         public string USUARIO_JEFE_DEPARTAMENTO { get; set; }
+        public Nullable<short> DIRECCION_ID { get; set; }
         public string DIRECCION { get; set; }
+        public string USUARIO { get; set; }
+        public string ESTADO { get; set; }
     }
 }
