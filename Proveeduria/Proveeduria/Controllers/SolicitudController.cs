@@ -45,7 +45,7 @@ namespace Proveduria.Controllers
                                from ua in pa.DefaultIfEmpty()
                                join ut in emp on p.USUARIO_AUTORIZA equals ut.USUARIO into pt
                                from ut in pt.DefaultIfEmpty()
-                               where p.ID_DEPARTAMENTO_SOLICITA == Convert.ToByte(Session["id_departamento"].ToString()) && p.ID_TIPO_MOVIMIENTO == 2
+                               where p.ID_DEPARTAMENTO_SOLICITA == Convert.ToByte(Session["id_departamento"].ToString()) && p.ID_TIPO_MOVIMIENTO == 12
                                select new
                                {
                                    p.ID_MOVIMIENTO,
@@ -85,7 +85,7 @@ namespace Proveduria.Controllers
                                from ua in pa.DefaultIfEmpty()
                                join ut in emp on p.USUARIO_AUTORIZA equals ut.USUARIO into pt
                                from ut in pt.DefaultIfEmpty()
-                               where p.USUARIO_SOLICITA == Session["usuario"].ToString() && p.ID_TIPO_MOVIMIENTO == 2
+                               where p.USUARIO_SOLICITA == Session["usuario"].ToString() && p.ID_TIPO_MOVIMIENTO == 12
                                select new
                                {
                                    p.ID_MOVIMIENTO,
@@ -207,10 +207,10 @@ namespace Proveduria.Controllers
                     movimiento.ESTADO = "S";
                     movimiento.ID_DEPARTAMENTO_SOLICITA = Convert.ToByte(Session["id_departamento"].ToString());
                     movimiento.ANIO = (short)DateTime.Now.Year;
-                    movimiento.ID_TIPO_MOVIMIENTO = 2;
+                    movimiento.ID_TIPO_MOVIMIENTO = 12;
                     movimiento.ID_BODEGA = 1;
 
-                    EPRTA_SECUENCIA secuencia = unitOfWork.SecuenciaRepository.GetAll().Where(p => p.ID_TIPO_MOVIMIENTO == 2 && p.ANIO == movimiento.ANIO).FirstOrDefault();
+                    EPRTA_SECUENCIA secuencia = unitOfWork.SecuenciaRepository.GetAll().Where(p => p.ID_TIPO_MOVIMIENTO == 12 && p.ANIO == movimiento.ANIO).FirstOrDefault();
                     movimiento.NUMERO_MOVIMIENTO = (int)secuencia.SECUENCIA;
 
                     foreach (EPRTA_MOVIMIENTO_DETALLE detalle in pmovimiento.EPRTA_MOVIMIENTO_DETALLE)

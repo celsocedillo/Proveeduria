@@ -185,6 +185,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InvMedidaController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
+    <Compile Include="Controllers\MovimientoController.cs" />
     <Compile Include="Controllers\SolicitudController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
     <Compile Include="Controllers\MedidaController.cs" />
@@ -6932,6 +6933,7 @@
     <Content Include="Scripts\App\InvMedida.js" />
     <Content Include="Scripts\App\Item.js" />
     <Content Include="Scripts\App\ListaItem.js" />
+    <Content Include="Scripts\App\ListaMovimiento.js" />
     <Content Include="Scripts\App\ListaSolicitud.js" />
     <Content Include="Scripts\App\Medida.js" />
     <Content Include="Scripts\App\Solicitud.js" />
@@ -7476,6 +7478,8 @@
     <Content Include="Views\Solicitud\Solicitud.cshtml" />
     <Content Include="Views\Medida\ExportPdf.cshtml" />
     <Content Include="Views\Bodega\ListaBodega.cshtml" />
+    <Content Include="Views\Movimiento\ListaMovimiento.cshtml" />
+    <Content Include="Views\Movimiento\Movimiento.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
