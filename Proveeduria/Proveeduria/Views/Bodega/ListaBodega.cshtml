@@ -53,7 +53,9 @@
                 <button id="ingBodegaPdf" class="btn btn-primary btn-xs btn-flat">
                     <i class="fa fa-file-pdf-o" aria-hidden="true"></i>  Ingreso Bodega PDF
                 </button>
-
+                <button id="butExcel" class="btn btn-primary btn-xs btn-flat">
+                    <i class="fa fa-file-excel-o" aria-hidden="true"></i>  Excel
+                </button>
             </div>
             @*<table id="tabBodega" class="compact stripe dataTable hover">*@
             <table id="tabBodega" class="table table-striped hover compact">
@@ -135,15 +137,13 @@
     <script type="text/javascript">
 
         $(document).ready(function () {
-
-
-
-            Bodega.init();
-
             $("#ingBodegaPdf").on("click", function () {
                 window.location.href = "/Bodega/ExportPdf";
             });
-
+            $("#butExcel").on("click", function () {
+                window.location.href = "/Bodega/ExportToExcel";
+            });
+            Bodega.init();
         });
 
     </script>

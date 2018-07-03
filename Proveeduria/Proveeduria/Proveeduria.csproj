@@ -7488,7 +7488,6 @@
     <Content Include="Views\Solicitud\Solicitud.cshtml" />
     <Content Include="Views\Medida\ExportPdf.cshtml" />
     <Content Include="Views\Bodega\ListaBodega.cshtml" />
-    <Content Include="Views\Bodega\ExportPdf.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
