@@ -280,7 +280,11 @@
       <DependentUpon>Cr_Requisicion_Bodega.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\DataSetReports.Designer.cs" />
+    <Compile Include="Reports\DataSetReports.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataSetReports.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Repositories\GenericRepository.cs" />
     <Compile Include="Repositories\IGenericRepository.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
@@ -7430,9 +7434,9 @@
       <DependentUpon>DataSetReports.xsd</DependentUpon>
     </Content>
     <None Include="Reports\DataSetReports.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>DataSetReports1.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataSetReports.Designer.cs</LastGenOutput>
     </None>
     <Content Include="Reports\DataSetReports.xss">
       <DependentUpon>DataSetReports.xsd</DependentUpon>
