@@ -1,353 +1,31 @@
-<<<<<<< HEAD
-     ---------------------------- Error(2018-07-03 10:46:01.8322) --------------------------    
-              Machine Name  : MMENA
-=======
-<<<<<<< HEAD
-     ---------------------------- Error(2018-07-02 17:06:36.4803) --------------------------    
+     ---------------------------- Error(2018-07-18 10:10:45.2437) --------------------------    
               Machine Name  : CCEDILLO
-=======
-     ---------------------------- Error(2018-06-21 10:35:46.8179) --------------------------    
-              Machine Name  : MSANCAN2
->>>>>>> f6996487b306c177d8aebc460ff86d81617e6b86
    
               Exception Type  : System.NullReferenceException
       
               Exception Message : Referencia a objeto no establecida como instancia de un objeto.
      
               Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Users\mmena\Documents\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 39 
+   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 205 
  
-              Stack Trace   :    en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Users\mmena\Documents\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 39
+              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 205
         
               Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-07-03 10:47:27.2425) --------------------------    
-              Machine Name  : MMENA
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Users\mmena\Documents\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 39 
- 
-              Stack Trace   :    en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Users\mmena\Documents\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 39
-        
-<<<<<<< HEAD
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-=======
-              Additional Info  : ORA-06550: línea 1, columna 7:
-PLS-00201: identifier 'PROVEDURIA.SP_ORDEN_INGRESO_BODEGA' must be declared
-ORA-06550: línea 1, columna 7:
-PL/SQL: Statement ignored  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-06-21 10:41:02.8587) --------------------------    
-              Machine Name  : MSANCAN2
-   
-              Exception Type  : Oracle.ManagedDataAccess.Client.OracleException
-      
-              Exception Message : ORA-06550: línea 1, columna 7:
-PLS-00201: identifier 'PROVEDURIA.SP_ORDEN_INGRESO_BODEGA' must be declared
-ORA-06550: línea 1, columna 7:
-PL/SQL: Statement ignored
-     
-              Inner Exception  : Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-06550: línea 1, columna 7:
-PLS-00201: identifier 'PROVEDURIA.SP_ORDEN_INGRESO_BODEGA' must be declared
-ORA-06550: línea 1, columna 7:
-PL/SQL: Statement ignored
-   en OracleInternal.ServiceObjects.OracleConnectionImpl.VerifyExecution(Int32& cursorId, Boolean bThrowArrayBindRelatedErrors, SqlStatementType sqlStatementType, Int32 arrayBindCount, OracleException& exceptionForArrayBindDML, Boolean& hasMoreRowsInDB, Boolean bFirstIterationDone)
-   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
-   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
-   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
-   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
-   en Proveduria.Reports.DataSetReportsTableAdapters.SP_ORDEN_INGRESO_BODEGATableAdapter.GetData(Object& INGRESO_DISPLAY) en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 3585
-   en Proveduria.Controllers.BodegaController.ExportPdf() en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\BodegaController.cs:línea 112 
- 
-              Stack Trace   :    en OracleInternal.ServiceObjects.OracleConnectionImpl.VerifyExecution(Int32& cursorId, Boolean bThrowArrayBindRelatedErrors, SqlStatementType sqlStatementType, Int32 arrayBindCount, OracleException& exceptionForArrayBindDML, Boolean& hasMoreRowsInDB, Boolean bFirstIterationDone)
-   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
-   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
-   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
-   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
-   en Proveduria.Reports.DataSetReportsTableAdapters.SP_ORDEN_INGRESO_BODEGATableAdapter.GetData(Object& INGRESO_DISPLAY) en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 3585
-   en Proveduria.Controllers.BodegaController.ExportPdf() en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\BodegaController.cs:línea 112
-        
-              Additional Info  : ORA-06550: línea 1, columna 7:
-PLS-00201: identifier 'PROVEDURIA.SP_ORDEN_INGRESO_BODEGA' must be declared
-ORA-06550: línea 1, columna 7:
-PL/SQL: Statement ignored  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-06-21 10:41:49.0727) --------------------------    
-              Machine Name  : MSANCAN2
->>>>>>> 85825cdbd600016426421aefc5cd6f6a8bd54f30
-   
-              Exception Type  : Oracle.ManagedDataAccess.Client.OracleException
-      
-              Exception Message : ORA-06550: línea 1, columna 7:
-PLS-00201: identifier 'PROVEDURIA.SP_ORDEN_INGRESO_BODEGA' must be declared
-ORA-06550: línea 1, columna 7:
-PL/SQL: Statement ignored
-     
-              Inner Exception  : Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-06550: línea 1, columna 7:
-PLS-00201: identifier 'PROVEDURIA.SP_ORDEN_INGRESO_BODEGA' must be declared
-ORA-06550: línea 1, columna 7:
-PL/SQL: Statement ignored
-   en OracleInternal.ServiceObjects.OracleConnectionImpl.VerifyExecution(Int32& cursorId, Boolean bThrowArrayBindRelatedErrors, SqlStatementType sqlStatementType, Int32 arrayBindCount, OracleException& exceptionForArrayBindDML, Boolean& hasMoreRowsInDB, Boolean bFirstIterationDone)
-   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
-   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
-   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
-   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
-   en Proveduria.Reports.DataSetReportsTableAdapters.SP_ORDEN_INGRESO_BODEGATableAdapter.GetData(Object& INGRESO_DISPLAY) en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 3585
-   en Proveduria.Controllers.BodegaController.ExportPdf() en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\BodegaController.cs:línea 112 
- 
-              Stack Trace   :    en OracleInternal.ServiceObjects.OracleConnectionImpl.VerifyExecution(Int32& cursorId, Boolean bThrowArrayBindRelatedErrors, SqlStatementType sqlStatementType, Int32 arrayBindCount, OracleException& exceptionForArrayBindDML, Boolean& hasMoreRowsInDB, Boolean bFirstIterationDone)
-   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
-   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
-   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
-   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
-   en Proveduria.Reports.DataSetReportsTableAdapters.SP_ORDEN_INGRESO_BODEGATableAdapter.GetData(Object& INGRESO_DISPLAY) en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 3585
-   en Proveduria.Controllers.BodegaController.ExportPdf() en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\BodegaController.cs:línea 112
-        
-              Additional Info  : ORA-06550: línea 1, columna 7:
-PLS-00201: identifier 'PROVEDURIA.SP_ORDEN_INGRESO_BODEGA' must be declared
-ORA-06550: línea 1, columna 7:
-PL/SQL: Statement ignored  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-06-21 10:47:36.7459) --------------------------    
-              Machine Name  : MSANCAN2
-   
-              Exception Type  : Oracle.ManagedDataAccess.Client.OracleException
-      
-              Exception Message : ORA-06550: línea 1, columna 7:
-PLS-00201: identifier 'PROVEDURIA.SP_ORDEN_INGRESO_BODEGA' must be declared
-ORA-06550: línea 1, columna 7:
-PL/SQL: Statement ignored
-     
-              Inner Exception  : Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-06550: línea 1, columna 7:
-PLS-00201: identifier 'PROVEDURIA.SP_ORDEN_INGRESO_BODEGA' must be declared
-ORA-06550: línea 1, columna 7:
-PL/SQL: Statement ignored
-   en OracleInternal.ServiceObjects.OracleConnectionImpl.VerifyExecution(Int32& cursorId, Boolean bThrowArrayBindRelatedErrors, SqlStatementType sqlStatementType, Int32 arrayBindCount, OracleException& exceptionForArrayBindDML, Boolean& hasMoreRowsInDB, Boolean bFirstIterationDone)
-   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
-   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
-   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
-   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
-   en Proveduria.Reports.DataSetReportsTableAdapters.SP_ORDEN_INGRESO_BODEGATableAdapter.GetData(Object& INGRESO_DISPLAY) en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 3585
-   en Proveduria.Controllers.BodegaController.ExportPdf() en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\BodegaController.cs:línea 112 
- 
-              Stack Trace   :    en OracleInternal.ServiceObjects.OracleConnectionImpl.VerifyExecution(Int32& cursorId, Boolean bThrowArrayBindRelatedErrors, SqlStatementType sqlStatementType, Int32 arrayBindCount, OracleException& exceptionForArrayBindDML, Boolean& hasMoreRowsInDB, Boolean bFirstIterationDone)
-   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
-   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
-   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
-   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
-   en Proveduria.Reports.DataSetReportsTableAdapters.SP_ORDEN_INGRESO_BODEGATableAdapter.GetData(Object& INGRESO_DISPLAY) en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 3585
-   en Proveduria.Controllers.BodegaController.ExportPdf() en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\BodegaController.cs:línea 112
-        
-              Additional Info  : ORA-06550: línea 1, columna 7:
-PLS-00201: identifier 'PROVEDURIA.SP_ORDEN_INGRESO_BODEGA' must be declared
-ORA-06550: línea 1, columna 7:
-PL/SQL: Statement ignored  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-06-21 11:01:26.9425) --------------------------    
-              Machine Name  : MSANCAN2
-   
-              Exception Type  : Oracle.ManagedDataAccess.Client.OracleException
-      
-              Exception Message : ORA-06550: línea 1, columna 7:
-PLS-00201: identifier 'PROVEDURIA.SP_ORDEN_INGRESO_BODEGA' must be declared
-ORA-06550: línea 1, columna 7:
-PL/SQL: Statement ignored
-     
-              Inner Exception  : Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-06550: línea 1, columna 7:
-PLS-00201: identifier 'PROVEDURIA.SP_ORDEN_INGRESO_BODEGA' must be declared
-ORA-06550: línea 1, columna 7:
-PL/SQL: Statement ignored
-   en OracleInternal.ServiceObjects.OracleConnectionImpl.VerifyExecution(Int32& cursorId, Boolean bThrowArrayBindRelatedErrors, SqlStatementType sqlStatementType, Int32 arrayBindCount, OracleException& exceptionForArrayBindDML, Boolean& hasMoreRowsInDB, Boolean bFirstIterationDone)
-   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
-   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
-   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
-   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
-   en Proveduria.Reports.DataSetReportsTableAdapters.SP_ORDEN_INGRESO_BODEGATableAdapter.GetData(Object& INGRESO_DISPLAY) en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 3585
-   en Proveduria.Controllers.BodegaController.ExportPdf() en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\BodegaController.cs:línea 112 
- 
-              Stack Trace   :    en OracleInternal.ServiceObjects.OracleConnectionImpl.VerifyExecution(Int32& cursorId, Boolean bThrowArrayBindRelatedErrors, SqlStatementType sqlStatementType, Int32 arrayBindCount, OracleException& exceptionForArrayBindDML, Boolean& hasMoreRowsInDB, Boolean bFirstIterationDone)
-   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
-   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
-   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
-   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
-   en Proveduria.Reports.DataSetReportsTableAdapters.SP_ORDEN_INGRESO_BODEGATableAdapter.GetData(Object& INGRESO_DISPLAY) en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 3585
-   en Proveduria.Controllers.BodegaController.ExportPdf() en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\BodegaController.cs:línea 112
-        
-              Additional Info  : ORA-06550: línea 1, columna 7:
-PLS-00201: identifier 'PROVEDURIA.SP_ORDEN_INGRESO_BODEGA' must be declared
-ORA-06550: línea 1, columna 7:
-PL/SQL: Statement ignored  
-              -------------------------------------------------------------------
-              ----------     
-     
-<<<<<<< HEAD
-     ---------------------------- Error(2018-07-02 17:07:07.2393) --------------------------    
-              Machine Name  : CCEDILLO
-=======
-     ---------------------------- Error(2018-06-21 11:14:43.4959) --------------------------    
-              Machine Name  : MSANCAN2
->>>>>>> 85825cdbd600016426421aefc5cd6f6a8bd54f30
-   
-              Exception Type  : Oracle.ManagedDataAccess.Client.OracleException
-      
-              Exception Message : ORA-06550: línea 1, columna 7:
-PLS-00201: identifier 'PROVEDURIA.SP_ORDEN_INGRESO_BODEGA' must be declared
-ORA-06550: línea 1, columna 7:
-PL/SQL: Statement ignored
-     
-              Inner Exception  : Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-06550: línea 1, columna 7:
-PLS-00201: identifier 'PROVEDURIA.SP_ORDEN_INGRESO_BODEGA' must be declared
-ORA-06550: línea 1, columna 7:
-PL/SQL: Statement ignored
-   en OracleInternal.ServiceObjects.OracleConnectionImpl.VerifyExecution(Int32& cursorId, Boolean bThrowArrayBindRelatedErrors, SqlStatementType sqlStatementType, Int32 arrayBindCount, OracleException& exceptionForArrayBindDML, Boolean& hasMoreRowsInDB, Boolean bFirstIterationDone)
-   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
-   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
-   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
-   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
-   en Proveduria.Reports.DataSetReportsTableAdapters.SP_ORDEN_INGRESO_BODEGATableAdapter.GetData(Object& INGRESO_DISPLAY) en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 3585
-   en Proveduria.Controllers.BodegaController.ExportPdf() en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\BodegaController.cs:línea 112 
- 
-              Stack Trace   :    en OracleInternal.ServiceObjects.OracleConnectionImpl.VerifyExecution(Int32& cursorId, Boolean bThrowArrayBindRelatedErrors, SqlStatementType sqlStatementType, Int32 arrayBindCount, OracleException& exceptionForArrayBindDML, Boolean& hasMoreRowsInDB, Boolean bFirstIterationDone)
-   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
-   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
-   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
-   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
-   en Proveduria.Reports.DataSetReportsTableAdapters.SP_ORDEN_INGRESO_BODEGATableAdapter.GetData(Object& INGRESO_DISPLAY) en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 3585
-   en Proveduria.Controllers.BodegaController.ExportPdf() en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\BodegaController.cs:línea 112
-        
-              Additional Info  : ORA-06550: línea 1, columna 7:
-PLS-00201: identifier 'PROVEDURIA.SP_ORDEN_INGRESO_BODEGA' must be declared
-ORA-06550: línea 1, columna 7:
-PL/SQL: Statement ignored  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-06-21 12:14:32.2476) --------------------------    
-              Machine Name  : MSANCAN2
-   
-              Exception Type  : Oracle.ManagedDataAccess.Client.OracleException
-      
-              Exception Message : ORA-06550: línea 1, columna 7:
-PLS-00201: identifier 'PROVEDURIA.SP_ORDEN_INGRESO_BODEGA' must be declared
-ORA-06550: línea 1, columna 7:
-PL/SQL: Statement ignored
-     
-              Inner Exception  : Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-06550: línea 1, columna 7:
-PLS-00201: identifier 'PROVEDURIA.SP_ORDEN_INGRESO_BODEGA' must be declared
-ORA-06550: línea 1, columna 7:
-PL/SQL: Statement ignored
-   en OracleInternal.ServiceObjects.OracleConnectionImpl.VerifyExecution(Int32& cursorId, Boolean bThrowArrayBindRelatedErrors, SqlStatementType sqlStatementType, Int32 arrayBindCount, OracleException& exceptionForArrayBindDML, Boolean& hasMoreRowsInDB, Boolean bFirstIterationDone)
-   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
-   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
-   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
-   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
-   en Proveduria.Reports.DataSetReportsTableAdapters.SP_ORDEN_INGRESO_BODEGATableAdapter.GetData(Object& INGRESO_DISPLAY) en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 3585
-   en Proveduria.Controllers.BodegaController.ExportPdf() en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\BodegaController.cs:línea 112 
- 
-              Stack Trace   :    en OracleInternal.ServiceObjects.OracleConnectionImpl.VerifyExecution(Int32& cursorId, Boolean bThrowArrayBindRelatedErrors, SqlStatementType sqlStatementType, Int32 arrayBindCount, OracleException& exceptionForArrayBindDML, Boolean& hasMoreRowsInDB, Boolean bFirstIterationDone)
-   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
-   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
-   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
-   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
-   en Proveduria.Reports.DataSetReportsTableAdapters.SP_ORDEN_INGRESO_BODEGATableAdapter.GetData(Object& INGRESO_DISPLAY) en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 3585
-   en Proveduria.Controllers.BodegaController.ExportPdf() en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\BodegaController.cs:línea 112
-        
-              Additional Info  : ORA-06550: línea 1, columna 7:
-PLS-00201: identifier 'PROVEDURIA.SP_ORDEN_INGRESO_BODEGA' must be declared
-ORA-06550: línea 1, columna 7:
-PL/SQL: Statement ignored  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-06-21 12:15:05.1069) --------------------------    
-              Machine Name  : MSANCAN2
-   
-              Exception Type  : Oracle.ManagedDataAccess.Client.OracleException
-      
-              Exception Message : ORA-06550: línea 1, columna 7:
-PLS-00201: identifier 'PROVEDURIA.SP_ORDEN_INGRESO_BODEGA' must be declared
-ORA-06550: línea 1, columna 7:
-PL/SQL: Statement ignored
-     
-              Inner Exception  : Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-06550: línea 1, columna 7:
-PLS-00201: identifier 'PROVEDURIA.SP_ORDEN_INGRESO_BODEGA' must be declared
-ORA-06550: línea 1, columna 7:
-PL/SQL: Statement ignored
-   en OracleInternal.ServiceObjects.OracleConnectionImpl.VerifyExecution(Int32& cursorId, Boolean bThrowArrayBindRelatedErrors, SqlStatementType sqlStatementType, Int32 arrayBindCount, OracleException& exceptionForArrayBindDML, Boolean& hasMoreRowsInDB, Boolean bFirstIterationDone)
-   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
-   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
-   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
-   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
-   en Proveduria.Reports.DataSetReportsTableAdapters.SP_ORDEN_INGRESO_BODEGATableAdapter.GetData(Object& INGRESO_DISPLAY) en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 3585
-   en Proveduria.Controllers.BodegaController.ExportPdf() en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\BodegaController.cs:línea 112 
- 
-              Stack Trace   :    en OracleInternal.ServiceObjects.OracleConnectionImpl.VerifyExecution(Int32& cursorId, Boolean bThrowArrayBindRelatedErrors, SqlStatementType sqlStatementType, Int32 arrayBindCount, OracleException& exceptionForArrayBindDML, Boolean& hasMoreRowsInDB, Boolean bFirstIterationDone)
-   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
-   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
-   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
-   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
-   en Proveduria.Reports.DataSetReportsTableAdapters.SP_ORDEN_INGRESO_BODEGATableAdapter.GetData(Object& INGRESO_DISPLAY) en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 3585
-   en Proveduria.Controllers.BodegaController.ExportPdf() en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\BodegaController.cs:línea 112
-        
-              Additional Info  : ORA-06550: línea 1, columna 7:
-PLS-00201: identifier 'PROVEDURIA.SP_ORDEN_INGRESO_BODEGA' must be declared
-ORA-06550: línea 1, columna 7:
-PL/SQL: Statement ignored  
-              -------------------------------------------------------------------
-              ----------     
-     
-<<<<<<< HEAD
-     ---------------------------- Error(2018-07-02 17:15:01.7827) --------------------------    
+     ---------------------------- Error(2018-07-18 10:40:32.2507) --------------------------    
               Machine Name  : CCEDILLO
    
-              Exception Type  : System.ArgumentException
-      
-              Exception Message : The number of primary key values passed must match number of primary key values defined on the entity.
-Nombre del parámetro: keyValues
-     
-              Inner Exception  : System.ArgumentException: The number of primary key values passed must match number of primary key values defined on the entity.
-Nombre del parámetro: keyValues
-   en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
-   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
-   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
-   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
-   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 147 
- 
-              Stack Trace   :    en System.Data.Entity.Internal.WrappedEntityKey..ctor(EntitySet entitySet, String entitySetName, Object[] keyValues, String keyValuesParamName)
-   en System.Data.Entity.Internal.Linq.InternalSet`1.Find(Object[] keyValues)
-   en System.Data.Entity.DbSet`1.Find(Object[] keyValues)
-   en Proveduria.Repositories.GenericRepository`1.GetById(Object id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Repositories\GenericRepository.cs:línea 36
-   en Proveduria.Controllers.SolicitudController.Solicitud(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 147
-        
-              Additional Info  : The number of primary key values passed must match number of primary key values defined on the entity.
-Nombre del parámetro: keyValues  
-=======
-     ---------------------------- Error(2018-06-21 12:16:28.8657) --------------------------    
-              Machine Name  : MSANCAN2
-   
               Exception Type  : Oracle.ManagedDataAccess.Client.OracleException
       
               Exception Message : ORA-06550: línea 1, columna 7:
-PLS-00201: identifier 'PROVEDURIA.SP_ORDEN_INGRESO_BODEGA' must be declared
+PLS-00306: wrong number or types of arguments in call to 'SP_REQUISICION_BODEGA'
 ORA-06550: línea 1, columna 7:
 PL/SQL: Statement ignored
      
               Inner Exception  : Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-06550: línea 1, columna 7:
-PLS-00201: identifier 'PROVEDURIA.SP_ORDEN_INGRESO_BODEGA' must be declared
+PLS-00306: wrong number or types of arguments in call to 'SP_REQUISICION_BODEGA'
 ORA-06550: línea 1, columna 7:
 PL/SQL: Statement ignored
    en OracleInternal.ServiceObjects.OracleConnectionImpl.VerifyExecution(Int32& cursorId, Boolean bThrowArrayBindRelatedErrors, SqlStatementType sqlStatementType, Int32 arrayBindCount, OracleException& exceptionForArrayBindDML, Boolean& hasMoreRowsInDB, Boolean bFirstIterationDone)
@@ -355,23 +33,21 @@ PL/SQL: Statement ignored
    en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
    en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
    en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
-   en Proveduria.Reports.DataSetReportsTableAdapters.SP_ORDEN_INGRESO_BODEGATableAdapter.GetData(Object& INGRESO_DISPLAY) en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 3585
-   en Proveduria.Controllers.BodegaController.ExportPdf() en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\BodegaController.cs:línea 112 
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_REQUISICION_BODEGATableAdapter.GetData(Nullable`1 SP_ID_MOVIMIENTO, Object& REQUISICION_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 4503
+   en Proveduria.Controllers.SolicitudController.ViewPDF(Nullable`1 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 322 
  
               Stack Trace   :    en OracleInternal.ServiceObjects.OracleConnectionImpl.VerifyExecution(Int32& cursorId, Boolean bThrowArrayBindRelatedErrors, SqlStatementType sqlStatementType, Int32 arrayBindCount, OracleException& exceptionForArrayBindDML, Boolean& hasMoreRowsInDB, Boolean bFirstIterationDone)
    en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
    en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
    en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
    en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
-   en Proveduria.Reports.DataSetReportsTableAdapters.SP_ORDEN_INGRESO_BODEGATableAdapter.GetData(Object& INGRESO_DISPLAY) en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 3585
-   en Proveduria.Controllers.BodegaController.ExportPdf() en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\BodegaController.cs:línea 112
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_REQUISICION_BODEGATableAdapter.GetData(Nullable`1 SP_ID_MOVIMIENTO, Object& REQUISICION_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 4503
+   en Proveduria.Controllers.SolicitudController.ViewPDF(Nullable`1 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 322
         
               Additional Info  : ORA-06550: línea 1, columna 7:
-PLS-00201: identifier 'PROVEDURIA.SP_ORDEN_INGRESO_BODEGA' must be declared
+PLS-00306: wrong number or types of arguments in call to 'SP_REQUISICION_BODEGA'
 ORA-06550: línea 1, columna 7:
 PL/SQL: Statement ignored  
->>>>>>> 85825cdbd600016426421aefc5cd6f6a8bd54f30
->>>>>>> f6996487b306c177d8aebc460ff86d81617e6b86
               -------------------------------------------------------------------
               ----------     
      

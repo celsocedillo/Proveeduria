@@ -31,9 +31,13 @@ textarea {
     *************************************************************************************************
 */
 
+.select2 {
+    width: 100% !important;
+}
+
 table.dataTable.supercompact tbody th,
 table.dataTable.supercompact tbody td {
-  padding: 2px;
+  padding: 1px;
 }
 
 table.dataTable thead th,
@@ -47,6 +51,10 @@ table.dataTable tfoot th, table.dataTable tfoot td{
     padding: 2px;
 }
 
+
+table.dataTable.compact tbody th, table.dataTable.compact tbody td {
+    padding: 1px;
+}
 /*Bootstrap*/
 
 .panel-heading {

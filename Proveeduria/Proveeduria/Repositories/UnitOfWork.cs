@@ -21,6 +21,7 @@ namespace Proveduria.Repositories
         private GenericRepository<EPRTA_BODEGA> bodegaRepository = null;
         private GenericRepository<VW_DEPARTAMENTO> departamentoRepository = null;
         private GenericRepository<VW_EMPLEADO> empleadoRepository = null;
+        private GenericRepository<VW_ORDEN_COMPRA> ordenCompraRepository = null;
 
         public GenericRepository<EPRTA_TIPO_MOVIMIENTO> TipoMovimientoRepository
         {
@@ -157,6 +158,19 @@ namespace Proveduria.Repositories
                 return departamentoRepository;
             }
         }
+
+        public GenericRepository<VW_ORDEN_COMPRA> OrdenCompraRepository
+        {
+            get
+            {
+                if (ordenCompraRepository == null)
+                {
+                    ordenCompraRepository = new GenericRepository<VW_ORDEN_COMPRA>(context);
+                }
+                return ordenCompraRepository;
+            }
+        }
+
 
         public void Save()
         {

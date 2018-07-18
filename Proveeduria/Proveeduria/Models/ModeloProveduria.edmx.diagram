@@ -8,25 +8,33 @@
       <Deduria.VW_DEPARTAMENTO
         <EntityTypeShape EntityType="ModelProveduria.VW_DEPARTAMENTO" Width="1.5" PointX="2.4685904302022377" PointY="5.1298378729866059" />" Width="1.5" PointX="9.2532691272223691" PointY="29.908273442605637" />
 
-      <Diagram DiagramId="79bb910bf7124bd586e47d114c90bc62" Name="Diagram1" ZoomLevel="15" >
-        <EntityTypeShape EntityType="ModelProveduria.EPRTA_BODEGA" Width="1.5" PointX="10.985821997274561" PointY="12.99969912180663" />
-        <EntityTypeShape EntityType="ModelProveduria.EPRTA_GRUPO" Width="1.5" PointX="4.9933438808626232" PointY="14.157922125495002" />
-        <EntityTypeShape EntityType="ModelProveduria.EPRTA_ITEM" Width="1.5" PointX="11.123047515341568" PointY="20.343924859698827" />
-        <EntityTypeShape EntityType="ModelProveduria.EPRTA_MEDIDA" Width="1.5" PointX="6.015719636350739" PointY="2.04649017846514" />
-        <EntityTypeShape EntityType="ModelProveduria.EPRTA_MOVIMIENTO" Width="1.5" PointX="9.9684381009863863" PointY="5.5748653437825224" />
-        <EntityTypeShape EntityType="ModelProveduria.EPRTA_MOVIMIENTO_DETALLE" Width="1.5" PointX="0.018826989465778224" PointY="0.888400912698545" />
-        <EntityTypeShape EntityType="ModelProveduria.EPRTA_SECUENCIA" Width="1.5" PointX="6.9568375679463319" PointY="4.1417530198310279" />
-        <EntityTypeShape EntityType="ModelProveduria.EPRTA_TIPO_MOVIMIENTO" Width="1.5" PointX="1.9451794577507207" PointY="26.514721420833247" />
-        <EntityTypeShape EntityType="ModelProveduria.VW_DEPARTAMENTO" Width="1.5" PointX="5.8623940413176978" PointY="22.594908635409041" />
-        <EntityTypeShape EntityType="ModelProveduria.VW_EMPLEADO" Width="1.5" PointX="0.015656596056957076" PointY="6.8427319111501479" />
+      <Diagram DiagramId="79bb910bf7124bd586e47d114c90bc62" Name="Diagram1" ZoomLevel="60" >
+        <EntityTypeShape EntityType="ModelProveduria.VW_ORDEN_COMPRA" Width="2.5" PointX="15.375" PointY="3.375" />
+        <EntityTypeShape EntityType="ModelProveduria.EPRTA_ARTICULO_BODEGA" Width="1.5" "0.625"="3.6453"2"67884" PointY="11.25" PointX="4.125" />
+        <EntityTypeShape EntityType="ModelProveduria.VW_DEPARTAMENTO" Width="2.375" PointX="15.375"5.5"13935" P"1.25"3.6964074539469589 PointY="0.75"" />
+        <EntityTypeShape EntityType="ModelProveduria.VW_EMPLEADO" Width="2.375" PointX="12.625" PointY="0.75" />
+        <AssociationConnector Association="ModelProveduria.EPRCN_ARTBOD_ITEM_FK" />
+        <AssociationConnector Association="ModelProveduria.EPRTA_ARTBOD_BODEGA_FK" />
         <AssociationConnector Association="ModelProveduria.EPRCN_MOVIMIENTO_BODEGA_FK" />
         <AssociationConnector Association="ModelProveduria.INV_ITEMS_EPRTA_GRUPO_FK" />
-        <AssociationConnector Association="ModelProveduria.EPRCN_ITEM_MEDIDA_FK" />
+        <AssociationConnector Association="ModelProveduria.EPRCN_ITEM_MEDIDA_FK" ManuallyRouted="false" >
+        </AssociationConnector>
         <AssociationConnector Association="ModelProveduria.EPRCN_MOVDET_ITEM_FK" />
-        <AssociationConnector Association="ModelProveduria.EPRCN_MOVDET_MOVIMIENTO_FK" />
-        <AssociationConnector Association="ModelProveduria.EPRCN_MOVIMIENTO_MOVIMIENTO_FK" />
         <AssociationConnector Association="ModelProveduria.EPRCN_MOVIMIENTO_TIPMOV_FK" />
         <AssociationConnector Association="ModelProveduria.EPRCN_SECUENCIA_TIPMOV_FK" />
+        <EntityTypeShape EntityType="ModelProveduria.EPRTA_MOVIMIENTO" Width="3" PointX="8.625" PointY="1" />
+        <EntityTypeShape EntityType="ModelProveduria.EPRTA_MOVIMIENTO_DETALLE" Width="1.5" PointX="12.5" PointY="5.375" />
+        <AssociationConnector Association="ModelProveduria.EPRCN_MOVDET_MOVIMIENTO_FK" />
+        <AssociationConnector Association="ModelProveduria.EPRCN_MOVIMIENTO_MOVIMIENTO_FK" />
+        <AssociationConnector Association="ModelProveduria.EPRCN_MOVIMIENTO_BODEGA_FK1" />
+        <AssociationConnector Association="ModelProveduria.EPRCN_MOVDET_ITEM_FK1" />
+        <AssociationConnector Association="ModelProveduria.EPRCN_MOVIMIENTO_TIPMOV_FK1" />
+        <EntityTypeShape EntityType="ModelProveduria.EPRTA_BODEGA" Width="1.5" PointX="4.125" PointY="7" />
+        <EntityTypeShape EntityType="ModelProveduria.EPRTA_GRUPO" Width="1.5" PointX="8.375" PointY="15" />
+        <EntityTypeShape EntityType="ModelProveduria.EPRTA_ITEM" Width="1.5" PointX="8.75" PointY="9.125" />
+        <EntityTypeShape EntityType="ModelProveduria.EPRTA_MEDIDA" Width="1.5" PointX="15.25" PointY="10.625" />
+        <EntityTypeShape EntityType="ModelProveduria.EPRTA_SECUENCIA" Width="1.5" PointX="1.5" PointY="1" />
+        <EntityTypeShape EntityType="ModelProveduria.EPRTA_TIPO_MOVIMIENTO" Width="1.5" PointX="4.875" PointY="1.125" />
         <Diagram DiagramId="79bb910bf7124bd586e47d114c90bc62" Name="Diagram1" ZoomLevel="36" >
 
         <EntityTypeShape EntityType="ModelProveduria.VW_EMPLEADO" Width="1.5" PointX="26.625" PointY="1.875" />

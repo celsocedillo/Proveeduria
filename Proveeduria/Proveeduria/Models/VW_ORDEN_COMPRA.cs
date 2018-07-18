@@ -12,18 +12,11 @@ namespace Proveduria.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class EPRTA_MOVIMIENTO_DETALLE
+    public partial class VW_ORDEN_COMPRA
     {
-        public long ID_DETALLE { get; set; }
-        public int ID_MOVIMIENTO { get; set; }
-        public int ID_ITEM { get; set; }
-        public Nullable<int> CANTIDAD_PEDIDO { get; set; }
-        public string ESTADO { get; set; }
-        public string IVA { get; set; }
-        public string OBSERVACION { get; set; }
-        public string DESCRIPCION_ADICIONAL { get; set; }
-    
-        public virtual EPRTA_MOVIMIENTO EPRTA_MOVIMIENTO { get; set; }
-        public virtual EPRTA_ITEM EPRTA_ITEM { get; set; }
+        public decimal ANIO { get; set; }
+        public int NUMERO_ORDEN { get; set; }
+        public string PROVEEDOR { get; set; }
+        public Nullable<System.DateTime> FECHA_AUTORIZACION { get; set; }
     }
 }

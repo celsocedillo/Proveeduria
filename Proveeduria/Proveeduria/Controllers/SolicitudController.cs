@@ -9,6 +9,12 @@ using Proveduria.Repositories;
 using Newtonsoft.Json.Linq;
 using NLog;
 using static Proveduria.Models.Enumadores.Enumeradores;
+using System.IO;
+using CrystalDecisions.CrystalReports.Engine;
+using System.Data.SqlClient;
+using System.Data;
+using System.Net.Mime;
+using Proveduria.Reports.DataSetReportsTableAdapters;
 
 namespace Proveduria.Controllers
 {
@@ -294,6 +300,69 @@ namespace Proveduria.Controllers
             }
             return Content(retorno.ToString(), "application/json");
 
+        }
+
+        [HttpGet]
+        public FileResult ViewPDF(int? id)
+        {
+            Stream stream = null;
+            var nombreArchivo = "";
+            ReportDocument reportDocument = new ReportDocument();
+            byte[] pdfByte = null;
+            try
+            {
+                //FacturaVenta facturaVenta = unitOfWork.FacturaVentaRepository.GetById(id);
+                EPRTA_MOVIMIENTO solicitud = unitOfWork.MovimientoRepository.GetById(id);
+                EntitiesProveduria db = new EntitiesProveduria();
+                //ERPDBEntities db = new ERPDBEntities();
+                SqlConnectionStringBuilder builderVenta = new SqlConnectionStringBuilder(db.Database.Connection.ConnectionString);
+                //SpFacturaElectronicaTableAdapter tableAdapter = new SpFacturaElectronicaTableAdapter();
+                SP_REQUISICION_BODEGATableAdapter tableAdapter = new SP_REQUISICION_BODEGATableAdapter();
+                object objetos = new object();
+                DataTable dataTable = tableAdapter.GetData(id, out objetos);
+                String pathReport = Path.Combine(HttpRuntime.AppDomainAppPath, "Reports\\Cr_Requisicion_Bodega.rpt");
+
+                reportDocument.Load(pathReport);
+                reportDocument.SetDataSource(dataTable);
+                              
+
+                reportDocument.SetDatabaseLogon(builderVenta.UserID, builderVenta.Password);
+
+                stream = reportDocument.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                pdfByte = ReadFully(stream);
+                nombreArchivo = "REQUISICION DE BODEGA " ;
+                Response.AddHeader("content-disposition", "inline; title='';" + "filename=" + nombreArchivo + ".pdf");
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, ex.Message);
+            }
+            finally
+            {
+                if (reportDocument != null)
+                {
+                    if (reportDocument.IsLoaded)
+                    {
+                        reportDocument.Close();
+                        reportDocument.Dispose();
+                    }
+                }
+            }
+            return File(pdfByte, MediaTypeNames.Application.Pdf);
+        }
+
+        public byte[] ReadFully(Stream input)
+        {
+            byte[] buffer = new byte[16 * 1024];
+            using (MemoryStream ms = new MemoryStream())
+            {
+                int read;
+                while ((read = input.Read(buffer, 0, buffer.Length)) > 0)
+                {
+                    ms.Write(buffer, 0, read);
+                }
+                return ms.ToArray();
+            }
         }
 
         protected override void Dispose(bool disposing)

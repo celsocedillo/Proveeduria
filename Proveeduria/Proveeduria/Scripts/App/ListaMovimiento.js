@@ -75,10 +75,6 @@ var ListaMovimiento = function () {
             $("#butNuevo").on('click', function () {
                 window.location.href = '/Movimiento/Movimiento/0';
             });
-
-
-
-
         }
     };
 }();

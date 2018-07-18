@@ -7,7 +7,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Solicitud
+        Movimiento de bodega
     </h1>
 </section>
 
@@ -24,33 +24,12 @@
                 <form id="frmMovimiento" class="form-horizontal" data-parsley-validate>
                     <div class="col-sm-7">
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Solicitud :</label>
+                            <label class="col-sm-2 control-label">Movimiento :</label>
+                            <div class="col-sm-6">
+                                @Html.DropDownListFor(m => m.ID_TIPO_MOVIMIENTO, new SelectList(ViewBag.ltipo_movimiento, "ID_TIPO_MOVIMIENTO", "NOMBRE"))
+                            </div>
                             <div class="col-sm-4">
                                 <label class="form-control">@Model.ANIO - @Model.NUMERO_MOVIMIENTO</label>
-                            </div>
-                            <label class="col-sm-2 control-label">Estado :</label>
-                            <div class="col-sm-4">
-
-                                @{ if (Session["usuario"].ToString().Equals(Session["usuario_jefe"].ToString()) && (Model.ESTADO.Equals("S") || Model.ESTADO.Equals("A")))
-                                    {
-                                        @Html.DropDownListFor(m => m.ESTADO, new[] { new SelectListItem { Text = "Solicitado", Value = "S" }, new SelectListItem { Text = "Autorizado", Value = "A" } }, new { @class = "form-control", @id = "ESTADO" })
-                                    }
-                                    else
-                                    {
-                                        <label class="form-control">
-                                            @(Model.ESTADO.Equals("D") ? "Despachado" :
-                                                    Model.ESTADO.Equals("E") ? "Anulado" :
-                                                    Model.ESTADO.Equals("A") ? "Autorizdo" :
-                                                    Model.ESTADO.Equals("S") ? "Solicitado" : "")
-                                        </label>
-                                    }
-                                }
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Departamento :</label>
-                            <div class="col-sm-10">
-                                <label class="form-control">@ViewBag.departamento_solicitud</label>
                             </div>
                         </div>
                         <div class="form-group">
@@ -59,10 +38,8 @@
                                 @Html.TextAreaFor(m => m.OBSERVACION, new { @class = "form-control", required = "required", style = "text-transform:uppercase", rows = "5", @data_parsley_minlength = 15 })
                             </div>
                         </div>
-                    </div>
-                    <div class="col-sm-5">
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Solicita :</label>
+                            <label class="col-sm-2 control-label">Creado por:</label>
                             <div class="col-sm-7">
                                 <label class="form-control">@ViewBag.usuario_solicita</label>
                             </div>
@@ -70,22 +47,38 @@
                                 <label class="form-control">@(Model.FECHA_SOLICITUD.HasValue ? Model.FECHA_SOLICITUD.Value.ToString("dd/MM/yyyy") : null)</label>
                             </div>
                         </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Autoriza :</label>
-                            <div class="col-sm-7">
-                                <label class="form-control">@ViewBag.usuario_autoriza</label>
+                    </div>
+                    <div class="col-sm-5">
+                        <h4 class="page-header">Documento Relacionado</h4>
+                        <div id="divBuscaRelacion" class="form-group" style="display:none;">
+                            <div class="col-sm-5">
+
                             </div>
-                            <div class="col-sm-3">
-                                <label class="form-control">@(Model.FECHA_AUTORIZACION.HasValue ? Model.FECHA_AUTORIZACION.Value.ToString("dd/MM/yyyy") : null)</label>
+                            <div class="col-sm-7">
+                                <button type="button" id="btnRelacion" class="btn btn-default btn-xs">
+                                    <i class="fa fa-search-plus"></i>
+                                    Buscar documento relacionado
+                                </button>
                             </div>
                         </div>
                         <div class="form-group">
-                            <label class="col-sm-2 control-label">Aprueba :</label>
-                            <div class="col-sm-7">
-                                <label class="form-control">@ViewBag.usuario_aprueba</label>
-                            </div>
+                            <label class="col-sm-5 control-label">Solicitud de Requisición :</label>
                             <div class="col-sm-3">
-                                <label class="form-control">@(Model.FECHA_APROBACION.HasValue ? Model.FECHA_APROBACION.Value.ToString("dd/MM/yyyy") : null)</label>
+                                <label id="lblSolicitudRequisicion" class="form-control">
+                                    @(Model.ID_MOVIMIENTO_RELACION.HasValue ? Model.EPRTA_MOVIMIENTO2.ANIO.ToString() : null) -
+                                    @(Model.ID_MOVIMIENTO_RELACION.HasValue ? Model.EPRTA_MOVIMIENTO2.NUMERO_MOVIMIENTO.ToString() : null)
+                                </label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label class="form-control">
+                                    @(Model.ID_MOVIMIENTO_RELACION.HasValue ? Model.EPRTA_MOVIMIENTO2.USUARIO_SOLICITA.ToString() : null)
+                                </label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-5 control-label">Orden de compra :</label>
+                            <div class="col-sm-3">
+                                <label id="lblOrdenCompra" class="form-control">@Model.ANIO_DOCUMENTO_REFERENCIA - @Model.NUMERO_DOCUMENTO_REFERENCIA</label>
                             </div>
                         </div>
                     </div>
@@ -106,7 +99,7 @@
 
     <div class="box box-default">
         <div class="box-header">
-            <h2 class="box-title">Items Solicitados</h2>
+            <h2 class="box-title">Detalle de movimiento</h2>
         </div>
         <div class="box-body no-padding ">
             @{ if (Model.ESTADO == "S")
@@ -142,11 +135,11 @@
                     <table id="tabItems" class="table table-striped hover compact">
                         <thead>
                             <tr>
-                                <th>Codigo</th>
+                                <th width="150px">Codigo</th>
                                 <th>Item</th>
-                                <th width="100px">Cantidad</th>
-                                <th>Unidad</th>
-                                <th></th>
+                                <th width="50px">CantSolic.</th>
+                                <th width="80px">Despachado</th>
+                                <th width="50px" style="text-align:right">Stock</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -158,8 +151,8 @@
                                             <td>@item.EPRTA_ITEM.CODIGO</td>
                                             <td>@item.EPRTA_ITEM.DESCRIPCION</td>
                                             <td>@item.CANTIDAD_PEDIDO</td>
-                                            <td>@item.EPRTA_ITEM.EPRTA_MEDIDA.NOMBRE</td>
-                                            <td>@item.ID_DETALLE</td>
+                                            <td>0</td>
+                                            <td style="text-align:right">@item.EPRTA_ITEM.EPRTA_MEDIDA.NOMBRE</td>
                                         </tr>
                                     }
                                 }
@@ -173,7 +166,59 @@
 
     <!-- end panel -->
 
+    <div class="modal fade" id="dlgDocumentoRelacionado">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title"><span id="titDocumentoRelacionado"></span></h4>
+                </div>
+                <div class="modal-body">
+                    <div style="overflow:auto; height:250px; position:relative;">
+                        <table id="tabDocumentoRelacionado" class="table table-striped hover compact">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Año</th>
+                                    <th>Número</th>
+                                    <th width="100px">Referencia</th>
+                                    <th>Fec.Autoriz.</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
 
+                </div>
+                <div class="modal-footer">
+                    <button id="butSeleccionaDocumento" type="button" class="btn btn-primary btn-sm" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Grabando...">Seleccionar</button>
+                    <button id="butCancela" type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    <!-- begin modal-dialog-print-pdf -->
+    <div class="modal fade" id="modal-dialog-print-pdf">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">FACTURA</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <embed id="TagEmbed" src="" width="100%" height="600px" type='application/pdf'>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end modal-dialog-print-pdf -->
 
 </section>
 
@@ -184,13 +229,12 @@
     @*<script src=@Url.Content("/Content/bower_components/datatables.net/js/jquery.dataTables.min.js")></script>
         <script src=@Url.Content("/Content/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js")></script>*@
 
-    <script type="text/javascript" src=@Url.Content("/Scripts/App/Solicitud.js")></script>
+    <script type="text/javascript" src=@Url.Content("/Scripts/App/Movimiento.js")></script>
     <script type="text/javascript">
 
         var detalleMovimiento;
 
         var movimientoId =@Html.Raw(Model.ID_MOVIMIENTO);
-        //var estadoSolicitud = "@Html.Raw(Model.ESTADO)";
 
         @{
             bool rz_registro_nuevo;

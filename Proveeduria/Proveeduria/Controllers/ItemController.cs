@@ -108,7 +108,9 @@ namespace Proveduria.Controllers
             {
                 if (filtro != null)
                 {
+                    var stock = unitOfWork.ArticuloBodegaRepository.GetAll();
                     var list = (from d in unitOfWork.ItemRepository.GetAll()
+                                join st in stock on d.ID_ITEM equals st.ID_ITEM into pst from st in pst.DefaultIfEmpty()
                                 where (d.DESCRIPCION.ToLower().Contains(filtro.ToLower()) || d.CODIGO.ToLower().Contains(filtro.ToLower()))
                                 select new
                                 {
@@ -116,7 +118,8 @@ namespace Proveduria.Controllers
                                     d.CODIGO,
                                     d.DESCRIPCION,
                                     d.ID_MEDIDA,
-                                    MEDIDA = d.EPRTA_MEDIDA.NOMBRE
+                                    MEDIDA = d.EPRTA_MEDIDA.NOMBRE,
+                                    STOCK_ACTUAL = st.CANTIDAD_ACTUAL
                                 }
                        ).Take(int.Parse(pagina)).ToList();
                     retorna.Add("items", JArray.FromObject(list));
