@@ -162,59 +162,88 @@ namespace Proveduria.Controllers
         {
             Stream stream = null;
             var nombreArchivo = "";
-            int IdMovimiento = 1313;
+            int IdMovimiento = 5769;
+            int Anio = 2018;
             try
             {
-                //object objetos = new object();
-                //EntitiesProveduria db = new EntitiesProveduria();
-                //SqlConnectionStringBuilder builderVenta = new SqlConnectionStringBuilder(db.Database.Connection.ConnectionString);
-                //SP_REQUISICION_BODEGATableAdapter tableAdapter = new SP_REQUISICION_BODEGATableAdapter();
+                object objetos = new object();
+                EntitiesProveduria db = new EntitiesProveduria();
+                SqlConnectionStringBuilder builderVenta = new SqlConnectionStringBuilder(db.Database.Connection.ConnectionString);
+                SP_REQUISICION_BODEGATableAdapter tableAdapter = new SP_REQUISICION_BODEGATableAdapter();
 
-                //DataTable dataTable = tableAdapter.GetData(IdMovimiento, out objetos);
-                //String pathReport = Path.Combine(HttpRuntime.AppDomainAppPath, "Reports\\Cr_Requisicion_Bodega.rpt");
-                //ReportDocument reportDocument = new ReportDocument();
-                //reportDocument.Load(pathReport);
-                //reportDocument.SetDataSource(dataTable);
+                DataTable dataTable = tableAdapter.GetData(IdMovimiento, Anio, out objetos);
+                String pathReport = Path.Combine(HttpRuntime.AppDomainAppPath, "Reports\\Cr_Requisicion_Bodega.rpt");
+                ReportDocument reportDocument = new ReportDocument();
+                reportDocument.Load(pathReport);
+                reportDocument.SetDataSource(dataTable);
 
-                //reportDocument.SetDatabaseLogon(builderVenta.UserID, builderVenta.Password);
+                reportDocument.SetDatabaseLogon(builderVenta.UserID, builderVenta.Password);
 
-                //stream = reportDocument.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
-                //stream.Seek(0, SeekOrigin.Begin);
-                //nombreArchivo = "REQUISICION.pdf";
+                stream = reportDocument.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                stream.Seek(0, SeekOrigin.Begin);
+                nombreArchivo = "REQUISICION.pdf";                
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, ex.Message);
+            }
+            return File(stream, "application/pdf", nombreArchivo);
+        }
 
-                //object objetos = new object();
-                //EntitiesProveduria db = new EntitiesProveduria();
-                //SqlConnectionStringBuilder builderVenta = new SqlConnectionStringBuilder(db.Database.Connection.ConnectionString);
-                //SP_EGRESO_BODEGATableAdapter tableAdapter = new SP_EGRESO_BODEGATableAdapter();
+        public FileResult ExportEgreso()
+        {
+            Stream stream = null;
+            var nombreArchivo = "";
+            int IdMovimiento = 5769;
+            int Anio = 2018;
+            try
+            {
+                object objetos = new object();
+                EntitiesProveduria db = new EntitiesProveduria();
+                SqlConnectionStringBuilder builderVenta = new SqlConnectionStringBuilder(db.Database.Connection.ConnectionString);
+                SP_EGRESO_BODEGATableAdapter tableAdapter = new SP_EGRESO_BODEGATableAdapter();
 
-                //DataTable dataTable = tableAdapter.GetData(IdMovimiento, out objetos);
-                //String pathReport = Path.Combine(HttpRuntime.AppDomainAppPath, "Reports\\Cr_Egreso_Bodega.rpt");
-                //ReportDocument reportDocument = new ReportDocument();
-                //reportDocument.Load(pathReport);
-                //reportDocument.SetDataSource(dataTable);
+                DataTable dataTable = tableAdapter.GetData(IdMovimiento, Anio, out objetos);
+                String pathReport = Path.Combine(HttpRuntime.AppDomainAppPath, "Reports\\Cr_Egreso_Bodega.rpt");
+                ReportDocument reportDocument = new ReportDocument();
+                reportDocument.Load(pathReport);
+                reportDocument.SetDataSource(dataTable);
 
-                //reportDocument.SetDatabaseLogon(builderVenta.UserID, builderVenta.Password);
+                reportDocument.SetDatabaseLogon(builderVenta.UserID, builderVenta.Password);
 
-                //stream = reportDocument.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
-                //stream.Seek(0, SeekOrigin.Begin);
-                //nombreArchivo = "EGRESO.pdf";
+                stream = reportDocument.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                stream.Seek(0, SeekOrigin.Begin);
+                nombreArchivo = "EGRESO.pdf";
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, ex.Message);
+            }
+            return File(stream, "application/pdf", nombreArchivo);
+        }
 
-                //object objetos = new object();
-                //EntitiesProveduria db = new EntitiesProveduria();
-                //SqlConnectionStringBuilder builderVenta = new SqlConnectionStringBuilder(db.Database.Connection.ConnectionString);
-                //SP_CORTE_INVENTARIOTableAdapter tableAdapter = new SP_CORTE_INVENTARIOTableAdapter();
+        public FileResult ExportCorte()
+        {
+            Stream stream = null;
+            var nombreArchivo = "";
+            try
+            {
+                object objetos = new object();
+                EntitiesProveduria db = new EntitiesProveduria();
+                SqlConnectionStringBuilder builderVenta = new SqlConnectionStringBuilder(db.Database.Connection.ConnectionString);
+                SP_CORTE_INVENTARIOTableAdapter tableAdapter = new SP_CORTE_INVENTARIOTableAdapter();
 
-                //DataTable dataTable = tableAdapter.GetData(out objetos);
-                //String pathReport = Path.Combine(HttpRuntime.AppDomainAppPath, "Reports\\Cr_Corte_Inventario.rpt");
-                //ReportDocument reportDocument = new ReportDocument();
-                //reportDocument.Load(pathReport);
-                //reportDocument.SetDataSource(dataTable);
+                DataTable dataTable = tableAdapter.GetData(out objetos);
+                String pathReport = Path.Combine(HttpRuntime.AppDomainAppPath, "Reports\\Cr_Corte_Inventario.rpt");
+                ReportDocument reportDocument = new ReportDocument();
+                reportDocument.Load(pathReport);
+                reportDocument.SetDataSource(dataTable);
 
-                //reportDocument.SetDatabaseLogon(builderVenta.UserID, builderVenta.Password);
+                reportDocument.SetDatabaseLogon(builderVenta.UserID, builderVenta.Password);
 
-                //stream = reportDocument.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
-                //stream.Seek(0, SeekOrigin.Begin);
-                //nombreArchivo = "CORTE_INVENTARIO.pdf";
+                stream = reportDocument.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                stream.Seek(0, SeekOrigin.Begin);
+                nombreArchivo = "CORTE_INVENTARIO.pdf";
             }
             catch (Exception ex)
             {
