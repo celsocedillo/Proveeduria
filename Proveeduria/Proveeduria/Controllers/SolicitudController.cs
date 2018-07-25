@@ -319,7 +319,7 @@ namespace Proveduria.Controllers
                 //SpFacturaElectronicaTableAdapter tableAdapter = new SpFacturaElectronicaTableAdapter();
                 SP_REQUISICION_BODEGATableAdapter tableAdapter = new SP_REQUISICION_BODEGATableAdapter();
                 object objetos = new object();
-                DataTable dataTable = tableAdapter.GetData(id, out objetos);
+                DataTable dataTable = tableAdapter.GetData(id, solicitud.ANIO, out objetos);
                 String pathReport = Path.Combine(HttpRuntime.AppDomainAppPath, "Reports\\Cr_Requisicion_Bodega.rpt");
 
                 reportDocument.Load(pathReport);

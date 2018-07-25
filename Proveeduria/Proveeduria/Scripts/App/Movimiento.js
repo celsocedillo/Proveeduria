@@ -14,8 +14,26 @@ function agregarItem(item) {
         row.push(0);
         row.push(cantidad);
         row.push(item.STOCK_ACTUAL);
+        row.push(0);
         var index = tabItems.row.add(row).draw(false).index();
         tabItems.columns.adjust().draw();
+        $("#txtcant" + item.ID_ITEM).on('keypress', function (e) {
+            if (e.which === 13) {
+                var cantidad
+                if ($(this).val() == "") {
+                    cantidad = 0;
+                } else {
+                    cantidad = $(this).val();
+                }
+
+                if (cantidad > 0) {
+                    $('#sltItem').val('').trigger('change');
+                    $("#sltItem").select2('open');
+                }
+            }
+        })
+
+        $("#txtcant" + item.ID_ITEM).focus();
     }
     else {
         swal({
@@ -151,9 +169,13 @@ function DetalleSolicitud(pid_movimiento_relacionado) {
                     row.push(ldata[i].CANTIDAD);
                     row.push(cantidad);
                     row.push(ldata[i].STOCK_ACTUAL);
+                    row.push(0);
                     var index = tabItems.row.add(row).draw(false).index();
                     tabItems.columns.adjust().draw();
+                    column = tabItems.column(5);
+                    
                 }
+                column.visible(!column.visible());
                 //tabItems.clear();
                 //tabItems.rows.add(data.data);
                 //tabItems.draw();
@@ -206,7 +228,14 @@ var Movimiento = function () {
 
             tabItems= $('#tabItems').DataTable({
                 "autoWidth": false,
-                "paging": false
+                "paging": false,
+                "columnDefs":
+                    [
+                        { "targets": [5], "checkboxes": { 'selectRow': false } }
+                    ]
+                //"select": {
+                //    "style": "multi"
+                //}
                 //"bSortable": false
                 //"columnDefs":
                 //    [
@@ -259,11 +288,14 @@ var Movimiento = function () {
             });
 
             $('#ID_TIPO_MOVIMIENTO').on('select2:select', function (e) {
+                
                 tipoMovimientoSeleccionado = e.params.data.id;
                 if (tipoMovimientoSeleccionado == 2 || tipoMovimientoSeleccionado == 4) {
                     $("#divBuscaRelacion").css('display', 'block');
+                    $("#divAgregar").css('display', 'none'); 
                 } else {
                     $("#divBuscaRelacion").css('display', 'none');
+                    $("#divAgregar").css('display', 'block'); 
                 }
             });
 
@@ -281,7 +313,33 @@ var Movimiento = function () {
                 agregarItem(item);
             });
 
+            $("#btnEliminarItem").on('click', function () {
+                var filas = tabItems.column(5).checkboxes.selected();
 
+                if (filas.length > 0) {
+                    var titulo;
+                    if (filas.length == 1) { titulo = '¿Seguro desea eliminar el registro seleccionado?'; }
+                    else { titulo = '¿Seguro desea eliminar los ' + filas.length + ' registros seleccionados?'; }
+                    swal({
+                        text: titulo,
+                        type: 'warning',
+                        showCancelButton: true,
+                        confirmButtonColor: '#00BCD4',
+                        cancelButtonColor: '#EF5350',
+                        confirmButtonText: 'Aceptar',
+                        cancelButtonText: 'Cancelar'
+                    }).then(function () {
+                        tabItems.$("input[type='checkbox']").each(function () {
+                            if (this.checked) {
+                                var fila = $(this).closest('tr');
+                                fila.attr('data-estado', 'E');
+                                fila.css('display', 'none');
+                            }
+                        });
+                    });
+
+                }
+            });
 
             if (!registro_nuevo) {
                 $("#ID_TIPO_MOVIMIENTO").select2({ disabled: true });

@@ -265,10 +265,8 @@ var Solicitud = function () {
             $("#btnImprimir").on('click', function () {
                 event.preventDefault();
                 $("#modal-dialog-print-pdf").modal("show");
-                //var id = $(this).data("id");
                 $(".modal-title").text("SOLICITUD");
                 $('#TagEmbed').attr("src", "/Solicitud/ViewPDF/" + solicitudId);
-
             });
 
           
