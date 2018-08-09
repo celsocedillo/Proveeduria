@@ -12,20 +12,17 @@ namespace Proveduria.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class VW_ORDEN_COMPRA
+    public partial class VW_ORDEN_COMPRA_DETALLE
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public VW_ORDEN_COMPRA()
-        {
-            this.VW_ORDEN_COMPRA_DETALLE = new HashSet<VW_ORDEN_COMPRA_DETALLE>();
-        }
-    
+        public decimal SECUENCIA_LINEA { get; set; }
         public decimal ANIO { get; set; }
         public int NUMERO_ORDEN { get; set; }
-        public string PROVEEDOR { get; set; }
-        public Nullable<System.DateTime> FECHA_AUTORIZACION { get; set; }
+        public string CODIGO { get; set; }
+        public int ID_ITEM { get; set; }
+        public Nullable<int> CANTIDAD_PEDIDA { get; set; }
+        public string ESTADO { get; set; }
     
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<VW_ORDEN_COMPRA_DETALLE> VW_ORDEN_COMPRA_DETALLE { get; set; }
+        public virtual VW_ORDEN_COMPRA VW_ORDEN_COMPRA { get; set; }
+        public virtual EPRTA_ITEM EPRTA_ITEM { get; set; }
     }
 }

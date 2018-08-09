@@ -19,6 +19,7 @@ namespace Proveduria.Models
         {
             this.EPRTA_ARTICULO_BODEGA = new HashSet<EPRTA_ARTICULO_BODEGA>();
             this.EPRTA_MOVIMIENTO_DETALLE = new HashSet<EPRTA_MOVIMIENTO_DETALLE>();
+            this.VW_ORDEN_COMPRA_DETALLE = new HashSet<VW_ORDEN_COMPRA_DETALLE>();
         }
     
         public int ID_ITEM { get; set; }
@@ -39,5 +40,7 @@ namespace Proveduria.Models
         public virtual EPRTA_MEDIDA EPRTA_MEDIDA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EPRTA_MOVIMIENTO_DETALLE> EPRTA_MOVIMIENTO_DETALLE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<VW_ORDEN_COMPRA_DETALLE> VW_ORDEN_COMPRA_DETALLE { get; set; }
     }
 }

@@ -127,7 +127,7 @@ namespace Proveduria.Controllers
             }
             catch (Exception ex)
             {
-                logger.Error(ex, ex.Message);
+               logger.Error(ex, ex.Message);
             }
             return Content(retorna.ToString(), "application/json");
         }
