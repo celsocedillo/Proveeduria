@@ -1,0 +1,96 @@
+﻿@{
+    ViewBag.Title = "Punto de Re-Orden";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- Content Header (Page header) -->
+<section class="content-header">
+    <h1>
+        Punto de re-orden
+    </h1>
+
+</section>
+
+<!-- begin panel -->
+<div class="panel panel-inverse">
+    <div class="panel-heading">
+        <div class="panel-heading-btn">
+        </div>
+        <h4 class="panel-title">
+            <i class="fa fa-filter" aria-hidden="true"></i> Punto de re-orden
+        </h4>
+    </div>
+    <div class="panel-body">
+        <div class="form-horizontal">
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-horizontal form-ajust">
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="FechaInicio">
+                                Fecha inicio
+                                <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-sm-6">
+                                <input id="FechaInicio" name="FechaInicio" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-horizontal form-ajust">
+                        <div class="form-group">
+                            <label class="control-label col-sm-4" for="FechaFin">
+                                Fecha fin
+                                <span class="text-danger">*</span>
+                            </label>
+                            <div class="col-sm-6">
+                                <input id="FechaFin" name="FechaFin" class="form-control" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <button id="btnConsult" type="button" class="btn btn-inverse" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Consultando...">
+                <i class="fa fa-search-plus" aria-hidden="true"></i>   CONSULTAR
+            </button>
+        </div>
+    </div>
+</div>
+<!-- end panel -->
+
+<!-- Main content -->
+<section class="content">
+    <!-- begin panel -->
+    <div class="box">
+        <div class="box-body no-padding">
+            <table id="tablaPuntoReOrden" class="table table-striped hover compact">
+                <thead>
+                    <tr>
+                        <th>Item</th>
+                        <th>Máxima</th>
+                        <th>Mínima</th>
+                        <th>Crítica</th>
+                        <th>Inicio</th>
+                        <th>Actual</th>
+                        <th>Usado</th>
+                        <th>Mes 7s</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <!-- end panel -->
+</section>
+
+@section scripts {
+    <script type="text/javascript" src=@Url.Content("/Scripts/App/Consulta.js")></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            Consulta.init();
+        });
+    </script>
+}
+
+
+
