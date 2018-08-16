@@ -281,13 +281,13 @@ function Grabar() {
         var validarDetalle = true;
         if (tabItems.rows().count() > 0) {
             $("#tabItems tbody tr").each(function () {
-                var row = $(this).closest('tr');
-
-                if ($('input[name="detalle-cantidad"]', row).val() > 0) {
+                var fila = $(this).closest('tr');
+                linea_data = tabItems.row(tabItems.row(fila).index());
+                if ($('input[name="detalle-cantidad"]', fila).val() > 0) {
                     movimientoDetalle.push({
                         "ID_DETALLE": 0,
-                        "ID_ITEM": row.data("ID_ITEM"),
-                        "CANTIDAD_PEDIDO": $('input[name="detalle-cantidad"]', row).val()
+                        "ID_ITEM": linea_data.data()['ID_ITEM'],
+                        "CANTIDAD_PEDIDO": $('input[name="detalle-cantidad"]', fila).val()
                     });
                 } else {
                     swal({
@@ -309,56 +309,54 @@ function Grabar() {
                     "EPRTA_MOVIMIENTO_DETALLE": movimientoDetalle
                 }
                 var parametros = JSON.stringify({
-                    pmovimiento: solicitud,
-                    pregistro_nuevo: registro_nuevo
+                    pmovimiento: movimiento
                 });
-                alert('si graba');
+                $.ajax({
+                    type: "POST",
+                    traditional: true,
+                    datatype: "json",
+                    data: parametros,
+                    contentType: 'application/json; charset=utf-8',
+                    url: "/Movimiento/Grabar",
+                    beforeSend: function () {
+                        run_waitMe($(".box-primary"), 'Grabando...');
+                    },
+                    success: function (data) {
+                        if (data.resultado == "success") {
+                            swal({
+                                type: 'success',
+                                text: 'Datos grabados',
+                                timer: 20000,
+                                confirmButtonColor: '#00BCD4'
+                            }).then(function () {
+                                window.location.href = '/Movimiento/ListaMovimiento';
+                            });
+                        }
+                        else {
+                            swal({
+                                type: data.resultado,
+                                text: 'Error al grabar los datos. ' + data.mensaje,
+                                confirmButtonColor: '#00BCD4'
+                            });
+                        }
+                        $(".box-primary").waitMe('hide');
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        $(".box-primary").waitMe('hide');
+                        swal({
+                            type: 'error',
+                            text: 'Error al cargar los datos.',
+                            confirmButtonColor: '#00BCD4'
+                        });
+                    },
+                    complete: function () {
+                    }
+                });
             } else {
                 alert('no graba');
             }
 
-            //$.ajax({
-            //    type: "POST",
-            //    traditional: true,
-            //    datatype: "json",
-            //    data: parametros,
-            //    contentType: 'application/json; charset=utf-8',
-            //    url: "/Solicitud/Grabar",
-            //    beforeSend: function () {
-            //        run_waitMe($(".box-primary"), 'Grabando...');
-            //    },
-            //    success: function (data) {
-            //        if (data.resultado == "success") {
-            //            swal({
-            //                type: 'success',
-            //                text: 'Datos grabados',
-            //                timer: 20000,
-            //                confirmButtonColor: '#00BCD4'
-            //            }).then(function () {
-            //                window.location.href = '/Solicitud/ListaSolicitud';
-            //            });
 
-            //        }
-            //        else {
-            //            swal({
-            //                type: data.resultado,
-            //                text: 'Error al grabar los datos. ' + data.mensaje,
-            //                confirmButtonColor: '#00BCD4'
-            //            });
-            //        }
-            //        $(".box-primary").waitMe('hide');
-            //    },
-            //    error: function (XMLHttpRequest, textStatus, errorThrown) {
-            //        $(".box-primary").waitMe('hide');
-            //        swal({
-            //            type: 'error',
-            //            text: 'Error al cargar los datos.',
-            //            confirmButtonColor: '#00BCD4'
-            //        });
-            //    },
-            //    complete: function () {
-            //    }
-            //});
 
         } else {
             swal({

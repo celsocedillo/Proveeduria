@@ -22,13 +22,25 @@ var Consulta = function () {
     return {
         init: function () {
 
-            inicio = $("#inicio").val();
-            fin = $("#fin").val();
-            if (inicio == "") {
-                inicio = "vacio"
+            $("#FechaInicio").datepicker({
+                format: "dd/mm/yyyy",
+                todayHighlight: true,
+                autoclose: true
+            });
+
+            $("#FechaFin").datepicker({
+                format: "dd/mm/yyyy",
+                todayHighlight: true,
+                autoclose: true
+            });
+
+            fechaInicio = $("#FechaInicio").val();
+            fechaFin = $("#FechaFin").val();
+            if (fechaInicio == "" || fechaInicio == undefined) {
+                fechaInicio = "vacio"
             }
-            if (fin == "") {
-                fin = "vacio"
+            if (fechaFin == "" || fechaFin == undefined) {
+                fechaFin = "vacio"
             }
 
             tablaPuntoReOrden = $("#tablaPuntoReOrden").DataTable({
@@ -64,17 +76,30 @@ var Consulta = function () {
 
             $("#btnConsult").click(function (event) {
                 event.preventDefault();
-                inicio = $("#inicio").val();
-                fin = $("#fin").val();
-                if (inicio == "") {
-                    inicio = "vacio"
+                fechaInicio = $("#FechaInicio").val();
+                fechaFin = $("#FechaFin").val();
+                if (fechaInicio == "" || fechaInicio == undefined) {
+                    fechaInicio = "vacio"
                 }
-                if (fin == "") {
-                    fin = "vacio"
+                if (fechaFin == "" || fechaFin == undefined) {
+                    fechaFin = "vacio"
                 }
                 tablaPuntoReOrden.ajax.reload();
             });
-     
+
+            $("#btnExcel").click(function (event) {
+                event.preventDefault();
+                var fechaInicio = $("#FechaInicio").val();
+                var fechaFin = $("#FechaFin").val();
+                if (fechaInicio == "" || fechaInicio == undefined) {
+                    fechaInicio = "vacio"
+                }
+                if (fechaFin == "" || fechaFin == undefined) {
+                    fechaFin = "vacio"
+                }
+                window.location.href = '/Consulta/ExportToExcelPuntosReOrden?fechaInicio=' + fechaInicio + '&fechaFin=' + fechaFin;
+            });
+
         }
     };
 }();

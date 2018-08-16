@@ -102,6 +102,7 @@
     <script src=@Url.Content("/Content/bower_components/bootstrap-daterangepicker/daterangepicker.js")></script>
     <!-- datepicker -->
     <script src=@Url.Content("/Content/bower_components/bootstrap-datepicker/dist/js/bootstrap-datepicker.min.js")></script>
+    <script src=@Url.Content("/Content/bower_components/bootstrap-datepicker/js/locales/bootstrap-datepicker.es.js")></script>
     <!-- Bootstrap WYSIHTML5 -->
     <script src=@Url.Content("/Content/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.all.min.js")></script>
     <!-- Slimscroll -->
@@ -125,7 +126,7 @@
     <script src=@Url.Content("/Content/bower_components/datatable/dataTables.jqueryui.min.js")></script>
     <script src=@Url.Content("/Content/bower_components/datatable/dataTables.select.js")></script>
     <script src=@Url.Content("/Content/bower_components/datatable-checkboxes/dataTables.checkboxes.min.js")></script>
-        <script src=@Url.Content("/Content/bower_components/moment/moment-2221-min.js")></script>
+    <script src=@Url.Content("/Content/bower_components/moment/moment-2221-min.js")></script>
     <script src=@Url.Content("/Content/bower_components/moment/datetime-moment.js")></script>
 
     <!-- AdminLTE for demo purposes -->
@@ -135,6 +136,7 @@
 
         $(document).ready(function () {
             //Inicializar datatable defoult español
+            $.fn.datepicker.defaults.language = 'es';
             $.extend(true, $.fn.dataTable.defaults, {
                 language: {
                     "url": "/Content/bower_components/datatable/Spanish.json"

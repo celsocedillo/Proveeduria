@@ -1,4 +1,4 @@
-     ---------------------------- Error(2018-07-16 16:46:21.1297) --------------------------    
+     ---------------------------- Error(2018-07-18 10:10:45.2437) --------------------------    
               Machine Name  : CCEDILLO
    
               Exception Type  : System.NullReferenceException
@@ -6,15 +6,52 @@
               Exception Message : Referencia a objeto no establecida como instancia de un objeto.
      
               Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 202 
+   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 205 
  
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 202
+              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 205
         
               Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-07-16 16:48:07.0253) --------------------------    
+     ---------------------------- Error(2018-07-18 10:40:32.2507) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : Oracle.ManagedDataAccess.Client.OracleException
+      
+              Exception Message : ORA-06550: línea 1, columna 7:
+PLS-00306: wrong number or types of arguments in call to 'SP_REQUISICION_BODEGA'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+     
+              Inner Exception  : Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-06550: línea 1, columna 7:
+PLS-00306: wrong number or types of arguments in call to 'SP_REQUISICION_BODEGA'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+   en OracleInternal.ServiceObjects.OracleConnectionImpl.VerifyExecution(Int32& cursorId, Boolean bThrowArrayBindRelatedErrors, SqlStatementType sqlStatementType, Int32 arrayBindCount, OracleException& exceptionForArrayBindDML, Boolean& hasMoreRowsInDB, Boolean bFirstIterationDone)
+   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
+   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_REQUISICION_BODEGATableAdapter.GetData(Nullable`1 SP_ID_MOVIMIENTO, Object& REQUISICION_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 4503
+   en Proveduria.Controllers.SolicitudController.ViewPDF(Nullable`1 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 322 
+ 
+              Stack Trace   :    en OracleInternal.ServiceObjects.OracleConnectionImpl.VerifyExecution(Int32& cursorId, Boolean bThrowArrayBindRelatedErrors, SqlStatementType sqlStatementType, Int32 arrayBindCount, OracleException& exceptionForArrayBindDML, Boolean& hasMoreRowsInDB, Boolean bFirstIterationDone)
+   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
+   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_REQUISICION_BODEGATableAdapter.GetData(Nullable`1 SP_ID_MOVIMIENTO, Object& REQUISICION_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 4503
+   en Proveduria.Controllers.SolicitudController.ViewPDF(Nullable`1 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 322
+        
+              Additional Info  : ORA-06550: línea 1, columna 7:
+PLS-00306: wrong number or types of arguments in call to 'SP_REQUISICION_BODEGA'
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-07-18 11:00:12.9327) --------------------------    
               Machine Name  : CCEDILLO
    
               Exception Type  : System.NullReferenceException
@@ -22,15 +59,15 @@
               Exception Message : Referencia a objeto no establecida como instancia de un objeto.
      
               Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 202 
+   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 259 
  
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 202
+              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 259
         
               Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-07-16 16:48:19.1555) --------------------------    
+     ---------------------------- Error(2018-07-18 11:12:07.6197) --------------------------    
               Machine Name  : CCEDILLO
    
               Exception Type  : System.NullReferenceException
@@ -38,9 +75,9 @@
               Exception Message : Referencia a objeto no establecida como instancia de un objeto.
      
               Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 202 
+   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 259 
  
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 202
+              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 259
         
               Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
               -------------------------------------------------------------------

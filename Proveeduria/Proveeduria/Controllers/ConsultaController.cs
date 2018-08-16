@@ -6,6 +6,9 @@ using System;
 using Proveduria.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System.IO;
+using System.Data;
+using ClosedXML.Excel;
 
 namespace Proveduria.Controllers
 {
@@ -45,13 +48,13 @@ namespace Proveduria.Controllers
                     dataitems = dataitems.Where(w => w.EPRTA_ITEM.FECHA_ULTIMO_INGRESO >= fi && w.EPRTA_ITEM.FECHA_ULTIMO_EGRESO <= fi);
                 }
                 //Filtro por fecha inicio
-                if (inicio != "vacio")
+                else if (inicio != "vacio")
                 {
                     DateTime fi = DateTime.Parse(inicio);
                     dataitems = dataitems.Where(w => w.EPRTA_ITEM.FECHA_ULTIMO_INGRESO >= fi);
                 }
                 //Filtro por fecha fin
-                if (fin != "vacio")
+                else if (fin != "vacio")
                 {
                     DateTime ff = DateTime.Parse(fin);
                     dataitems = dataitems.Where(w => w.EPRTA_ITEM.FECHA_ULTIMO_EGRESO <= ff);
@@ -96,6 +99,72 @@ namespace Proveduria.Controllers
             }
             return Content(total.ToString(), "application/json");
         }
+
+        [HttpGet]
+        public FileResult ExportToExcelPuntosReOrden(string fechaInicio, string fechaFin) 
+        {
+            MemoryStream stream = new MemoryStream();
+            try
+            {
+                var dataitems = unitOfWork.ArticuloBodegaRepository.GetAll();
+                var totalItems = dataitems.Count();
+                //Filtro por fecha inicio y fin
+                if (fechaInicio != "vacio" && fechaFin != "vacio")
+                {
+                    DateTime fi = DateTime.Parse(fechaInicio);
+                    DateTime ff = DateTime.Parse(fechaFin);
+                    dataitems = dataitems.Where(w => w.EPRTA_ITEM.FECHA_ULTIMO_INGRESO >= fi && w.EPRTA_ITEM.FECHA_ULTIMO_EGRESO <= fi);
+                }
+                //Filtro por fecha inicio
+                else if (fechaInicio != "vacio")
+                {
+                    DateTime fi = DateTime.Parse(fechaInicio);
+                    dataitems = dataitems.Where(w => w.EPRTA_ITEM.FECHA_ULTIMO_INGRESO >= fi);
+                }
+                //Filtro por fecha fin
+                else if (fechaFin != "vacio")
+                {
+                    DateTime ff = DateTime.Parse(fechaFin);
+                    dataitems = dataitems.Where(w => w.EPRTA_ITEM.FECHA_ULTIMO_EGRESO <= ff);
+                }
+                DataTable dt = new DataTable("PuntosReOrden");
+                dt.Columns.Add("Codigo");
+                dt.Columns.Add("Item");
+                dt.Columns.Add("Maximo");
+                dt.Columns.Add("Minimo");
+                dt.Columns.Add("Critica");
+                dt.Columns.Add("Inicio");
+                dt.Columns.Add("Actual");
+                dt.Columns.Add("Usado");
+                dt.Columns.Add("MesSiete");
+                foreach (EPRTA_ARTICULO_BODEGA item in dataitems)
+                {
+                    dt.Rows.Add(item.EPRTA_ITEM.CODIGO,
+                        item.EPRTA_ITEM.DESCRIPCION,
+                        item.CANTIDAD_MAXIMA,
+                        item.CANTIDAD_MINIMA,
+                        item.CANTIDAD_CRITICA,
+                        item.CANTIDAD_INICIO,
+                        item.CANTIDAD_ACTUAL,
+                        0,
+                        0);
+                }
+                using (XLWorkbook workbook = new XLWorkbook())
+                {
+                    workbook.Worksheets.Add(dt);
+                    using (stream = new MemoryStream())
+                    {
+                        workbook.SaveAs(stream);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, ex.Message);
+            }
+            return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "PuntosReOrden.xlsx");
+        }
+
 
     }
 }

@@ -359,11 +359,18 @@ namespace Proveduria.Controllers
                 decimal costo_unitario;
                 if (pingreso_egreso == "E")
                 {
-                    //
+                    //Obtengo el registro del item
                     EPRTA_ITEM item = unitOfWork.ItemRepository.GetById(detalle.ID_ITEM);
+                    //Actualizo la fecha del ultimo egreso
                     item.FECHA_ULTIMO_EGRESO = DateTime.Now;
+                    //Obtengo el registro del stock del item
                     EPRTA_ARTICULO_BODEGA itemStock = unitOfWork.ArticuloBodegaRepository.GetAll().Where(p => p.ID_BODEGA == pmovimiento.ID_BODEGA && p.ID_ITEM == detalle.ID_ITEM).FirstOrDefault();
-                    costo_unitario = itemStock.VALOR / itemStock.CANTIDAD_ACTUAL;
+                    //Obtengo el costo unitario del item
+                    costo_unitario = itemStock.VALOR.Value / itemStock.CANTIDAD_ACTUAL.Value;
+                    //Actualizo el stock y el costo unitario
+                    itemStock.CANTIDAD_ACTUAL -= detalle.CANTIDAD_PEDIDO;
+                    itemStock.VALOR = itemStock.VALOR - (detalle.CANTIDAD_PEDIDO * costo_unitario);
+
 
                 }
 
@@ -382,7 +389,7 @@ namespace Proveduria.Controllers
                 //        item_stock.CANTIDAD_ACTUAL -= detalle.CANTIDAD_PEDIDO;
                 //    }
                 //    unitOfWork.ArticuloBodegaRepository.Update(item_stock);
-                }
+                //}
             }
         }
     }

@@ -1,32 +1,161 @@
-     ---------------------------- Error(2018-08-02 10:46:50.5201) --------------------------    
+     ---------------------------- Error(2018-08-16 12:11:29.1086) --------------------------    
               Machine Name  : CCEDILLO
    
-              Exception Type  : System.NullReferenceException
+              Exception Type  : System.ArgumentNullException
       
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+              Exception Message : Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s
      
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 292 
+              Inner Exception  : System.ArgumentNullException: Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s
+   en System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   en System.DateTime.Parse(String s)
+   en Proveduria.Controllers.ConsultaController.GetPuntosReOrden(String inicio, String fin) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 43 
  
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 292
+              Stack Trace   :    en System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   en System.DateTime.Parse(String s)
+   en Proveduria.Controllers.ConsultaController.GetPuntosReOrden(String inicio, String fin) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 43
         
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              Additional Info  : Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s  
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-08-02 10:47:36.6041) --------------------------    
+     ---------------------------- Error(2018-08-16 12:12:24.3756) --------------------------    
               Machine Name  : CCEDILLO
    
-              Exception Type  : System.NullReferenceException
+              Exception Type  : System.ArgumentNullException
       
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+              Exception Message : Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s
      
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 292 
+              Inner Exception  : System.ArgumentNullException: Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s
+   en System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   en System.DateTime.Parse(String s)
+   en Proveduria.Controllers.ConsultaController.GetPuntosReOrden(String inicio, String fin) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 43 
  
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 292
+              Stack Trace   :    en System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   en System.DateTime.Parse(String s)
+   en Proveduria.Controllers.ConsultaController.GetPuntosReOrden(String inicio, String fin) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 43
         
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              Additional Info  : Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-08-16 12:13:27.1446) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentNullException
+      
+              Exception Message : Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s
+     
+              Inner Exception  : System.ArgumentNullException: Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s
+   en System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   en System.DateTime.Parse(String s)
+   en Proveduria.Controllers.ConsultaController.GetPuntosReOrden(String inicio, String fin) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 43 
+ 
+              Stack Trace   :    en System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   en System.DateTime.Parse(String s)
+   en Proveduria.Controllers.ConsultaController.GetPuntosReOrden(String inicio, String fin) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 43
+        
+              Additional Info  : Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-08-16 12:14:53.6916) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentNullException
+      
+              Exception Message : Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s
+     
+              Inner Exception  : System.ArgumentNullException: Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s
+   en System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   en System.DateTime.Parse(String s)
+   en Proveduria.Controllers.ConsultaController.GetPuntosReOrden(String inicio, String fin) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 43 
+ 
+              Stack Trace   :    en System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   en System.DateTime.Parse(String s)
+   en Proveduria.Controllers.ConsultaController.GetPuntosReOrden(String inicio, String fin) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 43
+        
+              Additional Info  : Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-08-16 12:14:55.4236) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentNullException
+      
+              Exception Message : Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s
+     
+              Inner Exception  : System.ArgumentNullException: Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s
+   en System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   en System.DateTime.Parse(String s)
+   en Proveduria.Controllers.ConsultaController.GetPuntosReOrden(String inicio, String fin) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 43 
+ 
+              Stack Trace   :    en System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   en System.DateTime.Parse(String s)
+   en Proveduria.Controllers.ConsultaController.GetPuntosReOrden(String inicio, String fin) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 43
+        
+              Additional Info  : Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-08-16 12:14:58.8886) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentNullException
+      
+              Exception Message : Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s
+     
+              Inner Exception  : System.ArgumentNullException: Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s
+   en System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   en System.DateTime.Parse(String s)
+   en Proveduria.Controllers.ConsultaController.GetPuntosReOrden(String inicio, String fin) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 43 
+ 
+              Stack Trace   :    en System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   en System.DateTime.Parse(String s)
+   en Proveduria.Controllers.ConsultaController.GetPuntosReOrden(String inicio, String fin) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 43
+        
+              Additional Info  : Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-08-16 12:16:05.5736) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentNullException
+      
+              Exception Message : Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s
+     
+              Inner Exception  : System.ArgumentNullException: Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s
+   en System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   en System.DateTime.Parse(String s)
+   en Proveduria.Controllers.ConsultaController.GetPuntosReOrden(String inicio, String fin) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 43 
+ 
+              Stack Trace   :    en System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   en System.DateTime.Parse(String s)
+   en Proveduria.Controllers.ConsultaController.GetPuntosReOrden(String inicio, String fin) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 43
+        
+              Additional Info  : Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s  
               -------------------------------------------------------------------
               ----------     
      
