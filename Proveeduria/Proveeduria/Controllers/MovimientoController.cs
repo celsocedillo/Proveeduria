@@ -317,11 +317,9 @@ namespace Proveduria.Controllers
                 movimiento.USUARIO_SOLICITA = Session["usuario"].ToString();
                 movimiento.FECHA_SOLICITUD = DateTime.Now;
                 movimiento.ESTADO = "D";
-                //movimiento.ID_DEPARTAMENTO_SOLICITA = Convert.ToByte(Session["id_departamento"].ToString());
                 movimiento.ANIO = (short)DateTime.Now.Year;
                 movimiento.ID_TIPO_MOVIMIENTO = pmovimiento.ID_TIPO_MOVIMIENTO;
                 movimiento.ID_BODEGA = 1;
-
                 EPRTA_SECUENCIA secuencia = unitOfWork.SecuenciaRepository.GetAll().Where(p => p.ID_TIPO_MOVIMIENTO == pmovimiento.ID_TIPO_MOVIMIENTO && p.ANIO == movimiento.ANIO).FirstOrDefault();
                 movimiento.NUMERO_MOVIMIENTO = (int)secuencia.SECUENCIA;
 
@@ -333,9 +331,12 @@ namespace Proveduria.Controllers
                 secuencia.SECUENCIA++;
                 unitOfWork.MovimientoRepository.Insert(movimiento);
                 unitOfWork.SecuenciaRepository.Update(secuencia);
+                EPRTA_MOVIMIENTO x = unitOfWork.MovimientoRepository.GetById(movimiento.ID_MOVIMIENTO);
+                string ingreso_egreso = unitOfWork.TipoMovimientoRepository.GetById(movimiento.ID_TIPO_MOVIMIENTO).INGRESO_EGRESO;
+                ActualizaStock(x, ingreso_egreso);
                 unitOfWork.Save();
-
-
+                movimiento = unitOfWork.MovimientoRepository.GetById(movimiento.ID_MOVIMIENTO);
+                
                 retorno.Add("resultado", "success");
                 retorno.Add("data", null);
                 retorno.Add("mensaje", "");
@@ -349,6 +350,40 @@ namespace Proveduria.Controllers
             }
             return Content(retorno.ToString(), "application/json");
 
+        }
+
+        private void ActualizaStock(EPRTA_MOVIMIENTO pmovimiento, string pingreso_egreso)
+        {
+            foreach (EPRTA_MOVIMIENTO_DETALLE detalle in pmovimiento.EPRTA_MOVIMIENTO_DETALLE)
+            {
+                decimal costo_unitario;
+                if (pingreso_egreso == "E")
+                {
+                    //
+                    EPRTA_ITEM item = unitOfWork.ItemRepository.GetById(detalle.ID_ITEM);
+                    item.FECHA_ULTIMO_EGRESO = DateTime.Now;
+                    EPRTA_ARTICULO_BODEGA itemStock = unitOfWork.ArticuloBodegaRepository.GetAll().Where(p => p.ID_BODEGA == pmovimiento.ID_BODEGA && p.ID_ITEM == detalle.ID_ITEM).FirstOrDefault();
+                    costo_unitario = itemStock.VALOR / itemStock.CANTIDAD_ACTUAL;
+
+                }
+
+
+
+
+                //if (pingreso_egreso == "I")
+                //{
+                //    EPRTA_ARTICULO_BODEGA item_stock = unitOfWork.ArticuloBodegaRepository.GetById(detalle.ID_ITEM);
+                //    if (pingreso_egreso == "I")
+                //    {
+                //        item_stock.CANTIDAD_ACTUAL += detalle.CANTIDAD_PEDIDO;
+                //    }
+                //    else if (pingreso_egreso == "E")
+                //    {
+                //        item_stock.CANTIDAD_ACTUAL -= detalle.CANTIDAD_PEDIDO;
+                //    }
+                //    unitOfWork.ArticuloBodegaRepository.Update(item_stock);
+                }
+            }
         }
     }
 }
