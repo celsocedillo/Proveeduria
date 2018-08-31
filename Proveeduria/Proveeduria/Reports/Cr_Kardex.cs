@@ -16,14 +16,14 @@ namespace Proveduria.Reports {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class Cr_Ingreso_Bodega : ReportClass {
+    public class Cr_Kardex : ReportClass {
         
-        public Cr_Ingreso_Bodega() {
+        public Cr_Kardex() {
         }
         
         public override string ResourceName {
             get {
-                return "Cr_Ingreso_Bodega.rpt";
+                return "Cr_Kardex.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace Proveduria.Reports {
         
         public override string FullResourceName {
             get {
-                return "Proveduria.Reports.Cr_Ingreso_Bodega.rpt";
+                return "Proveduria.Reports.Cr_Kardex.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace Proveduria.Reports {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCr_Ingreso_Bodega : Component, ICachedReport {
+    public class CachedCr_Kardex : Component, ICachedReport {
         
-        public CachedCr_Ingreso_Bodega() {
+        public CachedCr_Kardex() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace Proveduria.Reports {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            Cr_Ingreso_Bodega rpt = new Cr_Ingreso_Bodega();
+            Cr_Kardex rpt = new Cr_Kardex();
             rpt.Site = this.Site;
             return rpt;
         }
