@@ -4,7 +4,7 @@ function agregarItem(item) {
     if (item.ID_ITEM !== undefined) {
         producto = item.DESCRIPCION;
         var cantidad = `<div class="col-md-1">
-                            <input id=txtcant${item.ID_ITEM} name="detalle-cantidad" type="number" style="width: 75px;" class="form-control text-right txtcant no-spin" value="${item.CANTIDAD_MOVIMIENTO}" min=0 step="any" required>
+                            <input id=txtcant${item.ID_ITEM} name="detalle-cantidad" type="number" style="width: 75px;" class="form-control text-right txtcant no-spin" value="${item.CANTIDAD_PEDIDO}" min=0 step="any" required>
                         </div>`;
         //var eliminar = `<a title="Eliminar" class="remove">
         //                    <span class="fa-stack fa-1x text-inverse">
@@ -72,7 +72,7 @@ function Grabar() {
                 solicitudDetalle.push({
                     "ID_DETALLE": row.data("id_detalle"),
                     "ID_ITEM": row.data("id_item"),
-                    "CANTIDAD_MOVIMIENTO": $('input[name="detalle-cantidad"]', row).val(),
+                    "CANTIDAD_PEDIDO": $('input[name="detalle-cantidad"]', row).val(),
                     "ESTADO": row.data("estado")
                 });
             });
@@ -224,7 +224,7 @@ var Solicitud = function () {
                     CODIGO: selected.data("codigo"),
                     DESCRIPCION: selected.data("descripcion"),
                     UNIDAD: selected.data("unidad"),
-                    CANTIDAD_MOVIMIENTO: 1,
+                    CANTIDAD_PEDIDO: 1,
                     ID_DETALLE : 0
                 }
                 agregarItem(item);

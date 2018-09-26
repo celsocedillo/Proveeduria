@@ -51,7 +51,6 @@ var ListaMovimiento = function () {
             $.fn.dataTable.moment('DD/MM/YYYY');
             tabMovimiento = $('#tabMovimiento').DataTable({
                 "autoWidth": false,
-                "pageLength" : 25,
                 "data": ldata,
                 "order": [[6, "desc"]],
                 "columnDefs":

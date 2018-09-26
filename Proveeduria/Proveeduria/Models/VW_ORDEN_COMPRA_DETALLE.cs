@@ -21,9 +21,8 @@ namespace Proveduria.Models
         public int ID_ITEM { get; set; }
         public Nullable<int> CANTIDAD_PEDIDA { get; set; }
         public string ESTADO { get; set; }
-        public Nullable<decimal> VALOR_UNITARIO { get; set; }
     
-        public virtual EPRTA_ITEM EPRTA_ITEM { get; set; }
         public virtual VW_ORDEN_COMPRA VW_ORDEN_COMPRA { get; set; }
+        public virtual EPRTA_ITEM EPRTA_ITEM { get; set; }
     }
 }

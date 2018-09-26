@@ -2,7 +2,6 @@
 @{
     ViewBag.Title = "SolicitudRequisicion";
     Layout = "~/Views/Shared/_Layout.cshtml";
-    
 }
 
 <!-- Content Header (Page header) -->
@@ -141,7 +140,6 @@
                                 <th width="50px">CantSolic.</th>
                                 <th width="80px">Despachado</th>
                                 <th width="50px" style="text-align:right">Stock</th>
-                                <th>Unidad</th>
                                 <th width="20px"></th>
                             </tr>
                         </thead>
@@ -150,25 +148,15 @@
                                 {
                                     foreach (var item in Model.EPRTA_MOVIMIENTO_DETALLE)
                                     {
-                                        //Si es un egreso por solicitud de requisicion, se busca la cantidad solicitada del item
-                                        var xcantidad_solicitada = 0.00;
-                                        if (Model.ID_MOVIMIENTO_RELACION.HasValue)
-                                        {
-                                            var item_requisicion = Model.EPRTA_MOVIMIENTO2.EPRTA_MOVIMIENTO_DETALLE.Where(p => p.ID_ITEM == item.ID_ITEM).FirstOrDefault();
-                                            xcantidad_solicitada = (item_requisicion ?? null) == null ? 0 : Convert.ToDouble(item_requisicion.CANTIDAD_MOVIMIENTO);
-                                        }
-                            <tr>
-                                <td>@item.EPRTA_ITEM.CODIGO</td>
-                                <td>@item.EPRTA_ITEM.DESCRIPCION</td>
-                                <td style="text-align:right">
-                                    @xcantidad_solicitada
-                                </td>
-                                <td style="text-align:right">@item.CANTIDAD_MOVIMIENTO</td>
-                                <td >@item.EPRTA_ITEM.EPRTA_MEDIDA.NOMBRE</td>
-                                <td>@item.ID_DETALLE</td>
-                                <td>@item.ID_ITEM</td>
-                                <td>@item.COSTO_MOVIMIENTO</td>
-                            </tr>
+                                        <tr>
+                                            <td>@item.EPRTA_ITEM.CODIGO</td>
+                                            <td>@item.EPRTA_ITEM.DESCRIPCION</td>
+                                            <td>@item.CANTIDAD_PEDIDO</td>
+                                            <td>0</td>
+                                            <td style="text-align:right">@item.EPRTA_ITEM.EPRTA_MEDIDA.NOMBRE</td>
+                                            <td>@item.ID_DETALLE</td>
+                                            <td>@item.ID_ITEM</td>
+                                        </tr>
                                     }
                                 }
                             }
@@ -244,9 +232,7 @@
     @*<script src=@Url.Content("/Content/bower_components/datatables.net/js/jquery.dataTables.min.js")></script>
         <script src=@Url.Content("/Content/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js")></script>*@
 
-    @*<script type="text/javascript" src=@Url.Content("/Scripts/App/Movimiento.js")></script>*@
-    @Scripts.Render("~/bundles/Movimiento")
-
+    <script type="text/javascript" src=@Url.Content("/Scripts/App/Movimiento.js")></script>
     <script type="text/javascript">
 
         var detalleMovimiento;
@@ -261,12 +247,11 @@
                            p.ID_DETALLE,
                            p.ID_MOVIMIENTO,
                            p.ID_ITEM,
-                           p.CANTIDAD_MOVIMIENTO,
+                           p.CANTIDAD_PEDIDO,
                            p.ESTADO,
                            CODIGO = p.EPRTA_ITEM.CODIGO,
                            DESCRIPCION = p.EPRTA_ITEM.DESCRIPCION,
-                           UNIDAD = p.EPRTA_ITEM.EPRTA_MEDIDA.NOMBRE,
-                           p.COSTO_MOVIMIENTO
+                           UNIDAD = p.EPRTA_ITEM.EPRTA_MEDIDA.NOMBRE
                        });
             if (Model.ID_MOVIMIENTO == 0)
             {

@@ -98,8 +98,6 @@
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.OracleClient" />
-    <Reference Include="System.DirectoryServices" />
-    <Reference Include="System.DirectoryServices.AccountManagement" />
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
@@ -153,12 +151,13 @@
       <Private>True</Private>
       <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
     </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
     <Reference Include="Antlr3.Runtime">
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
-    </Reference>
-    <Reference Include="WebGrease, Version=1.6.5135.21930, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\packages\WebGrease.1.6.0\lib\WebGrease.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
@@ -192,7 +191,6 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
-    <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BodegaController.cs" />
     <Compile Include="Controllers\ConsultaController.cs" />
     <Compile Include="Controllers\GrupoController.cs" />
@@ -207,7 +205,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\LogOnModel.cs" />
     <Compile Include="Models\Enumadores\Enumeradores.cs" />
     <Compile Include="Models\EPRTA_ARTICULO_BODEGA.cs">
       <DependentUpon>ModeloProveduria.tt</DependentUpon>
@@ -289,9 +286,6 @@
       <DependentUpon>Cr_Requisicion_Bodega.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reports\DataSetReports.cs">
-      <DependentUpon>DataSetReports.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Reports\DataSetReports.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -300,7 +294,6 @@
     <Compile Include="Repositories\GenericRepository.cs" />
     <Compile Include="Repositories\IGenericRepository.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
-    <Compile Include="Utils\AuthUtil.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Content\bootstrap.css" />
@@ -6768,7 +6761,6 @@
     <Content Include="Content\dist\img\credit\visa.png" />
     <Content Include="Content\dist\img\default-50x50.gif" />
     <Content Include="Content\dist\img\icons.png" />
-    <Content Include="Content\dist\img\logoema.jpg" />
     <Content Include="Content\dist\img\photo1.png" />
     <Content Include="Content\dist\img\photo2.png" />
     <Content Include="Content\dist\img\photo3.jpg" />
@@ -7450,7 +7442,6 @@
     <Content Include="Reports\DataSetReports.xsc">
       <DependentUpon>DataSetReports.xsd</DependentUpon>
     </Content>
-    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Reports\DataSetReports.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -7504,8 +7495,6 @@
     <Content Include="Views\Movimiento\ListaMovimiento.cshtml" />
     <Content Include="Views\Movimiento\Movimiento.cshtml" />
     <Content Include="Views\Consulta\PuntoReOrden.cshtml" />
-    <Content Include="Views\Account\LogOn.cshtml" />
-    <Content Include="Views\Shared\_LayoutLogin.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -7536,22 +7525,22 @@
     <TypeScriptCompile Include="Content\bower_components\moment\moment.d.ts" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Reports\Cr_Corte_Inventario.rpt">
+    <EmbeddedResource Include="Reports\Cr_Corte_Inventario.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Cr_Corte_Inventario.cs</LastGenOutput>
-    </Content>
-    <Content Include="Reports\Cr_Egreso_Bodega.rpt">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Cr_Egreso_Bodega.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Cr_Egreso_Bodega.cs</LastGenOutput>
-    </Content>
-    <Content Include="Reports\Cr_Ingreso_Bodega.rpt">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Cr_Ingreso_Bodega.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Cr_Ingreso_Bodega.cs</LastGenOutput>
-    </Content>
-    <Content Include="Reports\Cr_Requisicion_Bodega.rpt">
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reports\Cr_Requisicion_Bodega.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Cr_Requisicion_Bodega.cs</LastGenOutput>
-    </Content>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

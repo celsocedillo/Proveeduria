@@ -1,9 +1,6 @@
 ﻿var tabItems;
 var tipoMovimientoSeleccionado;
 var ldata;
-var movimiento;
-var movimientoDetalle = [];
-
 
 function agregarItem(item) {
     if (item.ID_ITEM !== undefined) {
@@ -16,11 +13,10 @@ function agregarItem(item) {
             "CODIGO": item.CODIGO,
             "DESCRIPCION": item.ITEM,
             "CANTIDAD_SOLICITADA": 0,
-            "CANTIDAD_MOVIMIENTO": cantidad,
+            "CANTIDAD_PEDIDO": cantidad,
             "STOCK_ACTUAL": item.STOCK_ACTUAL,
             "ID_DETALLE": 0,
-            "ID_ITEM": item.ID_ITEM,
-            "COSTO_MOVIMIENTO": item.COSTO_MOVIMIENTO
+            "ID_ITEM": item.ID_ITEM
         });
         //var index = tabItems.row.add(row).draw(false).index();
         tabItems.rows.add(row).draw()
@@ -28,7 +24,7 @@ function agregarItem(item) {
         $("#txtcant" + item.ID_ITEM).on('keypress', function (e) {
             if (e.which === 13) {
                 var cantidad
-                if ($(this).val() === "") {
+                if ($(this).val() == "") {
                     cantidad = 0;
                 } else {
                     cantidad = $(this).val();
@@ -176,11 +172,10 @@ function DetalleSolicitud(pid_movimiento_relacionado) {
                         "CODIGO": ldata[i].CODIGO,
                         "DESCRIPCION": ldata[i].ITEM,
                         "CANTIDAD_SOLICITADA": ldata[i].CANTIDAD,
-                        "CANTIDAD_MOVIMIENTO": cantidad,
+                        "CANTIDAD_PEDIDO": cantidad,
                         "STOCK_ACTUAL": ldata[i].STOCK_ACTUAL,
                         "ID_DETALLE": 0,
-                        "ID_ITEM": ldata[i].ID_ITEM,
-                        "COSTO_MOVIMIENTO" : 0
+                        "ID_ITEM": ldata[i].ID_ITEM
                     });
                     tabItems.rows.add(row).draw();
                     tabItems.columns.adjust().draw();
@@ -249,11 +244,10 @@ function DetalleOrdenCompra(panio, pnumero_orden) {
                         "CODIGO": ldata[i].CODIGO,
                         "DESCRIPCION": ldata[i].ITEM,
                         "CANTIDAD_SOLICITADA": ldata[i].CANTIDAD,
-                        "CANTIDAD_MOVIMIENTO": cantidad,
+                        "CANTIDAD_PEDIDO": cantidad,
                         "STOCK_ACTUAL": ldata[i].STOCK_ACTUAL,
                         "ID_DETALLE": 0,
-                        "ID_ITEM": ldata[i].ID_ITEM,
-                        "COSTO_MOVIMIENTO": ldata[i].VALOR_UNITARIO
+                        "ID_ITEM": ldata[i].ID_ITEM
                     });
                     tabItems.rows.add(row).draw();
                     tabItems.columns.adjust().draw();
@@ -277,12 +271,14 @@ function DetalleOrdenCompra(panio, pnumero_orden) {
     });
 }
 
-function ValidaPantalla() {
+function Grabar() {
+    var movimiento;
+    var movimientoDetalle = [];
+    //Validar cabecera
     $('#frmMovimiento').parsley().validate();
     if ($('#frmMovimiento').parsley().isValid()) {
+        //Si la cabecera es valida, se valida los detalles
         var validarDetalle = true;
-        var itemsconcero = false;
-
         if (tabItems.rows().count() > 0) {
             $("#tabItems tbody tr").each(function () {
                 var fila = $(this).closest('tr');
@@ -291,94 +287,86 @@ function ValidaPantalla() {
                     movimientoDetalle.push({
                         "ID_DETALLE": 0,
                         "ID_ITEM": linea_data.data()['ID_ITEM'],
-                        "CANTIDAD_MOVIMIENTO": $('input[name="detalle-cantidad"]', fila).val(),
-                        "COSTO_MOVIMIENTO": linea_data.data()['COSTO_MOVIMIENTO'],
-                        "ESTADO": "A"
+                        "CANTIDAD_PEDIDO": $('input[name="detalle-cantidad"]', fila).val()
                     });
                 } else {
-                    itemsconcero = true;
-                    if ($("#ID_TIPO_MOVIMIENTO").val() == 2) {
-                        movimientoDetalle.push({
-                            "ID_DETALLE": 0,
-                            "ID_ITEM": linea_data.data()['ID_ITEM'],
-                            "CANTIDAD_MOVIMIENTO": $('input[name="detalle-cantidad"]', fila).val(),
-                            "COSTO_MOVIMIENTO": linea_data.data()['COSTO_MOVIMIENTO'],
-                            "ESTADO": "A"
-                        });
-                    } else {
-                        validarDetalle = false;
-                    }
+                    swal({
+                        type: 'ERROR',
+                        type: 'error',
+                        text: 'Existen items con cantidad 0 o menor a 0',
+                        confirmButtonColor: '#00BCD4'
+                    });
+                    validarDetalle = false;
+                    return false;
                 }
             });
 
-            //Si es una orden de requisicion se permite despachar cantidades con 0
-            if (itemsconcero == true && $("#ID_TIPO_MOVIMIENTO").val() == 2) {
-                return 1;
-            //Si es otro tipo de movimiento no se permite cantidades con 0
-            } else if (itemsconcero == true) {
-                return 2;
-            }
-            return 0;
-        }
-    }
-}
-
-function Grabar() {
-    alert('va a grabar');
-    movimiento = {
+            if (validarDetalle) {
+                movimiento = {
                     "ID_MOVIMIENTO": 0,
                     "ID_TIPO_MOVIMIENTO": $("#ID_TIPO_MOVIMIENTO").val(),
                     "OBSERVACION": $("#OBSERVACION").val(),
-                    "ID_MOVIMIENTO_RELACION": $("#ID_MOVIMIENTO_RELACION").val(),
-                    "ANIO_DOCUMENTO_REFERENCIA": $("#ANIO_DOCUMENTO_REFERENCIA").val(),
-                    "NUMERO_DOCUMENTO_REFERENCIA": $("#NUMERO_DOCUMENTO_REFERENCIA").val(),
                     "EPRTA_MOVIMIENTO_DETALLE": movimientoDetalle
                 }
-    var parametros = JSON.stringify({
-        pmovimiento: movimiento
-    });
+                var parametros = JSON.stringify({
+                    pmovimiento: movimiento
+                });
+                $.ajax({
+                    type: "POST",
+                    traditional: true,
+                    datatype: "json",
+                    data: parametros,
+                    contentType: 'application/json; charset=utf-8',
+                    url: "/Movimiento/Grabar",
+                    beforeSend: function () {
+                        run_waitMe($(".box-primary"), 'Grabando...');
+                    },
+                    success: function (data) {
+                        if (data.resultado == "success") {
+                            swal({
+                                type: 'success',
+                                text: 'Datos grabados',
+                                timer: 20000,
+                                confirmButtonColor: '#00BCD4'
+                            }).then(function () {
+                                window.location.href = '/Movimiento/ListaMovimiento';
+                            });
+                        }
+                        else {
+                            swal({
+                                type: data.resultado,
+                                text: 'Error al grabar los datos. ' + data.mensaje,
+                                confirmButtonColor: '#00BCD4'
+                            });
+                        }
+                        $(".box-primary").waitMe('hide');
+                    },
+                    error: function (XMLHttpRequest, textStatus, errorThrown) {
+                        $(".box-primary").waitMe('hide');
+                        swal({
+                            type: 'error',
+                            text: 'Error al cargar los datos.',
+                            confirmButtonColor: '#00BCD4'
+                        });
+                    },
+                    complete: function () {
+                    }
+                });
+            } else {
+                alert('no graba');
+            }
 
-    $.ajax({
-        type: "POST",
-        traditional: true,
-        datatype: "json",
-        data: parametros,
-        contentType: 'application/json; charset=utf-8',
-        url: "/Movimiento/Grabar",
-        beforeSend: function () {
-            run_waitMe($(".box-primary"), 'Grabando...');
-        },
-        success: function (data) {
-            if (data.resultado === "success") {
-                swal({
-                    type: 'success',
-                    text: 'Datos grabados',
-                    timer: 20000,
-                    confirmButtonColor: '#00BCD4'
-                }).then(function () {
-                    window.location.href = '/Movimiento/ListaMovimiento';
-                });
-            }
-            else {
-                swal({
-                    type: data.resultado,
-                    text: 'Error al grabar los datos. ' + data.mensaje,
-                    confirmButtonColor: '#00BCD4'
-                });
-            }
-            $(".box-primary").waitMe('hide');
-        },
-        error: function (XMLHttpRequest, textStatus, errorThrown) {
-            $(".box-primary").waitMe('hide');
+
+
+        } else {
             swal({
+                type: 'ERROR',
                 type: 'error',
-                text: 'Error al cargar los datos.',
+                text: 'Debe incluir algun item a solicitar',
                 confirmButtonColor: '#00BCD4'
             });
-        },
-        complete: function () {
         }
-    });
+    }
 }
 
 var Movimiento = function () {
@@ -415,29 +403,18 @@ var Movimiento = function () {
                 "columnDefs":
                     [
                         { "targets": [5], "checkboxes": { 'selectRow': false } },
-                        { "targets": [6], "visible": false },
-                        { "targets": [7], "visible": false }
+                        { "targets": [6], "visible": false }
                     ],
                 "columns": [
                     { "data": 'CODIGO' },
                     { "data": 'DESCRIPCION' },
                     { "data": 'CANTIDAD_SOLICITADA' },
-                    { "data": 'CANTIDAD_MOVIMIENTO' },
+                    { "data": 'CANTIDAD_PEDIDO' },
                     { "data": 'STOCK_ACTUAL' },
                     { "data": 'ID_DETALLE' },
-                    { "data": 'ID_ITEM' },
-                    { "data": 'COSTO_MOVIMIENTO' }
+                    { "data": 'ID_ITEM' }
                 ]
             });
-
-            column = tabItems.column(2);
-
-            if ($("#ID_TIPO_MOVIMIENTO").val() == 2) {
-                column.visible(true);
-            } else {
-                column.visible(false);
-            }
-
 
             $('#sltItem').select2({
                 language: 'es',
@@ -484,6 +461,7 @@ var Movimiento = function () {
             });
 
             $('#ID_TIPO_MOVIMIENTO').on('select2:select', function (e) {
+                
                 tipoMovimientoSeleccionado = e.params.data.id;
                 if (tipoMovimientoSeleccionado == 2 || tipoMovimientoSeleccionado == 4) {
                     $("#divBuscaRelacion").css('display', 'block');
@@ -492,42 +470,12 @@ var Movimiento = function () {
                     $("#divBuscaRelacion").css('display', 'none');
                     $("#divAgregar").css('display', 'block'); 
                 }
-
-                column = tabItems.column(2);
-
-                if (tipoMovimientoSeleccionado == 2) {
-                    column.visible(true);
-                } else {
-                    column.visible(false);
-                }
             });
 
             $("#btnGrabar").on('click', function () {
-                var validacion = ValidaPantalla();
-
-                if (validacion == 0) {
-                    Grabar();
-                } else if (validacion == 1) {
-                    swal({
-                        text: 'Existen items con cantidad 0 o menor a 0, ¿Seguro desea continuar?',
-                        type: 'warning',
-                        showCancelButton: true,
-                        confirmButtonColor: '#00BCD4',
-                        cancelButtonColor: '#EF5350',
-                        confirmButtonText: 'Aceptar',
-                        cancelButtonText: 'Cancelar'
-                    }).then(function () {
-                        Grabar();
-                    });
-                } else if (validacion == 2) {
-                    swal({
-                        type: 'ERROR',
-                        type: 'error',
-                        text: 'Existen items con cantidad 0 o menor a 0',
-                        confirmButtonColor: '#00BCD4'
-                    });
-                }
+                Grabar();
             });
+
 
             $("#btnAgregarItem").on('click', function () {
                 var selected = $("select[name='sltItem']").find('option:selected');
@@ -536,10 +484,9 @@ var Movimiento = function () {
                     CODIGO: selected.data("codigo"),
                     ITEM: selected.data("item"),
                     UNIDAD: selected.data("unidad"),
-                    CANTIDAD_MOVIMIENTO: 1,
+                    CANTIDAD_PEDIDO: 1,
                     ID_DETALLE: 0,
-                    STOCK_ACTUAL: selected.data("stockactual"),
-                    COSTO_MOVIMIENTO: 0
+                    STOCK_ACTUAL: selected.data("stockactual")
                 }
                 agregarItem(item);
             });

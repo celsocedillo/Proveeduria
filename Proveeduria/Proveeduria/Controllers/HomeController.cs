@@ -19,18 +19,18 @@ namespace Proveduria.Controllers
 
         public ActionResult Index()
         {
-            //UsuarioController usuarioController = new UsuarioController();
-            //ViewBag.usuario = UsuarioController.usuario.usuario;
-            //ViewBag.nombre = UsuarioController.usuario.nombre;
-            //VW_EMPLEADO empleado = unitOfWork.EmpleadoRepository.GetAll().Where(p => p.USUARIO == "MROJAS").FirstOrDefault();
-            //if (empleado != null)
-            //{
-            //    Session["usuario"] = empleado.USUARIO;
-            //    Session["nombre"] = empleado.EMPLEADO;
-            //    Session["id_departamento"] = empleado.DEPARTAMENTO_ID;
-            //    Session["departamento"] = empleado.DIRECCION;
-            //    Session["usuario_jefe"] = empleado.USUARIO_JEFE_DEPARTAMENTO;
-            //}
+            UsuarioController usuarioController = new UsuarioController();
+            ViewBag.usuario = UsuarioController.usuario.usuario;
+            ViewBag.nombre = UsuarioController.usuario.nombre;
+            VW_EMPLEADO empleado = unitOfWork.EmpleadoRepository.GetAll().Where(p => p.USUARIO == "MROJAS").FirstOrDefault();
+            if (empleado != null)
+            {
+                Session["usuario"] = empleado.USUARIO;
+                Session["nombre"] = empleado.EMPLEADO;
+                Session["id_departamento"] = empleado.DEPARTAMENTO_ID;
+                Session["departamento"] = empleado.DIRECCION;
+                Session["usuario_jefe"] = empleado.USUARIO_JEFE_DEPARTAMENTO;
+            }
             return View();
         }
 

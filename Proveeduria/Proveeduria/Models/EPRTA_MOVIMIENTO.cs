@@ -42,12 +42,12 @@ namespace Proveduria.Models
         public Nullable<short> ANIO_DOCUMENTO_REFERENCIA { get; set; }
         public Nullable<int> NUMERO_DOCUMENTO_REFERENCIA { get; set; }
     
-        public virtual EPRTA_BODEGA EPRTA_BODEGA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EPRTA_MOVIMIENTO_DETALLE> EPRTA_MOVIMIENTO_DETALLE { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EPRTA_MOVIMIENTO> EPRTA_MOVIMIENTO1 { get; set; }
         public virtual EPRTA_MOVIMIENTO EPRTA_MOVIMIENTO2 { get; set; }
+        public virtual EPRTA_BODEGA EPRTA_BODEGA { get; set; }
         public virtual EPRTA_TIPO_MOVIMIENTO EPRTA_TIPO_MOVIMIENTO { get; set; }
     }
 }
