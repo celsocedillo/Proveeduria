@@ -17,13 +17,16 @@ namespace Proveduria.Models
         public long ID_DETALLE { get; set; }
         public int ID_MOVIMIENTO { get; set; }
         public int ID_ITEM { get; set; }
-        public Nullable<int> CANTIDAD_PEDIDO { get; set; }
-        public string ESTADO { get; set; }
-        public string IVA { get; set; }
+        public Nullable<decimal> COSTO_ACTUAL { get; set; }
+        public Nullable<decimal> STOCK_ACTUAL { get; set; }
+        public Nullable<decimal> COSTO_MOVIMIENTO { get; set; }
+        public Nullable<decimal> CANTIDAD_MOVIMIENTO { get; set; }
         public string OBSERVACION { get; set; }
         public string DESCRIPCION_ADICIONAL { get; set; }
+        public string ESTADO { get; set; }
+        public Nullable<decimal> CANTIDAD_NUEVO_STOCK { get; set; }
     
-        public virtual EPRTA_MOVIMIENTO EPRTA_MOVIMIENTO { get; set; }
         public virtual EPRTA_ITEM EPRTA_ITEM { get; set; }
+        public virtual EPRTA_MOVIMIENTO EPRTA_MOVIMIENTO { get; set; }
     }
 }

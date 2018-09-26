@@ -26,6 +26,21 @@ namespace Proveduria
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
                       "~/Content/site.css"));
+
+            bundles.Add(new ScriptBundle("~/bundles/Bodega").Include("~/Scripts/App/Bodega.js"));
+            bundles.Add(new ScriptBundle("~/bundles/Consulta").Include("~/Scripts/App/Consulta.js"));
+            bundles.Add(new ScriptBundle("~/bundles/InvMedida").Include("~/Scripts/App/InvMedida.js"));
+            bundles.Add(new ScriptBundle("~/bundles/Item").Include("~/Scripts/App/Item.js"));
+            bundles.Add(new ScriptBundle("~/bundles/ListaItem").Include("~/Scripts/App/ListaItem.js"));
+            bundles.Add(new ScriptBundle("~/bundles/ListaMovimiento").Include("~/Scripts/App/ListaMovimiento.js"));
+            bundles.Add(new ScriptBundle("~/bundles/ListaSolicitud").Include("~/Scripts/App/ListaSolicitud.js"));
+            bundles.Add(new ScriptBundle("~/bundles/Medida").Include("~/Scripts/App/Medida.js"));
+            bundles.Add(new ScriptBundle("~/bundles/Movimiento").Include("~/Scripts/App/Movimiento.js"));
+            bundles.Add(new ScriptBundle("~/bundles/Solicitud").Include("~/Scripts/App/Solicitud.js"));
+            bundles.Add(new ScriptBundle("~/bundles/TipoMovimiento").Include("~/Scripts/App/TipoMovimiento.js"));
+            bundles.Add(new ScriptBundle("~/bundles/Util").Include("~/Scripts/App/Util.js"));
+            //BundleTable.EnableOptimizations = true;
+
         }
     }
 }
