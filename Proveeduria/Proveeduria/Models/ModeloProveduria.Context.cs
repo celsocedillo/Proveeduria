@@ -25,13 +25,13 @@ namespace Proveduria.Models
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<EPRTA_MOVIMIENTO> EPRTA_MOVIMIENTO { get; set; }
-        public virtual DbSet<EPRTA_MOVIMIENTO_DETALLE> EPRTA_MOVIMIENTO_DETALLE { get; set; }
         public virtual DbSet<EPRTA_ARTICULO_BODEGA> EPRTA_ARTICULO_BODEGA { get; set; }
         public virtual DbSet<EPRTA_BODEGA> EPRTA_BODEGA { get; set; }
         public virtual DbSet<EPRTA_GRUPO> EPRTA_GRUPO { get; set; }
         public virtual DbSet<EPRTA_ITEM> EPRTA_ITEM { get; set; }
         public virtual DbSet<EPRTA_MEDIDA> EPRTA_MEDIDA { get; set; }
+        public virtual DbSet<EPRTA_MOVIMIENTO> EPRTA_MOVIMIENTO { get; set; }
+        public virtual DbSet<EPRTA_MOVIMIENTO_DETALLE> EPRTA_MOVIMIENTO_DETALLE { get; set; }
         public virtual DbSet<EPRTA_SECUENCIA> EPRTA_SECUENCIA { get; set; }
         public virtual DbSet<EPRTA_TIPO_MOVIMIENTO> EPRTA_TIPO_MOVIMIENTO { get; set; }
         public virtual DbSet<VW_DEPARTAMENTO> VW_DEPARTAMENTO { get; set; }

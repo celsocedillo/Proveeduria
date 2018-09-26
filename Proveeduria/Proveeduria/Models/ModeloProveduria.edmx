@@ -12,14 +12,14 @@
           <Property Name="ID_ARTIBODE" Type="number" Precision="10" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_BODEGA" Type="number" Precision="2" Scale="0" Nullable="false" />
           <Property Name="ID_ITEM" Type="number" Precision="8" Scale="0" Nullable="false" />
-          <Property Name="CANTIDAD_MAXIMA" Type="number" Precision="8" Scale="0" />
-          <Property Name="CANTIDAD_ACTUAL" Type="number" Precision="8" Scale="2" />
-          <Property Name="CANTIDAD_INICIO" Type="number" Precision="8" Scale="2" />
-          <Property Name="CANTIDAD_CRITICA" Type="number" Precision="8" Scale="0" />
-          <Property Name="CANTIDAD_MINIMA" Type="number" Precision="8" Scale="0" />
-          <Property Name="CANTIDAD_BAJA" Type="number" Precision="8" Scale="2" />
-          <Property Name="CANTIDAD_OC" Type="number" Precision="8" Scale="0" />
-          <Property Name="VALOR" Type="number" Precision="9" Scale="3" />
+          <Property Name="COSTO_PROMEDIO" Type="number" Precision="12" Scale="3" />
+          <Property Name="CANTIDAD_MAXIMA" Type="number" Precision="10" Scale="2" />
+          <Property Name="CANTIDAD_ACTUAL" Type="number" Precision="10" Scale="2" />
+          <Property Name="CANTIDAD_INICIO" Type="number" Precision="10" Scale="2" />
+          <Property Name="CANTIDAD_CRITICA" Type="number" Precision="10" Scale="2" />
+          <Property Name="CANTIDAD_MINIMA" Type="number" Precision="10" Scale="2" />
+          <Property Name="CANTIDAD_BAJA" Type="number" Precision="10" Scale="2" />
+          <Property Name="CANTIDAD_OC" Type="number" Precision="10" Scale="2" />
           <Property Name="ESTADO" Type="varchar2" MaxLength="1" />
           <Property Name="UBICACION" Type="varchar2" MaxLength="100" />
         </EntityType>
@@ -52,8 +52,8 @@
           <Property Name="ID_MEDIDA" Type="number" Precision="3" Scale="0" Nullable="false" />
           <Property Name="FECHA_ULTIMO_INGRESO" Type="date" />
           <Property Name="FECHA_ULTIMO_EGRESO" Type="date" />
-          <Property Name="VALOR_ANTERIOR" Type="number" Precision="17" Scale="3" />
-          <Property Name="VALOR_ACTUAL" Type="number" Precision="17" Scale="3" />
+          <Property Name="COSTO_ANTERIOR" Type="number" Precision="17" Scale="3" />
+          <Property Name="COSTO_ACTUAL" Type="number" Precision="17" Scale="3" />
           <Property Name="ESTADO" Type="varchar2" MaxLength="1" />
           <Property Name="OBSERVACION" Type="varchar2" MaxLength="250" />
           <Property Name="ID_GRUPO" Type="number" Precision="2" Scale="0" Nullable="false" />
@@ -98,11 +98,14 @@
           <Property Name="ID_DETALLE" Type="number" Precision="12" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_MOVIMIENTO" Type="number" Precision="8" Scale="0" Nullable="false" />
           <Property Name="ID_ITEM" Type="number" Precision="8" Scale="0" Nullable="false" />
-          <Property Name="CANTIDAD_PEDIDO" Type="number" Precision="6" Scale="0" />
-          <Property Name="ESTADO" Type="varchar2" MaxLength="1" />
-          <Property Name="IVA" Type="varchar2" MaxLength="1" />
+          <Property Name="COSTO_ACTUAL" Type="number" Precision="12" Scale="3" />
+          <Property Name="STOCK_ACTUAL" Type="number" Precision="12" Scale="3" />
+          <Property Name="COSTO_MOVIMIENTO" Type="number" Precision="12" Scale="3" />
+          <Property Name="CANTIDAD_MOVIMIENTO" Type="number" Precision="10" Scale="2" />
           <Property Name="OBSERVACION" Type="varchar2" MaxLength="250" />
           <Property Name="DESCRIPCION_ADICIONAL" Type="varchar2" MaxLength="500" />
+          <Property Name="ESTADO" Type="varchar2" MaxLength="1" />
+          <Property Name="CANTIDAD_NUEVO_STOCK" Type="number" Precision="12" Scale="3" />
         </EntityType>
         <EntityType Name="EPRTA_SECUENCIA">
           <Key>
@@ -173,6 +176,7 @@ advertencia 6002: La tabla o vista 'PROVEDURIA.VW_ORDEN_COMPRA' no tiene definid
           <Key>
             <PropertyRef Name="ANIO" />
             <PropertyRef Name="NUMERO_ORDEN" />
+            
           </Key>
           <Property Name="ANIO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="NUMERO_ORDEN" Type="number" Precision="8" Scale="0" Nullable="false" />
@@ -194,6 +198,7 @@ advertencia 6002: La tabla o vista 'PROVEDURIA.VW_ORDEN_COMPRA_DETALLE' no tiene
           <Property Name="ID_ITEM" Type="number" Precision="8" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="CANTIDAD_PEDIDA" Type="number" Precision="6" Scale="0" />
           <Property Name="ESTADO" Type="varchar2" MaxLength="1" />
+          <Property Name="VALOR_UNITARIO" Type="number" Precision="38" Scale="0" />
         </EntityType>
         <Association Name="EPRCN_ARTBOD_ITEM_FK">
           <End Role="EPRTA_ITEM" Type="Self.EPRTA_ITEM" Multiplicity="1" />
@@ -373,7 +378,8 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA" "VW_ORDEN_COMPRA"</DefiningQuery>
 "VW_ORDEN_COMPRA_DETALLE"."CODIGO" AS "CODIGO", 
 "VW_ORDEN_COMPRA_DETALLE"."ID_ITEM" AS "ID_ITEM", 
 "VW_ORDEN_COMPRA_DETALLE"."CANTIDAD_PEDIDA" AS "CANTIDAD_PEDIDA", 
-"VW_ORDEN_COMPRA_DETALLE"."ESTADO" AS "ESTADO"
+"VW_ORDEN_COMPRA_DETALLE"."ESTADO" AS "ESTADO", 
+"VW_ORDEN_COMPRA_DETALLE"."VALOR_UNITARIO" AS "VALOR_UNITARIO"
 FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQuery>
           </EntitySet>
           <AssociationSet Name="EPRCN_ARTBOD_ITEM_FK" Association="Self.EPRCN_ARTBOD_ITEM_FK">
@@ -422,25 +428,15 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
     <edmx:ConceptualModels>
       <Schema Namespace="ModelProveduria" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityContainer Name="EntitiesProveduria" annotation:LazyLoadingEnabled="true" >
-          <EntitySet Name="EPRTA_MOVIMIENTO" EntityType="ModelProveduria.EPRTA_MOVIMIENTO" />
-          <EntitySet Name="EPRTA_MOVIMIENTO_DETALLE" EntityType="ModelProveduria.EPRTA_MOVIMIENTO_DETALLE" />
-          <AssociationSet Name="EPRCN_MOVDET_MOVIMIENTO_FK" Association="ModelProveduria.EPRCN_MOVDET_MOVIMIENTO_FK">
-            <End Role="EPRTA_MOVIMIENTO" EntitySet="EPRTA_MOVIMIENTO" />
-            <End Role="EPRTA_MOVIMIENTO_DETALLE" EntitySet="EPRTA_MOVIMIENTO_DETALLE" />
-          </AssociationSet>
-          <AssociationSet Name="EPRCN_MOVIMIENTO_MOVIMIENTO_FK" Association="ModelProveduria.EPRCN_MOVIMIENTO_MOVIMIENTO_FK">
-            <End Role="EPRTA_MOVIMIENTO" EntitySet="EPRTA_MOVIMIENTO" />
-            <End Role="EPRTA_MOVIMIENTO1" EntitySet="EPRTA_MOVIMIENTO" />
-          </AssociationSet>
           <EntitySet Name="EPRTA_ARTICULO_BODEGA" EntityType="ModelProveduria.EPRTA_ARTICULO_BODEGA" />
           <EntitySet Name="EPRTA_BODEGA" EntityType="ModelProveduria.EPRTA_BODEGA" />
           <EntitySet Name="EPRTA_GRUPO" EntityType="ModelProveduria.EPRTA_GRUPO" />
           <EntitySet Name="EPRTA_ITEM" EntityType="ModelProveduria.EPRTA_ITEM" />
           <EntitySet Name="EPRTA_MEDIDA" EntityType="ModelProveduria.EPRTA_MEDIDA" />
+          <EntitySet Name="EPRTA_MOVIMIENTO" EntityType="ModelProveduria.EPRTA_MOVIMIENTO" />
+          <EntitySet Name="EPRTA_MOVIMIENTO_DETALLE" EntityType="ModelProveduria.EPRTA_MOVIMIENTO_DETALLE" />
           <EntitySet Name="EPRTA_SECUENCIA" EntityType="ModelProveduria.EPRTA_SECUENCIA" />
           <EntitySet Name="EPRTA_TIPO_MOVIMIENTO" EntityType="ModelProveduria.EPRTA_TIPO_MOVIMIENTO" />
-          <EntitySet Name="VW_DEPARTAMENTO" EntityType="ModelProveduria.VW_DEPARTAMENTO" />
-          <EntitySet Name="VW_EMPLEADO" EntityType="ModelProveduria.VW_EMPLEADO" />
           <AssociationSet Name="EPRCN_ARTBOD_ITEM_FK" Association="ModelProveduria.EPRCN_ARTBOD_ITEM_FK">
             <End Role="EPRTA_ITEM" EntitySet="EPRTA_ITEM" />
             <End Role="EPRTA_ARTICULO_BODEGA" EntitySet="EPRTA_ARTICULO_BODEGA" />
@@ -465,6 +461,14 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
             <End Role="EPRTA_ITEM" EntitySet="EPRTA_ITEM" />
             <End Role="EPRTA_MOVIMIENTO_DETALLE" EntitySet="EPRTA_MOVIMIENTO_DETALLE" />
           </AssociationSet>
+          <AssociationSet Name="EPRCN_MOVDET_MOVIMIENTO_FK" Association="ModelProveduria.EPRCN_MOVDET_MOVIMIENTO_FK">
+            <End Role="EPRTA_MOVIMIENTO" EntitySet="EPRTA_MOVIMIENTO" />
+            <End Role="EPRTA_MOVIMIENTO_DETALLE" EntitySet="EPRTA_MOVIMIENTO_DETALLE" />
+          </AssociationSet>
+          <AssociationSet Name="EPRCN_MOVIMIENTO_MOVIMIENTO_FK" Association="ModelProveduria.EPRCN_MOVIMIENTO_MOVIMIENTO_FK">
+            <End Role="EPRTA_MOVIMIENTO" EntitySet="EPRTA_MOVIMIENTO" />
+            <End Role="EPRTA_MOVIMIENTO1" EntitySet="EPRTA_MOVIMIENTO" />
+          </AssociationSet>
           <AssociationSet Name="EPRCN_MOVIMIENTO_TIPMOV_FK" Association="ModelProveduria.EPRCN_MOVIMIENTO_TIPMOV_FK">
             <End Role="EPRTA_TIPO_MOVIMIENTO" EntitySet="EPRTA_TIPO_MOVIMIENTO" />
             <End Role="EPRTA_MOVIMIENTO" EntitySet="EPRTA_MOVIMIENTO" />
@@ -473,86 +477,19 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
             <End Role="EPRTA_TIPO_MOVIMIENTO" EntitySet="EPRTA_TIPO_MOVIMIENTO" />
             <End Role="EPRTA_SECUENCIA" EntitySet="EPRTA_SECUENCIA" />
           </AssociationSet>
+          <EntitySet Name="VW_DEPARTAMENTO" EntityType="ModelProveduria.VW_DEPARTAMENTO" />
+          <EntitySet Name="VW_EMPLEADO" EntityType="ModelProveduria.VW_EMPLEADO" />
           <EntitySet Name="VW_ORDEN_COMPRA" EntityType="ModelProveduria.VW_ORDEN_COMPRA" />
           <EntitySet Name="VW_ORDEN_COMPRA_DETALLE" EntityType="ModelProveduria.VW_ORDEN_COMPRA_DETALLE" />
-          <AssociationSet Name="VW_ORDEN_COMPRAVW_ORDEN_COMPRA_DETALLE" Association="ModelProveduria.VW_ORDEN_COMPRAVW_ORDEN_COMPRA_DETALLE">
-            <End Role="VW_ORDEN_COMPRA" EntitySet="VW_ORDEN_COMPRA" />
-            <End Role="VW_ORDEN_COMPRA_DETALLE" EntitySet="VW_ORDEN_COMPRA_DETALLE" />
-          </AssociationSet>
           <AssociationSet Name="EPRTA_ITEMVW_ORDEN_COMPRA_DETALLE" Association="ModelProveduria.EPRTA_ITEMVW_ORDEN_COMPRA_DETALLE">
             <End Role="EPRTA_ITEM" EntitySet="EPRTA_ITEM" />
             <End Role="VW_ORDEN_COMPRA_DETALLE" EntitySet="VW_ORDEN_COMPRA_DETALLE" />
           </AssociationSet>
+          <AssociationSet Name="VW_ORDEN_COMPRAVW_ORDEN_COMPRA_DETALLE" Association="ModelProveduria.VW_ORDEN_COMPRAVW_ORDEN_COMPRA_DETALLE">
+            <End Role="VW_ORDEN_COMPRA" EntitySet="VW_ORDEN_COMPRA" />
+            <End Role="VW_ORDEN_COMPRA_DETALLE" EntitySet="VW_ORDEN_COMPRA_DETALLE" />
+          </AssociationSet>
         </EntityContainer>
-        <EntityType Name="EPRTA_MOVIMIENTO">
-          <Key>
-            <PropertyRef Name="ID_MOVIMIENTO" />
-          </Key>
-          <Property Name="ID_MOVIMIENTO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ANIO" Type="Int16" Nullable="false" />
-          <Property Name="NUMERO_MOVIMIENTO" Type="Int32" Nullable="false" />
-          <Property Name="ID_TIPO_MOVIMIENTO" Type="Byte" Nullable="false" />
-          <Property Name="OBSERVACION" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="ID_BODEGA" Type="Byte" Nullable="false" />
-          <Property Name="USUARIO_APRUEBA" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="USUARIO_AUTORIZA" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="USUARIO_SOLICITA" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="ID_DEPARTAMENTO_SOLICITA" Type="Byte" />
-          <Property Name="FECHA_SOLICITUD" Type="DateTime" />
-          <Property Name="FECHA_AUTORIZACION" Type="DateTime" />
-          <Property Name="FECHA_APROBACION" Type="DateTime" />
-          <Property Name="USUARIO_ANULA" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="FECHA_ANULA" Type="DateTime" />
-          <Property Name="MOTIVO_ANULA" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="ID_MOVIMIENTO_RELACION" Type="Int32" />
-          <Property Name="ANIO_DOCUMENTO_REFERENCIA" Type="Int16" />
-          <Property Name="NUMERO_DOCUMENTO_REFERENCIA" Type="Int32" />
-          <NavigationProperty Name="EPRTA_MOVIMIENTO_DETALLE" Relationship="ModelProveduria.EPRCN_MOVDET_MOVIMIENTO_FK" FromRole="EPRTA_MOVIMIENTO" ToRole="EPRTA_MOVIMIENTO_DETALLE" />
-          <NavigationProperty Name="EPRTA_MOVIMIENTO1" Relationship="ModelProveduria.EPRCN_MOVIMIENTO_MOVIMIENTO_FK" FromRole="EPRTA_MOVIMIENTO" ToRole="EPRTA_MOVIMIENTO1" />
-          <NavigationProperty Name="EPRTA_MOVIMIENTO2" Relationship="ModelProveduria.EPRCN_MOVIMIENTO_MOVIMIENTO_FK" FromRole="EPRTA_MOVIMIENTO1" ToRole="EPRTA_MOVIMIENTO" />
-          <NavigationProperty Name="EPRTA_BODEGA" Relationship="ModelProveduria.EPRCN_MOVIMIENTO_BODEGA_FK" FromRole="EPRTA_MOVIMIENTO" ToRole="EPRTA_BODEGA" />
-          <NavigationProperty Name="EPRTA_TIPO_MOVIMIENTO" Relationship="ModelProveduria.EPRCN_MOVIMIENTO_TIPMOV_FK" FromRole="EPRTA_MOVIMIENTO" ToRole="EPRTA_TIPO_MOVIMIENTO" />
-        </EntityType>
-        <EntityType Name="EPRTA_MOVIMIENTO_DETALLE">
-          <Key>
-            <PropertyRef Name="ID_DETALLE" />
-          </Key>
-          <Property Name="ID_DETALLE" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ID_MOVIMIENTO" Type="Int32" Nullable="false" />
-          <Property Name="ID_ITEM" Type="Int32" Nullable="false" />
-          <Property Name="CANTIDAD_PEDIDO" Type="Int32" />
-          <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="IVA" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="OBSERVACION" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
-          <Property Name="DESCRIPCION_ADICIONAL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="EPRTA_MOVIMIENTO" Relationship="ModelProveduria.EPRCN_MOVDET_MOVIMIENTO_FK" FromRole="EPRTA_MOVIMIENTO_DETALLE" ToRole="EPRTA_MOVIMIENTO" />
-          <NavigationProperty Name="EPRTA_ITEM" Relationship="ModelProveduria.EPRCN_MOVDET_ITEM_FK" FromRole="EPRTA_MOVIMIENTO_DETALLE" ToRole="EPRTA_ITEM" />
-        </EntityType>
-        <Association Name="EPRCN_MOVDET_MOVIMIENTO_FK">
-          <End Type="ModelProveduria.EPRTA_MOVIMIENTO" Role="EPRTA_MOVIMIENTO" Multiplicity="1" />
-          <End Type="ModelProveduria.EPRTA_MOVIMIENTO_DETALLE" Role="EPRTA_MOVIMIENTO_DETALLE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EPRTA_MOVIMIENTO">
-              <PropertyRef Name="ID_MOVIMIENTO" />
-            </Principal>
-            <Dependent Role="EPRTA_MOVIMIENTO_DETALLE">
-              <PropertyRef Name="ID_MOVIMIENTO" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
-        <Association Name="EPRCN_MOVIMIENTO_MOVIMIENTO_FK">
-          <End Type="ModelProveduria.EPRTA_MOVIMIENTO" Role="EPRTA_MOVIMIENTO" Multiplicity="0..1" />
-          <End Type="ModelProveduria.EPRTA_MOVIMIENTO" Role="EPRTA_MOVIMIENTO1" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EPRTA_MOVIMIENTO">
-              <PropertyRef Name="ID_MOVIMIENTO" />
-            </Principal>
-            <Dependent Role="EPRTA_MOVIMIENTO1">
-              <PropertyRef Name="ID_MOVIMIENTO_RELACION" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         <EntityType Name="EPRTA_ARTICULO_BODEGA">
           <Key>
             <PropertyRef Name="ID_ARTIBODE" />
@@ -560,14 +497,14 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
           <Property Name="ID_ARTIBODE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_BODEGA" Type="Byte" Nullable="false" />
           <Property Name="ID_ITEM" Type="Int32" Nullable="false" />
-          <Property Name="CANTIDAD_MAXIMA" Type="Int32" />
-          <Property Name="CANTIDAD_ACTUAL" Type="Decimal" Precision="8" Scale="2" />
-          <Property Name="CANTIDAD_INICIO" Type="Decimal" Precision="8" Scale="2" />
-          <Property Name="CANTIDAD_CRITICA" Type="Int32" />
-          <Property Name="CANTIDAD_MINIMA" Type="Int32" />
-          <Property Name="CANTIDAD_BAJA" Type="Decimal" Precision="8" Scale="2" />
-          <Property Name="CANTIDAD_OC" Type="Int32" />
-          <Property Name="VALOR" Type="Decimal" Precision="9" Scale="3" />
+          <Property Name="COSTO_PROMEDIO" Type="Decimal" Precision="12" Scale="3" />
+          <Property Name="CANTIDAD_MAXIMA" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="CANTIDAD_ACTUAL" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="CANTIDAD_INICIO" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="CANTIDAD_CRITICA" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="CANTIDAD_MINIMA" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="CANTIDAD_BAJA" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="CANTIDAD_OC" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="UBICACION" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="EPRTA_ITEM" Relationship="ModelProveduria.EPRCN_ARTBOD_ITEM_FK" FromRole="EPRTA_ARTICULO_BODEGA" ToRole="EPRTA_ITEM" />
@@ -605,8 +542,8 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
           <Property Name="ID_MEDIDA" Type="Byte" Nullable="false" />
           <Property Name="FECHA_ULTIMO_INGRESO" Type="DateTime" />
           <Property Name="FECHA_ULTIMO_EGRESO" Type="DateTime" />
-          <Property Name="VALOR_ANTERIOR" Type="Decimal" Precision="17" Scale="3" />
-          <Property Name="VALOR_ACTUAL" Type="Decimal" Precision="17" Scale="3" />
+          <Property Name="COSTO_ANTERIOR" Type="Decimal" Precision="17" Scale="3" />
+          <Property Name="COSTO_ACTUAL" Type="Decimal" Precision="17" Scale="3" />
           <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="OBSERVACION" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="ID_GRUPO" Type="Byte" Nullable="false" />
@@ -624,6 +561,54 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
           <Property Name="NOMBRE" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
           <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="EPRTA_ITEM" Relationship="ModelProveduria.EPRCN_ITEM_MEDIDA_FK" FromRole="EPRTA_MEDIDA" ToRole="EPRTA_ITEM" />
+        </EntityType>
+        <EntityType Name="EPRTA_MOVIMIENTO">
+          <Key>
+            <PropertyRef Name="ID_MOVIMIENTO" />
+          </Key>
+          <Property Name="ID_MOVIMIENTO" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ANIO" Type="Int16" Nullable="false" />
+          <Property Name="NUMERO_MOVIMIENTO" Type="Int32" Nullable="false" />
+          <Property Name="ID_TIPO_MOVIMIENTO" Type="Byte" Nullable="false" />
+          <Property Name="OBSERVACION" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ID_BODEGA" Type="Byte" Nullable="false" />
+          <Property Name="USUARIO_APRUEBA" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="USUARIO_AUTORIZA" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="USUARIO_SOLICITA" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ID_DEPARTAMENTO_SOLICITA" Type="Byte" />
+          <Property Name="FECHA_SOLICITUD" Type="DateTime" />
+          <Property Name="FECHA_AUTORIZACION" Type="DateTime" />
+          <Property Name="FECHA_APROBACION" Type="DateTime" />
+          <Property Name="USUARIO_ANULA" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_ANULA" Type="DateTime" />
+          <Property Name="MOTIVO_ANULA" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="ID_MOVIMIENTO_RELACION" Type="Int32" />
+          <Property Name="ANIO_DOCUMENTO_REFERENCIA" Type="Int16" />
+          <Property Name="NUMERO_DOCUMENTO_REFERENCIA" Type="Int32" />
+          <NavigationProperty Name="EPRTA_BODEGA" Relationship="ModelProveduria.EPRCN_MOVIMIENTO_BODEGA_FK" FromRole="EPRTA_MOVIMIENTO" ToRole="EPRTA_BODEGA" />
+          <NavigationProperty Name="EPRTA_MOVIMIENTO_DETALLE" Relationship="ModelProveduria.EPRCN_MOVDET_MOVIMIENTO_FK" FromRole="EPRTA_MOVIMIENTO" ToRole="EPRTA_MOVIMIENTO_DETALLE" />
+          <NavigationProperty Name="EPRTA_MOVIMIENTO1" Relationship="ModelProveduria.EPRCN_MOVIMIENTO_MOVIMIENTO_FK" FromRole="EPRTA_MOVIMIENTO" ToRole="EPRTA_MOVIMIENTO1" />
+          <NavigationProperty Name="EPRTA_MOVIMIENTO2" Relationship="ModelProveduria.EPRCN_MOVIMIENTO_MOVIMIENTO_FK" FromRole="EPRTA_MOVIMIENTO1" ToRole="EPRTA_MOVIMIENTO" />
+          <NavigationProperty Name="EPRTA_TIPO_MOVIMIENTO" Relationship="ModelProveduria.EPRCN_MOVIMIENTO_TIPMOV_FK" FromRole="EPRTA_MOVIMIENTO" ToRole="EPRTA_TIPO_MOVIMIENTO" />
+        </EntityType>
+        <EntityType Name="EPRTA_MOVIMIENTO_DETALLE">
+          <Key>
+            <PropertyRef Name="ID_DETALLE" />
+          </Key>
+          <Property Name="ID_DETALLE" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_MOVIMIENTO" Type="Int32" Nullable="false" />
+          <Property Name="ID_ITEM" Type="Int32" Nullable="false" />
+          <Property Name="COSTO_ACTUAL" Type="Decimal" Precision="12" Scale="3" />
+          <Property Name="STOCK_ACTUAL" Type="Decimal" Precision="12" Scale="3" />
+          <Property Name="COSTO_MOVIMIENTO" Type="Decimal" Precision="12" Scale="3" />
+          <Property Name="CANTIDAD_MOVIMIENTO" Type="Decimal" Precision="10" Scale="2" />
+          <Property Name="OBSERVACION" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+          <Property Name="DESCRIPCION_ADICIONAL" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="CANTIDAD_NUEVO_STOCK" Type="Decimal" Precision="12" Scale="3" />
+          <NavigationProperty Name="EPRTA_ITEM" Relationship="ModelProveduria.EPRCN_MOVDET_ITEM_FK" FromRole="EPRTA_MOVIMIENTO_DETALLE" ToRole="EPRTA_ITEM" />
+          <NavigationProperty Name="EPRTA_MOVIMIENTO" Relationship="ModelProveduria.EPRCN_MOVDET_MOVIMIENTO_FK" FromRole="EPRTA_MOVIMIENTO_DETALLE" ToRole="EPRTA_MOVIMIENTO" />
         </EntityType>
         <EntityType Name="EPRTA_SECUENCIA">
           <Key>
@@ -647,36 +632,6 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
           <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="EPRTA_MOVIMIENTO" Relationship="ModelProveduria.EPRCN_MOVIMIENTO_TIPMOV_FK" FromRole="EPRTA_TIPO_MOVIMIENTO" ToRole="EPRTA_MOVIMIENTO" />
           <NavigationProperty Name="EPRTA_SECUENCIA" Relationship="ModelProveduria.EPRCN_SECUENCIA_TIPMOV_FK" FromRole="EPRTA_TIPO_MOVIMIENTO" ToRole="EPRTA_SECUENCIA" />
-        </EntityType>
-        <EntityType Name="VW_DEPARTAMENTO">
-          <Key>
-            <PropertyRef Name="CODIGO" />
-          </Key>
-          <Property Name="DIRECCION" Type="Int16" Nullable="false" />
-          <Property Name="CODIGO" Type="Byte" Nullable="false" />
-          <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
-          <Property Name="SIGLA" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
-          <Property Name="CARGO" Type="Int32" />
-        </EntityType>
-        <EntityType Name="VW_EMPLEADO">
-          <Key>
-            <PropertyRef Name="CODIGO" />
-          </Key>
-          <Property Name="CODIGO" Type="Int32" Nullable="false" />
-          <Property Name="CEDULA" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="EMPLEADO" Type="String" MaxLength="123" FixedLength="false" Unicode="false" />
-          <Property Name="GRADO_ID" Type="Int32" />
-          <Property Name="GRADO" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
-          <Property Name="CARGO_ID" Type="Int32" />
-          <Property Name="CARGO" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
-          <Property Name="DEPARTAMENTO_ID" Type="Byte" />
-          <Property Name="DEPARTAMENTO" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="USUARIO_JEFE_DEPARTAMENTO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="DIRECCION_ID" Type="Int16" />
-          <Property Name="DIRECCION" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
-          <Property Name="USUARIO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
         </EntityType>
         <Association Name="EPRCN_ARTBOD_ITEM_FK">
           <End Type="ModelProveduria.EPRTA_ITEM" Role="EPRTA_ITEM" Multiplicity="1" />
@@ -754,6 +709,30 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <Association Name="EPRCN_MOVDET_MOVIMIENTO_FK">
+          <End Type="ModelProveduria.EPRTA_MOVIMIENTO" Role="EPRTA_MOVIMIENTO" Multiplicity="1" />
+          <End Type="ModelProveduria.EPRTA_MOVIMIENTO_DETALLE" Role="EPRTA_MOVIMIENTO_DETALLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EPRTA_MOVIMIENTO">
+              <PropertyRef Name="ID_MOVIMIENTO" />
+            </Principal>
+            <Dependent Role="EPRTA_MOVIMIENTO_DETALLE">
+              <PropertyRef Name="ID_MOVIMIENTO" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="EPRCN_MOVIMIENTO_MOVIMIENTO_FK">
+          <End Type="ModelProveduria.EPRTA_MOVIMIENTO" Role="EPRTA_MOVIMIENTO" Multiplicity="0..1" />
+          <End Type="ModelProveduria.EPRTA_MOVIMIENTO" Role="EPRTA_MOVIMIENTO1" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EPRTA_MOVIMIENTO">
+              <PropertyRef Name="ID_MOVIMIENTO" />
+            </Principal>
+            <Dependent Role="EPRTA_MOVIMIENTO1">
+              <PropertyRef Name="ID_MOVIMIENTO_RELACION" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="EPRCN_MOVIMIENTO_TIPMOV_FK">
           <End Type="ModelProveduria.EPRTA_TIPO_MOVIMIENTO" Role="EPRTA_TIPO_MOVIMIENTO" Multiplicity="1" />
           <End Type="ModelProveduria.EPRTA_MOVIMIENTO" Role="EPRTA_MOVIMIENTO" Multiplicity="*" />
@@ -778,6 +757,36 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="VW_DEPARTAMENTO">
+          <Key>
+            <PropertyRef Name="CODIGO" />
+          </Key>
+          <Property Name="DIRECCION" Type="Int16" Nullable="false" />
+          <Property Name="CODIGO" Type="Byte" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="SIGLA" Type="String" MaxLength="7" FixedLength="false" Unicode="false" />
+          <Property Name="CARGO" Type="Int32" />
+        </EntityType>
+        <EntityType Name="VW_EMPLEADO">
+          <Key>
+            <PropertyRef Name="CODIGO" />
+          </Key>
+          <Property Name="CODIGO" Type="Int32" Nullable="false" />
+          <Property Name="CEDULA" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="EMPLEADO" Type="String" MaxLength="123" FixedLength="false" Unicode="false" />
+          <Property Name="GRADO_ID" Type="Int32" />
+          <Property Name="GRADO" Type="String" Nullable="false" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="CARGO_ID" Type="Int32" />
+          <Property Name="CARGO" Type="String" Nullable="false" MaxLength="80" FixedLength="false" Unicode="false" />
+          <Property Name="DEPARTAMENTO_ID" Type="Byte" />
+          <Property Name="DEPARTAMENTO" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="USUARIO_JEFE_DEPARTAMENTO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="DIRECCION_ID" Type="Int16" />
+          <Property Name="DIRECCION" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="USUARIO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+        </EntityType>
         <EntityType Name="VW_ORDEN_COMPRA">
           <Key>
             <PropertyRef Name="ANIO" />
@@ -802,9 +811,22 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
           <Property Name="ID_ITEM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CANTIDAD_PEDIDA" Type="Int32" />
           <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
-          <NavigationProperty Name="VW_ORDEN_COMPRA" Relationship="ModelProveduria.VW_ORDEN_COMPRAVW_ORDEN_COMPRA_DETALLE" FromRole="VW_ORDEN_COMPRA_DETALLE" ToRole="VW_ORDEN_COMPRA" />
+          <Property Name="VALOR_UNITARIO" Type="Decimal" Precision="38" Scale="0" />
           <NavigationProperty Name="EPRTA_ITEM" Relationship="ModelProveduria.EPRTA_ITEMVW_ORDEN_COMPRA_DETALLE" FromRole="VW_ORDEN_COMPRA_DETALLE" ToRole="EPRTA_ITEM" />
+          <NavigationProperty Name="VW_ORDEN_COMPRA" Relationship="ModelProveduria.VW_ORDEN_COMPRAVW_ORDEN_COMPRA_DETALLE" FromRole="VW_ORDEN_COMPRA_DETALLE" ToRole="VW_ORDEN_COMPRA" />
         </EntityType>
+        <Association Name="EPRTA_ITEMVW_ORDEN_COMPRA_DETALLE">
+          <End Type="ModelProveduria.EPRTA_ITEM" Role="EPRTA_ITEM" Multiplicity="1" />
+          <End Type="ModelProveduria.VW_ORDEN_COMPRA_DETALLE" Role="VW_ORDEN_COMPRA_DETALLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="EPRTA_ITEM">
+              <PropertyRef Name="ID_ITEM" />
+            </Principal>
+            <Dependent Role="VW_ORDEN_COMPRA_DETALLE">
+              <PropertyRef Name="ID_ITEM" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="VW_ORDEN_COMPRAVW_ORDEN_COMPRA_DETALLE">
           <End Type="ModelProveduria.VW_ORDEN_COMPRA" Role="VW_ORDEN_COMPRA" Multiplicity="1" />
           <End Type="ModelProveduria.VW_ORDEN_COMPRA_DETALLE" Role="VW_ORDEN_COMPRA_DETALLE" Multiplicity="*" />
@@ -819,70 +841,17 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="EPRTA_ITEMVW_ORDEN_COMPRA_DETALLE">
-          <End Type="ModelProveduria.EPRTA_ITEM" Role="EPRTA_ITEM" Multiplicity="1" />
-          <End Type="ModelProveduria.VW_ORDEN_COMPRA_DETALLE" Role="VW_ORDEN_COMPRA_DETALLE" Multiplicity="*" />
-          <ReferentialConstraint>
-            <Principal Role="EPRTA_ITEM">
-              <PropertyRef Name="ID_ITEM" />
-            </Principal>
-            <Dependent Role="VW_ORDEN_COMPRA_DETALLE">
-              <PropertyRef Name="ID_ITEM" />
-            </Dependent>
-          </ReferentialConstraint>
-        </Association>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
     <edmx:Mappings>
       <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
         <EntityContainerMapping StorageEntityContainer="ModelProveduriaStoreContainer" CdmEntityContainer="EntitiesProveduria" >
-          <EntitySetMapping Name="EPRTA_MOVIMIENTO">
-            <EntityTypeMapping TypeName="ModelProveduria.EPRTA_MOVIMIENTO">
-              <MappingFragment StoreEntitySet="EPRTA_MOVIMIENTO">
-                <ScalarProperty Name="NUMERO_DOCUMENTO_REFERENCIA" ColumnName="NUMERO_DOCUMENTO_REFERENCIA" />
-                <ScalarProperty Name="ANIO_DOCUMENTO_REFERENCIA" ColumnName="ANIO_DOCUMENTO_REFERENCIA" />
-                <ScalarProperty Name="ID_MOVIMIENTO_RELACION" ColumnName="ID_MOVIMIENTO_RELACION" />
-                <ScalarProperty Name="MOTIVO_ANULA" ColumnName="MOTIVO_ANULA" />
-                <ScalarProperty Name="FECHA_ANULA" ColumnName="FECHA_ANULA" />
-                <ScalarProperty Name="USUARIO_ANULA" ColumnName="USUARIO_ANULA" />
-                <ScalarProperty Name="FECHA_APROBACION" ColumnName="FECHA_APROBACION" />
-                <ScalarProperty Name="FECHA_AUTORIZACION" ColumnName="FECHA_AUTORIZACION" />
-                <ScalarProperty Name="FECHA_SOLICITUD" ColumnName="FECHA_SOLICITUD" />
-                <ScalarProperty Name="ID_DEPARTAMENTO_SOLICITA" ColumnName="ID_DEPARTAMENTO_SOLICITA" />
-                <ScalarProperty Name="USUARIO_SOLICITA" ColumnName="USUARIO_SOLICITA" />
-                <ScalarProperty Name="USUARIO_AUTORIZA" ColumnName="USUARIO_AUTORIZA" />
-                <ScalarProperty Name="USUARIO_APRUEBA" ColumnName="USUARIO_APRUEBA" />
-                <ScalarProperty Name="ID_BODEGA" ColumnName="ID_BODEGA" />
-                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
-                <ScalarProperty Name="OBSERVACION" ColumnName="OBSERVACION" />
-                <ScalarProperty Name="ID_TIPO_MOVIMIENTO" ColumnName="ID_TIPO_MOVIMIENTO" />
-                <ScalarProperty Name="NUMERO_MOVIMIENTO" ColumnName="NUMERO_MOVIMIENTO" />
-                <ScalarProperty Name="ANIO" ColumnName="ANIO" />
-                <ScalarProperty Name="ID_MOVIMIENTO" ColumnName="ID_MOVIMIENTO" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
-          <EntitySetMapping Name="EPRTA_MOVIMIENTO_DETALLE">
-            <EntityTypeMapping TypeName="ModelProveduria.EPRTA_MOVIMIENTO_DETALLE">
-              <MappingFragment StoreEntitySet="EPRTA_MOVIMIENTO_DETALLE">
-                <ScalarProperty Name="DESCRIPCION_ADICIONAL" ColumnName="DESCRIPCION_ADICIONAL" />
-                <ScalarProperty Name="OBSERVACION" ColumnName="OBSERVACION" />
-                <ScalarProperty Name="IVA" ColumnName="IVA" />
-                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
-                <ScalarProperty Name="CANTIDAD_PEDIDO" ColumnName="CANTIDAD_PEDIDO" />
-                <ScalarProperty Name="ID_ITEM" ColumnName="ID_ITEM" />
-                <ScalarProperty Name="ID_MOVIMIENTO" ColumnName="ID_MOVIMIENTO" />
-                <ScalarProperty Name="ID_DETALLE" ColumnName="ID_DETALLE" />
-              </MappingFragment>
-            </EntityTypeMapping>
-          </EntitySetMapping>
           <EntitySetMapping Name="EPRTA_ARTICULO_BODEGA">
             <EntityTypeMapping TypeName="ModelProveduria.EPRTA_ARTICULO_BODEGA">
               <MappingFragment StoreEntitySet="EPRTA_ARTICULO_BODEGA">
                 <ScalarProperty Name="UBICACION" ColumnName="UBICACION" />
                 <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
-                <ScalarProperty Name="VALOR" ColumnName="VALOR" />
                 <ScalarProperty Name="CANTIDAD_OC" ColumnName="CANTIDAD_OC" />
                 <ScalarProperty Name="CANTIDAD_BAJA" ColumnName="CANTIDAD_BAJA" />
                 <ScalarProperty Name="CANTIDAD_MINIMA" ColumnName="CANTIDAD_MINIMA" />
@@ -890,6 +859,7 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
                 <ScalarProperty Name="CANTIDAD_INICIO" ColumnName="CANTIDAD_INICIO" />
                 <ScalarProperty Name="CANTIDAD_ACTUAL" ColumnName="CANTIDAD_ACTUAL" />
                 <ScalarProperty Name="CANTIDAD_MAXIMA" ColumnName="CANTIDAD_MAXIMA" />
+                <ScalarProperty Name="COSTO_PROMEDIO" ColumnName="COSTO_PROMEDIO" />
                 <ScalarProperty Name="ID_ITEM" ColumnName="ID_ITEM" />
                 <ScalarProperty Name="ID_BODEGA" ColumnName="ID_BODEGA" />
                 <ScalarProperty Name="ID_ARTIBODE" ColumnName="ID_ARTIBODE" />
@@ -923,8 +893,8 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
                 <ScalarProperty Name="ID_GRUPO" ColumnName="ID_GRUPO" />
                 <ScalarProperty Name="OBSERVACION" ColumnName="OBSERVACION" />
                 <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
-                <ScalarProperty Name="VALOR_ACTUAL" ColumnName="VALOR_ACTUAL" />
-                <ScalarProperty Name="VALOR_ANTERIOR" ColumnName="VALOR_ANTERIOR" />
+                <ScalarProperty Name="COSTO_ACTUAL" ColumnName="COSTO_ACTUAL" />
+                <ScalarProperty Name="COSTO_ANTERIOR" ColumnName="COSTO_ANTERIOR" />
                 <ScalarProperty Name="FECHA_ULTIMO_EGRESO" ColumnName="FECHA_ULTIMO_EGRESO" />
                 <ScalarProperty Name="FECHA_ULTIMO_INGRESO" ColumnName="FECHA_ULTIMO_INGRESO" />
                 <ScalarProperty Name="ID_MEDIDA" ColumnName="ID_MEDIDA" />
@@ -940,6 +910,49 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
                 <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
                 <ScalarProperty Name="NOMBRE" ColumnName="NOMBRE" />
                 <ScalarProperty Name="ID_MEDIDA" ColumnName="ID_MEDIDA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EPRTA_MOVIMIENTO">
+            <EntityTypeMapping TypeName="ModelProveduria.EPRTA_MOVIMIENTO">
+              <MappingFragment StoreEntitySet="EPRTA_MOVIMIENTO">
+                <ScalarProperty Name="NUMERO_DOCUMENTO_REFERENCIA" ColumnName="NUMERO_DOCUMENTO_REFERENCIA" />
+                <ScalarProperty Name="ANIO_DOCUMENTO_REFERENCIA" ColumnName="ANIO_DOCUMENTO_REFERENCIA" />
+                <ScalarProperty Name="ID_MOVIMIENTO_RELACION" ColumnName="ID_MOVIMIENTO_RELACION" />
+                <ScalarProperty Name="MOTIVO_ANULA" ColumnName="MOTIVO_ANULA" />
+                <ScalarProperty Name="FECHA_ANULA" ColumnName="FECHA_ANULA" />
+                <ScalarProperty Name="USUARIO_ANULA" ColumnName="USUARIO_ANULA" />
+                <ScalarProperty Name="FECHA_APROBACION" ColumnName="FECHA_APROBACION" />
+                <ScalarProperty Name="FECHA_AUTORIZACION" ColumnName="FECHA_AUTORIZACION" />
+                <ScalarProperty Name="FECHA_SOLICITUD" ColumnName="FECHA_SOLICITUD" />
+                <ScalarProperty Name="ID_DEPARTAMENTO_SOLICITA" ColumnName="ID_DEPARTAMENTO_SOLICITA" />
+                <ScalarProperty Name="USUARIO_SOLICITA" ColumnName="USUARIO_SOLICITA" />
+                <ScalarProperty Name="USUARIO_AUTORIZA" ColumnName="USUARIO_AUTORIZA" />
+                <ScalarProperty Name="USUARIO_APRUEBA" ColumnName="USUARIO_APRUEBA" />
+                <ScalarProperty Name="ID_BODEGA" ColumnName="ID_BODEGA" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="OBSERVACION" ColumnName="OBSERVACION" />
+                <ScalarProperty Name="ID_TIPO_MOVIMIENTO" ColumnName="ID_TIPO_MOVIMIENTO" />
+                <ScalarProperty Name="NUMERO_MOVIMIENTO" ColumnName="NUMERO_MOVIMIENTO" />
+                <ScalarProperty Name="ANIO" ColumnName="ANIO" />
+                <ScalarProperty Name="ID_MOVIMIENTO" ColumnName="ID_MOVIMIENTO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EPRTA_MOVIMIENTO_DETALLE">
+            <EntityTypeMapping TypeName="ModelProveduria.EPRTA_MOVIMIENTO_DETALLE">
+              <MappingFragment StoreEntitySet="EPRTA_MOVIMIENTO_DETALLE">
+                <ScalarProperty Name="CANTIDAD_NUEVO_STOCK" ColumnName="CANTIDAD_NUEVO_STOCK" />
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="DESCRIPCION_ADICIONAL" ColumnName="DESCRIPCION_ADICIONAL" />
+                <ScalarProperty Name="OBSERVACION" ColumnName="OBSERVACION" />
+                <ScalarProperty Name="CANTIDAD_MOVIMIENTO" ColumnName="CANTIDAD_MOVIMIENTO" />
+                <ScalarProperty Name="COSTO_MOVIMIENTO" ColumnName="COSTO_MOVIMIENTO" />
+                <ScalarProperty Name="STOCK_ACTUAL" ColumnName="STOCK_ACTUAL" />
+                <ScalarProperty Name="COSTO_ACTUAL" ColumnName="COSTO_ACTUAL" />
+                <ScalarProperty Name="ID_ITEM" ColumnName="ID_ITEM" />
+                <ScalarProperty Name="ID_MOVIMIENTO" ColumnName="ID_MOVIMIENTO" />
+                <ScalarProperty Name="ID_DETALLE" ColumnName="ID_DETALLE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
@@ -1010,6 +1023,7 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
           <EntitySetMapping Name="VW_ORDEN_COMPRA_DETALLE">
             <EntityTypeMapping TypeName="ModelProveduria.VW_ORDEN_COMPRA_DETALLE">
               <MappingFragment StoreEntitySet="VW_ORDEN_COMPRA_DETALLE">
+                <ScalarProperty Name="VALOR_UNITARIO" ColumnName="VALOR_UNITARIO" />
                 <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
                 <ScalarProperty Name="CANTIDAD_PEDIDA" ColumnName="CANTIDAD_PEDIDA" />
                 <ScalarProperty Name="ID_ITEM" ColumnName="ID_ITEM" />

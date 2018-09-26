@@ -28,8 +28,8 @@ namespace Proveduria.Models
         public byte ID_MEDIDA { get; set; }
         public Nullable<System.DateTime> FECHA_ULTIMO_INGRESO { get; set; }
         public Nullable<System.DateTime> FECHA_ULTIMO_EGRESO { get; set; }
-        public Nullable<decimal> VALOR_ANTERIOR { get; set; }
-        public Nullable<decimal> VALOR_ACTUAL { get; set; }
+        public Nullable<decimal> COSTO_ANTERIOR { get; set; }
+        public Nullable<decimal> COSTO_ACTUAL { get; set; }
         public string ESTADO { get; set; }
         public string OBSERVACION { get; set; }
         public byte ID_GRUPO { get; set; }
