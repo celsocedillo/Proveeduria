@@ -135,37 +135,40 @@
                 <thead>
                     <tr>
                         <th>
+                            Id
+                        </th>
+                        <th>
                             Bodega
                         </th>
-                        <th>
-                            Cant.Maxima
-                        </th>
-                        <th>
+                        <th style="width:100px;">
                             Cant.Actual
                         </th>
-                        <th>
-                            Cant.Inicio
-                        </th>
-                        <th>
+                        <th style="width:100px;">
                             Cant.Critica
                         </th>
-                        <th>
+                        <th style="width:100px;">
+                            Cant.Maxima
+                        </th>
+                        <th style="width:100px;">
                             Cant.Minima
+                        </th>
+                        <th style="width:100px;">
+                            Cant.Inicio
                         </th>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach (var item in Model.EPRTA_ARTICULO_BODEGA)
+                    @*@foreach (var item in Model.EPRTA_ARTICULO_BODEGA)
             {
                 <tr>
                     <td>
                         @Html.DisplayFor(modelItem => item.EPRTA_BODEGA.NOMBRE)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.CANTIDAD_MAXIMA)
+                        @Html.DisplayFor(modelItem => item.CANTIDAD_ACTUAL)
                     </td>
                     <td>
-                        @Html.DisplayFor(modelItem => item.CANTIDAD_ACTUAL)
+                        @Html.DisplayFor(modelItem => item.CANTIDAD_MAXIMA)
                     </td>
                     <td>
                         @Html.DisplayFor(modelItem => item.CANTIDAD_INICIO)
@@ -176,7 +179,7 @@
                     <td>
                         @Html.DisplayFor(modelItem => item.CANTIDAD_MINIMA)
                     </td>
-                </tr>}
+                </tr>}*@
                 </tbody>
             </table>
         </div>
@@ -201,6 +204,27 @@
 }
 
         var item = @Html.Raw(Json.Encode(item))*@
+
+        @{ 
+            var tmp = (from p in Model.EPRTA_ARTICULO_BODEGA
+                       select new
+                       {
+                           p.ID_ARTIBODE,
+                           p.ID_BODEGA,
+                           p.ID_ITEM,
+                           BODEGA_NOMBRE = p.EPRTA_BODEGA.NOMBRE,
+                           p.ESTADO,
+                           p.CANTIDAD_ACTUAL,
+                           p.CANTIDAD_BAJA,
+                           p.CANTIDAD_CRITICA,
+                           p.CANTIDAD_INICIO,
+                           p.CANTIDAD_MINIMA,
+                           p.CANTIDAD_MAXIMA,
+                           p.CANTIDAD_OC
+                       });
+        }
+
+        var lstock_bodega = @Html.Raw(Json.Encode(tmp));
         $(document).ready(function () {
                 Item.init();
 

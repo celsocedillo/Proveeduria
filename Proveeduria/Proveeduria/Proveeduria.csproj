@@ -194,6 +194,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BodegaController.cs" />
+    <Compile Include="Controllers\ConfiguracionController.cs" />
     <Compile Include="Controllers\ConsultaController.cs" />
     <Compile Include="Controllers\GrupoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -6958,6 +6959,7 @@
     <Content Include="Scripts\App\ListaSolicitud.js" />
     <Content Include="Scripts\App\Medida.js" />
     <Content Include="Scripts\App\Movimiento.js" />
+    <Content Include="Scripts\App\Parametros.js" />
     <Content Include="Scripts\App\Solicitud.js" />
     <Content Include="Scripts\App\TipoMovimiento.js" />
     <Content Include="Scripts\App\Util.js" />
@@ -7506,6 +7508,7 @@
     <Content Include="Views\Consulta\PuntoReOrden.cshtml" />
     <Content Include="Views\Account\LogOn.cshtml" />
     <Content Include="Views\Shared\_LayoutLogin.cshtml" />
+    <Content Include="Views\Configuracion\Parametros.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
