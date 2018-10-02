@@ -17,14 +17,14 @@ namespace Proveduria.Models
         public int ID_ARTIBODE { get; set; }
         public byte ID_BODEGA { get; set; }
         public int ID_ITEM { get; set; }
-        public Nullable<int> CANTIDAD_MAXIMA { get; set; }
+        public Nullable<decimal> COSTO_PROMEDIO { get; set; }
+        public Nullable<decimal> CANTIDAD_MAXIMA { get; set; }
         public Nullable<decimal> CANTIDAD_ACTUAL { get; set; }
         public Nullable<decimal> CANTIDAD_INICIO { get; set; }
-        public Nullable<int> CANTIDAD_CRITICA { get; set; }
-        public Nullable<int> CANTIDAD_MINIMA { get; set; }
+        public Nullable<decimal> CANTIDAD_CRITICA { get; set; }
+        public Nullable<decimal> CANTIDAD_MINIMA { get; set; }
         public Nullable<decimal> CANTIDAD_BAJA { get; set; }
-        public Nullable<int> CANTIDAD_OC { get; set; }
-        public Nullable<decimal> VALOR { get; set; }
+        public Nullable<decimal> CANTIDAD_OC { get; set; }
         public string ESTADO { get; set; }
         public string UBICACION { get; set; }
     

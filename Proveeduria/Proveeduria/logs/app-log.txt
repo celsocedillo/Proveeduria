@@ -1,3 +1,4 @@
+<<<<<<< HEAD
      ---------------------------- Error(2018-10-01 11:47:32.2411) --------------------------    
               Machine Name  : MSANCAN2
    
@@ -6481,6 +6482,53 @@ Nombre del parámetro: s
         
               Additional Info  : Referencia a cadena no establecida como una instancia de cadena.
 Nombre del parámetro: s  
+=======
+     ---------------------------- Error(2018-10-02 10:03:29.5768) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 298 
+ 
+              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 298
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-10-02 10:26:25.0817) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 298 
+ 
+              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 298
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-10-02 10:27:09.6052) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 298 
+ 
+              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 298
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+>>>>>>> 7c0aa9ba96e3c23353aba282a5e277f28fc1dcfa
               -------------------------------------------------------------------
               ----------     
      

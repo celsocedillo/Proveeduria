@@ -36,8 +36,9 @@ namespace Proveduria.Controllers
             try
             {
                 EPRTA_TIPO_MOVIMIENTO tipomov = unitOfWork.TipoMovimientoRepository.GetById(pid);
+                var tmp = new { tipomov.ID_TIPO_MOVIMIENTO, tipomov.NOMBRE, tipomov.INGRESO_EGRESO, tipomov.ESTADO};
                 retorno.Add("resultado", "success");
-                retorno.Add("data", JObject.FromObject(tipomov));
+                retorno.Add("data", JObject.FromObject(tmp)); 
                 //return Json(new { resultado = "success", data = new { tipomov.ID_TIPO_MOVIMIENTO, tipomov.NOMBRE, tipomov.INGRESO_EGRESO, tipomov.ESTADO }, mensaje = "" });
 
             }

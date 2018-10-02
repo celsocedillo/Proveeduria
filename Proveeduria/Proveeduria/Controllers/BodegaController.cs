@@ -29,7 +29,6 @@ namespace Proveduria.Controllers
         {
             List<EPRTA_BODEGA> lbodega = unitOfWork.BodegaRepository.GetAll().ToList();
             return View(lbodega);
-            //UJUJUJUJUJ
         }
 
         [HttpPost]

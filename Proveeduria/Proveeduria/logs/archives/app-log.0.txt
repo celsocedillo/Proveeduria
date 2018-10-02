@@ -1,3 +1,4 @@
+<<<<<<< HEAD
      ---------------------------- Error(2018-09-25 09:46:34.1530) --------------------------    
               Machine Name  : MSANCAN2
    
@@ -84,6 +85,19 @@ Nombre del parámetro: s
               Stack Trace   :    en System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
    en System.DateTime.Parse(String s)
    en Proveduria.Controllers.KardexController.ExportPdf(String inicio, String fin) en C:\emapag\GitHub\Proveeduria\Proveeduria\Proveeduria\Controllers\KardexController.cs:línea 123
+=======
+     ---------------------------- Error(2018-09-27 10:39:57.6626) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 45 
+ 
+              Stack Trace   :    en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 45
+>>>>>>> 7c0aa9ba96e3c23353aba282a5e277f28fc1dcfa
         
               Additional Info  : Referencia a cadena no establecida como una instancia de cadena.
 Nombre del parámetro: s  

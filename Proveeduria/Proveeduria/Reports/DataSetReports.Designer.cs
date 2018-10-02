@@ -24,19 +24,17 @@ namespace Proveduria.Reports {
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
     public partial class DataSetReports : global::System.Data.DataSet {
         
-        private SP_AJUSTE_BODEGADataTable tableSP_AJUSTE_BODEGA;
-        
         private SP_CORTE_INVENTARIODataTable tableSP_CORTE_INVENTARIO;
-        
-        private SP_EGRESO_BODEGADataTable tableSP_EGRESO_BODEGA;
         
         private SP_INGRESO_BODEGADataTable tableSP_INGRESO_BODEGA;
         
         private SP_MEDIDASDataTable tableSP_MEDIDAS;
         
+        private SP_AJUSTE_BODEGADataTable tableSP_AJUSTE_BODEGA;
+        
         private SP_REQUISICION_BODEGADataTable tableSP_REQUISICION_BODEGA;
         
-        private SP_KARDEXDataTable tableSP_KARDEX;
+        private SP_EGRESO_BODEGADataTable tableSP_EGRESO_BODEGA;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
@@ -66,14 +64,8 @@ namespace Proveduria.Reports {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["SP_AJUSTE_BODEGA"] != null)) {
-                    base.Tables.Add(new SP_AJUSTE_BODEGADataTable(ds.Tables["SP_AJUSTE_BODEGA"]));
-                }
                 if ((ds.Tables["SP_CORTE_INVENTARIO"] != null)) {
                     base.Tables.Add(new SP_CORTE_INVENTARIODataTable(ds.Tables["SP_CORTE_INVENTARIO"]));
-                }
-                if ((ds.Tables["SP_EGRESO_BODEGA"] != null)) {
-                    base.Tables.Add(new SP_EGRESO_BODEGADataTable(ds.Tables["SP_EGRESO_BODEGA"]));
                 }
                 if ((ds.Tables["SP_INGRESO_BODEGA"] != null)) {
                     base.Tables.Add(new SP_INGRESO_BODEGADataTable(ds.Tables["SP_INGRESO_BODEGA"]));
@@ -81,11 +73,14 @@ namespace Proveduria.Reports {
                 if ((ds.Tables["SP_MEDIDAS"] != null)) {
                     base.Tables.Add(new SP_MEDIDASDataTable(ds.Tables["SP_MEDIDAS"]));
                 }
+                if ((ds.Tables["SP_AJUSTE_BODEGA"] != null)) {
+                    base.Tables.Add(new SP_AJUSTE_BODEGADataTable(ds.Tables["SP_AJUSTE_BODEGA"]));
+                }
                 if ((ds.Tables["SP_REQUISICION_BODEGA"] != null)) {
                     base.Tables.Add(new SP_REQUISICION_BODEGADataTable(ds.Tables["SP_REQUISICION_BODEGA"]));
                 }
-                if ((ds.Tables["SP_KARDEX"] != null)) {
-                    base.Tables.Add(new SP_KARDEXDataTable(ds.Tables["SP_KARDEX"]));
+                if ((ds.Tables["SP_EGRESO_BODEGA"] != null)) {
+                    base.Tables.Add(new SP_EGRESO_BODEGADataTable(ds.Tables["SP_EGRESO_BODEGA"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -109,29 +104,9 @@ namespace Proveduria.Reports {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public SP_AJUSTE_BODEGADataTable SP_AJUSTE_BODEGA {
-            get {
-                return this.tableSP_AJUSTE_BODEGA;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public SP_CORTE_INVENTARIODataTable SP_CORTE_INVENTARIO {
             get {
                 return this.tableSP_CORTE_INVENTARIO;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Browsable(false)]
-        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public SP_EGRESO_BODEGADataTable SP_EGRESO_BODEGA {
-            get {
-                return this.tableSP_EGRESO_BODEGA;
             }
         }
         
@@ -159,6 +134,16 @@ namespace Proveduria.Reports {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
+        public SP_AJUSTE_BODEGADataTable SP_AJUSTE_BODEGA {
+            get {
+                return this.tableSP_AJUSTE_BODEGA;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Browsable(false)]
+        [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
         public SP_REQUISICION_BODEGADataTable SP_REQUISICION_BODEGA {
             get {
                 return this.tableSP_REQUISICION_BODEGA;
@@ -169,9 +154,9 @@ namespace Proveduria.Reports {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public SP_KARDEXDataTable SP_KARDEX {
+        public SP_EGRESO_BODEGADataTable SP_EGRESO_BODEGA {
             get {
-                return this.tableSP_KARDEX;
+                return this.tableSP_EGRESO_BODEGA;
             }
         }
         
@@ -242,14 +227,8 @@ namespace Proveduria.Reports {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["SP_AJUSTE_BODEGA"] != null)) {
-                    base.Tables.Add(new SP_AJUSTE_BODEGADataTable(ds.Tables["SP_AJUSTE_BODEGA"]));
-                }
                 if ((ds.Tables["SP_CORTE_INVENTARIO"] != null)) {
                     base.Tables.Add(new SP_CORTE_INVENTARIODataTable(ds.Tables["SP_CORTE_INVENTARIO"]));
-                }
-                if ((ds.Tables["SP_EGRESO_BODEGA"] != null)) {
-                    base.Tables.Add(new SP_EGRESO_BODEGADataTable(ds.Tables["SP_EGRESO_BODEGA"]));
                 }
                 if ((ds.Tables["SP_INGRESO_BODEGA"] != null)) {
                     base.Tables.Add(new SP_INGRESO_BODEGADataTable(ds.Tables["SP_INGRESO_BODEGA"]));
@@ -257,11 +236,14 @@ namespace Proveduria.Reports {
                 if ((ds.Tables["SP_MEDIDAS"] != null)) {
                     base.Tables.Add(new SP_MEDIDASDataTable(ds.Tables["SP_MEDIDAS"]));
                 }
+                if ((ds.Tables["SP_AJUSTE_BODEGA"] != null)) {
+                    base.Tables.Add(new SP_AJUSTE_BODEGADataTable(ds.Tables["SP_AJUSTE_BODEGA"]));
+                }
                 if ((ds.Tables["SP_REQUISICION_BODEGA"] != null)) {
                     base.Tables.Add(new SP_REQUISICION_BODEGADataTable(ds.Tables["SP_REQUISICION_BODEGA"]));
                 }
-                if ((ds.Tables["SP_KARDEX"] != null)) {
-                    base.Tables.Add(new SP_KARDEXDataTable(ds.Tables["SP_KARDEX"]));
+                if ((ds.Tables["SP_EGRESO_BODEGA"] != null)) {
+                    base.Tables.Add(new SP_EGRESO_BODEGADataTable(ds.Tables["SP_EGRESO_BODEGA"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -296,22 +278,10 @@ namespace Proveduria.Reports {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tableSP_AJUSTE_BODEGA = ((SP_AJUSTE_BODEGADataTable)(base.Tables["SP_AJUSTE_BODEGA"]));
-            if ((initTable == true)) {
-                if ((this.tableSP_AJUSTE_BODEGA != null)) {
-                    this.tableSP_AJUSTE_BODEGA.InitVars();
-                }
-            }
             this.tableSP_CORTE_INVENTARIO = ((SP_CORTE_INVENTARIODataTable)(base.Tables["SP_CORTE_INVENTARIO"]));
             if ((initTable == true)) {
                 if ((this.tableSP_CORTE_INVENTARIO != null)) {
                     this.tableSP_CORTE_INVENTARIO.InitVars();
-                }
-            }
-            this.tableSP_EGRESO_BODEGA = ((SP_EGRESO_BODEGADataTable)(base.Tables["SP_EGRESO_BODEGA"]));
-            if ((initTable == true)) {
-                if ((this.tableSP_EGRESO_BODEGA != null)) {
-                    this.tableSP_EGRESO_BODEGA.InitVars();
                 }
             }
             this.tableSP_INGRESO_BODEGA = ((SP_INGRESO_BODEGADataTable)(base.Tables["SP_INGRESO_BODEGA"]));
@@ -326,16 +296,22 @@ namespace Proveduria.Reports {
                     this.tableSP_MEDIDAS.InitVars();
                 }
             }
+            this.tableSP_AJUSTE_BODEGA = ((SP_AJUSTE_BODEGADataTable)(base.Tables["SP_AJUSTE_BODEGA"]));
+            if ((initTable == true)) {
+                if ((this.tableSP_AJUSTE_BODEGA != null)) {
+                    this.tableSP_AJUSTE_BODEGA.InitVars();
+                }
+            }
             this.tableSP_REQUISICION_BODEGA = ((SP_REQUISICION_BODEGADataTable)(base.Tables["SP_REQUISICION_BODEGA"]));
             if ((initTable == true)) {
                 if ((this.tableSP_REQUISICION_BODEGA != null)) {
                     this.tableSP_REQUISICION_BODEGA.InitVars();
                 }
             }
-            this.tableSP_KARDEX = ((SP_KARDEXDataTable)(base.Tables["SP_KARDEX"]));
+            this.tableSP_EGRESO_BODEGA = ((SP_EGRESO_BODEGADataTable)(base.Tables["SP_EGRESO_BODEGA"]));
             if ((initTable == true)) {
-                if ((this.tableSP_KARDEX != null)) {
-                    this.tableSP_KARDEX.InitVars();
+                if ((this.tableSP_EGRESO_BODEGA != null)) {
+                    this.tableSP_EGRESO_BODEGA.InitVars();
                 }
             }
         }
@@ -348,37 +324,23 @@ namespace Proveduria.Reports {
             this.Namespace = "http://tempuri.org/DataSetReports.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tableSP_AJUSTE_BODEGA = new SP_AJUSTE_BODEGADataTable();
-            base.Tables.Add(this.tableSP_AJUSTE_BODEGA);
             this.tableSP_CORTE_INVENTARIO = new SP_CORTE_INVENTARIODataTable();
             base.Tables.Add(this.tableSP_CORTE_INVENTARIO);
-            this.tableSP_EGRESO_BODEGA = new SP_EGRESO_BODEGADataTable();
-            base.Tables.Add(this.tableSP_EGRESO_BODEGA);
             this.tableSP_INGRESO_BODEGA = new SP_INGRESO_BODEGADataTable();
             base.Tables.Add(this.tableSP_INGRESO_BODEGA);
             this.tableSP_MEDIDAS = new SP_MEDIDASDataTable();
             base.Tables.Add(this.tableSP_MEDIDAS);
+            this.tableSP_AJUSTE_BODEGA = new SP_AJUSTE_BODEGADataTable();
+            base.Tables.Add(this.tableSP_AJUSTE_BODEGA);
             this.tableSP_REQUISICION_BODEGA = new SP_REQUISICION_BODEGADataTable();
             base.Tables.Add(this.tableSP_REQUISICION_BODEGA);
-            this.tableSP_KARDEX = new SP_KARDEXDataTable();
-            base.Tables.Add(this.tableSP_KARDEX);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializeSP_AJUSTE_BODEGA() {
-            return false;
+            this.tableSP_EGRESO_BODEGA = new SP_EGRESO_BODEGADataTable();
+            base.Tables.Add(this.tableSP_EGRESO_BODEGA);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private bool ShouldSerializeSP_CORTE_INVENTARIO() {
-            return false;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializeSP_EGRESO_BODEGA() {
             return false;
         }
         
@@ -396,13 +358,19 @@ namespace Proveduria.Reports {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private bool ShouldSerializeSP_AJUSTE_BODEGA() {
+            return false;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         private bool ShouldSerializeSP_REQUISICION_BODEGA() {
             return false;
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private bool ShouldSerializeSP_KARDEX() {
+        private bool ShouldSerializeSP_EGRESO_BODEGA() {
             return false;
         }
         
@@ -462,13 +430,7 @@ namespace Proveduria.Reports {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void SP_AJUSTE_BODEGARowChangeEventHandler(object sender, SP_AJUSTE_BODEGARowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public delegate void SP_CORTE_INVENTARIORowChangeEventHandler(object sender, SP_CORTE_INVENTARIORowChangeEvent e);
-        
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void SP_EGRESO_BODEGARowChangeEventHandler(object sender, SP_EGRESO_BODEGARowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public delegate void SP_INGRESO_BODEGARowChangeEventHandler(object sender, SP_INGRESO_BODEGARowChangeEvent e);
@@ -477,466 +439,13 @@ namespace Proveduria.Reports {
         public delegate void SP_MEDIDASRowChangeEventHandler(object sender, SP_MEDIDASRowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public delegate void SP_AJUSTE_BODEGARowChangeEventHandler(object sender, SP_AJUSTE_BODEGARowChangeEvent e);
+        
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public delegate void SP_REQUISICION_BODEGARowChangeEventHandler(object sender, SP_REQUISICION_BODEGARowChangeEvent e);
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public delegate void SP_KARDEXRowChangeEventHandler(object sender, SP_KARDEXRowChangeEvent e);
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class SP_AJUSTE_BODEGADataTable : global::System.Data.TypedTableBase<SP_AJUSTE_BODEGARow> {
-            
-            private global::System.Data.DataColumn columnBODEGA;
-            
-            private global::System.Data.DataColumn columnNUM_REQUISICION;
-            
-            private global::System.Data.DataColumn columnDPTO_SOLICITA;
-            
-            private global::System.Data.DataColumn columnEMP_SOLICITA;
-            
-            private global::System.Data.DataColumn columnOBSERVACION;
-            
-            private global::System.Data.DataColumn columnFECHA_SOLICITUD;
-            
-            private global::System.Data.DataColumn columnID_TIPO_MOVIMIENTO;
-            
-            private global::System.Data.DataColumn columnDESC_TIPO;
-            
-            private global::System.Data.DataColumn columnID_MOVIMIENTO_RELACION;
-            
-            private global::System.Data.DataColumn columnANIO_DOCUMENTO_REFERENCIA;
-            
-            private global::System.Data.DataColumn columnNUMERO_DOCUMENTO_REFERENCIA;
-            
-            private global::System.Data.DataColumn columnCODIGO;
-            
-            private global::System.Data.DataColumn columnCANTIDAD_MOVIMIENTO;
-            
-            private global::System.Data.DataColumn columnUNIDAD;
-            
-            private global::System.Data.DataColumn columnITEM;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public SP_AJUSTE_BODEGADataTable() {
-                this.TableName = "SP_AJUSTE_BODEGA";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal SP_AJUSTE_BODEGADataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected SP_AJUSTE_BODEGADataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn BODEGAColumn {
-                get {
-                    return this.columnBODEGA;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn NUM_REQUISICIONColumn {
-                get {
-                    return this.columnNUM_REQUISICION;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn DPTO_SOLICITAColumn {
-                get {
-                    return this.columnDPTO_SOLICITA;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn EMP_SOLICITAColumn {
-                get {
-                    return this.columnEMP_SOLICITA;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn OBSERVACIONColumn {
-                get {
-                    return this.columnOBSERVACION;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn FECHA_SOLICITUDColumn {
-                get {
-                    return this.columnFECHA_SOLICITUD;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ID_TIPO_MOVIMIENTOColumn {
-                get {
-                    return this.columnID_TIPO_MOVIMIENTO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn DESC_TIPOColumn {
-                get {
-                    return this.columnDESC_TIPO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ID_MOVIMIENTO_RELACIONColumn {
-                get {
-                    return this.columnID_MOVIMIENTO_RELACION;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ANIO_DOCUMENTO_REFERENCIAColumn {
-                get {
-                    return this.columnANIO_DOCUMENTO_REFERENCIA;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn NUMERO_DOCUMENTO_REFERENCIAColumn {
-                get {
-                    return this.columnNUMERO_DOCUMENTO_REFERENCIA;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn CODIGOColumn {
-                get {
-                    return this.columnCODIGO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn CANTIDAD_MOVIMIENTOColumn {
-                get {
-                    return this.columnCANTIDAD_MOVIMIENTO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn UNIDADColumn {
-                get {
-                    return this.columnUNIDAD;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ITEMColumn {
-                get {
-                    return this.columnITEM;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public SP_AJUSTE_BODEGARow this[int index] {
-                get {
-                    return ((SP_AJUSTE_BODEGARow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event SP_AJUSTE_BODEGARowChangeEventHandler SP_AJUSTE_BODEGARowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event SP_AJUSTE_BODEGARowChangeEventHandler SP_AJUSTE_BODEGARowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event SP_AJUSTE_BODEGARowChangeEventHandler SP_AJUSTE_BODEGARowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event SP_AJUSTE_BODEGARowChangeEventHandler SP_AJUSTE_BODEGARowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void AddSP_AJUSTE_BODEGARow(SP_AJUSTE_BODEGARow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public SP_AJUSTE_BODEGARow AddSP_AJUSTE_BODEGARow(string BODEGA, string NUM_REQUISICION, string DPTO_SOLICITA, string EMP_SOLICITA, string OBSERVACION, System.DateTime FECHA_SOLICITUD, short ID_TIPO_MOVIMIENTO, string DESC_TIPO, int ID_MOVIMIENTO_RELACION, short ANIO_DOCUMENTO_REFERENCIA, int NUMERO_DOCUMENTO_REFERENCIA, string CODIGO, double CANTIDAD_MOVIMIENTO, string UNIDAD, string ITEM) {
-                SP_AJUSTE_BODEGARow rowSP_AJUSTE_BODEGARow = ((SP_AJUSTE_BODEGARow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        BODEGA,
-                        NUM_REQUISICION,
-                        DPTO_SOLICITA,
-                        EMP_SOLICITA,
-                        OBSERVACION,
-                        FECHA_SOLICITUD,
-                        ID_TIPO_MOVIMIENTO,
-                        DESC_TIPO,
-                        ID_MOVIMIENTO_RELACION,
-                        ANIO_DOCUMENTO_REFERENCIA,
-                        NUMERO_DOCUMENTO_REFERENCIA,
-                        CODIGO,
-                        CANTIDAD_MOVIMIENTO,
-                        UNIDAD,
-                        ITEM};
-                rowSP_AJUSTE_BODEGARow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowSP_AJUSTE_BODEGARow);
-                return rowSP_AJUSTE_BODEGARow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                SP_AJUSTE_BODEGADataTable cln = ((SP_AJUSTE_BODEGADataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new SP_AJUSTE_BODEGADataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal void InitVars() {
-                this.columnBODEGA = base.Columns["BODEGA"];
-                this.columnNUM_REQUISICION = base.Columns["NUM_REQUISICION"];
-                this.columnDPTO_SOLICITA = base.Columns["DPTO_SOLICITA"];
-                this.columnEMP_SOLICITA = base.Columns["EMP_SOLICITA"];
-                this.columnOBSERVACION = base.Columns["OBSERVACION"];
-                this.columnFECHA_SOLICITUD = base.Columns["FECHA_SOLICITUD"];
-                this.columnID_TIPO_MOVIMIENTO = base.Columns["ID_TIPO_MOVIMIENTO"];
-                this.columnDESC_TIPO = base.Columns["DESC_TIPO"];
-                this.columnID_MOVIMIENTO_RELACION = base.Columns["ID_MOVIMIENTO_RELACION"];
-                this.columnANIO_DOCUMENTO_REFERENCIA = base.Columns["ANIO_DOCUMENTO_REFERENCIA"];
-                this.columnNUMERO_DOCUMENTO_REFERENCIA = base.Columns["NUMERO_DOCUMENTO_REFERENCIA"];
-                this.columnCODIGO = base.Columns["CODIGO"];
-                this.columnCANTIDAD_MOVIMIENTO = base.Columns["CANTIDAD_MOVIMIENTO"];
-                this.columnUNIDAD = base.Columns["UNIDAD"];
-                this.columnITEM = base.Columns["ITEM"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            private void InitClass() {
-                this.columnBODEGA = new global::System.Data.DataColumn("BODEGA", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBODEGA);
-                this.columnNUM_REQUISICION = new global::System.Data.DataColumn("NUM_REQUISICION", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNUM_REQUISICION);
-                this.columnDPTO_SOLICITA = new global::System.Data.DataColumn("DPTO_SOLICITA", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDPTO_SOLICITA);
-                this.columnEMP_SOLICITA = new global::System.Data.DataColumn("EMP_SOLICITA", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnEMP_SOLICITA);
-                this.columnOBSERVACION = new global::System.Data.DataColumn("OBSERVACION", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnOBSERVACION);
-                this.columnFECHA_SOLICITUD = new global::System.Data.DataColumn("FECHA_SOLICITUD", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFECHA_SOLICITUD);
-                this.columnID_TIPO_MOVIMIENTO = new global::System.Data.DataColumn("ID_TIPO_MOVIMIENTO", typeof(short), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnID_TIPO_MOVIMIENTO);
-                this.columnDESC_TIPO = new global::System.Data.DataColumn("DESC_TIPO", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDESC_TIPO);
-                this.columnID_MOVIMIENTO_RELACION = new global::System.Data.DataColumn("ID_MOVIMIENTO_RELACION", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnID_MOVIMIENTO_RELACION);
-                this.columnANIO_DOCUMENTO_REFERENCIA = new global::System.Data.DataColumn("ANIO_DOCUMENTO_REFERENCIA", typeof(short), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnANIO_DOCUMENTO_REFERENCIA);
-                this.columnNUMERO_DOCUMENTO_REFERENCIA = new global::System.Data.DataColumn("NUMERO_DOCUMENTO_REFERENCIA", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNUMERO_DOCUMENTO_REFERENCIA);
-                this.columnCODIGO = new global::System.Data.DataColumn("CODIGO", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCODIGO);
-                this.columnCANTIDAD_MOVIMIENTO = new global::System.Data.DataColumn("CANTIDAD_MOVIMIENTO", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCANTIDAD_MOVIMIENTO);
-                this.columnUNIDAD = new global::System.Data.DataColumn("UNIDAD", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUNIDAD);
-                this.columnITEM = new global::System.Data.DataColumn("ITEM", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnITEM);
-                this.columnBODEGA.MaxLength = 100;
-                this.columnNUM_REQUISICION.MaxLength = 83;
-                this.columnDPTO_SOLICITA.AllowDBNull = false;
-                this.columnDPTO_SOLICITA.MaxLength = 255;
-                this.columnEMP_SOLICITA.MaxLength = 123;
-                this.columnOBSERVACION.MaxLength = 500;
-                this.columnID_TIPO_MOVIMIENTO.AllowDBNull = false;
-                this.columnDESC_TIPO.MaxLength = 50;
-                this.columnCODIGO.AllowDBNull = false;
-                this.columnCODIGO.MaxLength = 250;
-                this.columnUNIDAD.AllowDBNull = false;
-                this.columnUNIDAD.MaxLength = 250;
-                this.columnITEM.MaxLength = 300;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public SP_AJUSTE_BODEGARow NewSP_AJUSTE_BODEGARow() {
-                return ((SP_AJUSTE_BODEGARow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new SP_AJUSTE_BODEGARow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(SP_AJUSTE_BODEGARow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.SP_AJUSTE_BODEGARowChanged != null)) {
-                    this.SP_AJUSTE_BODEGARowChanged(this, new SP_AJUSTE_BODEGARowChangeEvent(((SP_AJUSTE_BODEGARow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.SP_AJUSTE_BODEGARowChanging != null)) {
-                    this.SP_AJUSTE_BODEGARowChanging(this, new SP_AJUSTE_BODEGARowChangeEvent(((SP_AJUSTE_BODEGARow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.SP_AJUSTE_BODEGARowDeleted != null)) {
-                    this.SP_AJUSTE_BODEGARowDeleted(this, new SP_AJUSTE_BODEGARowChangeEvent(((SP_AJUSTE_BODEGARow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.SP_AJUSTE_BODEGARowDeleting != null)) {
-                    this.SP_AJUSTE_BODEGARowDeleting(this, new SP_AJUSTE_BODEGARowChangeEvent(((SP_AJUSTE_BODEGARow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void RemoveSP_AJUSTE_BODEGARow(SP_AJUSTE_BODEGARow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DataSetReports ds = new DataSetReports();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "SP_AJUSTE_BODEGADataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
+        public delegate void SP_EGRESO_BODEGARowChangeEventHandler(object sender, SP_EGRESO_BODEGARowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
@@ -953,7 +462,7 @@ namespace Proveduria.Reports {
             
             private global::System.Data.DataColumn columnCANTIDAD_ACTUAL;
             
-            private global::System.Data.DataColumn columnCOSTO_PROMEDIO;
+            private global::System.Data.DataColumn columnVALOR;
             
             private global::System.Data.DataColumn columnTOTAL;
             
@@ -1024,9 +533,9 @@ namespace Proveduria.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn COSTO_PROMEDIOColumn {
+            public global::System.Data.DataColumn VALORColumn {
                 get {
-                    return this.columnCOSTO_PROMEDIO;
+                    return this.columnVALOR;
                 }
             }
             
@@ -1075,14 +584,14 @@ namespace Proveduria.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public SP_CORTE_INVENTARIORow AddSP_CORTE_INVENTARIORow(string CODIGO, string ITEM, string UNIDAD, double CANTIDAD_ACTUAL, double COSTO_PROMEDIO, decimal TOTAL) {
+            public SP_CORTE_INVENTARIORow AddSP_CORTE_INVENTARIORow(string CODIGO, string ITEM, string UNIDAD, double CANTIDAD_ACTUAL, double VALOR, decimal TOTAL) {
                 SP_CORTE_INVENTARIORow rowSP_CORTE_INVENTARIORow = ((SP_CORTE_INVENTARIORow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         CODIGO,
                         ITEM,
                         UNIDAD,
                         CANTIDAD_ACTUAL,
-                        COSTO_PROMEDIO,
+                        VALOR,
                         TOTAL};
                 rowSP_CORTE_INVENTARIORow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSP_CORTE_INVENTARIORow);
@@ -1110,7 +619,7 @@ namespace Proveduria.Reports {
                 this.columnITEM = base.Columns["ITEM"];
                 this.columnUNIDAD = base.Columns["UNIDAD"];
                 this.columnCANTIDAD_ACTUAL = base.Columns["CANTIDAD_ACTUAL"];
-                this.columnCOSTO_PROMEDIO = base.Columns["COSTO_PROMEDIO"];
+                this.columnVALOR = base.Columns["VALOR"];
                 this.columnTOTAL = base.Columns["TOTAL"];
             }
             
@@ -1125,8 +634,8 @@ namespace Proveduria.Reports {
                 base.Columns.Add(this.columnUNIDAD);
                 this.columnCANTIDAD_ACTUAL = new global::System.Data.DataColumn("CANTIDAD_ACTUAL", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCANTIDAD_ACTUAL);
-                this.columnCOSTO_PROMEDIO = new global::System.Data.DataColumn("COSTO_PROMEDIO", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCOSTO_PROMEDIO);
+                this.columnVALOR = new global::System.Data.DataColumn("VALOR", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnVALOR);
                 this.columnTOTAL = new global::System.Data.DataColumn("TOTAL", typeof(decimal), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnTOTAL);
                 this.columnCODIGO.AllowDBNull = false;
@@ -1265,405 +774,6 @@ namespace Proveduria.Reports {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class SP_EGRESO_BODEGADataTable : global::System.Data.TypedTableBase<SP_EGRESO_BODEGARow> {
-            
-            private global::System.Data.DataColumn columnBODEGA;
-            
-            private global::System.Data.DataColumn columnTIPO_MOVIMIENTO;
-            
-            private global::System.Data.DataColumn columnNUM_REQUISICION;
-            
-            private global::System.Data.DataColumn columnDPTO_SOLICITA;
-            
-            private global::System.Data.DataColumn columnEMP_SOLICITA;
-            
-            private global::System.Data.DataColumn columnOBSERVACION;
-            
-            private global::System.Data.DataColumn columnFECHA_SOLICITUD;
-            
-            private global::System.Data.DataColumn columnCODIGO;
-            
-            private global::System.Data.DataColumn columnCANTIDAD_MOVIMIENTO;
-            
-            private global::System.Data.DataColumn columnUNIDAD;
-            
-            private global::System.Data.DataColumn columnITEM;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public SP_EGRESO_BODEGADataTable() {
-                this.TableName = "SP_EGRESO_BODEGA";
-                this.BeginInit();
-                this.InitClass();
-                this.EndInit();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal SP_EGRESO_BODEGADataTable(global::System.Data.DataTable table) {
-                this.TableName = table.TableName;
-                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
-                    this.CaseSensitive = table.CaseSensitive;
-                }
-                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
-                    this.Locale = table.Locale;
-                }
-                if ((table.Namespace != table.DataSet.Namespace)) {
-                    this.Namespace = table.Namespace;
-                }
-                this.Prefix = table.Prefix;
-                this.MinimumCapacity = table.MinimumCapacity;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected SP_EGRESO_BODEGADataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
-                    base(info, context) {
-                this.InitVars();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn BODEGAColumn {
-                get {
-                    return this.columnBODEGA;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn TIPO_MOVIMIENTOColumn {
-                get {
-                    return this.columnTIPO_MOVIMIENTO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn NUM_REQUISICIONColumn {
-                get {
-                    return this.columnNUM_REQUISICION;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn DPTO_SOLICITAColumn {
-                get {
-                    return this.columnDPTO_SOLICITA;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn EMP_SOLICITAColumn {
-                get {
-                    return this.columnEMP_SOLICITA;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn OBSERVACIONColumn {
-                get {
-                    return this.columnOBSERVACION;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn FECHA_SOLICITUDColumn {
-                get {
-                    return this.columnFECHA_SOLICITUD;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn CODIGOColumn {
-                get {
-                    return this.columnCODIGO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn CANTIDAD_MOVIMIENTOColumn {
-                get {
-                    return this.columnCANTIDAD_MOVIMIENTO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn UNIDADColumn {
-                get {
-                    return this.columnUNIDAD;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ITEMColumn {
-                get {
-                    return this.columnITEM;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            [global::System.ComponentModel.Browsable(false)]
-            public int Count {
-                get {
-                    return this.Rows.Count;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public SP_EGRESO_BODEGARow this[int index] {
-                get {
-                    return ((SP_EGRESO_BODEGARow)(this.Rows[index]));
-                }
-            }
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event SP_EGRESO_BODEGARowChangeEventHandler SP_EGRESO_BODEGARowChanging;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event SP_EGRESO_BODEGARowChangeEventHandler SP_EGRESO_BODEGARowChanged;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event SP_EGRESO_BODEGARowChangeEventHandler SP_EGRESO_BODEGARowDeleting;
-            
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event SP_EGRESO_BODEGARowChangeEventHandler SP_EGRESO_BODEGARowDeleted;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void AddSP_EGRESO_BODEGARow(SP_EGRESO_BODEGARow row) {
-                this.Rows.Add(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public SP_EGRESO_BODEGARow AddSP_EGRESO_BODEGARow(string BODEGA, string TIPO_MOVIMIENTO, string NUM_REQUISICION, string DPTO_SOLICITA, string EMP_SOLICITA, string OBSERVACION, System.DateTime FECHA_SOLICITUD, string CODIGO, double CANTIDAD_MOVIMIENTO, string UNIDAD, string ITEM) {
-                SP_EGRESO_BODEGARow rowSP_EGRESO_BODEGARow = ((SP_EGRESO_BODEGARow)(this.NewRow()));
-                object[] columnValuesArray = new object[] {
-                        BODEGA,
-                        TIPO_MOVIMIENTO,
-                        NUM_REQUISICION,
-                        DPTO_SOLICITA,
-                        EMP_SOLICITA,
-                        OBSERVACION,
-                        FECHA_SOLICITUD,
-                        CODIGO,
-                        CANTIDAD_MOVIMIENTO,
-                        UNIDAD,
-                        ITEM};
-                rowSP_EGRESO_BODEGARow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowSP_EGRESO_BODEGARow);
-                return rowSP_EGRESO_BODEGARow;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public override global::System.Data.DataTable Clone() {
-                SP_EGRESO_BODEGADataTable cln = ((SP_EGRESO_BODEGADataTable)(base.Clone()));
-                cln.InitVars();
-                return cln;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Data.DataTable CreateInstance() {
-                return new SP_EGRESO_BODEGADataTable();
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal void InitVars() {
-                this.columnBODEGA = base.Columns["BODEGA"];
-                this.columnTIPO_MOVIMIENTO = base.Columns["TIPO_MOVIMIENTO"];
-                this.columnNUM_REQUISICION = base.Columns["NUM_REQUISICION"];
-                this.columnDPTO_SOLICITA = base.Columns["DPTO_SOLICITA"];
-                this.columnEMP_SOLICITA = base.Columns["EMP_SOLICITA"];
-                this.columnOBSERVACION = base.Columns["OBSERVACION"];
-                this.columnFECHA_SOLICITUD = base.Columns["FECHA_SOLICITUD"];
-                this.columnCODIGO = base.Columns["CODIGO"];
-                this.columnCANTIDAD_MOVIMIENTO = base.Columns["CANTIDAD_MOVIMIENTO"];
-                this.columnUNIDAD = base.Columns["UNIDAD"];
-                this.columnITEM = base.Columns["ITEM"];
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            private void InitClass() {
-                this.columnBODEGA = new global::System.Data.DataColumn("BODEGA", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnBODEGA);
-                this.columnTIPO_MOVIMIENTO = new global::System.Data.DataColumn("TIPO_MOVIMIENTO", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTIPO_MOVIMIENTO);
-                this.columnNUM_REQUISICION = new global::System.Data.DataColumn("NUM_REQUISICION", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNUM_REQUISICION);
-                this.columnDPTO_SOLICITA = new global::System.Data.DataColumn("DPTO_SOLICITA", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDPTO_SOLICITA);
-                this.columnEMP_SOLICITA = new global::System.Data.DataColumn("EMP_SOLICITA", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnEMP_SOLICITA);
-                this.columnOBSERVACION = new global::System.Data.DataColumn("OBSERVACION", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnOBSERVACION);
-                this.columnFECHA_SOLICITUD = new global::System.Data.DataColumn("FECHA_SOLICITUD", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFECHA_SOLICITUD);
-                this.columnCODIGO = new global::System.Data.DataColumn("CODIGO", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCODIGO);
-                this.columnCANTIDAD_MOVIMIENTO = new global::System.Data.DataColumn("CANTIDAD_MOVIMIENTO", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCANTIDAD_MOVIMIENTO);
-                this.columnUNIDAD = new global::System.Data.DataColumn("UNIDAD", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnUNIDAD);
-                this.columnITEM = new global::System.Data.DataColumn("ITEM", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnITEM);
-                this.columnBODEGA.MaxLength = 100;
-                this.columnTIPO_MOVIMIENTO.MaxLength = 50;
-                this.columnNUM_REQUISICION.MaxLength = 83;
-                this.columnDPTO_SOLICITA.AllowDBNull = false;
-                this.columnDPTO_SOLICITA.MaxLength = 255;
-                this.columnEMP_SOLICITA.MaxLength = 123;
-                this.columnOBSERVACION.MaxLength = 500;
-                this.columnCODIGO.AllowDBNull = false;
-                this.columnCODIGO.MaxLength = 250;
-                this.columnUNIDAD.AllowDBNull = false;
-                this.columnUNIDAD.MaxLength = 250;
-                this.columnITEM.MaxLength = 300;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public SP_EGRESO_BODEGARow NewSP_EGRESO_BODEGARow() {
-                return ((SP_EGRESO_BODEGARow)(this.NewRow()));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new SP_EGRESO_BODEGARow(builder);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override global::System.Type GetRowType() {
-                return typeof(SP_EGRESO_BODEGARow);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanged(e);
-                if ((this.SP_EGRESO_BODEGARowChanged != null)) {
-                    this.SP_EGRESO_BODEGARowChanged(this, new SP_EGRESO_BODEGARowChangeEvent(((SP_EGRESO_BODEGARow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowChanging(e);
-                if ((this.SP_EGRESO_BODEGARowChanging != null)) {
-                    this.SP_EGRESO_BODEGARowChanging(this, new SP_EGRESO_BODEGARowChangeEvent(((SP_EGRESO_BODEGARow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleted(e);
-                if ((this.SP_EGRESO_BODEGARowDeleted != null)) {
-                    this.SP_EGRESO_BODEGARowDeleted(this, new SP_EGRESO_BODEGARowChangeEvent(((SP_EGRESO_BODEGARow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
-                base.OnRowDeleting(e);
-                if ((this.SP_EGRESO_BODEGARowDeleting != null)) {
-                    this.SP_EGRESO_BODEGARowDeleting(this, new SP_EGRESO_BODEGARowChangeEvent(((SP_EGRESO_BODEGARow)(e.Row)), e.Action));
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void RemoveSP_EGRESO_BODEGARow(SP_EGRESO_BODEGARow row) {
-                this.Rows.Remove(row);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
-                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                DataSetReports ds = new DataSetReports();
-                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
-                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
-                any1.MinOccurs = new decimal(0);
-                any1.MaxOccurs = decimal.MaxValue;
-                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any1);
-                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
-                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
-                any2.MinOccurs = new decimal(1);
-                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
-                sequence.Items.Add(any2);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute1.Name = "namespace";
-                attribute1.FixedValue = ds.Namespace;
-                type.Attributes.Add(attribute1);
-                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
-                attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "SP_EGRESO_BODEGADataTable";
-                type.Attributes.Add(attribute2);
-                type.Particle = sequence;
-                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
-                if (xs.Contains(dsSchema.TargetNamespace)) {
-                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
-                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
-                    try {
-                        global::System.Xml.Schema.XmlSchema schema = null;
-                        dsSchema.Write(s1);
-                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
-                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
-                            s2.SetLength(0);
-                            schema.Write(s2);
-                            if ((s1.Length == s2.Length)) {
-                                s1.Position = 0;
-                                s2.Position = 0;
-                                for (; ((s1.Position != s1.Length) 
-                                            && (s1.ReadByte() == s2.ReadByte())); ) {
-                                    ;
-                                }
-                                if ((s1.Position == s1.Length)) {
-                                    return type;
-                                }
-                            }
-                        }
-                    }
-                    finally {
-                        if ((s1 != null)) {
-                            s1.Close();
-                        }
-                        if ((s2 != null)) {
-                            s2.Close();
-                        }
-                    }
-                }
-                xs.Add(dsSchema);
-                return type;
-            }
-        }
-        
-        /// <summary>
-        ///Represents the strongly named DataTable class.
-        ///</summary>
-        [global::System.Serializable()]
-        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class SP_INGRESO_BODEGADataTable : global::System.Data.TypedTableBase<SP_INGRESO_BODEGARow> {
             
             private global::System.Data.DataColumn columnBODEGA;
@@ -1680,7 +790,7 @@ namespace Proveduria.Reports {
             
             private global::System.Data.DataColumn columnCODIGO;
             
-            private global::System.Data.DataColumn columnCANTIDAD_MOVIMIENTO;
+            private global::System.Data.DataColumn columnCANTIDAD_PEDIDO;
             
             private global::System.Data.DataColumn columnUNIDAD;
             
@@ -1777,9 +887,9 @@ namespace Proveduria.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn CANTIDAD_MOVIMIENTOColumn {
+            public global::System.Data.DataColumn CANTIDAD_PEDIDOColumn {
                 get {
-                    return this.columnCANTIDAD_MOVIMIENTO;
+                    return this.columnCANTIDAD_PEDIDO;
                 }
             }
             
@@ -1836,7 +946,7 @@ namespace Proveduria.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public SP_INGRESO_BODEGARow AddSP_INGRESO_BODEGARow(string BODEGA, string NUM_REQUISICION, string DPTO_SOLICITA, string EMP_SOLICITA, string OBSERVACION, System.DateTime FECHA_SOLICITUD, string CODIGO, double CANTIDAD_MOVIMIENTO, string UNIDAD, string ITEM) {
+            public SP_INGRESO_BODEGARow AddSP_INGRESO_BODEGARow(string BODEGA, string NUM_REQUISICION, string DPTO_SOLICITA, string EMP_SOLICITA, string OBSERVACION, System.DateTime FECHA_SOLICITUD, string CODIGO, int CANTIDAD_PEDIDO, string UNIDAD, string ITEM) {
                 SP_INGRESO_BODEGARow rowSP_INGRESO_BODEGARow = ((SP_INGRESO_BODEGARow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         BODEGA,
@@ -1846,7 +956,7 @@ namespace Proveduria.Reports {
                         OBSERVACION,
                         FECHA_SOLICITUD,
                         CODIGO,
-                        CANTIDAD_MOVIMIENTO,
+                        CANTIDAD_PEDIDO,
                         UNIDAD,
                         ITEM};
                 rowSP_INGRESO_BODEGARow.ItemArray = columnValuesArray;
@@ -1878,7 +988,7 @@ namespace Proveduria.Reports {
                 this.columnOBSERVACION = base.Columns["OBSERVACION"];
                 this.columnFECHA_SOLICITUD = base.Columns["FECHA_SOLICITUD"];
                 this.columnCODIGO = base.Columns["CODIGO"];
-                this.columnCANTIDAD_MOVIMIENTO = base.Columns["CANTIDAD_MOVIMIENTO"];
+                this.columnCANTIDAD_PEDIDO = base.Columns["CANTIDAD_PEDIDO"];
                 this.columnUNIDAD = base.Columns["UNIDAD"];
                 this.columnITEM = base.Columns["ITEM"];
             }
@@ -1900,8 +1010,8 @@ namespace Proveduria.Reports {
                 base.Columns.Add(this.columnFECHA_SOLICITUD);
                 this.columnCODIGO = new global::System.Data.DataColumn("CODIGO", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnCODIGO);
-                this.columnCANTIDAD_MOVIMIENTO = new global::System.Data.DataColumn("CANTIDAD_MOVIMIENTO", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCANTIDAD_MOVIMIENTO);
+                this.columnCANTIDAD_PEDIDO = new global::System.Data.DataColumn("CANTIDAD_PEDIDO", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCANTIDAD_PEDIDO);
                 this.columnUNIDAD = new global::System.Data.DataColumn("UNIDAD", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUNIDAD);
                 this.columnITEM = new global::System.Data.DataColumn("ITEM", typeof(string), null, global::System.Data.MappingType.Element);
@@ -2327,6 +1437,462 @@ namespace Proveduria.Reports {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
+        public partial class SP_AJUSTE_BODEGADataTable : global::System.Data.TypedTableBase<SP_AJUSTE_BODEGARow> {
+            
+            private global::System.Data.DataColumn columnBODEGA;
+            
+            private global::System.Data.DataColumn columnNUM_REQUISICION;
+            
+            private global::System.Data.DataColumn columnDPTO_SOLICITA;
+            
+            private global::System.Data.DataColumn columnEMP_SOLICITA;
+            
+            private global::System.Data.DataColumn columnOBSERVACION;
+            
+            private global::System.Data.DataColumn columnFECHA_SOLICITUD;
+            
+            private global::System.Data.DataColumn columnID_TIPO_MOVIMIENTO;
+            
+            private global::System.Data.DataColumn columnDESC_TIPO;
+            
+            private global::System.Data.DataColumn columnID_MOVIMIENTO_RELACION;
+            
+            private global::System.Data.DataColumn columnANIO_DOCUMENTO_REFERENCIA;
+            
+            private global::System.Data.DataColumn columnNUMERO_DOCUMENTO_REFERENCIA;
+            
+            private global::System.Data.DataColumn columnCODIGO;
+            
+            private global::System.Data.DataColumn columnCANTIDAD_PEDIDO;
+            
+            private global::System.Data.DataColumn columnUNIDAD;
+            
+            private global::System.Data.DataColumn columnITEM;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public SP_AJUSTE_BODEGADataTable() {
+                this.TableName = "SP_AJUSTE_BODEGA";
+                this.BeginInit();
+                this.InitClass();
+                this.EndInit();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal SP_AJUSTE_BODEGADataTable(global::System.Data.DataTable table) {
+                this.TableName = table.TableName;
+                if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
+                    this.CaseSensitive = table.CaseSensitive;
+                }
+                if ((table.Locale.ToString() != table.DataSet.Locale.ToString())) {
+                    this.Locale = table.Locale;
+                }
+                if ((table.Namespace != table.DataSet.Namespace)) {
+                    this.Namespace = table.Namespace;
+                }
+                this.Prefix = table.Prefix;
+                this.MinimumCapacity = table.MinimumCapacity;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected SP_AJUSTE_BODEGADataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+                    base(info, context) {
+                this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn BODEGAColumn {
+                get {
+                    return this.columnBODEGA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn NUM_REQUISICIONColumn {
+                get {
+                    return this.columnNUM_REQUISICION;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DPTO_SOLICITAColumn {
+                get {
+                    return this.columnDPTO_SOLICITA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn EMP_SOLICITAColumn {
+                get {
+                    return this.columnEMP_SOLICITA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn OBSERVACIONColumn {
+                get {
+                    return this.columnOBSERVACION;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn FECHA_SOLICITUDColumn {
+                get {
+                    return this.columnFECHA_SOLICITUD;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ID_TIPO_MOVIMIENTOColumn {
+                get {
+                    return this.columnID_TIPO_MOVIMIENTO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DESC_TIPOColumn {
+                get {
+                    return this.columnDESC_TIPO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ID_MOVIMIENTO_RELACIONColumn {
+                get {
+                    return this.columnID_MOVIMIENTO_RELACION;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ANIO_DOCUMENTO_REFERENCIAColumn {
+                get {
+                    return this.columnANIO_DOCUMENTO_REFERENCIA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn NUMERO_DOCUMENTO_REFERENCIAColumn {
+                get {
+                    return this.columnNUMERO_DOCUMENTO_REFERENCIA;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn CODIGOColumn {
+                get {
+                    return this.columnCODIGO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn CANTIDAD_PEDIDOColumn {
+                get {
+                    return this.columnCANTIDAD_PEDIDO;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn UNIDADColumn {
+                get {
+                    return this.columnUNIDAD;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn ITEMColumn {
+                get {
+                    return this.columnITEM;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            [global::System.ComponentModel.Browsable(false)]
+            public int Count {
+                get {
+                    return this.Rows.Count;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public SP_AJUSTE_BODEGARow this[int index] {
+                get {
+                    return ((SP_AJUSTE_BODEGARow)(this.Rows[index]));
+                }
+            }
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event SP_AJUSTE_BODEGARowChangeEventHandler SP_AJUSTE_BODEGARowChanging;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event SP_AJUSTE_BODEGARowChangeEventHandler SP_AJUSTE_BODEGARowChanged;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event SP_AJUSTE_BODEGARowChangeEventHandler SP_AJUSTE_BODEGARowDeleting;
+            
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public event SP_AJUSTE_BODEGARowChangeEventHandler SP_AJUSTE_BODEGARowDeleted;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void AddSP_AJUSTE_BODEGARow(SP_AJUSTE_BODEGARow row) {
+                this.Rows.Add(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public SP_AJUSTE_BODEGARow AddSP_AJUSTE_BODEGARow(string BODEGA, string NUM_REQUISICION, string DPTO_SOLICITA, string EMP_SOLICITA, string OBSERVACION, System.DateTime FECHA_SOLICITUD, short ID_TIPO_MOVIMIENTO, string DESC_TIPO, int ID_MOVIMIENTO_RELACION, short ANIO_DOCUMENTO_REFERENCIA, int NUMERO_DOCUMENTO_REFERENCIA, string CODIGO, int CANTIDAD_PEDIDO, string UNIDAD, string ITEM) {
+                SP_AJUSTE_BODEGARow rowSP_AJUSTE_BODEGARow = ((SP_AJUSTE_BODEGARow)(this.NewRow()));
+                object[] columnValuesArray = new object[] {
+                        BODEGA,
+                        NUM_REQUISICION,
+                        DPTO_SOLICITA,
+                        EMP_SOLICITA,
+                        OBSERVACION,
+                        FECHA_SOLICITUD,
+                        ID_TIPO_MOVIMIENTO,
+                        DESC_TIPO,
+                        ID_MOVIMIENTO_RELACION,
+                        ANIO_DOCUMENTO_REFERENCIA,
+                        NUMERO_DOCUMENTO_REFERENCIA,
+                        CODIGO,
+                        CANTIDAD_PEDIDO,
+                        UNIDAD,
+                        ITEM};
+                rowSP_AJUSTE_BODEGARow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowSP_AJUSTE_BODEGARow);
+                return rowSP_AJUSTE_BODEGARow;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public override global::System.Data.DataTable Clone() {
+                SP_AJUSTE_BODEGADataTable cln = ((SP_AJUSTE_BODEGADataTable)(base.Clone()));
+                cln.InitVars();
+                return cln;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataTable CreateInstance() {
+                return new SP_AJUSTE_BODEGADataTable();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal void InitVars() {
+                this.columnBODEGA = base.Columns["BODEGA"];
+                this.columnNUM_REQUISICION = base.Columns["NUM_REQUISICION"];
+                this.columnDPTO_SOLICITA = base.Columns["DPTO_SOLICITA"];
+                this.columnEMP_SOLICITA = base.Columns["EMP_SOLICITA"];
+                this.columnOBSERVACION = base.Columns["OBSERVACION"];
+                this.columnFECHA_SOLICITUD = base.Columns["FECHA_SOLICITUD"];
+                this.columnID_TIPO_MOVIMIENTO = base.Columns["ID_TIPO_MOVIMIENTO"];
+                this.columnDESC_TIPO = base.Columns["DESC_TIPO"];
+                this.columnID_MOVIMIENTO_RELACION = base.Columns["ID_MOVIMIENTO_RELACION"];
+                this.columnANIO_DOCUMENTO_REFERENCIA = base.Columns["ANIO_DOCUMENTO_REFERENCIA"];
+                this.columnNUMERO_DOCUMENTO_REFERENCIA = base.Columns["NUMERO_DOCUMENTO_REFERENCIA"];
+                this.columnCODIGO = base.Columns["CODIGO"];
+                this.columnCANTIDAD_PEDIDO = base.Columns["CANTIDAD_PEDIDO"];
+                this.columnUNIDAD = base.Columns["UNIDAD"];
+                this.columnITEM = base.Columns["ITEM"];
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            private void InitClass() {
+                this.columnBODEGA = new global::System.Data.DataColumn("BODEGA", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBODEGA);
+                this.columnNUM_REQUISICION = new global::System.Data.DataColumn("NUM_REQUISICION", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNUM_REQUISICION);
+                this.columnDPTO_SOLICITA = new global::System.Data.DataColumn("DPTO_SOLICITA", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDPTO_SOLICITA);
+                this.columnEMP_SOLICITA = new global::System.Data.DataColumn("EMP_SOLICITA", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEMP_SOLICITA);
+                this.columnOBSERVACION = new global::System.Data.DataColumn("OBSERVACION", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOBSERVACION);
+                this.columnFECHA_SOLICITUD = new global::System.Data.DataColumn("FECHA_SOLICITUD", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnFECHA_SOLICITUD);
+                this.columnID_TIPO_MOVIMIENTO = new global::System.Data.DataColumn("ID_TIPO_MOVIMIENTO", typeof(short), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_TIPO_MOVIMIENTO);
+                this.columnDESC_TIPO = new global::System.Data.DataColumn("DESC_TIPO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDESC_TIPO);
+                this.columnID_MOVIMIENTO_RELACION = new global::System.Data.DataColumn("ID_MOVIMIENTO_RELACION", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnID_MOVIMIENTO_RELACION);
+                this.columnANIO_DOCUMENTO_REFERENCIA = new global::System.Data.DataColumn("ANIO_DOCUMENTO_REFERENCIA", typeof(short), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnANIO_DOCUMENTO_REFERENCIA);
+                this.columnNUMERO_DOCUMENTO_REFERENCIA = new global::System.Data.DataColumn("NUMERO_DOCUMENTO_REFERENCIA", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNUMERO_DOCUMENTO_REFERENCIA);
+                this.columnCODIGO = new global::System.Data.DataColumn("CODIGO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCODIGO);
+                this.columnCANTIDAD_PEDIDO = new global::System.Data.DataColumn("CANTIDAD_PEDIDO", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCANTIDAD_PEDIDO);
+                this.columnUNIDAD = new global::System.Data.DataColumn("UNIDAD", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUNIDAD);
+                this.columnITEM = new global::System.Data.DataColumn("ITEM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnITEM);
+                this.columnBODEGA.MaxLength = 100;
+                this.columnNUM_REQUISICION.MaxLength = 83;
+                this.columnDPTO_SOLICITA.AllowDBNull = false;
+                this.columnDPTO_SOLICITA.MaxLength = 255;
+                this.columnEMP_SOLICITA.MaxLength = 123;
+                this.columnOBSERVACION.MaxLength = 500;
+                this.columnID_TIPO_MOVIMIENTO.AllowDBNull = false;
+                this.columnDESC_TIPO.MaxLength = 50;
+                this.columnCODIGO.AllowDBNull = false;
+                this.columnCODIGO.MaxLength = 250;
+                this.columnUNIDAD.AllowDBNull = false;
+                this.columnUNIDAD.MaxLength = 250;
+                this.columnITEM.MaxLength = 300;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public SP_AJUSTE_BODEGARow NewSP_AJUSTE_BODEGARow() {
+                return ((SP_AJUSTE_BODEGARow)(this.NewRow()));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
+                return new SP_AJUSTE_BODEGARow(builder);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override global::System.Type GetRowType() {
+                return typeof(SP_AJUSTE_BODEGARow);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanged(e);
+                if ((this.SP_AJUSTE_BODEGARowChanged != null)) {
+                    this.SP_AJUSTE_BODEGARowChanged(this, new SP_AJUSTE_BODEGARowChangeEvent(((SP_AJUSTE_BODEGARow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowChanging(e);
+                if ((this.SP_AJUSTE_BODEGARowChanging != null)) {
+                    this.SP_AJUSTE_BODEGARowChanging(this, new SP_AJUSTE_BODEGARowChangeEvent(((SP_AJUSTE_BODEGARow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleted(e);
+                if ((this.SP_AJUSTE_BODEGARowDeleted != null)) {
+                    this.SP_AJUSTE_BODEGARowDeleted(this, new SP_AJUSTE_BODEGARowChangeEvent(((SP_AJUSTE_BODEGARow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
+                base.OnRowDeleting(e);
+                if ((this.SP_AJUSTE_BODEGARowDeleting != null)) {
+                    this.SP_AJUSTE_BODEGARowDeleting(this, new SP_AJUSTE_BODEGARowChangeEvent(((SP_AJUSTE_BODEGARow)(e.Row)), e.Action));
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void RemoveSP_AJUSTE_BODEGARow(SP_AJUSTE_BODEGARow row) {
+                this.Rows.Remove(row);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
+                global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
+                global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
+                DataSetReports ds = new DataSetReports();
+                global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
+                any1.Namespace = "http://www.w3.org/2001/XMLSchema";
+                any1.MinOccurs = new decimal(0);
+                any1.MaxOccurs = decimal.MaxValue;
+                any1.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any1);
+                global::System.Xml.Schema.XmlSchemaAny any2 = new global::System.Xml.Schema.XmlSchemaAny();
+                any2.Namespace = "urn:schemas-microsoft-com:xml-diffgram-v1";
+                any2.MinOccurs = new decimal(1);
+                any2.ProcessContents = global::System.Xml.Schema.XmlSchemaContentProcessing.Lax;
+                sequence.Items.Add(any2);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute1 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute1.Name = "namespace";
+                attribute1.FixedValue = ds.Namespace;
+                type.Attributes.Add(attribute1);
+                global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
+                attribute2.Name = "tableTypeName";
+                attribute2.FixedValue = "SP_AJUSTE_BODEGADataTable";
+                type.Attributes.Add(attribute2);
+                type.Particle = sequence;
+                global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
+                if (xs.Contains(dsSchema.TargetNamespace)) {
+                    global::System.IO.MemoryStream s1 = new global::System.IO.MemoryStream();
+                    global::System.IO.MemoryStream s2 = new global::System.IO.MemoryStream();
+                    try {
+                        global::System.Xml.Schema.XmlSchema schema = null;
+                        dsSchema.Write(s1);
+                        for (global::System.Collections.IEnumerator schemas = xs.Schemas(dsSchema.TargetNamespace).GetEnumerator(); schemas.MoveNext(); ) {
+                            schema = ((global::System.Xml.Schema.XmlSchema)(schemas.Current));
+                            s2.SetLength(0);
+                            schema.Write(s2);
+                            if ((s1.Length == s2.Length)) {
+                                s1.Position = 0;
+                                s2.Position = 0;
+                                for (; ((s1.Position != s1.Length) 
+                                            && (s1.ReadByte() == s2.ReadByte())); ) {
+                                    ;
+                                }
+                                if ((s1.Position == s1.Length)) {
+                                    return type;
+                                }
+                            }
+                        }
+                    }
+                    finally {
+                        if ((s1 != null)) {
+                            s1.Close();
+                        }
+                        if ((s2 != null)) {
+                            s2.Close();
+                        }
+                    }
+                }
+                xs.Add(dsSchema);
+                return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents the strongly named DataTable class.
+        ///</summary>
+        [global::System.Serializable()]
+        [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class SP_REQUISICION_BODEGADataTable : global::System.Data.TypedTableBase<SP_REQUISICION_BODEGARow> {
             
             private global::System.Data.DataColumn columnORDEN;
@@ -2351,7 +1917,7 @@ namespace Proveduria.Reports {
             
             private global::System.Data.DataColumn columnUNIDAD;
             
-            private global::System.Data.DataColumn columnCANTIDAD_MOVIMIENTO;
+            private global::System.Data.DataColumn columnCANTIDAD_PEDIDO;
             
             private global::System.Data.DataColumn columnEMP_SOLICITA;
             
@@ -2480,9 +2046,9 @@ namespace Proveduria.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn CANTIDAD_MOVIMIENTOColumn {
+            public global::System.Data.DataColumn CANTIDAD_PEDIDOColumn {
                 get {
-                    return this.columnCANTIDAD_MOVIMIENTO;
+                    return this.columnCANTIDAD_PEDIDO;
                 }
             }
             
@@ -2539,7 +2105,7 @@ namespace Proveduria.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public SP_REQUISICION_BODEGARow AddSP_REQUISICION_BODEGARow(string ORDEN, string BODEGA, string DEPARTAMENTO, string OBSERVACION, System.DateTime FECHA_SOLICITUD, System.DateTime FECHA_AUTORIZACION, System.DateTime FECHA_APROBACION, string ESTADO, string CODIGO, string ITEM, string UNIDAD, double CANTIDAD_MOVIMIENTO, string EMP_SOLICITA, string EMP_AUTORIZA) {
+            public SP_REQUISICION_BODEGARow AddSP_REQUISICION_BODEGARow(string ORDEN, string BODEGA, string DEPARTAMENTO, string OBSERVACION, System.DateTime FECHA_SOLICITUD, System.DateTime FECHA_AUTORIZACION, System.DateTime FECHA_APROBACION, string ESTADO, string CODIGO, string ITEM, string UNIDAD, int CANTIDAD_PEDIDO, string EMP_SOLICITA, string EMP_AUTORIZA) {
                 SP_REQUISICION_BODEGARow rowSP_REQUISICION_BODEGARow = ((SP_REQUISICION_BODEGARow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ORDEN,
@@ -2553,7 +2119,7 @@ namespace Proveduria.Reports {
                         CODIGO,
                         ITEM,
                         UNIDAD,
-                        CANTIDAD_MOVIMIENTO,
+                        CANTIDAD_PEDIDO,
                         EMP_SOLICITA,
                         EMP_AUTORIZA};
                 rowSP_REQUISICION_BODEGARow.ItemArray = columnValuesArray;
@@ -2589,7 +2155,7 @@ namespace Proveduria.Reports {
                 this.columnCODIGO = base.Columns["CODIGO"];
                 this.columnITEM = base.Columns["ITEM"];
                 this.columnUNIDAD = base.Columns["UNIDAD"];
-                this.columnCANTIDAD_MOVIMIENTO = base.Columns["CANTIDAD_MOVIMIENTO"];
+                this.columnCANTIDAD_PEDIDO = base.Columns["CANTIDAD_PEDIDO"];
                 this.columnEMP_SOLICITA = base.Columns["EMP_SOLICITA"];
                 this.columnEMP_AUTORIZA = base.Columns["EMP_AUTORIZA"];
             }
@@ -2619,8 +2185,8 @@ namespace Proveduria.Reports {
                 base.Columns.Add(this.columnITEM);
                 this.columnUNIDAD = new global::System.Data.DataColumn("UNIDAD", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnUNIDAD);
-                this.columnCANTIDAD_MOVIMIENTO = new global::System.Data.DataColumn("CANTIDAD_MOVIMIENTO", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCANTIDAD_MOVIMIENTO);
+                this.columnCANTIDAD_PEDIDO = new global::System.Data.DataColumn("CANTIDAD_PEDIDO", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCANTIDAD_PEDIDO);
                 this.columnEMP_SOLICITA = new global::System.Data.DataColumn("EMP_SOLICITA", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEMP_SOLICITA);
                 this.columnEMP_AUTORIZA = new global::System.Data.DataColumn("EMP_AUTORIZA", typeof(string), null, global::System.Data.MappingType.Element);
@@ -2769,54 +2335,34 @@ namespace Proveduria.Reports {
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class SP_KARDEXDataTable : global::System.Data.TypedTableBase<SP_KARDEXRow> {
+        public partial class SP_EGRESO_BODEGADataTable : global::System.Data.TypedTableBase<SP_EGRESO_BODEGARow> {
             
-            private global::System.Data.DataColumn columnID_ITEM;
+            private global::System.Data.DataColumn columnBODEGA;
             
-            private global::System.Data.DataColumn columnCODIGO;
+            private global::System.Data.DataColumn columnTIPO_MOVIMIENTO;
             
-            private global::System.Data.DataColumn columnDESCRIPCION;
+            private global::System.Data.DataColumn columnNUM_REQUISICION;
             
-            private global::System.Data.DataColumn columnID_TIPO_MOVIMIENTO;
+            private global::System.Data.DataColumn columnDPTO_SOLICITA;
             
-            private global::System.Data.DataColumn columnNOMBRE;
+            private global::System.Data.DataColumn columnEMP_SOLICITA;
             
-            private global::System.Data.DataColumn columnINGRESO_EGRESO;
-            
-            private global::System.Data.DataColumn columnID_DETALLE;
+            private global::System.Data.DataColumn columnOBSERVACION;
             
             private global::System.Data.DataColumn columnFECHA_SOLICITUD;
             
-            private global::System.Data.DataColumn columnFECHA_APROBACION;
+            private global::System.Data.DataColumn columnCODIGO;
             
-            private global::System.Data.DataColumn columnPROV_SOL;
+            private global::System.Data.DataColumn columnCANTIDAD_PEDIDO;
             
-            private global::System.Data.DataColumn columnDOCUMENTO;
+            private global::System.Data.DataColumn columnUNIDAD;
             
-            private global::System.Data.DataColumn columnNRO_DOC;
-            
-            private global::System.Data.DataColumn columnCANTIDAD_ENTRADA;
-            
-            private global::System.Data.DataColumn columnCOSTO_ENTRADA;
-            
-            private global::System.Data.DataColumn columnSUBTOTAL_ENTRADA;
-            
-            private global::System.Data.DataColumn columnCANTIDAD_SALIDA;
-            
-            private global::System.Data.DataColumn columnCOSTO_SALIDA;
-            
-            private global::System.Data.DataColumn columnSUBTOTAL_SALIDA;
-            
-            private global::System.Data.DataColumn columnCANTIDAD_STOCK;
-            
-            private global::System.Data.DataColumn columnCOSTO_STOCK;
-            
-            private global::System.Data.DataColumn columnTOTAL_STOCK;
+            private global::System.Data.DataColumn columnITEM;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public SP_KARDEXDataTable() {
-                this.TableName = "SP_KARDEX";
+            public SP_EGRESO_BODEGADataTable() {
+                this.TableName = "SP_EGRESO_BODEGA";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -2824,7 +2370,7 @@ namespace Proveduria.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal SP_KARDEXDataTable(global::System.Data.DataTable table) {
+            internal SP_EGRESO_BODEGADataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -2841,64 +2387,56 @@ namespace Proveduria.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            protected SP_KARDEXDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected SP_EGRESO_BODEGADataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ID_ITEMColumn {
+            public global::System.Data.DataColumn BODEGAColumn {
                 get {
-                    return this.columnID_ITEM;
+                    return this.columnBODEGA;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn CODIGOColumn {
+            public global::System.Data.DataColumn TIPO_MOVIMIENTOColumn {
                 get {
-                    return this.columnCODIGO;
+                    return this.columnTIPO_MOVIMIENTO;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn DESCRIPCIONColumn {
+            public global::System.Data.DataColumn NUM_REQUISICIONColumn {
                 get {
-                    return this.columnDESCRIPCION;
+                    return this.columnNUM_REQUISICION;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ID_TIPO_MOVIMIENTOColumn {
+            public global::System.Data.DataColumn DPTO_SOLICITAColumn {
                 get {
-                    return this.columnID_TIPO_MOVIMIENTO;
+                    return this.columnDPTO_SOLICITA;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn NOMBREColumn {
+            public global::System.Data.DataColumn EMP_SOLICITAColumn {
                 get {
-                    return this.columnNOMBRE;
+                    return this.columnEMP_SOLICITA;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn INGRESO_EGRESOColumn {
+            public global::System.Data.DataColumn OBSERVACIONColumn {
                 get {
-                    return this.columnINGRESO_EGRESO;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn ID_DETALLEColumn {
-                get {
-                    return this.columnID_DETALLE;
+                    return this.columnOBSERVACION;
                 }
             }
             
@@ -2912,105 +2450,33 @@ namespace Proveduria.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn FECHA_APROBACIONColumn {
+            public global::System.Data.DataColumn CODIGOColumn {
                 get {
-                    return this.columnFECHA_APROBACION;
+                    return this.columnCODIGO;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn PROV_SOLColumn {
+            public global::System.Data.DataColumn CANTIDAD_PEDIDOColumn {
                 get {
-                    return this.columnPROV_SOL;
+                    return this.columnCANTIDAD_PEDIDO;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn DOCUMENTOColumn {
+            public global::System.Data.DataColumn UNIDADColumn {
                 get {
-                    return this.columnDOCUMENTO;
+                    return this.columnUNIDAD;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn NRO_DOCColumn {
+            public global::System.Data.DataColumn ITEMColumn {
                 get {
-                    return this.columnNRO_DOC;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn CANTIDAD_ENTRADAColumn {
-                get {
-                    return this.columnCANTIDAD_ENTRADA;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn COSTO_ENTRADAColumn {
-                get {
-                    return this.columnCOSTO_ENTRADA;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn SUBTOTAL_ENTRADAColumn {
-                get {
-                    return this.columnSUBTOTAL_ENTRADA;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn CANTIDAD_SALIDAColumn {
-                get {
-                    return this.columnCANTIDAD_SALIDA;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn COSTO_SALIDAColumn {
-                get {
-                    return this.columnCOSTO_SALIDA;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn SUBTOTAL_SALIDAColumn {
-                get {
-                    return this.columnSUBTOTAL_SALIDA;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn CANTIDAD_STOCKColumn {
-                get {
-                    return this.columnCANTIDAD_STOCK;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn COSTO_STOCKColumn {
-                get {
-                    return this.columnCOSTO_STOCK;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn TOTAL_STOCKColumn {
-                get {
-                    return this.columnTOTAL_STOCK;
+                    return this.columnITEM;
                 }
             }
             
@@ -3025,86 +2491,55 @@ namespace Proveduria.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public SP_KARDEXRow this[int index] {
+            public SP_EGRESO_BODEGARow this[int index] {
                 get {
-                    return ((SP_KARDEXRow)(this.Rows[index]));
+                    return ((SP_EGRESO_BODEGARow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event SP_KARDEXRowChangeEventHandler SP_KARDEXRowChanging;
+            public event SP_EGRESO_BODEGARowChangeEventHandler SP_EGRESO_BODEGARowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event SP_KARDEXRowChangeEventHandler SP_KARDEXRowChanged;
+            public event SP_EGRESO_BODEGARowChangeEventHandler SP_EGRESO_BODEGARowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event SP_KARDEXRowChangeEventHandler SP_KARDEXRowDeleting;
+            public event SP_EGRESO_BODEGARowChangeEventHandler SP_EGRESO_BODEGARowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public event SP_KARDEXRowChangeEventHandler SP_KARDEXRowDeleted;
+            public event SP_EGRESO_BODEGARowChangeEventHandler SP_EGRESO_BODEGARowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void AddSP_KARDEXRow(SP_KARDEXRow row) {
+            public void AddSP_EGRESO_BODEGARow(SP_EGRESO_BODEGARow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public SP_KARDEXRow AddSP_KARDEXRow(
-                        int ID_ITEM, 
-                        string CODIGO, 
-                        string DESCRIPCION, 
-                        short ID_TIPO_MOVIMIENTO, 
-                        string NOMBRE, 
-                        string INGRESO_EGRESO, 
-                        long ID_DETALLE, 
-                        System.DateTime FECHA_SOLICITUD, 
-                        System.DateTime FECHA_APROBACION, 
-                        string PROV_SOL, 
-                        string DOCUMENTO, 
-                        string NRO_DOC, 
-                        decimal CANTIDAD_ENTRADA, 
-                        decimal COSTO_ENTRADA, 
-                        decimal SUBTOTAL_ENTRADA, 
-                        decimal CANTIDAD_SALIDA, 
-                        decimal COSTO_SALIDA, 
-                        decimal SUBTOTAL_SALIDA, 
-                        decimal CANTIDAD_STOCK, 
-                        decimal COSTO_STOCK, 
-                        decimal TOTAL_STOCK) {
-                SP_KARDEXRow rowSP_KARDEXRow = ((SP_KARDEXRow)(this.NewRow()));
+            public SP_EGRESO_BODEGARow AddSP_EGRESO_BODEGARow(string BODEGA, string TIPO_MOVIMIENTO, string NUM_REQUISICION, string DPTO_SOLICITA, string EMP_SOLICITA, string OBSERVACION, System.DateTime FECHA_SOLICITUD, string CODIGO, int CANTIDAD_PEDIDO, string UNIDAD, string ITEM) {
+                SP_EGRESO_BODEGARow rowSP_EGRESO_BODEGARow = ((SP_EGRESO_BODEGARow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        ID_ITEM,
-                        CODIGO,
-                        DESCRIPCION,
-                        ID_TIPO_MOVIMIENTO,
-                        NOMBRE,
-                        INGRESO_EGRESO,
-                        ID_DETALLE,
+                        BODEGA,
+                        TIPO_MOVIMIENTO,
+                        NUM_REQUISICION,
+                        DPTO_SOLICITA,
+                        EMP_SOLICITA,
+                        OBSERVACION,
                         FECHA_SOLICITUD,
-                        FECHA_APROBACION,
-                        PROV_SOL,
-                        DOCUMENTO,
-                        NRO_DOC,
-                        CANTIDAD_ENTRADA,
-                        COSTO_ENTRADA,
-                        SUBTOTAL_ENTRADA,
-                        CANTIDAD_SALIDA,
-                        COSTO_SALIDA,
-                        SUBTOTAL_SALIDA,
-                        CANTIDAD_STOCK,
-                        COSTO_STOCK,
-                        TOTAL_STOCK};
-                rowSP_KARDEXRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowSP_KARDEXRow);
-                return rowSP_KARDEXRow;
+                        CODIGO,
+                        CANTIDAD_PEDIDO,
+                        UNIDAD,
+                        ITEM};
+                rowSP_EGRESO_BODEGARow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowSP_EGRESO_BODEGARow);
+                return rowSP_EGRESO_BODEGARow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                SP_KARDEXDataTable cln = ((SP_KARDEXDataTable)(base.Clone()));
+                SP_EGRESO_BODEGADataTable cln = ((SP_EGRESO_BODEGADataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -3112,117 +2547,88 @@ namespace Proveduria.Reports {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new SP_KARDEXDataTable();
+                return new SP_EGRESO_BODEGADataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             internal void InitVars() {
-                this.columnID_ITEM = base.Columns["ID_ITEM"];
-                this.columnCODIGO = base.Columns["CODIGO"];
-                this.columnDESCRIPCION = base.Columns["DESCRIPCION"];
-                this.columnID_TIPO_MOVIMIENTO = base.Columns["ID_TIPO_MOVIMIENTO"];
-                this.columnNOMBRE = base.Columns["NOMBRE"];
-                this.columnINGRESO_EGRESO = base.Columns["INGRESO_EGRESO"];
-                this.columnID_DETALLE = base.Columns["ID_DETALLE"];
+                this.columnBODEGA = base.Columns["BODEGA"];
+                this.columnTIPO_MOVIMIENTO = base.Columns["TIPO_MOVIMIENTO"];
+                this.columnNUM_REQUISICION = base.Columns["NUM_REQUISICION"];
+                this.columnDPTO_SOLICITA = base.Columns["DPTO_SOLICITA"];
+                this.columnEMP_SOLICITA = base.Columns["EMP_SOLICITA"];
+                this.columnOBSERVACION = base.Columns["OBSERVACION"];
                 this.columnFECHA_SOLICITUD = base.Columns["FECHA_SOLICITUD"];
-                this.columnFECHA_APROBACION = base.Columns["FECHA_APROBACION"];
-                this.columnPROV_SOL = base.Columns["PROV_SOL"];
-                this.columnDOCUMENTO = base.Columns["DOCUMENTO"];
-                this.columnNRO_DOC = base.Columns["NRO_DOC"];
-                this.columnCANTIDAD_ENTRADA = base.Columns["CANTIDAD_ENTRADA"];
-                this.columnCOSTO_ENTRADA = base.Columns["COSTO_ENTRADA"];
-                this.columnSUBTOTAL_ENTRADA = base.Columns["SUBTOTAL_ENTRADA"];
-                this.columnCANTIDAD_SALIDA = base.Columns["CANTIDAD_SALIDA"];
-                this.columnCOSTO_SALIDA = base.Columns["COSTO_SALIDA"];
-                this.columnSUBTOTAL_SALIDA = base.Columns["SUBTOTAL_SALIDA"];
-                this.columnCANTIDAD_STOCK = base.Columns["CANTIDAD_STOCK"];
-                this.columnCOSTO_STOCK = base.Columns["COSTO_STOCK"];
-                this.columnTOTAL_STOCK = base.Columns["TOTAL_STOCK"];
+                this.columnCODIGO = base.Columns["CODIGO"];
+                this.columnCANTIDAD_PEDIDO = base.Columns["CANTIDAD_PEDIDO"];
+                this.columnUNIDAD = base.Columns["UNIDAD"];
+                this.columnITEM = base.Columns["ITEM"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             private void InitClass() {
-                this.columnID_ITEM = new global::System.Data.DataColumn("ID_ITEM", typeof(int), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnID_ITEM);
-                this.columnCODIGO = new global::System.Data.DataColumn("CODIGO", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCODIGO);
-                this.columnDESCRIPCION = new global::System.Data.DataColumn("DESCRIPCION", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDESCRIPCION);
-                this.columnID_TIPO_MOVIMIENTO = new global::System.Data.DataColumn("ID_TIPO_MOVIMIENTO", typeof(short), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnID_TIPO_MOVIMIENTO);
-                this.columnNOMBRE = new global::System.Data.DataColumn("NOMBRE", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNOMBRE);
-                this.columnINGRESO_EGRESO = new global::System.Data.DataColumn("INGRESO_EGRESO", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnINGRESO_EGRESO);
-                this.columnID_DETALLE = new global::System.Data.DataColumn("ID_DETALLE", typeof(long), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnID_DETALLE);
+                this.columnBODEGA = new global::System.Data.DataColumn("BODEGA", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnBODEGA);
+                this.columnTIPO_MOVIMIENTO = new global::System.Data.DataColumn("TIPO_MOVIMIENTO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTIPO_MOVIMIENTO);
+                this.columnNUM_REQUISICION = new global::System.Data.DataColumn("NUM_REQUISICION", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnNUM_REQUISICION);
+                this.columnDPTO_SOLICITA = new global::System.Data.DataColumn("DPTO_SOLICITA", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDPTO_SOLICITA);
+                this.columnEMP_SOLICITA = new global::System.Data.DataColumn("EMP_SOLICITA", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnEMP_SOLICITA);
+                this.columnOBSERVACION = new global::System.Data.DataColumn("OBSERVACION", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnOBSERVACION);
                 this.columnFECHA_SOLICITUD = new global::System.Data.DataColumn("FECHA_SOLICITUD", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnFECHA_SOLICITUD);
-                this.columnFECHA_APROBACION = new global::System.Data.DataColumn("FECHA_APROBACION", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnFECHA_APROBACION);
-                this.columnPROV_SOL = new global::System.Data.DataColumn("PROV_SOL", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnPROV_SOL);
-                this.columnDOCUMENTO = new global::System.Data.DataColumn("DOCUMENTO", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDOCUMENTO);
-                this.columnNRO_DOC = new global::System.Data.DataColumn("NRO_DOC", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnNRO_DOC);
-                this.columnCANTIDAD_ENTRADA = new global::System.Data.DataColumn("CANTIDAD_ENTRADA", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCANTIDAD_ENTRADA);
-                this.columnCOSTO_ENTRADA = new global::System.Data.DataColumn("COSTO_ENTRADA", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCOSTO_ENTRADA);
-                this.columnSUBTOTAL_ENTRADA = new global::System.Data.DataColumn("SUBTOTAL_ENTRADA", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSUBTOTAL_ENTRADA);
-                this.columnCANTIDAD_SALIDA = new global::System.Data.DataColumn("CANTIDAD_SALIDA", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCANTIDAD_SALIDA);
-                this.columnCOSTO_SALIDA = new global::System.Data.DataColumn("COSTO_SALIDA", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCOSTO_SALIDA);
-                this.columnSUBTOTAL_SALIDA = new global::System.Data.DataColumn("SUBTOTAL_SALIDA", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnSUBTOTAL_SALIDA);
-                this.columnCANTIDAD_STOCK = new global::System.Data.DataColumn("CANTIDAD_STOCK", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCANTIDAD_STOCK);
-                this.columnCOSTO_STOCK = new global::System.Data.DataColumn("COSTO_STOCK", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnCOSTO_STOCK);
-                this.columnTOTAL_STOCK = new global::System.Data.DataColumn("TOTAL_STOCK", typeof(decimal), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnTOTAL_STOCK);
-                this.columnID_ITEM.AllowDBNull = false;
+                this.columnCODIGO = new global::System.Data.DataColumn("CODIGO", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCODIGO);
+                this.columnCANTIDAD_PEDIDO = new global::System.Data.DataColumn("CANTIDAD_PEDIDO", typeof(int), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnCANTIDAD_PEDIDO);
+                this.columnUNIDAD = new global::System.Data.DataColumn("UNIDAD", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnUNIDAD);
+                this.columnITEM = new global::System.Data.DataColumn("ITEM", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnITEM);
+                this.columnBODEGA.MaxLength = 100;
+                this.columnTIPO_MOVIMIENTO.MaxLength = 50;
+                this.columnNUM_REQUISICION.MaxLength = 83;
+                this.columnDPTO_SOLICITA.AllowDBNull = false;
+                this.columnDPTO_SOLICITA.MaxLength = 255;
+                this.columnEMP_SOLICITA.MaxLength = 123;
+                this.columnOBSERVACION.MaxLength = 500;
                 this.columnCODIGO.AllowDBNull = false;
                 this.columnCODIGO.MaxLength = 250;
-                this.columnDESCRIPCION.MaxLength = 300;
-                this.columnID_TIPO_MOVIMIENTO.AllowDBNull = false;
-                this.columnNOMBRE.MaxLength = 50;
-                this.columnINGRESO_EGRESO.MaxLength = 1;
-                this.columnID_DETALLE.AllowDBNull = false;
-                this.columnPROV_SOL.MaxLength = 50;
-                this.columnDOCUMENTO.MaxLength = 7;
-                this.columnNRO_DOC.MaxLength = 81;
+                this.columnUNIDAD.AllowDBNull = false;
+                this.columnUNIDAD.MaxLength = 250;
+                this.columnITEM.MaxLength = 300;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public SP_KARDEXRow NewSP_KARDEXRow() {
-                return ((SP_KARDEXRow)(this.NewRow()));
+            public SP_EGRESO_BODEGARow NewSP_EGRESO_BODEGARow() {
+                return ((SP_EGRESO_BODEGARow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new SP_KARDEXRow(builder);
+                return new SP_EGRESO_BODEGARow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(SP_KARDEXRow);
+                return typeof(SP_EGRESO_BODEGARow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.SP_KARDEXRowChanged != null)) {
-                    this.SP_KARDEXRowChanged(this, new SP_KARDEXRowChangeEvent(((SP_KARDEXRow)(e.Row)), e.Action));
+                if ((this.SP_EGRESO_BODEGARowChanged != null)) {
+                    this.SP_EGRESO_BODEGARowChanged(this, new SP_EGRESO_BODEGARowChangeEvent(((SP_EGRESO_BODEGARow)(e.Row)), e.Action));
                 }
             }
             
@@ -3230,8 +2636,8 @@ namespace Proveduria.Reports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.SP_KARDEXRowChanging != null)) {
-                    this.SP_KARDEXRowChanging(this, new SP_KARDEXRowChangeEvent(((SP_KARDEXRow)(e.Row)), e.Action));
+                if ((this.SP_EGRESO_BODEGARowChanging != null)) {
+                    this.SP_EGRESO_BODEGARowChanging(this, new SP_EGRESO_BODEGARowChangeEvent(((SP_EGRESO_BODEGARow)(e.Row)), e.Action));
                 }
             }
             
@@ -3239,8 +2645,8 @@ namespace Proveduria.Reports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.SP_KARDEXRowDeleted != null)) {
-                    this.SP_KARDEXRowDeleted(this, new SP_KARDEXRowChangeEvent(((SP_KARDEXRow)(e.Row)), e.Action));
+                if ((this.SP_EGRESO_BODEGARowDeleted != null)) {
+                    this.SP_EGRESO_BODEGARowDeleted(this, new SP_EGRESO_BODEGARowChangeEvent(((SP_EGRESO_BODEGARow)(e.Row)), e.Action));
                 }
             }
             
@@ -3248,14 +2654,14 @@ namespace Proveduria.Reports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.SP_KARDEXRowDeleting != null)) {
-                    this.SP_KARDEXRowDeleting(this, new SP_KARDEXRowChangeEvent(((SP_KARDEXRow)(e.Row)), e.Action));
+                if ((this.SP_EGRESO_BODEGARowDeleting != null)) {
+                    this.SP_EGRESO_BODEGARowDeleting(this, new SP_EGRESO_BODEGARowChangeEvent(((SP_EGRESO_BODEGARow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void RemoveSP_KARDEXRow(SP_KARDEXRow row) {
+            public void RemoveSP_EGRESO_BODEGARow(SP_EGRESO_BODEGARow row) {
                 this.Rows.Remove(row);
             }
             
@@ -3282,7 +2688,7 @@ namespace Proveduria.Reports {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "SP_KARDEXDataTable";
+                attribute2.FixedValue = "SP_EGRESO_BODEGADataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -3320,6 +2726,468 @@ namespace Proveduria.Reports {
                 }
                 xs.Add(dsSchema);
                 return type;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class SP_CORTE_INVENTARIORow : global::System.Data.DataRow {
+            
+            private SP_CORTE_INVENTARIODataTable tableSP_CORTE_INVENTARIO;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal SP_CORTE_INVENTARIORow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableSP_CORTE_INVENTARIO = ((SP_CORTE_INVENTARIODataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string CODIGO {
+                get {
+                    return ((string)(this[this.tableSP_CORTE_INVENTARIO.CODIGOColumn]));
+                }
+                set {
+                    this[this.tableSP_CORTE_INVENTARIO.CODIGOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string ITEM {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_CORTE_INVENTARIO.ITEMColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ITEM\' de la tabla \'SP_CORTE_INVENTARIO\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_CORTE_INVENTARIO.ITEMColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string UNIDAD {
+                get {
+                    return ((string)(this[this.tableSP_CORTE_INVENTARIO.UNIDADColumn]));
+                }
+                set {
+                    this[this.tableSP_CORTE_INVENTARIO.UNIDADColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public double CANTIDAD_ACTUAL {
+                get {
+                    try {
+                        return ((double)(this[this.tableSP_CORTE_INVENTARIO.CANTIDAD_ACTUALColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CANTIDAD_ACTUAL\' de la tabla \'SP_CORTE_INVENTARIO\' es DBN" +
+                                "ull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_CORTE_INVENTARIO.CANTIDAD_ACTUALColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public double VALOR {
+                get {
+                    try {
+                        return ((double)(this[this.tableSP_CORTE_INVENTARIO.VALORColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'VALOR\' de la tabla \'SP_CORTE_INVENTARIO\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_CORTE_INVENTARIO.VALORColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public decimal TOTAL {
+                get {
+                    try {
+                        return ((decimal)(this[this.tableSP_CORTE_INVENTARIO.TOTALColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'TOTAL\' de la tabla \'SP_CORTE_INVENTARIO\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_CORTE_INVENTARIO.TOTALColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsITEMNull() {
+                return this.IsNull(this.tableSP_CORTE_INVENTARIO.ITEMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetITEMNull() {
+                this[this.tableSP_CORTE_INVENTARIO.ITEMColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsCANTIDAD_ACTUALNull() {
+                return this.IsNull(this.tableSP_CORTE_INVENTARIO.CANTIDAD_ACTUALColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetCANTIDAD_ACTUALNull() {
+                this[this.tableSP_CORTE_INVENTARIO.CANTIDAD_ACTUALColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsVALORNull() {
+                return this.IsNull(this.tableSP_CORTE_INVENTARIO.VALORColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetVALORNull() {
+                this[this.tableSP_CORTE_INVENTARIO.VALORColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsTOTALNull() {
+                return this.IsNull(this.tableSP_CORTE_INVENTARIO.TOTALColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetTOTALNull() {
+                this[this.tableSP_CORTE_INVENTARIO.TOTALColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class SP_INGRESO_BODEGARow : global::System.Data.DataRow {
+            
+            private SP_INGRESO_BODEGADataTable tableSP_INGRESO_BODEGA;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal SP_INGRESO_BODEGARow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableSP_INGRESO_BODEGA = ((SP_INGRESO_BODEGADataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string BODEGA {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_INGRESO_BODEGA.BODEGAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'BODEGA\' de la tabla \'SP_INGRESO_BODEGA\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_INGRESO_BODEGA.BODEGAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string NUM_REQUISICION {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_INGRESO_BODEGA.NUM_REQUISICIONColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'NUM_REQUISICION\' de la tabla \'SP_INGRESO_BODEGA\' es DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_INGRESO_BODEGA.NUM_REQUISICIONColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string DPTO_SOLICITA {
+                get {
+                    return ((string)(this[this.tableSP_INGRESO_BODEGA.DPTO_SOLICITAColumn]));
+                }
+                set {
+                    this[this.tableSP_INGRESO_BODEGA.DPTO_SOLICITAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string EMP_SOLICITA {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_INGRESO_BODEGA.EMP_SOLICITAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'EMP_SOLICITA\' de la tabla \'SP_INGRESO_BODEGA\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_INGRESO_BODEGA.EMP_SOLICITAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string OBSERVACION {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_INGRESO_BODEGA.OBSERVACIONColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'OBSERVACION\' de la tabla \'SP_INGRESO_BODEGA\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_INGRESO_BODEGA.OBSERVACIONColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public System.DateTime FECHA_SOLICITUD {
+                get {
+                    try {
+                        return ((global::System.DateTime)(this[this.tableSP_INGRESO_BODEGA.FECHA_SOLICITUDColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'FECHA_SOLICITUD\' de la tabla \'SP_INGRESO_BODEGA\' es DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_INGRESO_BODEGA.FECHA_SOLICITUDColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string CODIGO {
+                get {
+                    return ((string)(this[this.tableSP_INGRESO_BODEGA.CODIGOColumn]));
+                }
+                set {
+                    this[this.tableSP_INGRESO_BODEGA.CODIGOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int CANTIDAD_PEDIDO {
+                get {
+                    try {
+                        return ((int)(this[this.tableSP_INGRESO_BODEGA.CANTIDAD_PEDIDOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CANTIDAD_PEDIDO\' de la tabla \'SP_INGRESO_BODEGA\' es DBNul" +
+                                "l.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_INGRESO_BODEGA.CANTIDAD_PEDIDOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string UNIDAD {
+                get {
+                    return ((string)(this[this.tableSP_INGRESO_BODEGA.UNIDADColumn]));
+                }
+                set {
+                    this[this.tableSP_INGRESO_BODEGA.UNIDADColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string ITEM {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_INGRESO_BODEGA.ITEMColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ITEM\' de la tabla \'SP_INGRESO_BODEGA\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_INGRESO_BODEGA.ITEMColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsBODEGANull() {
+                return this.IsNull(this.tableSP_INGRESO_BODEGA.BODEGAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetBODEGANull() {
+                this[this.tableSP_INGRESO_BODEGA.BODEGAColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsNUM_REQUISICIONNull() {
+                return this.IsNull(this.tableSP_INGRESO_BODEGA.NUM_REQUISICIONColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetNUM_REQUISICIONNull() {
+                this[this.tableSP_INGRESO_BODEGA.NUM_REQUISICIONColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsEMP_SOLICITANull() {
+                return this.IsNull(this.tableSP_INGRESO_BODEGA.EMP_SOLICITAColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetEMP_SOLICITANull() {
+                this[this.tableSP_INGRESO_BODEGA.EMP_SOLICITAColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsOBSERVACIONNull() {
+                return this.IsNull(this.tableSP_INGRESO_BODEGA.OBSERVACIONColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetOBSERVACIONNull() {
+                this[this.tableSP_INGRESO_BODEGA.OBSERVACIONColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsFECHA_SOLICITUDNull() {
+                return this.IsNull(this.tableSP_INGRESO_BODEGA.FECHA_SOLICITUDColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetFECHA_SOLICITUDNull() {
+                this[this.tableSP_INGRESO_BODEGA.FECHA_SOLICITUDColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsCANTIDAD_PEDIDONull() {
+                return this.IsNull(this.tableSP_INGRESO_BODEGA.CANTIDAD_PEDIDOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetCANTIDAD_PEDIDONull() {
+                this[this.tableSP_INGRESO_BODEGA.CANTIDAD_PEDIDOColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsITEMNull() {
+                return this.IsNull(this.tableSP_INGRESO_BODEGA.ITEMColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetITEMNull() {
+                this[this.tableSP_INGRESO_BODEGA.ITEMColumn] = global::System.Convert.DBNull;
+            }
+        }
+        
+        /// <summary>
+        ///Represents strongly named DataRow class.
+        ///</summary>
+        public partial class SP_MEDIDASRow : global::System.Data.DataRow {
+            
+            private SP_MEDIDASDataTable tableSP_MEDIDAS;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            internal SP_MEDIDASRow(global::System.Data.DataRowBuilder rb) : 
+                    base(rb) {
+                this.tableSP_MEDIDAS = ((SP_MEDIDASDataTable)(this.Table));
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public short ID_MEDIDA {
+                get {
+                    return ((short)(this[this.tableSP_MEDIDAS.ID_MEDIDAColumn]));
+                }
+                set {
+                    this[this.tableSP_MEDIDAS.ID_MEDIDAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string NOMBRE {
+                get {
+                    return ((string)(this[this.tableSP_MEDIDAS.NOMBREColumn]));
+                }
+                set {
+                    this[this.tableSP_MEDIDAS.NOMBREColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string ESTADO {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_MEDIDAS.ESTADOColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ESTADO\' de la tabla \'SP_MEDIDAS\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_MEDIDAS.ESTADOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public bool IsESTADONull() {
+                return this.IsNull(this.tableSP_MEDIDAS.ESTADOColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public void SetESTADONull() {
+                this[this.tableSP_MEDIDAS.ESTADOColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -3521,18 +3389,18 @@ namespace Proveduria.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public double CANTIDAD_MOVIMIENTO {
+            public int CANTIDAD_PEDIDO {
                 get {
                     try {
-                        return ((double)(this[this.tableSP_AJUSTE_BODEGA.CANTIDAD_MOVIMIENTOColumn]));
+                        return ((int)(this[this.tableSP_AJUSTE_BODEGA.CANTIDAD_PEDIDOColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CANTIDAD_MOVIMIENTO\' de la tabla \'SP_AJUSTE_BODEGA\' es DB" +
-                                "Null.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CANTIDAD_PEDIDO\' de la tabla \'SP_AJUSTE_BODEGA\' es DBNull" +
+                                ".", e);
                     }
                 }
                 set {
-                    this[this.tableSP_AJUSTE_BODEGA.CANTIDAD_MOVIMIENTOColumn] = value;
+                    this[this.tableSP_AJUSTE_BODEGA.CANTIDAD_PEDIDOColumn] = value;
                 }
             }
             
@@ -3673,14 +3541,14 @@ namespace Proveduria.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsCANTIDAD_MOVIMIENTONull() {
-                return this.IsNull(this.tableSP_AJUSTE_BODEGA.CANTIDAD_MOVIMIENTOColumn);
+            public bool IsCANTIDAD_PEDIDONull() {
+                return this.IsNull(this.tableSP_AJUSTE_BODEGA.CANTIDAD_PEDIDOColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetCANTIDAD_MOVIMIENTONull() {
-                this[this.tableSP_AJUSTE_BODEGA.CANTIDAD_MOVIMIENTOColumn] = global::System.Convert.DBNull;
+            public void SetCANTIDAD_PEDIDONull() {
+                this[this.tableSP_AJUSTE_BODEGA.CANTIDAD_PEDIDOColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3693,745 +3561,6 @@ namespace Proveduria.Reports {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetITEMNull() {
                 this[this.tableSP_AJUSTE_BODEGA.ITEMColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class SP_CORTE_INVENTARIORow : global::System.Data.DataRow {
-            
-            private SP_CORTE_INVENTARIODataTable tableSP_CORTE_INVENTARIO;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal SP_CORTE_INVENTARIORow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableSP_CORTE_INVENTARIO = ((SP_CORTE_INVENTARIODataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string CODIGO {
-                get {
-                    return ((string)(this[this.tableSP_CORTE_INVENTARIO.CODIGOColumn]));
-                }
-                set {
-                    this[this.tableSP_CORTE_INVENTARIO.CODIGOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string ITEM {
-                get {
-                    try {
-                        return ((string)(this[this.tableSP_CORTE_INVENTARIO.ITEMColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ITEM\' de la tabla \'SP_CORTE_INVENTARIO\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_CORTE_INVENTARIO.ITEMColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string UNIDAD {
-                get {
-                    return ((string)(this[this.tableSP_CORTE_INVENTARIO.UNIDADColumn]));
-                }
-                set {
-                    this[this.tableSP_CORTE_INVENTARIO.UNIDADColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public double CANTIDAD_ACTUAL {
-                get {
-                    try {
-                        return ((double)(this[this.tableSP_CORTE_INVENTARIO.CANTIDAD_ACTUALColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CANTIDAD_ACTUAL\' de la tabla \'SP_CORTE_INVENTARIO\' es DBN" +
-                                "ull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_CORTE_INVENTARIO.CANTIDAD_ACTUALColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public double COSTO_PROMEDIO {
-                get {
-                    try {
-                        return ((double)(this[this.tableSP_CORTE_INVENTARIO.COSTO_PROMEDIOColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'COSTO_PROMEDIO\' de la tabla \'SP_CORTE_INVENTARIO\' es DBNu" +
-                                "ll.", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_CORTE_INVENTARIO.COSTO_PROMEDIOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal TOTAL {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableSP_CORTE_INVENTARIO.TOTALColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'TOTAL\' de la tabla \'SP_CORTE_INVENTARIO\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_CORTE_INVENTARIO.TOTALColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsITEMNull() {
-                return this.IsNull(this.tableSP_CORTE_INVENTARIO.ITEMColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetITEMNull() {
-                this[this.tableSP_CORTE_INVENTARIO.ITEMColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsCANTIDAD_ACTUALNull() {
-                return this.IsNull(this.tableSP_CORTE_INVENTARIO.CANTIDAD_ACTUALColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetCANTIDAD_ACTUALNull() {
-                this[this.tableSP_CORTE_INVENTARIO.CANTIDAD_ACTUALColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsCOSTO_PROMEDIONull() {
-                return this.IsNull(this.tableSP_CORTE_INVENTARIO.COSTO_PROMEDIOColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetCOSTO_PROMEDIONull() {
-                this[this.tableSP_CORTE_INVENTARIO.COSTO_PROMEDIOColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsTOTALNull() {
-                return this.IsNull(this.tableSP_CORTE_INVENTARIO.TOTALColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetTOTALNull() {
-                this[this.tableSP_CORTE_INVENTARIO.TOTALColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class SP_EGRESO_BODEGARow : global::System.Data.DataRow {
-            
-            private SP_EGRESO_BODEGADataTable tableSP_EGRESO_BODEGA;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal SP_EGRESO_BODEGARow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableSP_EGRESO_BODEGA = ((SP_EGRESO_BODEGADataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string BODEGA {
-                get {
-                    try {
-                        return ((string)(this[this.tableSP_EGRESO_BODEGA.BODEGAColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'BODEGA\' de la tabla \'SP_EGRESO_BODEGA\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_EGRESO_BODEGA.BODEGAColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string TIPO_MOVIMIENTO {
-                get {
-                    try {
-                        return ((string)(this[this.tableSP_EGRESO_BODEGA.TIPO_MOVIMIENTOColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'TIPO_MOVIMIENTO\' de la tabla \'SP_EGRESO_BODEGA\' es DBNull" +
-                                ".", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_EGRESO_BODEGA.TIPO_MOVIMIENTOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string NUM_REQUISICION {
-                get {
-                    try {
-                        return ((string)(this[this.tableSP_EGRESO_BODEGA.NUM_REQUISICIONColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'NUM_REQUISICION\' de la tabla \'SP_EGRESO_BODEGA\' es DBNull" +
-                                ".", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_EGRESO_BODEGA.NUM_REQUISICIONColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string DPTO_SOLICITA {
-                get {
-                    return ((string)(this[this.tableSP_EGRESO_BODEGA.DPTO_SOLICITAColumn]));
-                }
-                set {
-                    this[this.tableSP_EGRESO_BODEGA.DPTO_SOLICITAColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string EMP_SOLICITA {
-                get {
-                    try {
-                        return ((string)(this[this.tableSP_EGRESO_BODEGA.EMP_SOLICITAColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'EMP_SOLICITA\' de la tabla \'SP_EGRESO_BODEGA\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_EGRESO_BODEGA.EMP_SOLICITAColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string OBSERVACION {
-                get {
-                    try {
-                        return ((string)(this[this.tableSP_EGRESO_BODEGA.OBSERVACIONColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'OBSERVACION\' de la tabla \'SP_EGRESO_BODEGA\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_EGRESO_BODEGA.OBSERVACIONColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public System.DateTime FECHA_SOLICITUD {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableSP_EGRESO_BODEGA.FECHA_SOLICITUDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'FECHA_SOLICITUD\' de la tabla \'SP_EGRESO_BODEGA\' es DBNull" +
-                                ".", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_EGRESO_BODEGA.FECHA_SOLICITUDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string CODIGO {
-                get {
-                    return ((string)(this[this.tableSP_EGRESO_BODEGA.CODIGOColumn]));
-                }
-                set {
-                    this[this.tableSP_EGRESO_BODEGA.CODIGOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public double CANTIDAD_MOVIMIENTO {
-                get {
-                    try {
-                        return ((double)(this[this.tableSP_EGRESO_BODEGA.CANTIDAD_MOVIMIENTOColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CANTIDAD_MOVIMIENTO\' de la tabla \'SP_EGRESO_BODEGA\' es DB" +
-                                "Null.", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_EGRESO_BODEGA.CANTIDAD_MOVIMIENTOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string UNIDAD {
-                get {
-                    return ((string)(this[this.tableSP_EGRESO_BODEGA.UNIDADColumn]));
-                }
-                set {
-                    this[this.tableSP_EGRESO_BODEGA.UNIDADColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string ITEM {
-                get {
-                    try {
-                        return ((string)(this[this.tableSP_EGRESO_BODEGA.ITEMColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ITEM\' de la tabla \'SP_EGRESO_BODEGA\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_EGRESO_BODEGA.ITEMColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsBODEGANull() {
-                return this.IsNull(this.tableSP_EGRESO_BODEGA.BODEGAColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetBODEGANull() {
-                this[this.tableSP_EGRESO_BODEGA.BODEGAColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsTIPO_MOVIMIENTONull() {
-                return this.IsNull(this.tableSP_EGRESO_BODEGA.TIPO_MOVIMIENTOColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetTIPO_MOVIMIENTONull() {
-                this[this.tableSP_EGRESO_BODEGA.TIPO_MOVIMIENTOColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsNUM_REQUISICIONNull() {
-                return this.IsNull(this.tableSP_EGRESO_BODEGA.NUM_REQUISICIONColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetNUM_REQUISICIONNull() {
-                this[this.tableSP_EGRESO_BODEGA.NUM_REQUISICIONColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsEMP_SOLICITANull() {
-                return this.IsNull(this.tableSP_EGRESO_BODEGA.EMP_SOLICITAColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetEMP_SOLICITANull() {
-                this[this.tableSP_EGRESO_BODEGA.EMP_SOLICITAColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsOBSERVACIONNull() {
-                return this.IsNull(this.tableSP_EGRESO_BODEGA.OBSERVACIONColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetOBSERVACIONNull() {
-                this[this.tableSP_EGRESO_BODEGA.OBSERVACIONColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsFECHA_SOLICITUDNull() {
-                return this.IsNull(this.tableSP_EGRESO_BODEGA.FECHA_SOLICITUDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetFECHA_SOLICITUDNull() {
-                this[this.tableSP_EGRESO_BODEGA.FECHA_SOLICITUDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsCANTIDAD_MOVIMIENTONull() {
-                return this.IsNull(this.tableSP_EGRESO_BODEGA.CANTIDAD_MOVIMIENTOColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetCANTIDAD_MOVIMIENTONull() {
-                this[this.tableSP_EGRESO_BODEGA.CANTIDAD_MOVIMIENTOColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsITEMNull() {
-                return this.IsNull(this.tableSP_EGRESO_BODEGA.ITEMColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetITEMNull() {
-                this[this.tableSP_EGRESO_BODEGA.ITEMColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class SP_INGRESO_BODEGARow : global::System.Data.DataRow {
-            
-            private SP_INGRESO_BODEGADataTable tableSP_INGRESO_BODEGA;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal SP_INGRESO_BODEGARow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableSP_INGRESO_BODEGA = ((SP_INGRESO_BODEGADataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string BODEGA {
-                get {
-                    try {
-                        return ((string)(this[this.tableSP_INGRESO_BODEGA.BODEGAColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'BODEGA\' de la tabla \'SP_INGRESO_BODEGA\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_INGRESO_BODEGA.BODEGAColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string NUM_REQUISICION {
-                get {
-                    try {
-                        return ((string)(this[this.tableSP_INGRESO_BODEGA.NUM_REQUISICIONColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'NUM_REQUISICION\' de la tabla \'SP_INGRESO_BODEGA\' es DBNul" +
-                                "l.", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_INGRESO_BODEGA.NUM_REQUISICIONColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string DPTO_SOLICITA {
-                get {
-                    return ((string)(this[this.tableSP_INGRESO_BODEGA.DPTO_SOLICITAColumn]));
-                }
-                set {
-                    this[this.tableSP_INGRESO_BODEGA.DPTO_SOLICITAColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string EMP_SOLICITA {
-                get {
-                    try {
-                        return ((string)(this[this.tableSP_INGRESO_BODEGA.EMP_SOLICITAColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'EMP_SOLICITA\' de la tabla \'SP_INGRESO_BODEGA\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_INGRESO_BODEGA.EMP_SOLICITAColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string OBSERVACION {
-                get {
-                    try {
-                        return ((string)(this[this.tableSP_INGRESO_BODEGA.OBSERVACIONColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'OBSERVACION\' de la tabla \'SP_INGRESO_BODEGA\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_INGRESO_BODEGA.OBSERVACIONColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public System.DateTime FECHA_SOLICITUD {
-                get {
-                    try {
-                        return ((global::System.DateTime)(this[this.tableSP_INGRESO_BODEGA.FECHA_SOLICITUDColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'FECHA_SOLICITUD\' de la tabla \'SP_INGRESO_BODEGA\' es DBNul" +
-                                "l.", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_INGRESO_BODEGA.FECHA_SOLICITUDColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string CODIGO {
-                get {
-                    return ((string)(this[this.tableSP_INGRESO_BODEGA.CODIGOColumn]));
-                }
-                set {
-                    this[this.tableSP_INGRESO_BODEGA.CODIGOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public double CANTIDAD_MOVIMIENTO {
-                get {
-                    try {
-                        return ((double)(this[this.tableSP_INGRESO_BODEGA.CANTIDAD_MOVIMIENTOColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CANTIDAD_MOVIMIENTO\' de la tabla \'SP_INGRESO_BODEGA\' es D" +
-                                "BNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_INGRESO_BODEGA.CANTIDAD_MOVIMIENTOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string UNIDAD {
-                get {
-                    return ((string)(this[this.tableSP_INGRESO_BODEGA.UNIDADColumn]));
-                }
-                set {
-                    this[this.tableSP_INGRESO_BODEGA.UNIDADColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string ITEM {
-                get {
-                    try {
-                        return ((string)(this[this.tableSP_INGRESO_BODEGA.ITEMColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ITEM\' de la tabla \'SP_INGRESO_BODEGA\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_INGRESO_BODEGA.ITEMColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsBODEGANull() {
-                return this.IsNull(this.tableSP_INGRESO_BODEGA.BODEGAColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetBODEGANull() {
-                this[this.tableSP_INGRESO_BODEGA.BODEGAColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsNUM_REQUISICIONNull() {
-                return this.IsNull(this.tableSP_INGRESO_BODEGA.NUM_REQUISICIONColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetNUM_REQUISICIONNull() {
-                this[this.tableSP_INGRESO_BODEGA.NUM_REQUISICIONColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsEMP_SOLICITANull() {
-                return this.IsNull(this.tableSP_INGRESO_BODEGA.EMP_SOLICITAColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetEMP_SOLICITANull() {
-                this[this.tableSP_INGRESO_BODEGA.EMP_SOLICITAColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsOBSERVACIONNull() {
-                return this.IsNull(this.tableSP_INGRESO_BODEGA.OBSERVACIONColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetOBSERVACIONNull() {
-                this[this.tableSP_INGRESO_BODEGA.OBSERVACIONColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsFECHA_SOLICITUDNull() {
-                return this.IsNull(this.tableSP_INGRESO_BODEGA.FECHA_SOLICITUDColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetFECHA_SOLICITUDNull() {
-                this[this.tableSP_INGRESO_BODEGA.FECHA_SOLICITUDColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsCANTIDAD_MOVIMIENTONull() {
-                return this.IsNull(this.tableSP_INGRESO_BODEGA.CANTIDAD_MOVIMIENTOColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetCANTIDAD_MOVIMIENTONull() {
-                this[this.tableSP_INGRESO_BODEGA.CANTIDAD_MOVIMIENTOColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsITEMNull() {
-                return this.IsNull(this.tableSP_INGRESO_BODEGA.ITEMColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetITEMNull() {
-                this[this.tableSP_INGRESO_BODEGA.ITEMColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Represents strongly named DataRow class.
-        ///</summary>
-        public partial class SP_MEDIDASRow : global::System.Data.DataRow {
-            
-            private SP_MEDIDASDataTable tableSP_MEDIDAS;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal SP_MEDIDASRow(global::System.Data.DataRowBuilder rb) : 
-                    base(rb) {
-                this.tableSP_MEDIDAS = ((SP_MEDIDASDataTable)(this.Table));
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public short ID_MEDIDA {
-                get {
-                    return ((short)(this[this.tableSP_MEDIDAS.ID_MEDIDAColumn]));
-                }
-                set {
-                    this[this.tableSP_MEDIDAS.ID_MEDIDAColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string NOMBRE {
-                get {
-                    return ((string)(this[this.tableSP_MEDIDAS.NOMBREColumn]));
-                }
-                set {
-                    this[this.tableSP_MEDIDAS.NOMBREColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string ESTADO {
-                get {
-                    try {
-                        return ((string)(this[this.tableSP_MEDIDAS.ESTADOColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ESTADO\' de la tabla \'SP_MEDIDAS\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_MEDIDAS.ESTADOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsESTADONull() {
-                return this.IsNull(this.tableSP_MEDIDAS.ESTADOColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetESTADONull() {
-                this[this.tableSP_MEDIDAS.ESTADOColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -4616,18 +3745,18 @@ namespace Proveduria.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public double CANTIDAD_MOVIMIENTO {
+            public int CANTIDAD_PEDIDO {
                 get {
                     try {
-                        return ((double)(this[this.tableSP_REQUISICION_BODEGA.CANTIDAD_MOVIMIENTOColumn]));
+                        return ((int)(this[this.tableSP_REQUISICION_BODEGA.CANTIDAD_PEDIDOColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CANTIDAD_MOVIMIENTO\' de la tabla \'SP_REQUISICION_BODEGA\' " +
-                                "es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CANTIDAD_PEDIDO\' de la tabla \'SP_REQUISICION_BODEGA\' es D" +
+                                "BNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSP_REQUISICION_BODEGA.CANTIDAD_MOVIMIENTOColumn] = value;
+                    this[this.tableSP_REQUISICION_BODEGA.CANTIDAD_PEDIDOColumn] = value;
                 }
             }
             
@@ -4763,14 +3892,14 @@ namespace Proveduria.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsCANTIDAD_MOVIMIENTONull() {
-                return this.IsNull(this.tableSP_REQUISICION_BODEGA.CANTIDAD_MOVIMIENTOColumn);
+            public bool IsCANTIDAD_PEDIDONull() {
+                return this.IsNull(this.tableSP_REQUISICION_BODEGA.CANTIDAD_PEDIDOColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetCANTIDAD_MOVIMIENTONull() {
-                this[this.tableSP_REQUISICION_BODEGA.CANTIDAD_MOVIMIENTOColumn] = global::System.Convert.DBNull;
+            public void SetCANTIDAD_PEDIDONull() {
+                this[this.tableSP_REQUISICION_BODEGA.CANTIDAD_PEDIDOColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -4801,106 +3930,107 @@ namespace Proveduria.Reports {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class SP_KARDEXRow : global::System.Data.DataRow {
+        public partial class SP_EGRESO_BODEGARow : global::System.Data.DataRow {
             
-            private SP_KARDEXDataTable tableSP_KARDEX;
+            private SP_EGRESO_BODEGADataTable tableSP_EGRESO_BODEGA;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            internal SP_KARDEXRow(global::System.Data.DataRowBuilder rb) : 
+            internal SP_EGRESO_BODEGARow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tableSP_KARDEX = ((SP_KARDEXDataTable)(this.Table));
+                this.tableSP_EGRESO_BODEGA = ((SP_EGRESO_BODEGADataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public int ID_ITEM {
-                get {
-                    return ((int)(this[this.tableSP_KARDEX.ID_ITEMColumn]));
-                }
-                set {
-                    this[this.tableSP_KARDEX.ID_ITEMColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string CODIGO {
-                get {
-                    return ((string)(this[this.tableSP_KARDEX.CODIGOColumn]));
-                }
-                set {
-                    this[this.tableSP_KARDEX.CODIGOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string DESCRIPCION {
+            public string BODEGA {
                 get {
                     try {
-                        return ((string)(this[this.tableSP_KARDEX.DESCRIPCIONColumn]));
+                        return ((string)(this[this.tableSP_EGRESO_BODEGA.BODEGAColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'DESCRIPCION\' de la tabla \'SP_KARDEX\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'BODEGA\' de la tabla \'SP_EGRESO_BODEGA\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSP_KARDEX.DESCRIPCIONColumn] = value;
+                    this[this.tableSP_EGRESO_BODEGA.BODEGAColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public short ID_TIPO_MOVIMIENTO {
-                get {
-                    return ((short)(this[this.tableSP_KARDEX.ID_TIPO_MOVIMIENTOColumn]));
-                }
-                set {
-                    this[this.tableSP_KARDEX.ID_TIPO_MOVIMIENTOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string NOMBRE {
+            public string TIPO_MOVIMIENTO {
                 get {
                     try {
-                        return ((string)(this[this.tableSP_KARDEX.NOMBREColumn]));
+                        return ((string)(this[this.tableSP_EGRESO_BODEGA.TIPO_MOVIMIENTOColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'NOMBRE\' de la tabla \'SP_KARDEX\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'TIPO_MOVIMIENTO\' de la tabla \'SP_EGRESO_BODEGA\' es DBNull" +
+                                ".", e);
                     }
                 }
                 set {
-                    this[this.tableSP_KARDEX.NOMBREColumn] = value;
+                    this[this.tableSP_EGRESO_BODEGA.TIPO_MOVIMIENTOColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string INGRESO_EGRESO {
+            public string NUM_REQUISICION {
                 get {
                     try {
-                        return ((string)(this[this.tableSP_KARDEX.INGRESO_EGRESOColumn]));
+                        return ((string)(this[this.tableSP_EGRESO_BODEGA.NUM_REQUISICIONColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'INGRESO_EGRESO\' de la tabla \'SP_KARDEX\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'NUM_REQUISICION\' de la tabla \'SP_EGRESO_BODEGA\' es DBNull" +
+                                ".", e);
                     }
                 }
                 set {
-                    this[this.tableSP_KARDEX.INGRESO_EGRESOColumn] = value;
+                    this[this.tableSP_EGRESO_BODEGA.NUM_REQUISICIONColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public long ID_DETALLE {
+            public string DPTO_SOLICITA {
                 get {
-                    return ((long)(this[this.tableSP_KARDEX.ID_DETALLEColumn]));
+                    return ((string)(this[this.tableSP_EGRESO_BODEGA.DPTO_SOLICITAColumn]));
                 }
                 set {
-                    this[this.tableSP_KARDEX.ID_DETALLEColumn] = value;
+                    this[this.tableSP_EGRESO_BODEGA.DPTO_SOLICITAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string EMP_SOLICITA {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_EGRESO_BODEGA.EMP_SOLICITAColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'EMP_SOLICITA\' de la tabla \'SP_EGRESO_BODEGA\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_EGRESO_BODEGA.EMP_SOLICITAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string OBSERVACION {
+                get {
+                    try {
+                        return ((string)(this[this.tableSP_EGRESO_BODEGA.OBSERVACIONColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'OBSERVACION\' de la tabla \'SP_EGRESO_BODEGA\' es DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableSP_EGRESO_BODEGA.OBSERVACIONColumn] = value;
                 }
             }
             
@@ -4909,461 +4039,167 @@ namespace Proveduria.Reports {
             public System.DateTime FECHA_SOLICITUD {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableSP_KARDEX.FECHA_SOLICITUDColumn]));
+                        return ((global::System.DateTime)(this[this.tableSP_EGRESO_BODEGA.FECHA_SOLICITUDColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'FECHA_SOLICITUD\' de la tabla \'SP_KARDEX\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'FECHA_SOLICITUD\' de la tabla \'SP_EGRESO_BODEGA\' es DBNull" +
+                                ".", e);
                     }
                 }
                 set {
-                    this[this.tableSP_KARDEX.FECHA_SOLICITUDColumn] = value;
+                    this[this.tableSP_EGRESO_BODEGA.FECHA_SOLICITUDColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public System.DateTime FECHA_APROBACION {
+            public string CODIGO {
+                get {
+                    return ((string)(this[this.tableSP_EGRESO_BODEGA.CODIGOColumn]));
+                }
+                set {
+                    this[this.tableSP_EGRESO_BODEGA.CODIGOColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public int CANTIDAD_PEDIDO {
                 get {
                     try {
-                        return ((global::System.DateTime)(this[this.tableSP_KARDEX.FECHA_APROBACIONColumn]));
+                        return ((int)(this[this.tableSP_EGRESO_BODEGA.CANTIDAD_PEDIDOColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'FECHA_APROBACION\' de la tabla \'SP_KARDEX\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CANTIDAD_PEDIDO\' de la tabla \'SP_EGRESO_BODEGA\' es DBNull" +
+                                ".", e);
                     }
                 }
                 set {
-                    this[this.tableSP_KARDEX.FECHA_APROBACIONColumn] = value;
+                    this[this.tableSP_EGRESO_BODEGA.CANTIDAD_PEDIDOColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string PROV_SOL {
+            public string UNIDAD {
+                get {
+                    return ((string)(this[this.tableSP_EGRESO_BODEGA.UNIDADColumn]));
+                }
+                set {
+                    this[this.tableSP_EGRESO_BODEGA.UNIDADColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string ITEM {
                 get {
                     try {
-                        return ((string)(this[this.tableSP_KARDEX.PROV_SOLColumn]));
+                        return ((string)(this[this.tableSP_EGRESO_BODEGA.ITEMColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'PROV_SOL\' de la tabla \'SP_KARDEX\' es DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("El valor de la columna \'ITEM\' de la tabla \'SP_EGRESO_BODEGA\' es DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableSP_KARDEX.PROV_SOLColumn] = value;
+                    this[this.tableSP_EGRESO_BODEGA.ITEMColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string DOCUMENTO {
-                get {
-                    try {
-                        return ((string)(this[this.tableSP_KARDEX.DOCUMENTOColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'DOCUMENTO\' de la tabla \'SP_KARDEX\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_KARDEX.DOCUMENTOColumn] = value;
-                }
+            public bool IsBODEGANull() {
+                return this.IsNull(this.tableSP_EGRESO_BODEGA.BODEGAColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string NRO_DOC {
-                get {
-                    try {
-                        return ((string)(this[this.tableSP_KARDEX.NRO_DOCColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'NRO_DOC\' de la tabla \'SP_KARDEX\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_KARDEX.NRO_DOCColumn] = value;
-                }
+            public void SetBODEGANull() {
+                this[this.tableSP_EGRESO_BODEGA.BODEGAColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal CANTIDAD_ENTRADA {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableSP_KARDEX.CANTIDAD_ENTRADAColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CANTIDAD_ENTRADA\' de la tabla \'SP_KARDEX\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_KARDEX.CANTIDAD_ENTRADAColumn] = value;
-                }
+            public bool IsTIPO_MOVIMIENTONull() {
+                return this.IsNull(this.tableSP_EGRESO_BODEGA.TIPO_MOVIMIENTOColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal COSTO_ENTRADA {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableSP_KARDEX.COSTO_ENTRADAColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'COSTO_ENTRADA\' de la tabla \'SP_KARDEX\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_KARDEX.COSTO_ENTRADAColumn] = value;
-                }
+            public void SetTIPO_MOVIMIENTONull() {
+                this[this.tableSP_EGRESO_BODEGA.TIPO_MOVIMIENTOColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal SUBTOTAL_ENTRADA {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableSP_KARDEX.SUBTOTAL_ENTRADAColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'SUBTOTAL_ENTRADA\' de la tabla \'SP_KARDEX\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_KARDEX.SUBTOTAL_ENTRADAColumn] = value;
-                }
+            public bool IsNUM_REQUISICIONNull() {
+                return this.IsNull(this.tableSP_EGRESO_BODEGA.NUM_REQUISICIONColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal CANTIDAD_SALIDA {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableSP_KARDEX.CANTIDAD_SALIDAColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CANTIDAD_SALIDA\' de la tabla \'SP_KARDEX\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_KARDEX.CANTIDAD_SALIDAColumn] = value;
-                }
+            public void SetNUM_REQUISICIONNull() {
+                this[this.tableSP_EGRESO_BODEGA.NUM_REQUISICIONColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal COSTO_SALIDA {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableSP_KARDEX.COSTO_SALIDAColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'COSTO_SALIDA\' de la tabla \'SP_KARDEX\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_KARDEX.COSTO_SALIDAColumn] = value;
-                }
+            public bool IsEMP_SOLICITANull() {
+                return this.IsNull(this.tableSP_EGRESO_BODEGA.EMP_SOLICITAColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal SUBTOTAL_SALIDA {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableSP_KARDEX.SUBTOTAL_SALIDAColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'SUBTOTAL_SALIDA\' de la tabla \'SP_KARDEX\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_KARDEX.SUBTOTAL_SALIDAColumn] = value;
-                }
+            public void SetEMP_SOLICITANull() {
+                this[this.tableSP_EGRESO_BODEGA.EMP_SOLICITAColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal CANTIDAD_STOCK {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableSP_KARDEX.CANTIDAD_STOCKColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'CANTIDAD_STOCK\' de la tabla \'SP_KARDEX\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_KARDEX.CANTIDAD_STOCKColumn] = value;
-                }
+            public bool IsOBSERVACIONNull() {
+                return this.IsNull(this.tableSP_EGRESO_BODEGA.OBSERVACIONColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal COSTO_STOCK {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableSP_KARDEX.COSTO_STOCKColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'COSTO_STOCK\' de la tabla \'SP_KARDEX\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_KARDEX.COSTO_STOCKColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public decimal TOTAL_STOCK {
-                get {
-                    try {
-                        return ((decimal)(this[this.tableSP_KARDEX.TOTAL_STOCKColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("El valor de la columna \'TOTAL_STOCK\' de la tabla \'SP_KARDEX\' es DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tableSP_KARDEX.TOTAL_STOCKColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsDESCRIPCIONNull() {
-                return this.IsNull(this.tableSP_KARDEX.DESCRIPCIONColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetDESCRIPCIONNull() {
-                this[this.tableSP_KARDEX.DESCRIPCIONColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsNOMBRENull() {
-                return this.IsNull(this.tableSP_KARDEX.NOMBREColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetNOMBRENull() {
-                this[this.tableSP_KARDEX.NOMBREColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsINGRESO_EGRESONull() {
-                return this.IsNull(this.tableSP_KARDEX.INGRESO_EGRESOColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetINGRESO_EGRESONull() {
-                this[this.tableSP_KARDEX.INGRESO_EGRESOColumn] = global::System.Convert.DBNull;
+            public void SetOBSERVACIONNull() {
+                this[this.tableSP_EGRESO_BODEGA.OBSERVACIONColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsFECHA_SOLICITUDNull() {
-                return this.IsNull(this.tableSP_KARDEX.FECHA_SOLICITUDColumn);
+                return this.IsNull(this.tableSP_EGRESO_BODEGA.FECHA_SOLICITUDColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public void SetFECHA_SOLICITUDNull() {
-                this[this.tableSP_KARDEX.FECHA_SOLICITUDColumn] = global::System.Convert.DBNull;
+                this[this.tableSP_EGRESO_BODEGA.FECHA_SOLICITUDColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsFECHA_APROBACIONNull() {
-                return this.IsNull(this.tableSP_KARDEX.FECHA_APROBACIONColumn);
+            public bool IsCANTIDAD_PEDIDONull() {
+                return this.IsNull(this.tableSP_EGRESO_BODEGA.CANTIDAD_PEDIDOColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetFECHA_APROBACIONNull() {
-                this[this.tableSP_KARDEX.FECHA_APROBACIONColumn] = global::System.Convert.DBNull;
+            public void SetCANTIDAD_PEDIDONull() {
+                this[this.tableSP_EGRESO_BODEGA.CANTIDAD_PEDIDOColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsPROV_SOLNull() {
-                return this.IsNull(this.tableSP_KARDEX.PROV_SOLColumn);
+            public bool IsITEMNull() {
+                return this.IsNull(this.tableSP_EGRESO_BODEGA.ITEMColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetPROV_SOLNull() {
-                this[this.tableSP_KARDEX.PROV_SOLColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsDOCUMENTONull() {
-                return this.IsNull(this.tableSP_KARDEX.DOCUMENTOColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetDOCUMENTONull() {
-                this[this.tableSP_KARDEX.DOCUMENTOColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsNRO_DOCNull() {
-                return this.IsNull(this.tableSP_KARDEX.NRO_DOCColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetNRO_DOCNull() {
-                this[this.tableSP_KARDEX.NRO_DOCColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsCANTIDAD_ENTRADANull() {
-                return this.IsNull(this.tableSP_KARDEX.CANTIDAD_ENTRADAColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetCANTIDAD_ENTRADANull() {
-                this[this.tableSP_KARDEX.CANTIDAD_ENTRADAColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsCOSTO_ENTRADANull() {
-                return this.IsNull(this.tableSP_KARDEX.COSTO_ENTRADAColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetCOSTO_ENTRADANull() {
-                this[this.tableSP_KARDEX.COSTO_ENTRADAColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsSUBTOTAL_ENTRADANull() {
-                return this.IsNull(this.tableSP_KARDEX.SUBTOTAL_ENTRADAColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetSUBTOTAL_ENTRADANull() {
-                this[this.tableSP_KARDEX.SUBTOTAL_ENTRADAColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsCANTIDAD_SALIDANull() {
-                return this.IsNull(this.tableSP_KARDEX.CANTIDAD_SALIDAColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetCANTIDAD_SALIDANull() {
-                this[this.tableSP_KARDEX.CANTIDAD_SALIDAColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsCOSTO_SALIDANull() {
-                return this.IsNull(this.tableSP_KARDEX.COSTO_SALIDAColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetCOSTO_SALIDANull() {
-                this[this.tableSP_KARDEX.COSTO_SALIDAColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsSUBTOTAL_SALIDANull() {
-                return this.IsNull(this.tableSP_KARDEX.SUBTOTAL_SALIDAColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetSUBTOTAL_SALIDANull() {
-                this[this.tableSP_KARDEX.SUBTOTAL_SALIDAColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsCANTIDAD_STOCKNull() {
-                return this.IsNull(this.tableSP_KARDEX.CANTIDAD_STOCKColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetCANTIDAD_STOCKNull() {
-                this[this.tableSP_KARDEX.CANTIDAD_STOCKColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsCOSTO_STOCKNull() {
-                return this.IsNull(this.tableSP_KARDEX.COSTO_STOCKColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetCOSTO_STOCKNull() {
-                this[this.tableSP_KARDEX.COSTO_STOCKColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public bool IsTOTAL_STOCKNull() {
-                return this.IsNull(this.tableSP_KARDEX.TOTAL_STOCKColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public void SetTOTAL_STOCKNull() {
-                this[this.tableSP_KARDEX.TOTAL_STOCKColumn] = global::System.Convert.DBNull;
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class SP_AJUSTE_BODEGARowChangeEvent : global::System.EventArgs {
-            
-            private SP_AJUSTE_BODEGARow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public SP_AJUSTE_BODEGARowChangeEvent(SP_AJUSTE_BODEGARow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public SP_AJUSTE_BODEGARow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
+            public void SetITEMNull() {
+                this[this.tableSP_EGRESO_BODEGA.ITEMColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -5387,40 +4223,6 @@ namespace Proveduria.Reports {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public SP_CORTE_INVENTARIORow Row {
-                get {
-                    return this.eventRow;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataRowAction Action {
-                get {
-                    return this.eventAction;
-                }
-            }
-        }
-        
-        /// <summary>
-        ///Row event argument class
-        ///</summary>
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class SP_EGRESO_BODEGARowChangeEvent : global::System.EventArgs {
-            
-            private SP_EGRESO_BODEGARow eventRow;
-            
-            private global::System.Data.DataRowAction eventAction;
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public SP_EGRESO_BODEGARowChangeEvent(SP_EGRESO_BODEGARow row, global::System.Data.DataRowAction action) {
-                this.eventRow = row;
-                this.eventAction = action;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public SP_EGRESO_BODEGARow Row {
                 get {
                     return this.eventRow;
                 }
@@ -5507,6 +4309,40 @@ namespace Proveduria.Reports {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public class SP_AJUSTE_BODEGARowChangeEvent : global::System.EventArgs {
+            
+            private SP_AJUSTE_BODEGARow eventRow;
+            
+            private global::System.Data.DataRowAction eventAction;
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public SP_AJUSTE_BODEGARowChangeEvent(SP_AJUSTE_BODEGARow row, global::System.Data.DataRowAction action) {
+                this.eventRow = row;
+                this.eventAction = action;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public SP_AJUSTE_BODEGARow Row {
+                get {
+                    return this.eventRow;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataRowAction Action {
+                get {
+                    return this.eventAction;
+                }
+            }
+        }
+        
+        /// <summary>
+        ///Row event argument class
+        ///</summary>
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         public class SP_REQUISICION_BODEGARowChangeEvent : global::System.EventArgs {
             
             private SP_REQUISICION_BODEGARow eventRow;
@@ -5541,22 +4377,22 @@ namespace Proveduria.Reports {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public class SP_KARDEXRowChangeEvent : global::System.EventArgs {
+        public class SP_EGRESO_BODEGARowChangeEvent : global::System.EventArgs {
             
-            private SP_KARDEXRow eventRow;
+            private SP_EGRESO_BODEGARow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public SP_KARDEXRowChangeEvent(SP_KARDEXRow row, global::System.Data.DataRowAction action) {
+            public SP_EGRESO_BODEGARowChangeEvent(SP_EGRESO_BODEGARow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public SP_KARDEXRow Row {
+            public SP_EGRESO_BODEGARow Row {
                 get {
                     return this.eventRow;
                 }
@@ -5574,229 +4410,6 @@ namespace Proveduria.Reports {
 }
 namespace Proveduria.Reports.DataSetReportsTableAdapters {
     
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class SP_AJUSTE_BODEGATableAdapter : global::System.ComponentModel.Component {
-        
-        private global::Oracle.ManagedDataAccess.Client.OracleDataAdapter _adapter;
-        
-        private global::Oracle.ManagedDataAccess.Client.OracleConnection _connection;
-        
-        private global::Oracle.ManagedDataAccess.Client.OracleTransaction _transaction;
-        
-        private global::Oracle.ManagedDataAccess.Client.OracleCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public SP_AJUSTE_BODEGATableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected internal global::Oracle.ManagedDataAccess.Client.OracleDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        internal global::Oracle.ManagedDataAccess.Client.OracleConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::Oracle.ManagedDataAccess.Client.OracleCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        internal global::Oracle.ManagedDataAccess.Client.OracleTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected global::Oracle.ManagedDataAccess.Client.OracleCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::Oracle.ManagedDataAccess.Client.OracleDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "SP_AJUSTE_BODEGA";
-            tableMapping.ColumnMappings.Add("BODEGA", "BODEGA");
-            tableMapping.ColumnMappings.Add("NUM_REQUISICION", "NUM_REQUISICION");
-            tableMapping.ColumnMappings.Add("DPTO_SOLICITA", "DPTO_SOLICITA");
-            tableMapping.ColumnMappings.Add("EMP_SOLICITA", "EMP_SOLICITA");
-            tableMapping.ColumnMappings.Add("OBSERVACION", "OBSERVACION");
-            tableMapping.ColumnMappings.Add("FECHA_SOLICITUD", "FECHA_SOLICITUD");
-            tableMapping.ColumnMappings.Add("ID_TIPO_MOVIMIENTO", "ID_TIPO_MOVIMIENTO");
-            tableMapping.ColumnMappings.Add("DESC_TIPO", "DESC_TIPO");
-            tableMapping.ColumnMappings.Add("ID_MOVIMIENTO_RELACION", "ID_MOVIMIENTO_RELACION");
-            tableMapping.ColumnMappings.Add("ANIO_DOCUMENTO_REFERENCIA", "ANIO_DOCUMENTO_REFERENCIA");
-            tableMapping.ColumnMappings.Add("NUMERO_DOCUMENTO_REFERENCIA", "NUMERO_DOCUMENTO_REFERENCIA");
-            tableMapping.ColumnMappings.Add("CODIGO", "CODIGO");
-            tableMapping.ColumnMappings.Add("CANTIDAD_MOVIMIENTO", "CANTIDAD_MOVIMIENTO");
-            tableMapping.ColumnMappings.Add("UNIDAD", "UNIDAD");
-            tableMapping.ColumnMappings.Add("ITEM", "ITEM");
-            this._adapter.TableMappings.Add(tableMapping);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::Oracle.ManagedDataAccess.Client.OracleConnection();
-            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringReports"].ConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::Oracle.ManagedDataAccess.Client.OracleCommand[1];
-            this._commandCollection[0] = new global::Oracle.ManagedDataAccess.Client.OracleCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "PROVEDURIA.SP_AJUSTE_BODEGA";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
-            global::Oracle.ManagedDataAccess.Client.OracleParameter param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
-            param.ParameterName = "SP_ID_MOVIMIENTO";
-            param.DbType = global::System.Data.DbType.Decimal;
-            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Decimal;
-            param.Size = 22;
-            param.IsNullable = true;
-            param.SourceColumn = null;
-            this._commandCollection[0].Parameters.Add(param);
-            param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
-            param.ParameterName = "INGRESO_DISPLAY";
-            param.DbType = global::System.Data.DbType.Object;
-            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.RefCursor;
-            param.Direction = global::System.Data.ParameterDirection.Output;
-            param.IsNullable = true;
-            param.SourceColumn = null;
-            this._commandCollection[0].Parameters.Add(param);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DataSetReports.SP_AJUSTE_BODEGADataTable dataTable, global::System.Nullable<decimal> SP_ID_MOVIMIENTO, out object INGRESO_DISPLAY) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((SP_ID_MOVIMIENTO.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(SP_ID_MOVIMIENTO.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            if (((this.Adapter.SelectCommand.Parameters[1].Value == null) 
-                        || (this.Adapter.SelectCommand.Parameters[1].Value.GetType() == typeof(global::System.DBNull)))) {
-                INGRESO_DISPLAY = global::System.DBNull.Value;
-            }
-            else {
-                INGRESO_DISPLAY = ((object)(this.Adapter.SelectCommand.Parameters[1].Value));
-            }
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DataSetReports.SP_AJUSTE_BODEGADataTable GetData(global::System.Nullable<decimal> SP_ID_MOVIMIENTO, out object INGRESO_DISPLAY) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((SP_ID_MOVIMIENTO.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(SP_ID_MOVIMIENTO.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            DataSetReports.SP_AJUSTE_BODEGADataTable dataTable = new DataSetReports.SP_AJUSTE_BODEGADataTable();
-            this.Adapter.Fill(dataTable);
-            if (((this.Adapter.SelectCommand.Parameters[1].Value == null) 
-                        || (this.Adapter.SelectCommand.Parameters[1].Value.GetType() == typeof(global::System.DBNull)))) {
-                INGRESO_DISPLAY = global::System.DBNull.Value;
-            }
-            else {
-                INGRESO_DISPLAY = ((object)(this.Adapter.SelectCommand.Parameters[1].Value));
-            }
-            return dataTable;
-        }
-    }
     
     /// <summary>
     ///Represents the connection and commands used to retrieve and save data.
@@ -5923,7 +4536,7 @@ namespace Proveduria.Reports.DataSetReportsTableAdapters {
             tableMapping.ColumnMappings.Add("ITEM", "ITEM");
             tableMapping.ColumnMappings.Add("UNIDAD", "UNIDAD");
             tableMapping.ColumnMappings.Add("CANTIDAD_ACTUAL", "CANTIDAD_ACTUAL");
-            tableMapping.ColumnMappings.Add("COSTO_PROMEDIO", "COSTO_PROMEDIO");
+            tableMapping.ColumnMappings.Add("VALOR", "VALOR");
             tableMapping.ColumnMappings.Add("TOTAL", "TOTAL");
             this._adapter.TableMappings.Add(tableMapping);
         }
@@ -5987,245 +4600,6 @@ namespace Proveduria.Reports.DataSetReportsTableAdapters {
             }
             else {
                 INVENTARIO_DISPLAY = ((object)(this.Adapter.SelectCommand.Parameters[0].Value));
-            }
-            return dataTable;
-        }
-    }
-    
-    /// <summary>
-    ///Represents the connection and commands used to retrieve and save data.
-    ///</summary>
-    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
-    [global::System.ComponentModel.ToolboxItem(true)]
-    [global::System.ComponentModel.DataObjectAttribute(true)]
-    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
-        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
-    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class SP_EGRESO_BODEGATableAdapter : global::System.ComponentModel.Component {
-        
-        private global::Oracle.ManagedDataAccess.Client.OracleDataAdapter _adapter;
-        
-        private global::Oracle.ManagedDataAccess.Client.OracleConnection _connection;
-        
-        private global::Oracle.ManagedDataAccess.Client.OracleTransaction _transaction;
-        
-        private global::Oracle.ManagedDataAccess.Client.OracleCommand[] _commandCollection;
-        
-        private bool _clearBeforeFill;
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public SP_EGRESO_BODEGATableAdapter() {
-            this.ClearBeforeFill = true;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected internal global::Oracle.ManagedDataAccess.Client.OracleDataAdapter Adapter {
-            get {
-                if ((this._adapter == null)) {
-                    this.InitAdapter();
-                }
-                return this._adapter;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        internal global::Oracle.ManagedDataAccess.Client.OracleConnection Connection {
-            get {
-                if ((this._connection == null)) {
-                    this.InitConnection();
-                }
-                return this._connection;
-            }
-            set {
-                this._connection = value;
-                if ((this.Adapter.InsertCommand != null)) {
-                    this.Adapter.InsertCommand.Connection = value;
-                }
-                if ((this.Adapter.DeleteCommand != null)) {
-                    this.Adapter.DeleteCommand.Connection = value;
-                }
-                if ((this.Adapter.UpdateCommand != null)) {
-                    this.Adapter.UpdateCommand.Connection = value;
-                }
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    if ((this.CommandCollection[i] != null)) {
-                        ((global::Oracle.ManagedDataAccess.Client.OracleCommand)(this.CommandCollection[i])).Connection = value;
-                    }
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        internal global::Oracle.ManagedDataAccess.Client.OracleTransaction Transaction {
-            get {
-                return this._transaction;
-            }
-            set {
-                this._transaction = value;
-                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
-                    this.CommandCollection[i].Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.DeleteCommand != null))) {
-                    this.Adapter.DeleteCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.InsertCommand != null))) {
-                    this.Adapter.InsertCommand.Transaction = this._transaction;
-                }
-                if (((this.Adapter != null) 
-                            && (this.Adapter.UpdateCommand != null))) {
-                    this.Adapter.UpdateCommand.Transaction = this._transaction;
-                }
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        protected global::Oracle.ManagedDataAccess.Client.OracleCommand[] CommandCollection {
-            get {
-                if ((this._commandCollection == null)) {
-                    this.InitCommandCollection();
-                }
-                return this._commandCollection;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public bool ClearBeforeFill {
-            get {
-                return this._clearBeforeFill;
-            }
-            set {
-                this._clearBeforeFill = value;
-            }
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitAdapter() {
-            this._adapter = new global::Oracle.ManagedDataAccess.Client.OracleDataAdapter();
-            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
-            tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "SP_EGRESO_BODEGA";
-            tableMapping.ColumnMappings.Add("BODEGA", "BODEGA");
-            tableMapping.ColumnMappings.Add("TIPO_MOVIMIENTO", "TIPO_MOVIMIENTO");
-            tableMapping.ColumnMappings.Add("NUM_REQUISICION", "NUM_REQUISICION");
-            tableMapping.ColumnMappings.Add("DPTO_SOLICITA", "DPTO_SOLICITA");
-            tableMapping.ColumnMappings.Add("EMP_SOLICITA", "EMP_SOLICITA");
-            tableMapping.ColumnMappings.Add("OBSERVACION", "OBSERVACION");
-            tableMapping.ColumnMappings.Add("FECHA_SOLICITUD", "FECHA_SOLICITUD");
-            tableMapping.ColumnMappings.Add("CODIGO", "CODIGO");
-            tableMapping.ColumnMappings.Add("CANTIDAD_MOVIMIENTO", "CANTIDAD_MOVIMIENTO");
-            tableMapping.ColumnMappings.Add("UNIDAD", "UNIDAD");
-            tableMapping.ColumnMappings.Add("ITEM", "ITEM");
-            this._adapter.TableMappings.Add(tableMapping);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitConnection() {
-            this._connection = new global::Oracle.ManagedDataAccess.Client.OracleConnection();
-            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringReports"].ConnectionString;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        private void InitCommandCollection() {
-            this._commandCollection = new global::Oracle.ManagedDataAccess.Client.OracleCommand[1];
-            this._commandCollection[0] = new global::Oracle.ManagedDataAccess.Client.OracleCommand();
-            this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "PROVEDURIA.SP_EGRESO_BODEGA";
-            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
-            global::Oracle.ManagedDataAccess.Client.OracleParameter param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
-            param.ParameterName = "SP_ID_MOVIMIENTO";
-            param.DbType = global::System.Data.DbType.Decimal;
-            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Decimal;
-            param.Size = 22;
-            param.IsNullable = true;
-            param.SourceColumn = null;
-            this._commandCollection[0].Parameters.Add(param);
-            param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
-            param.ParameterName = "SP_ANIO";
-            param.DbType = global::System.Data.DbType.Decimal;
-            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Decimal;
-            param.Size = 22;
-            param.IsNullable = true;
-            param.SourceColumn = null;
-            this._commandCollection[0].Parameters.Add(param);
-            param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
-            param.ParameterName = "EGRESO_DISPLAY";
-            param.DbType = global::System.Data.DbType.Object;
-            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.RefCursor;
-            param.Direction = global::System.Data.ParameterDirection.Output;
-            param.IsNullable = true;
-            param.SourceColumn = null;
-            this._commandCollection[0].Parameters.Add(param);
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DataSetReports.SP_EGRESO_BODEGADataTable dataTable, global::System.Nullable<decimal> SP_ID_MOVIMIENTO, global::System.Nullable<decimal> SP_ANIO, out object EGRESO_DISPLAY) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((SP_ID_MOVIMIENTO.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(SP_ID_MOVIMIENTO.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((SP_ANIO.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((decimal)(SP_ANIO.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((this.ClearBeforeFill == true)) {
-                dataTable.Clear();
-            }
-            int returnValue = this.Adapter.Fill(dataTable);
-            if (((this.Adapter.SelectCommand.Parameters[2].Value == null) 
-                        || (this.Adapter.SelectCommand.Parameters[2].Value.GetType() == typeof(global::System.DBNull)))) {
-                EGRESO_DISPLAY = global::System.DBNull.Value;
-            }
-            else {
-                EGRESO_DISPLAY = ((object)(this.Adapter.SelectCommand.Parameters[2].Value));
-            }
-            return returnValue;
-        }
-        
-        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DataSetReports.SP_EGRESO_BODEGADataTable GetData(global::System.Nullable<decimal> SP_ID_MOVIMIENTO, global::System.Nullable<decimal> SP_ANIO, out object EGRESO_DISPLAY) {
-            this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((SP_ID_MOVIMIENTO.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(SP_ID_MOVIMIENTO.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
-            }
-            if ((SP_ANIO.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((decimal)(SP_ANIO.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            DataSetReports.SP_EGRESO_BODEGADataTable dataTable = new DataSetReports.SP_EGRESO_BODEGADataTable();
-            this.Adapter.Fill(dataTable);
-            if (((this.Adapter.SelectCommand.Parameters[2].Value == null) 
-                        || (this.Adapter.SelectCommand.Parameters[2].Value.GetType() == typeof(global::System.DBNull)))) {
-                EGRESO_DISPLAY = global::System.DBNull.Value;
-            }
-            else {
-                EGRESO_DISPLAY = ((object)(this.Adapter.SelectCommand.Parameters[2].Value));
             }
             return dataTable;
         }
@@ -6359,7 +4733,7 @@ namespace Proveduria.Reports.DataSetReportsTableAdapters {
             tableMapping.ColumnMappings.Add("OBSERVACION", "OBSERVACION");
             tableMapping.ColumnMappings.Add("FECHA_SOLICITUD", "FECHA_SOLICITUD");
             tableMapping.ColumnMappings.Add("CODIGO", "CODIGO");
-            tableMapping.ColumnMappings.Add("CANTIDAD_MOVIMIENTO", "CANTIDAD_MOVIMIENTO");
+            tableMapping.ColumnMappings.Add("CANTIDAD_PEDIDO", "CANTIDAD_PEDIDO");
             tableMapping.ColumnMappings.Add("UNIDAD", "UNIDAD");
             tableMapping.ColumnMappings.Add("ITEM", "ITEM");
             this._adapter.TableMappings.Add(tableMapping);
@@ -6649,6 +5023,229 @@ namespace Proveduria.Reports.DataSetReportsTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+    public partial class SP_AJUSTE_BODEGATableAdapter : global::System.ComponentModel.Component {
+        
+        private global::Oracle.ManagedDataAccess.Client.OracleDataAdapter _adapter;
+        
+        private global::Oracle.ManagedDataAccess.Client.OracleConnection _connection;
+        
+        private global::Oracle.ManagedDataAccess.Client.OracleTransaction _transaction;
+        
+        private global::Oracle.ManagedDataAccess.Client.OracleCommand[] _commandCollection;
+        
+        private bool _clearBeforeFill;
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public SP_AJUSTE_BODEGATableAdapter() {
+            this.ClearBeforeFill = true;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected internal global::Oracle.ManagedDataAccess.Client.OracleDataAdapter Adapter {
+            get {
+                if ((this._adapter == null)) {
+                    this.InitAdapter();
+                }
+                return this._adapter;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::Oracle.ManagedDataAccess.Client.OracleConnection Connection {
+            get {
+                if ((this._connection == null)) {
+                    this.InitConnection();
+                }
+                return this._connection;
+            }
+            set {
+                this._connection = value;
+                if ((this.Adapter.InsertCommand != null)) {
+                    this.Adapter.InsertCommand.Connection = value;
+                }
+                if ((this.Adapter.DeleteCommand != null)) {
+                    this.Adapter.DeleteCommand.Connection = value;
+                }
+                if ((this.Adapter.UpdateCommand != null)) {
+                    this.Adapter.UpdateCommand.Connection = value;
+                }
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    if ((this.CommandCollection[i] != null)) {
+                        ((global::Oracle.ManagedDataAccess.Client.OracleCommand)(this.CommandCollection[i])).Connection = value;
+                    }
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        internal global::Oracle.ManagedDataAccess.Client.OracleTransaction Transaction {
+            get {
+                return this._transaction;
+            }
+            set {
+                this._transaction = value;
+                for (int i = 0; (i < this.CommandCollection.Length); i = (i + 1)) {
+                    this.CommandCollection[i].Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.DeleteCommand != null))) {
+                    this.Adapter.DeleteCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.InsertCommand != null))) {
+                    this.Adapter.InsertCommand.Transaction = this._transaction;
+                }
+                if (((this.Adapter != null) 
+                            && (this.Adapter.UpdateCommand != null))) {
+                    this.Adapter.UpdateCommand.Transaction = this._transaction;
+                }
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        protected global::Oracle.ManagedDataAccess.Client.OracleCommand[] CommandCollection {
+            get {
+                if ((this._commandCollection == null)) {
+                    this.InitCommandCollection();
+                }
+                return this._commandCollection;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        public bool ClearBeforeFill {
+            get {
+                return this._clearBeforeFill;
+            }
+            set {
+                this._clearBeforeFill = value;
+            }
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitAdapter() {
+            this._adapter = new global::Oracle.ManagedDataAccess.Client.OracleDataAdapter();
+            global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
+            tableMapping.SourceTable = "Table";
+            tableMapping.DataSetTable = "SP_AJUSTE_BODEGA";
+            tableMapping.ColumnMappings.Add("BODEGA", "BODEGA");
+            tableMapping.ColumnMappings.Add("NUM_REQUISICION", "NUM_REQUISICION");
+            tableMapping.ColumnMappings.Add("DPTO_SOLICITA", "DPTO_SOLICITA");
+            tableMapping.ColumnMappings.Add("EMP_SOLICITA", "EMP_SOLICITA");
+            tableMapping.ColumnMappings.Add("OBSERVACION", "OBSERVACION");
+            tableMapping.ColumnMappings.Add("FECHA_SOLICITUD", "FECHA_SOLICITUD");
+            tableMapping.ColumnMappings.Add("ID_TIPO_MOVIMIENTO", "ID_TIPO_MOVIMIENTO");
+            tableMapping.ColumnMappings.Add("DESC_TIPO", "DESC_TIPO");
+            tableMapping.ColumnMappings.Add("ID_MOVIMIENTO_RELACION", "ID_MOVIMIENTO_RELACION");
+            tableMapping.ColumnMappings.Add("ANIO_DOCUMENTO_REFERENCIA", "ANIO_DOCUMENTO_REFERENCIA");
+            tableMapping.ColumnMappings.Add("NUMERO_DOCUMENTO_REFERENCIA", "NUMERO_DOCUMENTO_REFERENCIA");
+            tableMapping.ColumnMappings.Add("CODIGO", "CODIGO");
+            tableMapping.ColumnMappings.Add("CANTIDAD_PEDIDO", "CANTIDAD_PEDIDO");
+            tableMapping.ColumnMappings.Add("UNIDAD", "UNIDAD");
+            tableMapping.ColumnMappings.Add("ITEM", "ITEM");
+            this._adapter.TableMappings.Add(tableMapping);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitConnection() {
+            this._connection = new global::Oracle.ManagedDataAccess.Client.OracleConnection();
+            this._connection.ConnectionString = System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringReports"].ConnectionString;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        private void InitCommandCollection() {
+            this._commandCollection = new global::Oracle.ManagedDataAccess.Client.OracleCommand[1];
+            this._commandCollection[0] = new global::Oracle.ManagedDataAccess.Client.OracleCommand();
+            this._commandCollection[0].Connection = this.Connection;
+            this._commandCollection[0].CommandText = "PROVEDURIA.SP_AJUSTE_BODEGA";
+            this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
+            global::Oracle.ManagedDataAccess.Client.OracleParameter param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
+            param.ParameterName = "SP_ID_MOVIMIENTO";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Decimal;
+            param.Size = 22;
+            param.IsNullable = true;
+            param.SourceColumn = null;
+            this._commandCollection[0].Parameters.Add(param);
+            param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
+            param.ParameterName = "INGRESO_DISPLAY";
+            param.DbType = global::System.Data.DbType.Object;
+            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.RefCursor;
+            param.Direction = global::System.Data.ParameterDirection.Output;
+            param.IsNullable = true;
+            param.SourceColumn = null;
+            this._commandCollection[0].Parameters.Add(param);
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
+        public virtual int Fill(DataSetReports.SP_AJUSTE_BODEGADataTable dataTable, global::System.Nullable<decimal> SP_ID_MOVIMIENTO, out object INGRESO_DISPLAY) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((SP_ID_MOVIMIENTO.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(SP_ID_MOVIMIENTO.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            if ((this.ClearBeforeFill == true)) {
+                dataTable.Clear();
+            }
+            int returnValue = this.Adapter.Fill(dataTable);
+            if (((this.Adapter.SelectCommand.Parameters[1].Value == null) 
+                        || (this.Adapter.SelectCommand.Parameters[1].Value.GetType() == typeof(global::System.DBNull)))) {
+                INGRESO_DISPLAY = global::System.DBNull.Value;
+            }
+            else {
+                INGRESO_DISPLAY = ((object)(this.Adapter.SelectCommand.Parameters[1].Value));
+            }
+            return returnValue;
+        }
+        
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+        [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
+        [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
+        public virtual DataSetReports.SP_AJUSTE_BODEGADataTable GetData(global::System.Nullable<decimal> SP_ID_MOVIMIENTO, out object INGRESO_DISPLAY) {
+            this.Adapter.SelectCommand = this.CommandCollection[0];
+            if ((SP_ID_MOVIMIENTO.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(SP_ID_MOVIMIENTO.Value));
+            }
+            else {
+                this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
+            }
+            DataSetReports.SP_AJUSTE_BODEGADataTable dataTable = new DataSetReports.SP_AJUSTE_BODEGADataTable();
+            this.Adapter.Fill(dataTable);
+            if (((this.Adapter.SelectCommand.Parameters[1].Value == null) 
+                        || (this.Adapter.SelectCommand.Parameters[1].Value.GetType() == typeof(global::System.DBNull)))) {
+                INGRESO_DISPLAY = global::System.DBNull.Value;
+            }
+            else {
+                INGRESO_DISPLAY = ((object)(this.Adapter.SelectCommand.Parameters[1].Value));
+            }
+            return dataTable;
+        }
+    }
+    
+    /// <summary>
+    ///Represents the connection and commands used to retrieve and save data.
+    ///</summary>
+    [global::System.ComponentModel.DesignerCategoryAttribute("code")]
+    [global::System.ComponentModel.ToolboxItem(true)]
+    [global::System.ComponentModel.DataObjectAttribute(true)]
+    [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
+        ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
+    [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
     public partial class SP_REQUISICION_BODEGATableAdapter : global::System.ComponentModel.Component {
         
         private global::Oracle.ManagedDataAccess.Client.OracleDataAdapter _adapter;
@@ -6772,7 +5369,7 @@ namespace Proveduria.Reports.DataSetReportsTableAdapters {
             tableMapping.ColumnMappings.Add("CODIGO", "CODIGO");
             tableMapping.ColumnMappings.Add("ITEM", "ITEM");
             tableMapping.ColumnMappings.Add("UNIDAD", "UNIDAD");
-            tableMapping.ColumnMappings.Add("CANTIDAD_MOVIMIENTO", "CANTIDAD_MOVIMIENTO");
+            tableMapping.ColumnMappings.Add("CANTIDAD_PEDIDO", "CANTIDAD_PEDIDO");
             tableMapping.ColumnMappings.Add("EMP_SOLICITA", "EMP_SOLICITA");
             tableMapping.ColumnMappings.Add("EMP_AUTORIZA", "EMP_AUTORIZA");
             this._adapter.TableMappings.Add(tableMapping);
@@ -6891,7 +5488,7 @@ namespace Proveduria.Reports.DataSetReportsTableAdapters {
     [global::System.ComponentModel.DesignerAttribute("Microsoft.VSDesigner.DataSource.Design.TableAdapterDesigner, Microsoft.VSDesigner" +
         ", Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
-    public partial class SP_KARDEXTableAdapter : global::System.ComponentModel.Component {
+    public partial class SP_EGRESO_BODEGATableAdapter : global::System.ComponentModel.Component {
         
         private global::Oracle.ManagedDataAccess.Client.OracleDataAdapter _adapter;
         
@@ -6905,7 +5502,7 @@ namespace Proveduria.Reports.DataSetReportsTableAdapters {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-        public SP_KARDEXTableAdapter() {
+        public SP_EGRESO_BODEGATableAdapter() {
             this.ClearBeforeFill = true;
         }
         
@@ -7002,28 +5599,18 @@ namespace Proveduria.Reports.DataSetReportsTableAdapters {
             this._adapter = new global::Oracle.ManagedDataAccess.Client.OracleDataAdapter();
             global::System.Data.Common.DataTableMapping tableMapping = new global::System.Data.Common.DataTableMapping();
             tableMapping.SourceTable = "Table";
-            tableMapping.DataSetTable = "SP_KARDEX";
-            tableMapping.ColumnMappings.Add("ID_ITEM", "ID_ITEM");
-            tableMapping.ColumnMappings.Add("CODIGO", "CODIGO");
-            tableMapping.ColumnMappings.Add("DESCRIPCION", "DESCRIPCION");
-            tableMapping.ColumnMappings.Add("ID_TIPO_MOVIMIENTO", "ID_TIPO_MOVIMIENTO");
-            tableMapping.ColumnMappings.Add("NOMBRE", "NOMBRE");
-            tableMapping.ColumnMappings.Add("INGRESO_EGRESO", "INGRESO_EGRESO");
-            tableMapping.ColumnMappings.Add("ID_DETALLE", "ID_DETALLE");
+            tableMapping.DataSetTable = "SP_EGRESO_BODEGA";
+            tableMapping.ColumnMappings.Add("BODEGA", "BODEGA");
+            tableMapping.ColumnMappings.Add("TIPO_MOVIMIENTO", "TIPO_MOVIMIENTO");
+            tableMapping.ColumnMappings.Add("NUM_REQUISICION", "NUM_REQUISICION");
+            tableMapping.ColumnMappings.Add("DPTO_SOLICITA", "DPTO_SOLICITA");
+            tableMapping.ColumnMappings.Add("EMP_SOLICITA", "EMP_SOLICITA");
+            tableMapping.ColumnMappings.Add("OBSERVACION", "OBSERVACION");
             tableMapping.ColumnMappings.Add("FECHA_SOLICITUD", "FECHA_SOLICITUD");
-            tableMapping.ColumnMappings.Add("FECHA_APROBACION", "FECHA_APROBACION");
-            tableMapping.ColumnMappings.Add("PROV_SOL", "PROV_SOL");
-            tableMapping.ColumnMappings.Add("DOCUMENTO", "DOCUMENTO");
-            tableMapping.ColumnMappings.Add("NRO_DOC", "NRO_DOC");
-            tableMapping.ColumnMappings.Add("CANTIDAD_ENTRADA", "CANTIDAD_ENTRADA");
-            tableMapping.ColumnMappings.Add("COSTO_ENTRADA", "COSTO_ENTRADA");
-            tableMapping.ColumnMappings.Add("SUBTOTAL_ENTRADA", "SUBTOTAL_ENTRADA");
-            tableMapping.ColumnMappings.Add("CANTIDAD_SALIDA", "CANTIDAD_SALIDA");
-            tableMapping.ColumnMappings.Add("COSTO_SALIDA", "COSTO_SALIDA");
-            tableMapping.ColumnMappings.Add("SUBTOTAL_SALIDA", "SUBTOTAL_SALIDA");
-            tableMapping.ColumnMappings.Add("CANTIDAD_STOCK", "CANTIDAD_STOCK");
-            tableMapping.ColumnMappings.Add("COSTO_STOCK", "COSTO_STOCK");
-            tableMapping.ColumnMappings.Add("TOTAL_STOCK", "TOTAL_STOCK");
+            tableMapping.ColumnMappings.Add("CODIGO", "CODIGO");
+            tableMapping.ColumnMappings.Add("CANTIDAD_PEDIDO", "CANTIDAD_PEDIDO");
+            tableMapping.ColumnMappings.Add("UNIDAD", "UNIDAD");
+            tableMapping.ColumnMappings.Add("ITEM", "ITEM");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -7040,10 +5627,10 @@ namespace Proveduria.Reports.DataSetReportsTableAdapters {
             this._commandCollection = new global::Oracle.ManagedDataAccess.Client.OracleCommand[1];
             this._commandCollection[0] = new global::Oracle.ManagedDataAccess.Client.OracleCommand();
             this._commandCollection[0].Connection = this.Connection;
-            this._commandCollection[0].CommandText = "PROVEDURIA.SP_KARDEX";
+            this._commandCollection[0].CommandText = "PROVEDURIA.SP_EGRESO_BODEGA";
             this._commandCollection[0].CommandType = global::System.Data.CommandType.StoredProcedure;
             global::Oracle.ManagedDataAccess.Client.OracleParameter param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
-            param.ParameterName = "SP_ID_ITEM";
+            param.ParameterName = "SP_ID_MOVIMIENTO";
             param.DbType = global::System.Data.DbType.Decimal;
             param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Decimal;
             param.Size = 22;
@@ -7051,21 +5638,15 @@ namespace Proveduria.Reports.DataSetReportsTableAdapters {
             param.SourceColumn = null;
             this._commandCollection[0].Parameters.Add(param);
             param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
-            param.ParameterName = "SP_DESDE";
-            param.DbType = global::System.Data.DbType.Date;
-            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Date;
+            param.ParameterName = "SP_ANIO";
+            param.DbType = global::System.Data.DbType.Decimal;
+            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Decimal;
+            param.Size = 22;
             param.IsNullable = true;
             param.SourceColumn = null;
             this._commandCollection[0].Parameters.Add(param);
             param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
-            param.ParameterName = "SP_HASTA";
-            param.DbType = global::System.Data.DbType.Date;
-            param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.Date;
-            param.IsNullable = true;
-            param.SourceColumn = null;
-            this._commandCollection[0].Parameters.Add(param);
-            param = new global::Oracle.ManagedDataAccess.Client.OracleParameter();
-            param.ParameterName = "INGRESO_DISPLAY";
+            param.ParameterName = "EGRESO_DISPLAY";
             param.DbType = global::System.Data.DbType.Object;
             param.OracleDbTypeEx = global::Oracle.ManagedDataAccess.Client.OracleDbType.RefCursor;
             param.Direction = global::System.Data.ParameterDirection.Output;
@@ -7078,36 +5659,30 @@ namespace Proveduria.Reports.DataSetReportsTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Fill, true)]
-        public virtual int Fill(DataSetReports.SP_KARDEXDataTable dataTable, global::System.Nullable<decimal> SP_ID_ITEM, global::System.Nullable<global::System.DateTime> SP_DESDE, global::System.Nullable<global::System.DateTime> SP_HASTA, out object INGRESO_DISPLAY) {
+        public virtual int Fill(DataSetReports.SP_EGRESO_BODEGADataTable dataTable, global::System.Nullable<decimal> SP_ID_MOVIMIENTO, global::System.Nullable<decimal> SP_ANIO, out object EGRESO_DISPLAY) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((SP_ID_ITEM.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(SP_ID_ITEM.Value));
+            if ((SP_ID_MOVIMIENTO.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(SP_ID_MOVIMIENTO.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            if ((SP_DESDE.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(SP_DESDE.Value));
+            if ((SP_ANIO.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((decimal)(SP_ANIO.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
-            }
-            if ((SP_HASTA.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(SP_HASTA.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
             }
             if ((this.ClearBeforeFill == true)) {
                 dataTable.Clear();
             }
             int returnValue = this.Adapter.Fill(dataTable);
-            if (((this.Adapter.SelectCommand.Parameters[3].Value == null) 
-                        || (this.Adapter.SelectCommand.Parameters[3].Value.GetType() == typeof(global::System.DBNull)))) {
-                INGRESO_DISPLAY = global::System.DBNull.Value;
+            if (((this.Adapter.SelectCommand.Parameters[2].Value == null) 
+                        || (this.Adapter.SelectCommand.Parameters[2].Value.GetType() == typeof(global::System.DBNull)))) {
+                EGRESO_DISPLAY = global::System.DBNull.Value;
             }
             else {
-                INGRESO_DISPLAY = ((object)(this.Adapter.SelectCommand.Parameters[3].Value));
+                EGRESO_DISPLAY = ((object)(this.Adapter.SelectCommand.Parameters[2].Value));
             }
             return returnValue;
         }
@@ -7116,34 +5691,28 @@ namespace Proveduria.Reports.DataSetReportsTableAdapters {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
         [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.TableAdapter")]
         [global::System.ComponentModel.DataObjectMethodAttribute(global::System.ComponentModel.DataObjectMethodType.Select, true)]
-        public virtual DataSetReports.SP_KARDEXDataTable GetData(global::System.Nullable<decimal> SP_ID_ITEM, global::System.Nullable<global::System.DateTime> SP_DESDE, global::System.Nullable<global::System.DateTime> SP_HASTA, out object INGRESO_DISPLAY) {
+        public virtual DataSetReports.SP_EGRESO_BODEGADataTable GetData(global::System.Nullable<decimal> SP_ID_MOVIMIENTO, global::System.Nullable<decimal> SP_ANIO, out object EGRESO_DISPLAY) {
             this.Adapter.SelectCommand = this.CommandCollection[0];
-            if ((SP_ID_ITEM.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(SP_ID_ITEM.Value));
+            if ((SP_ID_MOVIMIENTO.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[0].Value = ((decimal)(SP_ID_MOVIMIENTO.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[0].Value = global::System.DBNull.Value;
             }
-            if ((SP_DESDE.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[1].Value = ((System.DateTime)(SP_DESDE.Value));
+            if ((SP_ANIO.HasValue == true)) {
+                this.Adapter.SelectCommand.Parameters[1].Value = ((decimal)(SP_ANIO.Value));
             }
             else {
                 this.Adapter.SelectCommand.Parameters[1].Value = global::System.DBNull.Value;
             }
-            if ((SP_HASTA.HasValue == true)) {
-                this.Adapter.SelectCommand.Parameters[2].Value = ((System.DateTime)(SP_HASTA.Value));
-            }
-            else {
-                this.Adapter.SelectCommand.Parameters[2].Value = global::System.DBNull.Value;
-            }
-            DataSetReports.SP_KARDEXDataTable dataTable = new DataSetReports.SP_KARDEXDataTable();
+            DataSetReports.SP_EGRESO_BODEGADataTable dataTable = new DataSetReports.SP_EGRESO_BODEGADataTable();
             this.Adapter.Fill(dataTable);
-            if (((this.Adapter.SelectCommand.Parameters[3].Value == null) 
-                        || (this.Adapter.SelectCommand.Parameters[3].Value.GetType() == typeof(global::System.DBNull)))) {
-                INGRESO_DISPLAY = global::System.DBNull.Value;
+            if (((this.Adapter.SelectCommand.Parameters[2].Value == null) 
+                        || (this.Adapter.SelectCommand.Parameters[2].Value.GetType() == typeof(global::System.DBNull)))) {
+                EGRESO_DISPLAY = global::System.DBNull.Value;
             }
             else {
-                INGRESO_DISPLAY = ((object)(this.Adapter.SelectCommand.Parameters[3].Value));
+                EGRESO_DISPLAY = ((object)(this.Adapter.SelectCommand.Parameters[2].Value));
             }
             return dataTable;
         }

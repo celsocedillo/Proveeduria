@@ -74,7 +74,6 @@ namespace Proveduria.Controllers
                                ACCION = "<a href='/Movimiento/Movimiento/" + p.ID_MOVIMIENTO + "' class='text-inverse' data-toggle='tooltip' title='Modificar'>" +
                                        "<i class='fa fa-search' aria-hidden='true'></i>" +
                                        "</a>"
-
                            }).ToList();
                 enviar.Add("resultado", "success");
                 enviar.Add("data", JArray.FromObject(tmp));
@@ -164,13 +163,19 @@ namespace Proveduria.Controllers
                 EPRTA_MOVIMIENTO movimiento = unitOfWork.MovimientoRepository.GetById(pid_movimiento);
                 var stock = unitOfWork.ArticuloBodegaRepository.GetAll();
                 var tmp = (from p in movimiento.EPRTA_MOVIMIENTO_DETALLE
-                           join st in stock on p.ID_ITEM equals st.ID_ITEM into pst from st in pst.DefaultIfEmpty()
+                               //join st in stock on p.ID_ITEM equals st.ID_ITEM  into pst from st in pst.DefaultIfEmpty()
+                           join st in stock on new { id_bodega = movimiento.ID_BODEGA,
+                                                     id_item = p.ID_ITEM} equals 
+                                               new { id_bodega = st.ID_BODEGA, id_item = st.ID_ITEM }
+                           into pst
+                           from st in pst.DefaultIfEmpty()
                            select new
                            { CODIGO = p.EPRTA_ITEM.CODIGO,
                                ITEM = p.EPRTA_ITEM.DESCRIPCION,
-                               CANTIDAD = p.CANTIDAD_PEDIDO,
+                               CANTIDAD = p.CANTIDAD_MOVIMIENTO,
                                MEDIDA = p.EPRTA_ITEM.EPRTA_MEDIDA.NOMBRE,
                                STOCK_ACTUAL = st.CANTIDAD_ACTUAL,
+                               COSTO_ACTUAL = st.COSTO_PROMEDIO,
                                ID_ITEM = p.ID_ITEM
                            }).ToList();
                 enviar.Add("resultado", "success");
@@ -204,6 +209,7 @@ namespace Proveduria.Controllers
                                CANTIDAD = p.CANTIDAD_PEDIDA,
                                MEDIDA = p.EPRTA_ITEM.EPRTA_MEDIDA.NOMBRE,
                                STOCK_ACTUAL = st.CANTIDAD_ACTUAL,
+                               VALOR_UNITARIO = p.VALOR_UNITARIO,
                                ID_ITEM = p.ID_ITEM
                            }).ToList();
                 enviar.Add("resultado", "success");
@@ -278,7 +284,7 @@ namespace Proveduria.Controllers
             //JObject enviar = new JObject();
             EPRTA_MOVIMIENTO movimiento = null;
             string[] arrTiposOperacion = new string[] { "I", "E" };
-            List<EPRTA_TIPO_MOVIMIENTO> ltipo_movimiento = unitOfWork.TipoMovimientoRepository.GetAll().Where(p => arrTiposOperacion.Contains(p.INGRESO_EGRESO)).ToList();
+            List<EPRTA_TIPO_MOVIMIENTO> ltipo_movimiento = unitOfWork.TipoMovimientoRepository.GetAll().Where(p => arrTiposOperacion.Contains(p.INGRESO_EGRESO) && p.ESTADO =="A").ToList();
             ViewBag.ltipo_movimiento = ltipo_movimiento;
             try
             {
@@ -312,30 +318,33 @@ namespace Proveduria.Controllers
             JObject retorno = new JObject();
             try
             {
-                EPRTA_MOVIMIENTO movimiento = new EPRTA_MOVIMIENTO();
-                movimiento.OBSERVACION = pmovimiento.OBSERVACION.ToUpper();
-                movimiento.USUARIO_SOLICITA = Session["usuario"].ToString();
-                movimiento.FECHA_SOLICITUD = DateTime.Now;
-                movimiento.ESTADO = "D";
-                movimiento.ANIO = (short)DateTime.Now.Year;
-                movimiento.ID_TIPO_MOVIMIENTO = pmovimiento.ID_TIPO_MOVIMIENTO;
-                movimiento.ID_BODEGA = 1;
-                EPRTA_SECUENCIA secuencia = unitOfWork.SecuenciaRepository.GetAll().Where(p => p.ID_TIPO_MOVIMIENTO == pmovimiento.ID_TIPO_MOVIMIENTO && p.ANIO == movimiento.ANIO).FirstOrDefault();
-                movimiento.NUMERO_MOVIMIENTO = (int)secuencia.SECUENCIA;
-
+                //EPRTA_MOVIMIENTO movimiento = new EPRTA_MOVIMIENTO();
+                pmovimiento.USUARIO_SOLICITA = Session["usuario"].ToString();
+                pmovimiento.FECHA_SOLICITUD = DateTime.Now;
+                pmovimiento.ESTADO = "D";
+                pmovimiento.ANIO = (short)DateTime.Now.Year;
+                pmovimiento.ID_BODEGA = Byte.Parse(Session["bodega_id"].ToString());
                 foreach (EPRTA_MOVIMIENTO_DETALLE detalle in pmovimiento.EPRTA_MOVIMIENTO_DETALLE)
                 {
                     detalle.ESTADO = "A";
-                    movimiento.EPRTA_MOVIMIENTO_DETALLE.Add(detalle);
+                    EPRTA_ARTICULO_BODEGA itemstock = unitOfWork.ArticuloBodegaRepository.GetAll().Where(p => p.ID_ITEM == detalle.ID_ITEM && p.ID_BODEGA == Byte.Parse(Session["bodega_id"].ToString())).FirstOrDefault();
+                    detalle.COSTO_ACTUAL = itemstock == null ? 0 : itemstock.COSTO_PROMEDIO;
+                    detalle.STOCK_ACTUAL = itemstock == null ? 0 : itemstock.CANTIDAD_ACTUAL;
+                    if (pmovimiento.ID_TIPO_MOVIMIENTO != 4)
+                    {
+                        detalle.COSTO_MOVIMIENTO = itemstock.COSTO_PROMEDIO;
+                    }
                 }
+                EPRTA_SECUENCIA secuencia = unitOfWork.SecuenciaRepository.GetAll().Where(p => p.ID_TIPO_MOVIMIENTO == pmovimiento.ID_TIPO_MOVIMIENTO && p.ANIO == pmovimiento.ANIO).FirstOrDefault();
+                pmovimiento.NUMERO_MOVIMIENTO = (int)secuencia.SECUENCIA;
                 secuencia.SECUENCIA++;
-                unitOfWork.MovimientoRepository.Insert(movimiento);
+                unitOfWork.MovimientoRepository.Insert(pmovimiento);
                 unitOfWork.SecuenciaRepository.Update(secuencia);
-                EPRTA_MOVIMIENTO x = unitOfWork.MovimientoRepository.GetById(movimiento.ID_MOVIMIENTO);
-                string ingreso_egreso = unitOfWork.TipoMovimientoRepository.GetById(movimiento.ID_TIPO_MOVIMIENTO).INGRESO_EGRESO;
-                ActualizaStock(x, ingreso_egreso);
+                //EPRTA_MOVIMIENTO x = unitOfWork.MovimientoRepository.GetById(movimiento.ID_MOVIMIENTO);
+                string ingreso_egreso = unitOfWork.TipoMovimientoRepository.GetById(pmovimiento.ID_TIPO_MOVIMIENTO).INGRESO_EGRESO;
+                ActualizaStock(pmovimiento, ingreso_egreso);
                 unitOfWork.Save();
-                movimiento = unitOfWork.MovimientoRepository.GetById(movimiento.ID_MOVIMIENTO);
+                pmovimiento = unitOfWork.MovimientoRepository.GetById(pmovimiento.ID_MOVIMIENTO);
                 
                 retorno.Add("resultado", "success");
                 retorno.Add("data", null);
@@ -349,48 +358,88 @@ namespace Proveduria.Controllers
                 logger.Error(ex, ex.Message);
             }
             return Content(retorno.ToString(), "application/json");
-
         }
 
         private void ActualizaStock(EPRTA_MOVIMIENTO pmovimiento, string pingreso_egreso)
         {
-            foreach (EPRTA_MOVIMIENTO_DETALLE detalle in pmovimiento.EPRTA_MOVIMIENTO_DETALLE)
-            {
-                decimal costo_unitario;
-                if (pingreso_egreso == "E")
+            try  {
+                foreach (EPRTA_MOVIMIENTO_DETALLE detalle in pmovimiento.EPRTA_MOVIMIENTO_DETALLE)
                 {
                     //Obtengo el registro del item
                     EPRTA_ITEM item = unitOfWork.ItemRepository.GetById(detalle.ID_ITEM);
-                    //Actualizo la fecha del ultimo egreso
-                    item.FECHA_ULTIMO_EGRESO = DateTime.Now;
+
                     //Obtengo el registro del stock del item
                     EPRTA_ARTICULO_BODEGA itemStock = unitOfWork.ArticuloBodegaRepository.GetAll().Where(p => p.ID_BODEGA == pmovimiento.ID_BODEGA && p.ID_ITEM == detalle.ID_ITEM).FirstOrDefault();
-                    //Obtengo el costo unitario del item
-                    costo_unitario = itemStock.VALOR.Value / itemStock.CANTIDAD_ACTUAL.Value;
-                    //Actualizo el stock y el costo unitario
-                    itemStock.CANTIDAD_ACTUAL -= detalle.CANTIDAD_PEDIDO;
-                    itemStock.VALOR = itemStock.VALOR - (detalle.CANTIDAD_PEDIDO * costo_unitario);
+                    if (pingreso_egreso == "E")
+                    {
+                        //Actualizo el stock y el costo unitario
+                        itemStock.CANTIDAD_ACTUAL -= detalle.CANTIDAD_MOVIMIENTO;
+                        unitOfWork.ArticuloBodegaRepository.Update(itemStock);
 
+                        //Actualizo la fecha del ultimo egreso
+                        item.FECHA_ULTIMO_EGRESO = DateTime.Now;
+                        unitOfWork.ItemRepository.Update(item);
+                    }
+                    else if (pingreso_egreso == "I")
+                    {
+                        //Calcular nuevo costo promedio
+                        decimal nuevo_costo_promedio = 0;
+                        decimal nuevo_cantidad_stock = 0;
+
+                        if (itemStock == null)
+                        {
+                            nuevo_costo_promedio = Convert.ToDecimal(detalle.COSTO_MOVIMIENTO);
+                        }
+                        else
+                        {
+                            decimal costo_total_actual = Convert.ToDecimal(itemStock.CANTIDAD_ACTUAL) * Convert.ToDecimal(itemStock.COSTO_PROMEDIO);
+                            decimal costo_total_movimiento = Convert.ToDecimal(detalle.COSTO_MOVIMIENTO) * Convert.ToDecimal(detalle.CANTIDAD_MOVIMIENTO);
+                            nuevo_cantidad_stock = Convert.ToDecimal(itemStock.CANTIDAD_ACTUAL) + Convert.ToDecimal(detalle.CANTIDAD_MOVIMIENTO);
+                            nuevo_costo_promedio = Math.Round((costo_total_actual + costo_total_movimiento) / nuevo_cantidad_stock, 3);
+                        }
+
+                        //Si no tiene registro de stock
+                        if (itemStock == null)
+                        {
+                            itemStock = new EPRTA_ARTICULO_BODEGA();
+                            itemStock.ID_ITEM = detalle.ID_ITEM;
+                            itemStock.ID_BODEGA = pmovimiento.ID_BODEGA;
+                            itemStock.CANTIDAD_MAXIMA = 0;
+                            itemStock.CANTIDAD_ACTUAL = detalle.CANTIDAD_MOVIMIENTO;
+                            itemStock.CANTIDAD_INICIO = detalle.CANTIDAD_MOVIMIENTO;
+                            itemStock.CANTIDAD_CRITICA = 0;
+                            itemStock.CANTIDAD_MINIMA = 0;
+                            itemStock.CANTIDAD_BAJA = 0;
+                            itemStock.COSTO_PROMEDIO = nuevo_costo_promedio;
+                            unitOfWork.ArticuloBodegaRepository.Insert(itemStock);
+                        }
+                        else   //Si ya tiene registro de stock, se procede a acutalizar valores
+                        {
+                            itemStock.COSTO_PROMEDIO = nuevo_costo_promedio;
+                            itemStock.CANTIDAD_ACTUAL = nuevo_cantidad_stock;
+                            //Actualizo la cantidad maxima
+
+                            if (itemStock.CANTIDAD_MAXIMA < itemStock.CANTIDAD_ACTUAL)
+                            {
+                                itemStock.CANTIDAD_MAXIMA = itemStock.CANTIDAD_ACTUAL;
+                            }
+                            unitOfWork.ArticuloBodegaRepository.Update(itemStock);
+                        }
+
+                        //Actualizo la fecha del ultimo ingreso y el historial del costo
+                        item.FECHA_ULTIMO_INGRESO = DateTime.Now;
+                        item.COSTO_ANTERIOR = item.COSTO_ACTUAL;
+                        item.COSTO_ACTUAL = nuevo_costo_promedio;
+                        unitOfWork.ItemRepository.Update(item);
+                    }
 
                 }
-
-
-
-
-                //if (pingreso_egreso == "I")
-                //{
-                //    EPRTA_ARTICULO_BODEGA item_stock = unitOfWork.ArticuloBodegaRepository.GetById(detalle.ID_ITEM);
-                //    if (pingreso_egreso == "I")
-                //    {
-                //        item_stock.CANTIDAD_ACTUAL += detalle.CANTIDAD_PEDIDO;
-                //    }
-                //    else if (pingreso_egreso == "E")
-                //    {
-                //        item_stock.CANTIDAD_ACTUAL -= detalle.CANTIDAD_PEDIDO;
-                //    }
-                //    unitOfWork.ArticuloBodegaRepository.Update(item_stock);
-                //}
+            } 
+            catch(Exception ex)
+            {
+                throw ex;
             }
+            
         }
     }
 }

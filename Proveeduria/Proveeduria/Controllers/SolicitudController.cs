@@ -131,7 +131,6 @@ namespace Proveduria.Controllers
                 enviar.Add("msg", ex.Message);
             }
             return Content(enviar.ToString(), "application/json");
-
         }
 
         [HttpGet]
@@ -195,7 +194,6 @@ namespace Proveduria.Controllers
                 //enviar.Add("msg", ex.Message);
             }
             return View(movimiento);
-
         }
 
         [HttpPost]
@@ -228,8 +226,6 @@ namespace Proveduria.Controllers
                     unitOfWork.MovimientoRepository.Insert(movimiento);
                     unitOfWork.SecuenciaRepository.Update(secuencia);
                     unitOfWork.Save();
-
-
                     retorno.Add("resultado", "success");
                     retorno.Add("data", null);
                     retorno.Add("mensaje", "");
@@ -280,7 +276,7 @@ namespace Proveduria.Controllers
                             }
                             else
                             {
-                                movimiento.EPRTA_MOVIMIENTO_DETALLE.Where(p => p.ID_DETALLE == detalle.ID_DETALLE).FirstOrDefault().CANTIDAD_PEDIDO = detalle.CANTIDAD_PEDIDO;
+                                movimiento.EPRTA_MOVIMIENTO_DETALLE.Where(p => p.ID_DETALLE == detalle.ID_DETALLE).FirstOrDefault().CANTIDAD_MOVIMIENTO = detalle.CANTIDAD_MOVIMIENTO;
                             }
                         }
                     }

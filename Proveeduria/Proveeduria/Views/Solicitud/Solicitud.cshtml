@@ -160,7 +160,7 @@
                                         <tr>
                                             <td>@item.EPRTA_ITEM.CODIGO</td>
                                             <td>@item.EPRTA_ITEM.DESCRIPCION</td>
-                                            <td>@item.CANTIDAD_PEDIDO</td>
+                                            <td>@item.CANTIDAD_MOVIMIENTO</td>
                                             <td>@item.EPRTA_ITEM.EPRTA_MEDIDA.NOMBRE</td>
                                             <td>@item.ID_DETALLE</td>
                                         </tr>
@@ -218,7 +218,7 @@
                            p.ID_DETALLE,
                            p.ID_MOVIMIENTO,
                            p.ID_ITEM,
-                           p.CANTIDAD_PEDIDO,
+                           p.CANTIDAD_MOVIMIENTO,
                            p.ESTADO,
                            CODIGO = p.EPRTA_ITEM.CODIGO,
                            DESCRIPCION = p.EPRTA_ITEM.DESCRIPCION,
