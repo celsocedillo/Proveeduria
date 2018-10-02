@@ -203,6 +203,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InvMedidaController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
+    <Compile Include="Controllers\KardexController.cs" />
     <Compile Include="Controllers\MovimientoController.cs" />
     <Compile Include="Controllers\SolicitudController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -6957,6 +6958,7 @@
     <Content Include="Scripts\App\Consulta.js" />
     <Content Include="Scripts\App\InvMedida.js" />
     <Content Include="Scripts\App\Item.js" />
+    <Content Include="Scripts\App\Kardex.js" />
     <Content Include="Scripts\App\ListaItem.js" />
     <Content Include="Scripts\App\ListaMovimiento.js" />
     <Content Include="Scripts\App\ListaSolicitud.js" />
@@ -7507,6 +7509,7 @@
     <Content Include="Views\Movimiento\ListaMovimiento.cshtml" />
     <Content Include="Views\Movimiento\Movimiento.cshtml" />
     <Content Include="Views\Consulta\PuntoReOrden.cshtml" />
+    <Content Include="Views\Kardex\Kardex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
