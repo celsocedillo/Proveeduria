@@ -177,8 +177,33 @@
 
         $(document).ready(function () {
 
+            if (inicio == "" || inicio == undefined) {
+                inicio = "todos";
+            }
+            if (fin == "" || fin == undefined) {
+                fin = "todos";
+            }
+            if (idItem == "" || idItem == undefined) {
+                idItem = "todos";
+            }
+            if (codigoMovimiento == "" || codigoMovimiento == undefined) {
+                codigoMovimiento = "todos";
+            }
+            if (tipoMovimieno == "" || tipoMovimieno == undefined) {
+                tipoMovimieno = "todos";
+            }
 
+            $("#FechaInicio").datepicker({
+                format: "dd/mm/yyyy",
+                todayHighlight: true,
+                autoclose: true
+            });
 
+            $("#FechaFin").datepicker({
+                format: "dd/mm/yyyy",
+                todayHighlight: true,
+                autoclose: true
+            });
 
 
             tablaMovimientos = $("#tablaMovimientos").DataTable({
@@ -189,7 +214,7 @@
                 info: true,
                 stateSave: true,
                 ajax: {
-                    url: "/Consulta/GetMovimientos",
+                    url: "/Consulta/MovimientoBodega",
                     type: "POST",
                     data: function (d) {
                         d.inicio = inicio,
@@ -219,56 +244,26 @@
                 event.preventDefault();
                 inicio = $("#FechaInicio").val();
                 fin = $("#FechaFin").val();
-                numeroEgresoIngreso = $("#NumeroIngresoEgreso").val();
-                codigoMovimiento = $("#CodigoMovimiento").val();
-                CodigoDocumento = $("#CodigoDocumento").val();
                 idItem = $("#IdItem").val();
+                codigoMovimiento = $("#CodigoMovimiento").val();                
                 tipoMovimieno = $("#TipoMovimiento").val();
-                numeroEgresoIngreso = $("#NumeroIngresoEgreso").val();
                 if (inicio == "" || inicio == undefined) {
                     inicio = "vacio";
                 }
                 if (fin == "" || fin == undefined) {
                     fin = "vacio";
                 }
-                if (numeroEgresoIngreso == "" || numeroEgresoIngreso == undefined) {
-                    numeroEgresoIngreso = "vacio";
-                }
-                if (codigoMovimiento == "" || codigoMovimiento == undefined) {
-                    codigoMovimiento = "vacio";
-                }
                 if (idItem == "" || idItem == undefined) {
                     idItem = "vacio";
                 }
+                if (codigoMovimiento == "" || codigoMovimiento == undefined) {
+                    codigoMovimiento = "vacio";
+                }                
                 if (tipoMovimieno == "" || tipoMovimieno == undefined) {
                     tipoMovimieno = "vacio";
                 }
                 tablaMovimientos.ajax.reload();
             });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         });
     </script>

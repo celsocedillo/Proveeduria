@@ -157,45 +157,44 @@ namespace Proveduria.Controllers
             return Content(retorno.ToString(), "application/json");
         }
 
-        [HttpGet]
-        public FileResult ExportPdf()
-        {
-            Stream stream = null;
-            var nombreArchivo = "";
-            int IdMovimiento = 5769;
-            int Anio = 2018;
-            try
-            {
-                object objetos = new object();
-                EntitiesProveduria db = new EntitiesProveduria();
-                SqlConnectionStringBuilder builderVenta = new SqlConnectionStringBuilder(db.Database.Connection.ConnectionString);
-                //SP_REQUISICION_BODEGATableAdapter tableAdapter = new SP_REQUISICION_BODEGATableAdapter();
+        //[HttpGet]
+        //public FileResult ExportPdf()
+        //{
+        //    Stream stream = null;
+        //    var nombreArchivo = "";
+        //    int IdMovimiento = 5769;
+        //    int Anio = 2018;
+        //    try
+        //    {
+        //        object objetos = new object();
+        //        EntitiesProveduria db = new EntitiesProveduria();
+        //        SqlConnectionStringBuilder builderVenta = new SqlConnectionStringBuilder(db.Database.Connection.ConnectionString);
+        //        //SP_REQUISICION_BODEGATableAdapter tableAdapter = new SP_REQUISICION_BODEGATableAdapter();
 
-                //DataTable dataTable = tableAdapter.GetData(IdMovimiento,  out objetos);
-                //String pathReport = Path.Combine(HttpRuntime.AppDomainAppPath, "Reports\\Cr_Requisicion_Bodega.rpt");
-                //ReportDocument reportDocument = new ReportDocument();
-                //reportDocument.Load(pathReport);
-                //reportDocument.SetDataSource(dataTable);
+        //        //DataTable dataTable = tableAdapter.GetData(IdMovimiento,  out objetos);
+        //        //String pathReport = Path.Combine(HttpRuntime.AppDomainAppPath, "Reports\\Cr_Requisicion_Bodega.rpt");
+        //        //ReportDocument reportDocument = new ReportDocument();
+        //        //reportDocument.Load(pathReport);
+        //        //reportDocument.SetDataSource(dataTable);
 
-                //reportDocument.SetDatabaseLogon(builderVenta.UserID, builderVenta.Password);
+        //        //reportDocument.SetDatabaseLogon(builderVenta.UserID, builderVenta.Password);
 
-                //stream = reportDocument.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
-                //stream.Seek(0, SeekOrigin.Begin);
-                //nombreArchivo = "REQUISICION.pdf";                
-            }
-            catch (Exception ex)
-            {
-                logger.Error(ex, ex.Message);
-            }
-            return File(stream, "application/pdf", nombreArchivo);
-        }
+        //        //stream = reportDocument.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+        //        //stream.Seek(0, SeekOrigin.Begin);
+        //        //nombreArchivo = "REQUISICION.pdf";                
+        //    }
+        //    catch (Exception ex)
+        //    {
+        //        logger.Error(ex, ex.Message);
+        //    }
+        //    return File(stream, "application/pdf", nombreArchivo);
+        //}
 
         public FileResult ExportEgreso()
         {
             Stream stream = null;
             var nombreArchivo = "";
             int IdMovimiento = 5769;
-            int Anio = 2018;
             try
             {
                 object objetos = new object();

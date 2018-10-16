@@ -65,15 +65,11 @@
                                     <button id="btnEliminarItem" type="button" class="btn btn-sm btn-default">
                                         <i class="fa fa-remove" aria-hidden="true"></i>  Eliminar
                                     </button>
-
                                 </div>
                             </div>
                         </div>
-
                     </div>
                 </div>
-
-
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-horizontal form-ajust">
@@ -147,10 +143,8 @@
 
     <script type="text/javascript" src=@Url.Content("/Scripts/App/Kardex.js")></script>
     <script type="text/javascript">
-
         $(document).ready(function () {
             $("#kardexPdf").on("click", function () {
-
                 window.location.href = "/Kardex/ExportPdf";
             });
             Kardex.init();

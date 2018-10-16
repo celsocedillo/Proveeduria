@@ -78,6 +78,7 @@ namespace Proveduria.Utils
                 }
                 catch (Exception ex)
                 {
+                    Console.Write(ex.Message);
                 }
             }
             return result;

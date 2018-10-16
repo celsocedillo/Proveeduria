@@ -6600,3 +6600,72 @@ Nombre del parámetro: s
               -------------------------------------------------------------------
               ----------     
      
+     ---------------------------- Error(2018-10-16 12:13:18.2117) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentNullException
+      
+              Exception Message : Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s
+     
+              Inner Exception  : System.ArgumentNullException: Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s
+   en System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   en System.DateTime.Parse(String s)
+   en Proveduria.Controllers.ConsultaController.MovimientoBodega(String inicio, String fin, String idItem, String codigoMovimiento, String tipoMovimiento) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 167 
+ 
+              Stack Trace   :    en System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   en System.DateTime.Parse(String s)
+   en Proveduria.Controllers.ConsultaController.MovimientoBodega(String inicio, String fin, String idItem, String codigoMovimiento, String tipoMovimiento) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 167
+        
+              Additional Info  : Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-10-16 12:14:32.7187) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentNullException
+      
+              Exception Message : Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s
+     
+              Inner Exception  : System.ArgumentNullException: Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s
+   en System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   en System.DateTime.Parse(String s)
+   en Proveduria.Controllers.ConsultaController.MovimientoBodega(String inicio, String fin, String idItem, String codigoMovimiento, String tipoMovimiento) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 167 
+ 
+              Stack Trace   :    en System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   en System.DateTime.Parse(String s)
+   en Proveduria.Controllers.ConsultaController.MovimientoBodega(String inicio, String fin, String idItem, String codigoMovimiento, String tipoMovimiento) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 167
+        
+              Additional Info  : Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-10-16 12:15:28.2357) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.ArgumentNullException
+      
+              Exception Message : Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s
+     
+              Inner Exception  : System.ArgumentNullException: Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s
+   en System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   en System.DateTime.Parse(String s)
+   en Proveduria.Controllers.ConsultaController.MovimientoBodega(String inicio, String fin, String idItem, String codigoMovimiento, String tipoMovimiento) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 167 
+ 
+              Stack Trace   :    en System.DateTimeParse.Parse(String s, DateTimeFormatInfo dtfi, DateTimeStyles styles)
+   en System.DateTime.Parse(String s)
+   en Proveduria.Controllers.ConsultaController.MovimientoBodega(String inicio, String fin, String idItem, String codigoMovimiento, String tipoMovimiento) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 167
+        
+              Additional Info  : Referencia a cadena no establecida como una instancia de cadena.
+Nombre del parámetro: s  
+              -------------------------------------------------------------------
+              ----------     
+     

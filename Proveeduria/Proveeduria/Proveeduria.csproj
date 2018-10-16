@@ -206,7 +206,6 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InvMedidaController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
-    <Compile Include="Controllers\KardexController.cs" />
     <Compile Include="Controllers\MovimientoController.cs" />
     <Compile Include="Controllers\SolicitudController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
@@ -215,6 +214,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ConsultaMovimiento.cs" />
     <Compile Include="Models\EPRTA_ARTICULO_BODEGA.cs">
       <DependentUpon>ModeloProveduria.tt</DependentUpon>
     </Compile>
@@ -311,9 +311,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Cr_Requisicion_Bodega.rpt</DependentUpon>
       <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="Reports\DataSetReports.cs">
-      <DependentUpon>DataSetReports.xsd</DependentUpon>
     </Compile>
     <Compile Include="Reports\DataSetReports.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -7472,10 +7469,10 @@
     <Content Include="Content\bower_components\datatable\Spanish.json" />
     <Content Include="Content\bower_components\moment\moment-2221-min.js" />
     <None Include="Properties\PublishProfiles\Default Settings.pubxml" />
+    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <Content Include="Reports\DataSetReports.xsc">
       <DependentUpon>DataSetReports.xsd</DependentUpon>
     </Content>
-    <None Include="Properties\PublishProfiles\FolderProfile.pubxml" />
     <None Include="Reports\DataSetReports.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
@@ -7529,11 +7526,11 @@
     <Content Include="Views\Movimiento\ListaMovimiento.cshtml" />
     <Content Include="Views\Movimiento\Movimiento.cshtml" />
     <Content Include="Views\Consulta\PuntoReOrden.cshtml" />
-    <Content Include="Views\Kardex\Kardex.cshtml" />
     <Content Include="Views\Account\LogOn.cshtml" />
     <Content Include="Views\Shared\_LayoutLogin.cshtml" />
     <Content Include="Views\Configuracion\Parametros.cshtml" />
     <Content Include="Views\Consulta\MovimientoBodega.cshtml" />
+    <Content Include="Views\Consulta\Kardex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
