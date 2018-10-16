@@ -1,6 +1,7 @@
 ﻿var tabItems;
 var tipoMovimientoSeleccionado;
 var ldata;
+var loc;
 var movimiento;
 var movimientoDetalle = [];
 
@@ -119,12 +120,13 @@ function BuscarOrdenCompra() {
             else {
                 //var items = data.items;
                 //ldata = $.parseJSON(data.data);
-                ldata = data.data;
-                tabDocumentoRelacionado.clear();
-                tabDocumentoRelacionado.rows.add(data.data);
-                tabDocumentoRelacionado.draw();
-                $("#titDocumentoRelacionado").text("Ordenes de Compra");
-                $("#dlgDocumentoRelacionado").modal('toggle');
+                loc = data.data;
+                tabOrdenCompra.clear();
+                tabOrdenCompra.rows.add(data.data);
+                tabOrdenCompra.draw();
+                //$("#titDocumentoRelacionado").text("Ordenes de Compra");
+                //$("#dlgDocumentoRelacionado").modal('toggle');
+                $("#dlgOrdenCompra").modal('toggle');
             }
             $(".box-body").waitMe('hide');
         },
@@ -397,15 +399,42 @@ var Movimiento = function () {
                     { "targets": 0, "visible": false},
                     { "targets": 1, "width": 30 },
                     { "targets": 2, "width": 50 },
-                    { "targets": 3, "width": 350 },
-                    { "targets": 4, "width": 50}
+                    { "targets": 3, "width": 250 },
+                    { "targets": 4, "width": 250 },
+                    { "targets": 5, "width": 50 },
+                    { "targets": 6, "visible": false}
                 ],
                 "columns": [
                     { "data": 'ID_MOVIMIENTO' },
                     { "data": 'ANIO' },
                     { "data": 'NUMERO_MOVIMIENTO' },
-                    { "data": 'REFERENCIA' },
-                    { "data": 'FECHA' }
+                    { "data": 'DEPARTAMENTO' },
+                    { "data": 'EMPLEADO' },
+                    { "data": 'FECHA' },
+                    { "data": 'USUARIO_SOLICITA' }
+                ]
+            });
+
+            tabOrdenCompra = $('#tabOrdenCompra').DataTable({
+                "paging": false,
+                "searching": true,
+                "info": false,
+                "autoWidth": false,
+                "select": { style: 'single' },
+                "data": loc,
+                "columnDefs": [
+                    { "targets": 0, "width": 30 },
+                    { "targets": 1, "width": 30 },
+                    { "targets": 2, "width": 350 },
+                    { "targets": 3, "width": 50 },
+                    { "targets": 4, "width": 50 }
+                ],
+                "columns": [
+                    { "data": 'ANIO' },
+                    { "data": 'NUMERO_MOVIMIENTO' },
+                    { "data": 'PROVEEDOR' },
+                    { "data": 'FECHA' },
+                    { "data": 'FACTURA' }
                 ]
             });
             
@@ -434,7 +463,16 @@ var Movimiento = function () {
 
             if ($("#ID_TIPO_MOVIMIENTO").val() == 2) {
                 column.visible(true);
-            } else {
+                $("#divRequisicion").css('display', 'block');
+                $("#divOrdenCompra").css('display', 'none');
+
+            } else if($("#ID_TIPO_MOVIMIENTO").val() == 4) {
+                column.visible(true);
+                $("#divRequisicion").css('display', 'none');
+                $("#divOrdenCompra").css('display', 'block');
+
+            } else            
+            {
                 column.visible(false);
             }
 
@@ -485,12 +523,24 @@ var Movimiento = function () {
 
             $('#ID_TIPO_MOVIMIENTO').on('select2:select', function (e) {
                 tipoMovimientoSeleccionado = e.params.data.id;
-                if (tipoMovimientoSeleccionado == 2 || tipoMovimientoSeleccionado == 4) {
+                if (tipoMovimientoSeleccionado == 2 ) {
                     $("#divBuscaRelacion").css('display', 'block');
-                    $("#divAgregar").css('display', 'none'); 
-                } else {
+                    $("#divAgregar").css('display', 'block'); 
+                    $("#btnEliminarItem").css('display', 'none'); 
+                    $("#divRequisicion").css('display', 'block');
+                    $("#divOrdenCompra").css('display', 'none');
+                } else if (tipoMovimientoSeleccionado == 4) {
+                    $("#divBuscaRelacion").css('display', 'block');
+                    $("#divAgregar").css('display', 'none');
+                    $("#divRequisicion").css('display', 'none');
+                    $("#divOrdenCompra").css('display', 'block');
+                } else
+                {
                     $("#divBuscaRelacion").css('display', 'none');
                     $("#divAgregar").css('display', 'block'); 
+                    $("#divRequisicion").css('display', 'none');
+                    $("#divOrdenCompra").css('display', 'none');
+
                 }
 
                 column = tabItems.column(2);
@@ -588,16 +638,33 @@ var Movimiento = function () {
                 var documentoSeleccionado = tabDocumentoRelacionado.rows('.selected').data()[0];
                 if (tipoMovimientoSeleccionado == 2) {
                     $("#lblSolicitudRequisicion").text(documentoSeleccionado.ANIO + " - " + documentoSeleccionado.NUMERO_MOVIMIENTO);
+                    $("#lblFechaAutorizacion").text(documentoSeleccionado.FECHA);
+                    $("#lblUsuarioSolicita").text(documentoSeleccionado.USUARIO_SOLICITA);
+                    $("#lblDptoSolicita").text(documentoSeleccionado.DEPARTAMENTO);
                     DetalleSolicitud(documentoSeleccionado.ID_MOVIMIENTO);
-                    $("#lblOrdenCompra").text("");
-                } else if (tipoMovimientoSeleccionado == 4) {
-                    $("#lblOrdenCompra").text(documentoSeleccionado.ANIO + " - " + documentoSeleccionado.NUMERO_MOVIMIENTO);
-                    $("#lblSolicitudRequisicion").text("");
-                    DetalleOrdenCompra(documentoSeleccionado.ANIO, documentoSeleccionado.NUMERO_MOVIMIENTO);
                 }
                 
                 $("#dlgDocumentoRelacionado").modal('toggle');
             });
+
+            $("#butSeleccionaOC").on("click", function () {
+                var ocSeleccionado = tabOrdenCompra.rows('.selected').data()[0];
+                $("#lblOrdenCompra").text(ocSeleccionado.ANIO + " - " + ocSeleccionado.NUMERO_MOVIMIENTO);
+                $("#lblProveedor").text(ocSeleccionado.PROVEEDOR);
+                $("#lblFactura").text(ocSeleccionado.FACTURA);
+                $("#lblFechaFactura").text(ocSeleccionado.FECHA);
+                //$("#lblSolicitudRequisicion").text("");
+                DetalleOrdenCompra(ocSeleccionado.ANIO, ocSeleccionado.NUMERO_MOVIMIENTO);
+                $("#dlgOrdenCompra").modal('toggle');
+            });
+
+            $("#btnImprimir").on('click', function () {
+                event.preventDefault();
+                $("#modal-dialog-print-pdf").modal("show");
+                $(".modal-title").text("SOLICITUD");
+                $('#TagEmbed').attr("src", "/Movimiento/ViewPDF/" + movimientoId);
+            });
+
 
             $(document).on('click', '.pdf-autorizado', function (event) {
                 event.preventDefault();

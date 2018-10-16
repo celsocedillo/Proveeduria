@@ -38,5 +38,6 @@ namespace Proveduria.Models
         public virtual DbSet<VW_EMPLEADO> VW_EMPLEADO { get; set; }
         public virtual DbSet<VW_ORDEN_COMPRA> VW_ORDEN_COMPRA { get; set; }
         public virtual DbSet<VW_ORDEN_COMPRA_DETALLE> VW_ORDEN_COMPRA_DETALLE { get; set; }
+        public virtual DbSet<VW_DIRECCION> VW_DIRECCION { get; set; }
     }
 }

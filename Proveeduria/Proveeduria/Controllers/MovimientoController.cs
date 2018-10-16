@@ -10,7 +10,10 @@ using Newtonsoft.Json.Linq;
 using NLog;
 using System.IO;
 using CrystalDecisions.CrystalReports.Engine;
+using System.Data.SqlClient;
+using System.Data;
 using System.Net.Mime;
+using Proveduria.Reports.DataSetReportsTableAdapters;
 
 namespace Proveduria.Controllers
 {
@@ -107,8 +110,10 @@ namespace Proveduria.Controllers
                                p.ID_MOVIMIENTO,
                                p.ANIO,
                                p.NUMERO_MOVIMIENTO,
+                               p.USUARIO_SOLICITA,
                                MOVIMIENTO = p.EPRTA_TIPO_MOVIMIENTO.NOMBRE,
-                               REFERENCIA = us.EMPLEADO + " - " + dp.DESCRIPCION,
+                               EMPLEADO = us.EMPLEADO,
+                               DEPARTAMENTO = dp.DESCRIPCION,
                                FECHA = p.FECHA_AUTORIZACION.HasValue ? p.FECHA_AUTORIZACION.Value.ToString("dd/MM/yyyy") : null
                            }).ToList();
                 enviar.Add("resultado", "success");
@@ -132,12 +137,14 @@ namespace Proveduria.Controllers
             try
             {
                 var tmp = (from p in unitOfWork.OrdenCompraRepository.GetAll()
+                           where p.ESTADO == "A"
                            select new
                            {
-                               ID_MOVIMIENTO = 0,
                                p.ANIO,
                                NUMERO_MOVIMIENTO = p.NUMERO_ORDEN,
-                               REFERENCIA = p.PROVEEDOR,
+                               PROVEEDOR = p.PROVEEDOR,
+                               FACTURA = p.FACTURA,
+                               FECHA_EMISION = p.FECHA_EMISION,
                                FECHA = p.FECHA_AUTORIZACION.HasValue ? p.FECHA_AUTORIZACION.Value.ToString("dd/MM/yyyy") : null
                            }).ToList();
                 enviar.Add("resultado", "success");
@@ -441,5 +448,75 @@ namespace Proveduria.Controllers
             }
             
         }
+
+        public FileResult ViewPDF(int? id)
+        {
+            Stream stream = null;
+            var nombreArchivo = "";
+            ReportDocument reportDocument = new ReportDocument();
+            byte[] pdfByte = null;
+            try
+            {
+                //FacturaVenta facturaVenta = unitOfWork.FacturaVentaRepository.GetById(id);
+                EPRTA_MOVIMIENTO solicitud = unitOfWork.MovimientoRepository.GetById(id);
+                EntitiesProveduria db = new EntitiesProveduria();
+                //ERPDBEntities db = new ERPDBEntities();
+                SqlConnectionStringBuilder builderVenta = new SqlConnectionStringBuilder(db.Database.Connection.ConnectionString);
+                //SpFacturaElectronicaTableAdapter tableAdapter = new SpFacturaElectronicaTableAdapter();
+                SP_EGRESO_BODEGATableAdapter tableAdapter = new SP_EGRESO_BODEGATableAdapter();
+                object objetos = new object();
+                DataTable dataTable = tableAdapter.GetData(id,  out objetos);
+                String pathReport = Path.Combine(HttpRuntime.AppDomainAppPath, "Reports\\Cr_Egreso_Bodega.rpt");
+
+                reportDocument.Load(pathReport);
+                reportDocument.SetDataSource(dataTable);
+
+
+                reportDocument.SetDatabaseLogon(builderVenta.UserID, builderVenta.Password);
+
+                stream = reportDocument.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
+                pdfByte = ReadFully(stream);
+                nombreArchivo = "REQUISICION DE BODEGA ";
+                Response.AddHeader("content-disposition", "inline; title='';" + "filename=" + nombreArchivo + ".pdf");
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, ex.Message);
+            }
+            finally
+            {
+                if (reportDocument != null)
+                {
+                    if (reportDocument.IsLoaded)
+                    {
+                        reportDocument.Close();
+                        reportDocument.Dispose();
+                    }
+                }
+            }
+            return File(pdfByte, MediaTypeNames.Application.Pdf);
+        }
+
+        public byte[] ReadFully(Stream input)
+        {
+            byte[] buffer = new byte[16 * 1024];
+            using (MemoryStream ms = new MemoryStream())
+            {
+                int read;
+                while ((read = input.Read(buffer, 0, buffer.Length)) > 0)
+                {
+                    ms.Write(buffer, 0, read);
+                }
+                return ms.ToArray();
+            }
+        }
+
+
+        protected override void Dispose(bool disposing)
+        {
+            unitOfWork.Dispose();
+            base.Dispose(disposing);
+        }
+
     }
 }

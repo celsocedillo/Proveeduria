@@ -12,19 +12,19 @@ namespace Proveduria.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class VW_ORDEN_COMPRA_DETALLE
+    public partial class VW_DIRECCION
     {
-        public decimal SECUENCIA_LINEA { get; set; }
-        public short ANIO { get; set; }
-        public string TIPO { get; set; }
-        public int NUMERO_ORDEN { get; set; }
-        public string CODIGO { get; set; }
-        public int ID_ITEM { get; set; }
-        public Nullable<int> CANTIDAD_PEDIDA { get; set; }
-        public string ESTADO { get; set; }
-        public Nullable<decimal> VALOR_UNITARIO { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public VW_DIRECCION()
+        {
+            this.EPRTA_MOVIMIENTO = new HashSet<EPRTA_MOVIMIENTO>();
+        }
     
-        public virtual VW_ORDEN_COMPRA VW_ORDEN_COMPRA { get; set; }
-        public virtual EPRTA_ITEM EPRTA_ITEM { get; set; }
+        public byte CODIGO { get; set; }
+        public string DESCRIPCION { get; set; }
+        public string ESTADO { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EPRTA_MOVIMIENTO> EPRTA_MOVIMIENTO { get; set; }
     }
 }

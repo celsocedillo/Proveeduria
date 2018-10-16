@@ -49,10 +49,51 @@ function CargaStock() {
 
 }
 
+function AgregarBodega(registro) {
+    var cantidad_minima = `<div class="form-group" style="text-align: rigth;display:inline-block;">
+                                    <input id=txtcantminima name="txtcantminima" type="number" value="${registro[0].CANTIDAD_MINIMA}" class="form-control text-right txtcant no-spin" min=0 step="any" required>
+                                   </div>`;
+    var cantidad_critica = `<div class="form-group" style="text-align: rigth;display:inline-block;">
+                                    <input id=txtcantcritica name="txtcantcritica" type="number" value="${registro[0].CANTIDAD_CRITICA}" class="form-control text-right txtcant no-spin" min=0 step="any" required>
+                                   </div>`;
+    var cantidad_maxima = `<div class="form-group" style="text-align: rigth;display:inline-block;">
+                                    <input id=txtcantmaxima name="txtcantmaxima" type="number" value="${registro[0].CANTIDAD_MAXIMA}" class="form-control text-right txtcant no-spin" min=0 step="any" required>
+                                   </div>`;
+    var row = []
+    row.push({
+        "ID_ARTIBODE": registro[0].ID_ARTIBODE,
+        "ID_BODEGA": registro[0].ID_BODEGA,
+        "BODEGA_NOMBRE": registro[0].BODEGA_NOMBRE,
+        "CANTIDAD_ACTUAL": registro[0].CANTIDAD_ACTUAL,
+        "CANTIDAD_CRITICA": cantidad_critica,
+        "CANTIDAD_MAXIMA": cantidad_maxima,
+        "CANTIDAD_MINIMA": cantidad_minima,
+        "CANTIDAD_INICIO": registro[0].CANTIDAD_INICIO
+    });
+    tabStock.rows.add(row).draw();
+    tabStock.columns.adjust().draw();
+}
+
 function Grabar() {
     $('#frmItem').parsley().validate();
     if ($('#frmItem').parsley().isValid()) {
         var forma = serializaForma($("#frmItem"));
+        forma["EPRTA_ARTICULO_BODEGA"] = [];
+        if (tabStock.rows().count() > 0) {
+            $("#tabStock tbody tr").each(function () {
+                var fila = $(this).closest('tr');
+                linea_data = tabStock.row(tabStock.row(fila).index());
+                forma["EPRTA_ARTICULO_BODEGA"].push({
+                    "ID_ARTIBODE": linea_data.data()["ID_ARTIBODE"],
+                    "ID_BODEGA": linea_data.data()["ID_BODEGA"],
+                    "CANTIDAD_MAXIMA": $('input[name="txtcantmaxima"]', fila).val(),
+                    "CANTIDAD_MINIMA": $('input[name="txtcantminima"]', fila).val(),
+                    "CANTIDAD_CRITICA": $('input[name="txtcantcritica"]', fila).val(),
+
+                });
+            });
+         }
+
         var parametros = (
             {
                 precord: forma
@@ -130,10 +171,12 @@ return {
             //},
             "columnDefs":
                     [
-                    { "targets": [1,2,3,4,5,6], "orderable": false, "className" : "text-right" }
+                    { "targets": [2, 4, 5, 6, 7], "orderable": false, "className": "text-right" },
+                    { "targets": [3], "orderable": false, "className": "columna_stock" }
                 ],
             "columns": [
                 { "data": 'ID_ARTIBODE' },
+                { "data": 'ID_BODEGA' },
                 { "data": 'BODEGA_NOMBRE' },
                 { "data": 'CANTIDAD_ACTUAL' },
                 { "data": 'CANTIDAD_CRITICA' },
@@ -144,31 +187,26 @@ return {
         });
 
         tabStock.clear();
-        for (i in lstock_bodega) {
-            var cantidad_minima = `<div class="form-group" style="text-align: rigth;display:inline-block;">
-                                    <input id=txtcantminima${i} name="txtcantminima" type="number" value="${lstock_bodega[i].CANTIDAD_MINIMA}" class="form-control text-right txtcant no-spin" min=0 step="any" required>
-                                   </div>`;
-            var cantidad_critica = `<div class="form-group" style="text-align: rigth;display:inline-block;">
-                                    <input id=txtcantcritica${i} name="txtcantcritica" type="number" value="${lstock_bodega[i].CANTIDAD_CRITICA}" class="form-control text-right txtcant no-spin" min=0 step="any" required>
-                                   </div>`;
-            var cantidad_maxima = `<div class="form-group" style="text-align: rigth;display:inline-block;">
-                                    <input id=txtcantmaxima${i} name="txtcantmaxima" type="number" value="${lstock_bodega[i].CANTIDAD_MAXIMA}" class="form-control text-right txtcant no-spin" min=0 step="any" required>
-                                   </div>`;
-
-            var row = []
-            row.push({
-                "ID_ARTIBODE": lstock_bodega[i].ID_ARTIBODE,
-                "BODEGA_NOMBRE": lstock_bodega[i].BODEGA_NOMBRE,
-                "CANTIDAD_ACTUAL": lstock_bodega[i].CANTIDAD_ACTUAL,
-                "CANTIDAD_CRITICA": cantidad_critica,
-                "CANTIDAD_MAXIMA": cantidad_maxima,
-                "CANTIDAD_MINIMA": cantidad_minima,
-                "CANTIDAD_INICIO": lstock_bodega[i].CANTIDAD_INICIO
-            });
-            tabStock.rows.add(row).draw();
-            tabStock.columns.adjust().draw();
+        if (lstock_bodega.length > 0) {
+            AgregarBodega(lstock_bodega);
+        } else {
+            var xregbod =[
+            {
+                ID_ARTIBODE: 0,
+                ID_BODEGA: SId_bodega,
+                BODEGA_NOMBRE: SBodega,
+                CANTIDAD_ACTUAL: 0,
+                CANTIDAD_CRITICA: 0,
+                CANTIDAD_MAXIMA: 0,
+                CANTIDAD_MINIMA: 0,
+                CANTIDAD_INICIO: 0
+            }]
+            AgregarBodega(xregbod);
         }
+        
         column = tabStock.column(0);
+        column.visible(false);
+        column = tabStock.column(1);
         column.visible(false);
 
 

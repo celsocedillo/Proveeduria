@@ -177,36 +177,88 @@ namespace Proveduria.Controllers
         public ActionResult Grabar(EPRTA_ITEM precord)
         {
             JObject retorno = new JObject();
-            //EPRTA_ITEM record;
+            EPRTA_ITEM item;
             try
             {
-                if (precord.ESTADO.Equals("N"))
+                //Si es un registro nuevo
+                if (precord.ID_ITEM == 0)
                 {
-                    if (DisponibilidadCodigo(precord.CODIGO))
-                    {
-                        precord.ESTADO = "A";
-                        unitOfWork.ItemRepository.Insert(precord);
-                        unitOfWork.Save();
-                        retorno.Add("resultado", "success");
-                        retorno.Add("data", null);
-                        retorno.Add("mensaje", "");
-                    }
-                    else
+                    item = new EPRTA_ITEM();
+                    precord.ESTADO = "A";
+
+                    if (!DisponibilidadCodigo(precord.CODIGO))
                     {
                         retorno.Add("resultado", "warning");
                         retorno.Add("data", null);
-                        retorno.Add("mensaje", "Codigo de item ya se encuentra repetido");
+                        retorno.Add("mensaje", "Codigo " + precord.CODIGO + " ya está registrado" );
+                        return Content(retorno.ToString(), "application/json");
                     }
-                }
-                else
-                {
-                    unitOfWork.ItemRepository.Update(precord);
-                    unitOfWork.Save();
-                    retorno.Add("resultado", "success");
-                    retorno.Add("data", null);
-                    retorno.Add("mensaje", "");
 
+                    item.ESTADO = precord.ESTADO;
+                    item.CODIGO = precord.CODIGO;
+                    item.DESCRIPCION = precord.DESCRIPCION;
+                    item.ID_GRUPO = precord.ID_GRUPO;
+                    item.ID_MEDIDA = precord.ID_MEDIDA;
+                    item.OBSERVACION = precord.OBSERVACION;
+
+                    //Reviso si hay registros de bodegas
+                    if (precord.EPRTA_ARTICULO_BODEGA.Count > 0)
+                    {
+                        foreach (EPRTA_ARTICULO_BODEGA stock in precord.EPRTA_ARTICULO_BODEGA)
+                        {
+                            stock.ESTADO = "A";
+                            stock.CANTIDAD_ACTUAL = 0;
+                            stock.CANTIDAD_BAJA = 0;
+                            stock.CANTIDAD_OC = 0;
+                            stock.COSTO_PROMEDIO = 0;
+                            stock.CANTIDAD_INICIO = 0;
+                            item.EPRTA_ARTICULO_BODEGA.Add(stock);
+                        }
+                    }
+                    unitOfWork.ItemRepository.Insert(item);
+                
                 }
+                else  //Si es un update
+                {
+                    item = unitOfWork.ItemRepository.GetById(precord.ID_ITEM); //Busco el item a actualizar
+                    item.ESTADO = precord.ESTADO;
+                    item.DESCRIPCION = precord.DESCRIPCION;
+                    item.ID_GRUPO = precord.ID_GRUPO;
+                    item.ID_MEDIDA = precord.ID_MEDIDA;
+                    item.OBSERVACION = precord.OBSERVACION;
+                    //Reviso los registros de bodegas
+                    foreach (EPRTA_ARTICULO_BODEGA stock in precord.EPRTA_ARTICULO_BODEGA)
+                    {
+                        if (stock.ID_ARTIBODE == 0)
+                        {
+                            stock.ID_ITEM = item.ID_ITEM;
+                            stock.ESTADO = "A";
+                            stock.CANTIDAD_ACTUAL = 0;
+                            stock.CANTIDAD_BAJA = 0;
+                            stock.CANTIDAD_OC = 0;
+                            stock.COSTO_PROMEDIO = 0;
+                            stock.CANTIDAD_INICIO = 0;
+                            item.EPRTA_ARTICULO_BODEGA.Add(stock);
+                        }
+                        else
+                        {
+                            //Si ya existe un registro de bodega lo busco y actualizo los datos
+                            foreach(EPRTA_ARTICULO_BODEGA reg in item.EPRTA_ARTICULO_BODEGA.Where(p => p.ID_ARTIBODE == stock.ID_ARTIBODE))
+                            {
+                                reg.CANTIDAD_MAXIMA = stock.CANTIDAD_MAXIMA;
+                                reg.CANTIDAD_CRITICA = stock.CANTIDAD_CRITICA;
+                                reg.CANTIDAD_MINIMA = stock.CANTIDAD_MINIMA;
+                            }
+                        }
+                    }
+
+                    unitOfWork.ItemRepository.Update(item);
+                }
+
+                unitOfWork.Save();
+                retorno.Add("resultado", "success");
+                retorno.Add("data", null);
+                retorno.Add("mensaje", "");
             }
             catch (Exception ex)
             {

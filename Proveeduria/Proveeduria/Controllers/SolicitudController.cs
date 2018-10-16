@@ -307,26 +307,23 @@ namespace Proveduria.Controllers
             byte[] pdfByte = null;
             try
             {
-                //FacturaVenta facturaVenta = unitOfWork.FacturaVentaRepository.GetById(id);
                 EPRTA_MOVIMIENTO solicitud = unitOfWork.MovimientoRepository.GetById(id);
                 EntitiesProveduria db = new EntitiesProveduria();
-                //ERPDBEntities db = new ERPDBEntities();
                 SqlConnectionStringBuilder builderVenta = new SqlConnectionStringBuilder(db.Database.Connection.ConnectionString);
-                //SpFacturaElectronicaTableAdapter tableAdapter = new SpFacturaElectronicaTableAdapter();
                 SP_REQUISICION_BODEGATableAdapter tableAdapter = new SP_REQUISICION_BODEGATableAdapter();
                 object objetos = new object();
-                DataTable dataTable = tableAdapter.GetData(id, solicitud.ANIO, out objetos);
+                DataTable dataTable = tableAdapter.GetData(id, out objetos);
                 String pathReport = Path.Combine(HttpRuntime.AppDomainAppPath, "Reports\\Cr_Requisicion_Bodega.rpt");
 
                 reportDocument.Load(pathReport);
                 reportDocument.SetDataSource(dataTable);
-                              
+
 
                 reportDocument.SetDatabaseLogon(builderVenta.UserID, builderVenta.Password);
 
                 stream = reportDocument.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
                 pdfByte = ReadFully(stream);
-                nombreArchivo = "REQUISICION DE BODEGA " ;
+                nombreArchivo = "REQUISICION DE BODEGA ";
                 Response.AddHeader("content-disposition", "inline; title='';" + "filename=" + nombreArchivo + ".pdf");
             }
             catch (Exception ex)

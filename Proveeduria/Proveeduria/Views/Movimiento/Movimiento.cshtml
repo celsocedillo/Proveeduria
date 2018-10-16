@@ -26,17 +26,11 @@
                     <div class="col-sm-7">
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Movimiento :</label>
-                            <div class="col-sm-6">
+                            <div class="col-sm-7">
                                 @Html.DropDownListFor(m => m.ID_TIPO_MOVIMIENTO, new SelectList(ViewBag.ltipo_movimiento, "ID_TIPO_MOVIMIENTO", "NOMBRE"))
                             </div>
-                            <div class="col-sm-4">
+                            <div class="col-sm-3">
                                 <label class="form-control">@Model.ANIO - @Model.NUMERO_MOVIMIENTO</label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-2 control-label">Observacion :</label>
-                            <div class="col-sm-10">
-                                @Html.TextAreaFor(m => m.OBSERVACION, new { @class = "form-control", required = "required", style = "text-transform:uppercase", rows = "5", @data_parsley_minlength = 15 })
                             </div>
                         </div>
                         <div class="form-group">
@@ -46,6 +40,12 @@
                             </div>
                             <div class="col-sm-3">
                                 <label class="form-control">@(Model.FECHA_SOLICITUD.HasValue ? Model.FECHA_SOLICITUD.Value.ToString("dd/MM/yyyy") : null)</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Observacion :</label>
+                            <div class="col-sm-10">
+                                @Html.TextAreaFor(m => m.OBSERVACION, new { @class = "form-control", required = "required", style = "text-transform:uppercase", rows = "5", @data_parsley_minlength = 15 })
                             </div>
                         </div>
                     </div>
@@ -62,7 +62,7 @@
                                 </button>
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div id="divRequisicion" class="form-group">
                             <label class="col-sm-5 control-label">Solicitud de Requisición :</label>
                             <div class="col-sm-3">
                                 <label id="lblSolicitudRequisicion" class="form-control">
@@ -71,16 +71,42 @@
                                 </label>
                             </div>
                             <div class="col-sm-4">
-                                <label class="form-control">
-                                    @(Model.ID_MOVIMIENTO_RELACION.HasValue ? Model.EPRTA_MOVIMIENTO2.USUARIO_SOLICITA.ToString() : null)
+                                <label id="lblFechaAutorizacion" class="form-control">
+                                    @(Model.ID_MOVIMIENTO_RELACION.HasValue ? Model.EPRTA_MOVIMIENTO2.FECHA_AUTORIZACION.Value.ToString("dd/MM/yyyy") : null)
                                 </label>
                             </div>
-                        </div>
-                        <div class="form-group">
-                            <label class="col-sm-5 control-label">Orden de compra :</label>
-                            <div class="col-sm-3">
-                                <label id="lblOrdenCompra" class="form-control">@Model.ANIO_DOCUMENTO_REFERENCIA - @Model.NUMERO_DOCUMENTO_REFERENCIA</label>
+                            <label class="col-sm-5 control-label">Solicitado por :</label>
+                            <div class="col-sm-7">
+                                <label id="lblUsuarioSolicita" class="form-control">
+                                    @(Model.ID_MOVIMIENTO_RELACION.HasValue ? Model.EPRTA_MOVIMIENTO2.USUARIO_SOLICITA : null)
+                                </label>
                             </div>
+
+                            <label class="col-sm-5 control-label">Dpto. Solicita :</label>
+                            <div class="col-sm-7">
+                                <label id="lblDptoSolicita" >@*@(Model.ID_MOVIMIENTO_RELACION.HasValue ? Model.EPRTA_MOVIMIENTO2.VW_DIRECCION.DESCRIPCION: null)*@</label>
+                            </div>
+                        </div>
+                        <div id="divOrdenCompra" class="form-group">
+                            <label class="col-sm-5 control-label">Orden de compra :</label>
+                            <div class="col-sm-7">
+                                <label id="lblOrdenCompra" class="form-control">
+                                    @(Model.ANIO_DOCUMENTO_REFERENCIA.HasValue ? Model.ANIO_DOCUMENTO_REFERENCIA : null) -
+                                    @(Model.NUMERO_DOCUMENTO_REFERENCIA.HasValue ? Model.NUMERO_DOCUMENTO_REFERENCIA : null)
+                                </label>
+                            </div>
+                            <label class="col-sm-5 control-label">Factura</label>
+                            <div class="col-sm-3">
+                                <label id="lblFactura" class="form-control">@(Model.ANIO_DOCUMENTO_REFERENCIA.HasValue ? Model.VW_ORDEN_COMPRA.FACTURA : null)</label>
+                            </div>
+                            <div class="col-sm-4">
+                                <label id="lblFechaFactura" class="form-control">@(Model.ANIO_DOCUMENTO_REFERENCIA.HasValue ? Model.VW_ORDEN_COMPRA.FECHA_AUTORIZACION.Value.ToString("dd/MM/yyyy") : null)</label>
+                            </div>
+                            <label class="col-sm-5 control-label">Proveedor :</label>
+                            <div class="col-sm-7">
+                                <label id="lblProveedor" class="form-control">@(Model.ANIO_DOCUMENTO_REFERENCIA.HasValue ? Model.VW_ORDEN_COMPRA.PROVEEDOR : null)</label>
+                            </div>
+
                         </div>
                     </div>
                 </form>
@@ -88,12 +114,13 @@
         </div>
         <div class="box-footer">
             @{ if (Model.ESTADO == "S" || Model.ESTADO == "A")
-                {
-                    <button type="button" id="btnGrabar" class="btn btn-primary btn-sm btn-flat">Grabar</button>
-                }
+        {
+            <button type="button" id="btnGrabar" class="btn btn-primary btn-sm btn-flat">Grabar</button>
+}
             }
 
             <button type="button" id="btnCancelar" class="btn btn-default btn-sm btn-flat">Cancelar</button>
+            <button type="button" id="btnImprimir" class="btn btn-default btn-sm btn-flat">Imprimir</button>
         </div>
 
     </div>
@@ -109,7 +136,7 @@
                         <div class="col-sm-12">
                             <div class="form-horizontal">
                                 <div class="form-group">
-                                    <label class="control-label col-md-1" for="Nacionalidad">
+                                    <label class="control-label col-md-1" >
                                         Producto
                                     </label>
                                     <div class="col-md-6">
@@ -157,18 +184,18 @@
                                             var item_requisicion = Model.EPRTA_MOVIMIENTO2.EPRTA_MOVIMIENTO_DETALLE.Where(p => p.ID_ITEM == item.ID_ITEM).FirstOrDefault();
                                             xcantidad_solicitada = (item_requisicion ?? null) == null ? 0 : Convert.ToDouble(item_requisicion.CANTIDAD_MOVIMIENTO);
                                         }
-                            <tr>
-                                <td>@item.EPRTA_ITEM.CODIGO</td>
-                                <td>@item.EPRTA_ITEM.DESCRIPCION</td>
-                                <td style="text-align:right">
-                                    @xcantidad_solicitada
-                                </td>
-                                <td style="text-align:right">@item.CANTIDAD_MOVIMIENTO</td>
-                                <td >@item.EPRTA_ITEM.EPRTA_MEDIDA.NOMBRE</td>
-                                <td>@item.ID_DETALLE</td>
-                                <td>@item.ID_ITEM</td>
-                                <td>@item.COSTO_MOVIMIENTO</td>
-                            </tr>
+                                        <tr>
+                                            <td>@item.EPRTA_ITEM.CODIGO</td>
+                                            <td>@item.EPRTA_ITEM.DESCRIPCION</td>
+                                            <td style="text-align:right">
+                                                @xcantidad_solicitada
+                                            </td>
+                                            <td style="text-align:right">@item.CANTIDAD_MOVIMIENTO</td>
+                                            <td style="text-align:right">@item.EPRTA_ITEM.EPRTA_MEDIDA.NOMBRE</td>
+                                            <td>@item.ID_DETALLE</td>
+                                            <td>@item.ID_ITEM</td>
+                                            <td>@item.COSTO_MOVIMIENTO</td>
+                                        </tr>
                                     }
                                 }
                             }
@@ -198,7 +225,8 @@
                                     <th>Id</th>
                                     <th>Año</th>
                                     <th>Número</th>
-                                    <th width="100px">Referencia</th>
+                                    <th width="100px">Departamento</th>
+                                    <th width="100px">Empleado</th>
                                     <th>Fec.Autoriz.</th>
                                 </tr>
                             </thead>
@@ -210,6 +238,42 @@
                 <div class="modal-footer">
                     <button id="butSeleccionaDocumento" type="button" class="btn btn-primary btn-sm" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Grabando...">Seleccionar</button>
                     <button id="butCancela" type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    <div class="modal fade" id="dlgOrdenCompra">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title">Ordenes de compra</span></h4>
+                </div>
+                <div class="modal-body">
+                    <div style="overflow:auto; height:250px; position:relative;">
+                        <table id="tabOrdenCompra" class="table table-striped hover compact">
+                            <thead>
+                                <tr>
+                                    <th>Año</th>
+                                    <th>Número</th>
+                                    <th width="100px">Proveedor</th>
+                                    <th>Fec.Autoriz.</th>
+                                    <th>Factura</th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button id="butSeleccionaOC" type="button" class="btn btn-primary btn-sm" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Grabando...">Seleccionar</button>
+                    <button id="butCancelaOC" type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
                 </div>
             </div>
             <!-- /.modal-content -->

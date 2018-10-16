@@ -49,5 +49,7 @@ namespace Proveduria.Models
         public virtual ICollection<EPRTA_MOVIMIENTO> EPRTA_MOVIMIENTO1 { get; set; }
         public virtual EPRTA_MOVIMIENTO EPRTA_MOVIMIENTO2 { get; set; }
         public virtual EPRTA_TIPO_MOVIMIENTO EPRTA_TIPO_MOVIMIENTO { get; set; }
+        public virtual VW_ORDEN_COMPRA VW_ORDEN_COMPRA { get; set; }
+        public virtual VW_DIRECCION VW_DIRECCION { get; set; }
     }
 }

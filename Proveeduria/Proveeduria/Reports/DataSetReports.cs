@@ -2,9 +2,11 @@
 {
 }
 
-namespace Proveduria.Reports {
-    
-    
-    public partial class DataSetReports {
+namespace Proveduria.Reports
+{
+
+
+    public partial class DataSetReports
+    {
     }
 }

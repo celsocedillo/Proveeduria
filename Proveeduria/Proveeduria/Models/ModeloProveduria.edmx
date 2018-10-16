@@ -144,16 +144,26 @@ advertencia 6002: La tabla o vista 'PROVEDURIA.VW_DEPARTAMENTO' no tiene definid
           <Property Name="CARGO" Type="number" Precision="6" Scale="0" />
         </EntityType>
         <!--Errores durante la generación:
+advertencia 6002: La tabla o vista 'PROVEDURIA.VW_DIRECCION' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
+        <EntityType Name="VW_DIRECCION">
+          <Key>
+            <PropertyRef Name="CODIGO" />
+          </Key>
+          <Property Name="CODIGO" Type="number" Precision="5" Scale="0" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="ESTADO" Type="varchar2" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'PROVEDURIA.VW_EMPLEADO' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
         <EntityType Name="VW_EMPLEADO">
           <Key>
             <PropertyRef Name="CODIGO" />
-            
-            
-            
-            
-            
-            
+            <PropertyRef Name="CEDULA" />
+            <PropertyRef Name="GRADO" />
+            <PropertyRef Name="CARGO" />
+            <PropertyRef Name="DEPARTAMENTO" />
+            <PropertyRef Name="DIRECCION" />
+            <PropertyRef Name="ESTADO" />
           </Key>
           <Property Name="CODIGO" Type="number" Precision="6" Scale="0" Nullable="false" />
           <Property Name="CEDULA" Type="varchar2" MaxLength="15" Nullable="false" />
@@ -177,11 +187,16 @@ advertencia 6002: La tabla o vista 'PROVEDURIA.VW_ORDEN_COMPRA' no tiene definid
             <PropertyRef Name="ANIO" />
             <PropertyRef Name="NUMERO_ORDEN" />
             
+            
           </Key>
           <Property Name="ANIO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="NUMERO_ORDEN" Type="number" Precision="8" Scale="0" Nullable="false" />
           <Property Name="PROVEEDOR" Type="varchar2" MaxLength="100" Nullable="false" />
           <Property Name="FECHA_AUTORIZACION" Type="date" />
+          <Property Name="FACTURA" Type="varchar2" MaxLength="10" />
+          <Property Name="FECHA_EMISION" Type="date" />
+          <Property Name="TIPO" Type="varchar2" MaxLength="1" Nullable="false" />
+          <Property Name="ESTADO" Type="varchar2" MaxLength="1" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'PROVEDURIA.VW_ORDEN_COMPRA_DETALLE' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -189,10 +204,13 @@ advertencia 6002: La tabla o vista 'PROVEDURIA.VW_ORDEN_COMPRA_DETALLE' no tiene
           <Key>
             <PropertyRef Name="SECUENCIA_LINEA" />
             <PropertyRef Name="ANIO" />
+            <PropertyRef Name="TIPO" />
             <PropertyRef Name="NUMERO_ORDEN" />
+            <PropertyRef Name="ID_ITEM" />
           </Key>
           <Property Name="SECUENCIA_LINEA" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="ANIO" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TIPO" Type="varchar2" MaxLength="1" Nullable="false" />
           <Property Name="NUMERO_ORDEN" Type="number" Precision="8" Scale="0" Nullable="false" />
           <Property Name="CODIGO" Type="varchar2" MaxLength="15" />
           <Property Name="ID_ITEM" Type="number" Precision="8" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
@@ -344,6 +362,13 @@ advertencia 6002: La tabla o vista 'PROVEDURIA.VW_ORDEN_COMPRA_DETALLE' no tiene
 "VW_DEPARTAMENTO"."CARGO" AS "CARGO"
 FROM "PROVEDURIA"."VW_DEPARTAMENTO" "VW_DEPARTAMENTO"</DefiningQuery>
           </EntitySet>
+          <EntitySet Name="VW_DIRECCION" EntityType="Self.VW_DIRECCION" store:Type="Views" store:Schema="PROVEDURIA">
+            <DefiningQuery>SELECT 
+"VW_DIRECCION"."CODIGO" AS "CODIGO", 
+"VW_DIRECCION"."DESCRIPCION" AS "DESCRIPCION", 
+"VW_DIRECCION"."ESTADO" AS "ESTADO"
+FROM "PROVEDURIA"."VW_DIRECCION" "VW_DIRECCION"</DefiningQuery>
+          </EntitySet>
           <EntitySet Name="VW_EMPLEADO" EntityType="Self.VW_EMPLEADO" store:Type="Views" store:Schema="PROVEDURIA">
             <DefiningQuery>SELECT 
 "VW_EMPLEADO"."CODIGO" AS "CODIGO", 
@@ -367,13 +392,18 @@ FROM "PROVEDURIA"."VW_EMPLEADO" "VW_EMPLEADO"</DefiningQuery>
 "VW_ORDEN_COMPRA"."ANIO" AS "ANIO", 
 "VW_ORDEN_COMPRA"."NUMERO_ORDEN" AS "NUMERO_ORDEN", 
 "VW_ORDEN_COMPRA"."PROVEEDOR" AS "PROVEEDOR", 
-"VW_ORDEN_COMPRA"."FECHA_AUTORIZACION" AS "FECHA_AUTORIZACION"
+"VW_ORDEN_COMPRA"."FECHA_AUTORIZACION" AS "FECHA_AUTORIZACION", 
+"VW_ORDEN_COMPRA"."FACTURA" AS "FACTURA", 
+"VW_ORDEN_COMPRA"."FECHA_EMISION" AS "FECHA_EMISION", 
+"VW_ORDEN_COMPRA"."TIPO" AS "TIPO", 
+"VW_ORDEN_COMPRA"."ESTADO" AS "ESTADO"
 FROM "PROVEDURIA"."VW_ORDEN_COMPRA" "VW_ORDEN_COMPRA"</DefiningQuery>
           </EntitySet>
           <EntitySet Name="VW_ORDEN_COMPRA_DETALLE" EntityType="Self.VW_ORDEN_COMPRA_DETALLE" store:Type="Views" store:Schema="PROVEDURIA">
             <DefiningQuery>SELECT 
 "VW_ORDEN_COMPRA_DETALLE"."SECUENCIA_LINEA" AS "SECUENCIA_LINEA", 
 "VW_ORDEN_COMPRA_DETALLE"."ANIO" AS "ANIO", 
+"VW_ORDEN_COMPRA_DETALLE"."TIPO" AS "TIPO", 
 "VW_ORDEN_COMPRA_DETALLE"."NUMERO_ORDEN" AS "NUMERO_ORDEN", 
 "VW_ORDEN_COMPRA_DETALLE"."CODIGO" AS "CODIGO", 
 "VW_ORDEN_COMPRA_DETALLE"."ID_ITEM" AS "ID_ITEM", 
@@ -481,13 +511,22 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
           <EntitySet Name="VW_EMPLEADO" EntityType="ModelProveduria.VW_EMPLEADO" />
           <EntitySet Name="VW_ORDEN_COMPRA" EntityType="ModelProveduria.VW_ORDEN_COMPRA" />
           <EntitySet Name="VW_ORDEN_COMPRA_DETALLE" EntityType="ModelProveduria.VW_ORDEN_COMPRA_DETALLE" />
+          <AssociationSet Name="VW_ORDEN_COMPRAVW_ORDEN_COMPRA_DETALLE" Association="ModelProveduria.VW_ORDEN_COMPRAVW_ORDEN_COMPRA_DETALLE">
+            <End Role="VW_ORDEN_COMPRA" EntitySet="VW_ORDEN_COMPRA" />
+            <End Role="VW_ORDEN_COMPRA_DETALLE" EntitySet="VW_ORDEN_COMPRA_DETALLE" />
+          </AssociationSet>
           <AssociationSet Name="EPRTA_ITEMVW_ORDEN_COMPRA_DETALLE" Association="ModelProveduria.EPRTA_ITEMVW_ORDEN_COMPRA_DETALLE">
             <End Role="EPRTA_ITEM" EntitySet="EPRTA_ITEM" />
             <End Role="VW_ORDEN_COMPRA_DETALLE" EntitySet="VW_ORDEN_COMPRA_DETALLE" />
           </AssociationSet>
-          <AssociationSet Name="VW_ORDEN_COMPRAVW_ORDEN_COMPRA_DETALLE" Association="ModelProveduria.VW_ORDEN_COMPRAVW_ORDEN_COMPRA_DETALLE">
+          <AssociationSet Name="VW_ORDEN_COMPRAEPRTA_MOVIMIENTO" Association="ModelProveduria.VW_ORDEN_COMPRAEPRTA_MOVIMIENTO">
             <End Role="VW_ORDEN_COMPRA" EntitySet="VW_ORDEN_COMPRA" />
-            <End Role="VW_ORDEN_COMPRA_DETALLE" EntitySet="VW_ORDEN_COMPRA_DETALLE" />
+            <End Role="EPRTA_MOVIMIENTO" EntitySet="EPRTA_MOVIMIENTO" />
+          </AssociationSet>
+          <EntitySet Name="VW_DIRECCION" EntityType="ModelProveduria.VW_DIRECCION" />
+          <AssociationSet Name="VW_DIRECCIONEPRTA_MOVIMIENTO" Association="ModelProveduria.VW_DIRECCIONEPRTA_MOVIMIENTO">
+            <End Role="VW_DIRECCION" EntitySet="VW_DIRECCION" />
+            <End Role="EPRTA_MOVIMIENTO" EntitySet="EPRTA_MOVIMIENTO" />
           </AssociationSet>
         </EntityContainer>
         <EntityType Name="EPRTA_ARTICULO_BODEGA">
@@ -591,6 +630,8 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
           <NavigationProperty Name="EPRTA_MOVIMIENTO1" Relationship="ModelProveduria.EPRCN_MOVIMIENTO_MOVIMIENTO_FK" FromRole="EPRTA_MOVIMIENTO" ToRole="EPRTA_MOVIMIENTO1" />
           <NavigationProperty Name="EPRTA_MOVIMIENTO2" Relationship="ModelProveduria.EPRCN_MOVIMIENTO_MOVIMIENTO_FK" FromRole="EPRTA_MOVIMIENTO1" ToRole="EPRTA_MOVIMIENTO" />
           <NavigationProperty Name="EPRTA_TIPO_MOVIMIENTO" Relationship="ModelProveduria.EPRCN_MOVIMIENTO_TIPMOV_FK" FromRole="EPRTA_MOVIMIENTO" ToRole="EPRTA_TIPO_MOVIMIENTO" />
+          <NavigationProperty Name="VW_ORDEN_COMPRA" Relationship="ModelProveduria.VW_ORDEN_COMPRAEPRTA_MOVIMIENTO" FromRole="EPRTA_MOVIMIENTO" ToRole="VW_ORDEN_COMPRA" />
+          <NavigationProperty Name="VW_DIRECCION" Relationship="ModelProveduria.VW_DIRECCIONEPRTA_MOVIMIENTO" FromRole="EPRTA_MOVIMIENTO" ToRole="VW_DIRECCION" />
         </EntityType>
         <EntityType Name="EPRTA_MOVIMIENTO_DETALLE">
           <Key>
@@ -771,6 +812,12 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
         <EntityType Name="VW_EMPLEADO">
           <Key>
             <PropertyRef Name="CODIGO" />
+            <PropertyRef Name="CEDULA" />
+            <PropertyRef Name="GRADO" />
+            <PropertyRef Name="CARGO" />
+            <PropertyRef Name="DEPARTAMENTO" />
+            <PropertyRef Name="DIRECCION" />
+            <PropertyRef Name="ESTADO" />
           </Key>
           <Property Name="CODIGO" Type="Int32" Nullable="false" />
           <Property Name="CEDULA" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
@@ -792,29 +839,51 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
             <PropertyRef Name="ANIO" />
             <PropertyRef Name="NUMERO_ORDEN" />
           </Key>
-          <Property Name="ANIO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="ANIO" Type="Int16" Nullable="false" />
           <Property Name="NUMERO_ORDEN" Type="Int32" Nullable="false" />
           <Property Name="PROVEEDOR" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
           <Property Name="FECHA_AUTORIZACION" Type="DateTime" />
+          <Property Name="FACTURA" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_EMISION" Type="DateTime" />
+          <Property Name="TIPO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="VW_ORDEN_COMPRA_DETALLE" Relationship="ModelProveduria.VW_ORDEN_COMPRAVW_ORDEN_COMPRA_DETALLE" FromRole="VW_ORDEN_COMPRA" ToRole="VW_ORDEN_COMPRA_DETALLE" />
+          <NavigationProperty Name="EPRTA_MOVIMIENTO" Relationship="ModelProveduria.VW_ORDEN_COMPRAEPRTA_MOVIMIENTO" FromRole="VW_ORDEN_COMPRA" ToRole="EPRTA_MOVIMIENTO" />
         </EntityType>
         <EntityType Name="VW_ORDEN_COMPRA_DETALLE">
           <Key>
             <PropertyRef Name="SECUENCIA_LINEA" />
             <PropertyRef Name="ANIO" />
+            <PropertyRef Name="TIPO" />
             <PropertyRef Name="NUMERO_ORDEN" />
+            <PropertyRef Name="ID_ITEM" />
           </Key>
           <Property Name="SECUENCIA_LINEA" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
-          <Property Name="ANIO" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="ANIO" Type="Int16" Nullable="false" />
+          <Property Name="TIPO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="NUMERO_ORDEN" Type="Int32" Nullable="false" />
           <Property Name="CODIGO" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="ID_ITEM" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="CANTIDAD_PEDIDA" Type="Int32" />
           <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <Property Name="VALOR_UNITARIO" Type="Decimal" Precision="38" Scale="0" />
-          <NavigationProperty Name="EPRTA_ITEM" Relationship="ModelProveduria.EPRTA_ITEMVW_ORDEN_COMPRA_DETALLE" FromRole="VW_ORDEN_COMPRA_DETALLE" ToRole="EPRTA_ITEM" />
           <NavigationProperty Name="VW_ORDEN_COMPRA" Relationship="ModelProveduria.VW_ORDEN_COMPRAVW_ORDEN_COMPRA_DETALLE" FromRole="VW_ORDEN_COMPRA_DETALLE" ToRole="VW_ORDEN_COMPRA" />
+          <NavigationProperty Name="EPRTA_ITEM" Relationship="ModelProveduria.EPRTA_ITEMVW_ORDEN_COMPRA_DETALLE" FromRole="VW_ORDEN_COMPRA_DETALLE" ToRole="EPRTA_ITEM" />
         </EntityType>
+        <Association Name="VW_ORDEN_COMPRAVW_ORDEN_COMPRA_DETALLE">
+          <End Type="ModelProveduria.VW_ORDEN_COMPRA" Role="VW_ORDEN_COMPRA" Multiplicity="1" />
+          <End Type="ModelProveduria.VW_ORDEN_COMPRA_DETALLE" Role="VW_ORDEN_COMPRA_DETALLE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VW_ORDEN_COMPRA">
+              <PropertyRef Name="ANIO" />
+              <PropertyRef Name="NUMERO_ORDEN" />
+            </Principal>
+            <Dependent Role="VW_ORDEN_COMPRA_DETALLE">
+              <PropertyRef Name="ANIO" />
+              <PropertyRef Name="NUMERO_ORDEN" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <Association Name="EPRTA_ITEMVW_ORDEN_COMPRA_DETALLE">
           <End Type="ModelProveduria.EPRTA_ITEM" Role="EPRTA_ITEM" Multiplicity="1" />
           <End Type="ModelProveduria.VW_ORDEN_COMPRA_DETALLE" Role="VW_ORDEN_COMPRA_DETALLE" Multiplicity="*" />
@@ -827,17 +896,38 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="VW_ORDEN_COMPRAVW_ORDEN_COMPRA_DETALLE">
-          <End Type="ModelProveduria.VW_ORDEN_COMPRA" Role="VW_ORDEN_COMPRA" Multiplicity="1" />
-          <End Type="ModelProveduria.VW_ORDEN_COMPRA_DETALLE" Role="VW_ORDEN_COMPRA_DETALLE" Multiplicity="*" />
+        <Association Name="VW_ORDEN_COMPRAEPRTA_MOVIMIENTO">
+          <End Type="ModelProveduria.VW_ORDEN_COMPRA" Role="VW_ORDEN_COMPRA" Multiplicity="0..1" />
+          <End Type="ModelProveduria.EPRTA_MOVIMIENTO" Role="EPRTA_MOVIMIENTO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="VW_ORDEN_COMPRA">
               <PropertyRef Name="ANIO" />
               <PropertyRef Name="NUMERO_ORDEN" />
             </Principal>
-            <Dependent Role="VW_ORDEN_COMPRA_DETALLE">
-              <PropertyRef Name="ANIO" />
-              <PropertyRef Name="NUMERO_ORDEN" />
+            <Dependent Role="EPRTA_MOVIMIENTO">
+              <PropertyRef Name="ANIO_DOCUMENTO_REFERENCIA" />
+              <PropertyRef Name="NUMERO_DOCUMENTO_REFERENCIA" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="VW_DIRECCION">
+          <Key>
+            <PropertyRef Name="CODIGO" />
+          </Key>
+          <Property Name="CODIGO" Type="Byte" Nullable="false" />
+          <Property Name="DESCRIPCION" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="ESTADO" Type="String" Nullable="false" MaxLength="1" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="EPRTA_MOVIMIENTO" Relationship="ModelProveduria.VW_DIRECCIONEPRTA_MOVIMIENTO" FromRole="VW_DIRECCION" ToRole="EPRTA_MOVIMIENTO" />
+        </EntityType>
+        <Association Name="VW_DIRECCIONEPRTA_MOVIMIENTO">
+          <End Type="ModelProveduria.VW_DIRECCION" Role="VW_DIRECCION" Multiplicity="0..1" />
+          <End Type="ModelProveduria.EPRTA_MOVIMIENTO" Role="EPRTA_MOVIMIENTO" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="VW_DIRECCION">
+              <PropertyRef Name="CODIGO" />
+            </Principal>
+            <Dependent Role="EPRTA_MOVIMIENTO">
+              <PropertyRef Name="ID_DEPARTAMENTO_SOLICITA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
@@ -1013,6 +1103,10 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
           <EntitySetMapping Name="VW_ORDEN_COMPRA">
             <EntityTypeMapping TypeName="ModelProveduria.VW_ORDEN_COMPRA">
               <MappingFragment StoreEntitySet="VW_ORDEN_COMPRA">
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="TIPO" ColumnName="TIPO" />
+                <ScalarProperty Name="FECHA_EMISION" ColumnName="FECHA_EMISION" />
+                <ScalarProperty Name="FACTURA" ColumnName="FACTURA" />
                 <ScalarProperty Name="FECHA_AUTORIZACION" ColumnName="FECHA_AUTORIZACION" />
                 <ScalarProperty Name="PROVEEDOR" ColumnName="PROVEEDOR" />
                 <ScalarProperty Name="NUMERO_ORDEN" ColumnName="NUMERO_ORDEN" />
@@ -1029,8 +1123,18 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
                 <ScalarProperty Name="ID_ITEM" ColumnName="ID_ITEM" />
                 <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
                 <ScalarProperty Name="NUMERO_ORDEN" ColumnName="NUMERO_ORDEN" />
+                <ScalarProperty Name="TIPO" ColumnName="TIPO" />
                 <ScalarProperty Name="ANIO" ColumnName="ANIO" />
                 <ScalarProperty Name="SECUENCIA_LINEA" ColumnName="SECUENCIA_LINEA" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="VW_DIRECCION">
+            <EntityTypeMapping TypeName="ModelProveduria.VW_DIRECCION">
+              <MappingFragment StoreEntitySet="VW_DIRECCION">
+                <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
+                <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
+                <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

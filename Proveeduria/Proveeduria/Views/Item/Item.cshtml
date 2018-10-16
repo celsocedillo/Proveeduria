@@ -22,6 +22,11 @@
     .registro_inactivo {
         background-color: #fccfcf;
     }
+    .columna_stock {
+        background-color: #FF9;
+        font-weight: bold;
+        text-align: right;
+    }
 </style>
 
 
@@ -138,21 +143,24 @@
                             Id
                         </th>
                         <th>
+                            IdBodega
+                        </th>
+                        <th style="width:300px;">
                             Bodega
                         </th>
-                        <th style="width:100px;">
+                        <th>
                             Cant.Actual
                         </th>
-                        <th style="width:100px;">
+                        <th>
                             Cant.Critica
                         </th>
-                        <th style="width:100px;">
+                        <th>
                             Cant.Maxima
                         </th>
-                        <th style="width:100px;">
+                        <th>
                             Cant.Minima
                         </th>
-                        <th style="width:100px;">
+                        <th>
                             Cant.Inicio
                         </th>
                     </tr>
@@ -224,6 +232,8 @@
                        });
         }
 
+        var SId_bodega = @Session["bodega_id"]
+        var SBodega = "@Session["bodega"].ToString()";
         var lstock_bodega = @Html.Raw(Json.Encode(tmp));
         $(document).ready(function () {
                 Item.init();

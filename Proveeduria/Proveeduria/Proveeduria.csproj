@@ -208,8 +208,6 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Models\LogOnModel.cs" />
-    <Compile Include="Models\Enumadores\Enumeradores.cs" />
     <Compile Include="Models\EPRTA_ARTICULO_BODEGA.cs">
       <DependentUpon>ModeloProveduria.tt</DependentUpon>
     </Compile>
@@ -237,6 +235,8 @@
     <Compile Include="Models\EPRTA_TIPO_MOVIMIENTO.cs">
       <DependentUpon>ModeloProveduria.tt</DependentUpon>
     </Compile>
+    <Compile Include="Models\LogOnModel.cs" />
+    <Compile Include="Models\Enumadores\Enumeradores.cs" />
     <Compile Include="Models\ModeloProveduria.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -254,6 +254,9 @@
     </Compile>
     <Compile Include="Models\Usuario.cs" />
     <Compile Include="Models\VW_DEPARTAMENTO.cs">
+      <DependentUpon>ModeloProveduria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\VW_DIRECCION.cs">
       <DependentUpon>ModeloProveduria.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\VW_EMPLEADO.cs">

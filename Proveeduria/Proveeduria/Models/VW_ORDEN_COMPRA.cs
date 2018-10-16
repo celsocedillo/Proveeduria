@@ -18,14 +18,21 @@ namespace Proveduria.Models
         public VW_ORDEN_COMPRA()
         {
             this.VW_ORDEN_COMPRA_DETALLE = new HashSet<VW_ORDEN_COMPRA_DETALLE>();
+            this.EPRTA_MOVIMIENTO = new HashSet<EPRTA_MOVIMIENTO>();
         }
     
-        public decimal ANIO { get; set; }
+        public short ANIO { get; set; }
         public int NUMERO_ORDEN { get; set; }
         public string PROVEEDOR { get; set; }
         public Nullable<System.DateTime> FECHA_AUTORIZACION { get; set; }
+        public string FACTURA { get; set; }
+        public Nullable<System.DateTime> FECHA_EMISION { get; set; }
+        public string TIPO { get; set; }
+        public string ESTADO { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VW_ORDEN_COMPRA_DETALLE> VW_ORDEN_COMPRA_DETALLE { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<EPRTA_MOVIMIENTO> EPRTA_MOVIMIENTO { get; set; }
     }
 }
