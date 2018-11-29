@@ -7,13 +7,13 @@ var Kardex = function () {
     return {
         init: function () {
 
-            $("#FechaInicio").datepicker({
+            $("#txtFechaInicio").datepicker({
                 format: "dd/mm/yyyy",
                 todayHighlight: true,
                 autoclose: true
             });
 
-            $("#FechaFin").datepicker({
+            $("#txtFechaFin").datepicker({
                 format: "dd/mm/yyyy",
                 todayHighlight: true,
                 autoclose: true
@@ -27,22 +27,6 @@ var Kardex = function () {
             if (fechaFin == "" || fechaFin == undefined) {
                 fechaFin = "vacio"
             }
-
-
-
-            $("#btnConsult").click(function (event) {
-                event.preventDefault();
-                fechaInicio = $("#FechaInicio").val();
-                fechaFin = $("#FechaFin").val();
-                if (fechaInicio == "" || fechaInicio == undefined) {
-                    fechaInicio = "vacio"
-                }
-                if (fechaFin == "" || fechaFin == undefined) {
-                    fechaFin = "vacio"
-                }
-                tablaPuntoReOrden.ajax.reload();
-            });
-
 
             $('#sltItem').select2({
                 language: 'es',
@@ -77,19 +61,22 @@ var Kardex = function () {
                 }
             });
 
+            //$("#TagEmbed").addEventListener('load', function () {
+            //    alert('cargado');
+            //}, false);
 
+            var tagpdf = $("#TagEmbed");
+            //tagpdf.addEventListener('load', function () {
+            //    alert('cargado');
+            //}, false);
 
-            $("#btnExcel").click(function (event) {
+            tagpdf.on('load', function () {
+                alert('cargado');
+            });
+
+            $("#kardexPdf").on('click', function () {
                 event.preventDefault();
-                var fechaInicio = $("#FechaInicio").val();
-                var fechaFin = $("#FechaFin").val();
-                if (fechaInicio == "" || fechaInicio == undefined) {
-                    fechaInicio = "vacio"
-                }
-                if (fechaFin == "" || fechaFin == undefined) {
-                    fechaFin = "vacio"
-                }
-                window.location.href = '/Consulta/ExportToExcelPuntosReOrden?fechaInicio=' + fechaInicio + '&fechaFin=' + fechaFin;
+                $('#TagEmbed').attr("src", "/Consulta/ExportPdfKardex?pinicio=" + $("#txtFechaInicio").val() + "&pfin=" + $("#txtFechaFin").val() +"&pidItem=" + $("#sltItem").val());
             });
 
         }

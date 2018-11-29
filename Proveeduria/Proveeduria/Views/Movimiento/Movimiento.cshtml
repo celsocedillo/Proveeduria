@@ -1,8 +1,10 @@
 ﻿@model Proveduria.Models.EPRTA_MOVIMIENTO
 @{
-    ViewBag.Title = "SolicitudRequisicion";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-    
+                /**/
+
+                ViewBag.Title = "SolicitudRequisicion";
+                Layout = "~/Views/Shared/_Layout.cshtml";
+
 }
 
 <!-- Content Header (Page header) -->
@@ -84,7 +86,7 @@
 
                             <label class="col-sm-5 control-label">Dpto. Solicita :</label>
                             <div class="col-sm-7">
-                                <label id="lblDptoSolicita" >@*@(Model.ID_MOVIMIENTO_RELACION.HasValue ? Model.EPRTA_MOVIMIENTO2.VW_DIRECCION.DESCRIPCION: null)*@</label>
+                                <label id="lblDptoSolicita">@*@(Model.ID_MOVIMIENTO_RELACION.HasValue ? Model.EPRTA_MOVIMIENTO2.VW_DIRECCION.DESCRIPCION: null)*@</label>
                             </div>
                         </div>
                         <div id="divOrdenCompra" class="form-group">
@@ -95,7 +97,7 @@
                                     @(Model.NUMERO_DOCUMENTO_REFERENCIA.HasValue ? Model.NUMERO_DOCUMENTO_REFERENCIA : null)
                                 </label>
                             </div>
-                            <label class="col-sm-5 control-label">Factura</label>
+                            <label class="col-sm-5 control-label">Factura :</label>
                             <div class="col-sm-3">
                                 <label id="lblFactura" class="form-control">@(Model.ANIO_DOCUMENTO_REFERENCIA.HasValue ? Model.VW_ORDEN_COMPRA.FACTURA : null)</label>
                             </div>
@@ -114,9 +116,9 @@
         </div>
         <div class="box-footer">
             @{ if (Model.ESTADO == "S" || Model.ESTADO == "A")
-        {
-            <button type="button" id="btnGrabar" class="btn btn-primary btn-sm btn-flat">Grabar</button>
-}
+                {
+                    <button type="button" id="btnGrabar" class="btn btn-primary btn-sm btn-flat">Grabar</button>
+                }
             }
 
             <button type="button" id="btnCancelar" class="btn btn-default btn-sm btn-flat">Cancelar</button>
@@ -136,7 +138,7 @@
                         <div class="col-sm-12">
                             <div class="form-horizontal">
                                 <div class="form-group">
-                                    <label class="control-label col-md-1" >
+                                    <label class="control-label col-md-1">
                                         Producto
                                     </label>
                                     <div class="col-md-6">
@@ -149,7 +151,6 @@
                                         <button id="btnEliminarItem" type="button" class="btn btn-sm btn-default">
                                             <i class="fa fa-remove" aria-hidden="true"></i>  Eliminar
                                         </button>
-
                                     </div>
                                 </div>
                             </div>
@@ -163,13 +164,15 @@
                     <table id="tabItems" class="table table-striped hover compact">
                         <thead>
                             <tr>
-                                <th width="150px">Codigo</th>
+                                <th width="85px">Codigo</th>
                                 <th>Item</th>
                                 <th width="50px">CantSolic.</th>
                                 <th width="80px">Despachado</th>
                                 <th width="50px" style="text-align:right">Stock</th>
-                                <th>Unidad</th>
+                                <th width="80px">Unidad</th>
                                 <th width="20px"></th>
+                                <th>IdItem</th>
+                                <th>CostoMov</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -191,7 +194,8 @@
                                                 @xcantidad_solicitada
                                             </td>
                                             <td style="text-align:right">@item.CANTIDAD_MOVIMIENTO</td>
-                                            <td style="text-align:right">@item.EPRTA_ITEM.EPRTA_MEDIDA.NOMBRE</td>
+                                            <td style="text-align: right">0</td>
+                                            <td >@item.EPRTA_ITEM.EPRTA_MEDIDA.NOMBRE</td>
                                             <td>@item.ID_DETALLE</td>
                                             <td>@item.ID_ITEM</td>
                                             <td>@item.COSTO_MOVIMIENTO</td>
@@ -281,13 +285,29 @@
         <!-- /.modal-dialog -->
     </div>
 
+
+    <div class="modal fade" id="modImpRequisicion">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                    <h4 class="modal-title">Requisicion de bodega</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-horizontal">
+                        <embed id="tagRequisicion" src="" width="100%" height="600px" type='application/pdf'>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- begin modal-dialog-print-pdf -->
     <div class="modal fade" id="modal-dialog-print-pdf">
         <div class="modal-dialog modal-lg">
             <div class="modal-content">
                 <div class="modal-header">
                     <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-                    <h4 class="modal-title">FACTURA</h4>
+                    <h4 class="modal-title">Egreso de bodega</h4>
                 </div>
                 <div class="modal-body">
                     <div class="form-horizontal">
@@ -310,12 +330,14 @@
 
     @*<script type="text/javascript" src=@Url.Content("/Scripts/App/Movimiento.js")></script>*@
     @Scripts.Render("~/bundles/Movimiento")
+    @Scripts.Render("~/bundles/Enumeradores")
 
     <script type="text/javascript">
 
         var detalleMovimiento;
 
         var movimientoId =@Html.Raw(Model.ID_MOVIMIENTO);
+        var idRequisicion = @(Model.ID_MOVIMIENTO_RELACION.HasValue ? Model.ID_MOVIMIENTO_RELACION : 0);
 
         @{
             bool rz_registro_nuevo;

@@ -39,6 +39,7 @@ namespace Proveduria
             bundles.Add(new ScriptBundle("~/bundles/Solicitud").Include("~/Scripts/App/Solicitud.js"));
             bundles.Add(new ScriptBundle("~/bundles/TipoMovimiento").Include("~/Scripts/App/TipoMovimiento.js"));
             bundles.Add(new ScriptBundle("~/bundles/Util").Include("~/Scripts/App/Util.js"));
+            bundles.Add(new ScriptBundle("~/bundles/Enumeradores").Include("~/Scripts/App/Enumeradores.js"));
             //BundleTable.EnableOptimizations = true;
 
         }

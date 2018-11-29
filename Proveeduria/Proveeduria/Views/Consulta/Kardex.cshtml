@@ -43,74 +43,70 @@
     <p>
     </p>
 
-    <!-- begin panel -->
-    <div class="box">
-        <div class="box-body no-padding">
-            <form id="frmkardex" class="form-horizontal" data-parsley-validate>
 
-                <div id="divAgregar" class="row">
-                    <div class="col-sm-12">
-                        <div class="form-horizontal">
-                            <div class="form-group">
-                                <label class="control-label col-md-1" for="Nacionalidad">
-                                    Producto
-                                </label>
-                                <div class="col-md-6">
-                                    <select class="form-control" id="sltItem" name="sltItem" style="width:100%"></select>
-                                </div>
-                                <div class="col-md-2">
-                                    <button id="btnAgregarItem" type="button" class="btn btn-sm btn-default">
-                                        <i class="fa fa-plus" aria-hidden="true"></i>  Agregar
-                                    </button>
-                                    <button id="btnEliminarItem" type="button" class="btn btn-sm btn-default">
-                                        <i class="fa fa-remove" aria-hidden="true"></i>  Eliminar
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="box box-default">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Filtros</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-minus"></i>
+                        </button>
                     </div>
                 </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-horizontal form-ajust">
-                            <div class="form-group">
-                                <label class="control-label col-sm-4" for="FechaInicio">
-                                    Fecha inicio
-                                    <span class="text-danger">*</span>
-                                </label>
-                                <div class="col-sm-6">
-                                    <input id="FechaInicio" name="FechaInicio" class="form-control" />
+                <div class="box-body">
+                    <form class="form-horizontal">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-group">
+                                    <label class="control-label col-md-3" for="Nacionalidad">
+                                        Item
+                                    </label>
+                                    <div class="col-md-6">
+                                        <select class="form-control" id="sltItem" name="sltItem" style="width:100%"></select>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="form-horizontal form-ajust">
-                            <div class="form-group">
-                                <label class="control-label col-sm-4" for="FechaFin">
-                                    Fecha fin
-                                    <span class="text-danger">*</span>
-                                </label>
-                                <div class="col-sm-6">
-                                    <input id="FechaFin" name="FechaFin" class="form-control" />
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-horizontal form-ajust">
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-3" for="FechaInicio">
+                                            Fecha movimiento :
+                                        </label>
+                                        <div class="col-sm-3">
+                                            <input id="txtFechaInicio" name="txtFechaInicio" class="form-control" placeholder="Inicio" />
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <input id="txtFechaFin" name="txtFechaFin" class="form-control" placeholder="Fin" />
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </form>
                 </div>
-            </form>
+                <div class="box-footer">
+                    <button id="kardexPdf" class="btn btn-default btn-sm btn-flat">
+                        <i class="fa fa-file-pdf-o" aria-hidden="true"></i>  Consultar
+                    </button>
 
-            <div class="btn-group">
-                <button id="kardexPdf" class="btn btn-primary btn-xs btn-flat">
-                    <i class="fa fa-file-pdf-o" aria-hidden="true"></i>  Kardex PDF
-                </button>
+                </div>
             </div>
 
         </div>
-    </div>
-    <!-- end panel -->
 
-    <div class="modal fade" id="dlgKardex">
+    </div>
+
+    <div class="box">
+        <div class="box-body no-padding">
+            <embed id="TagEmbed" src="" width="100%" height="600px" type='application/pdf' onload="alert('cargado')">
+        </div>
+    </div>
+
+    @*<div class="modal fade" id="dlgKardex">
         <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
@@ -129,7 +125,7 @@
             <!-- /.modal-content -->
         </div>
         <!-- /.modal-dialog -->
-    </div>
+    </div>*@
 
 
 </section>
@@ -144,9 +140,6 @@
     <script type="text/javascript" src=@Url.Content("/Scripts/App/Kardex.js")></script>
     <script type="text/javascript">
         $(document).ready(function () {
-            $("#kardexPdf").on("click", function () {
-                window.location.href = "/Kardex/ExportPdf";
-            });
             Kardex.init();
         });
 

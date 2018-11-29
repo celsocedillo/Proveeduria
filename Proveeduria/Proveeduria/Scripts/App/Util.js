@@ -21,3 +21,4 @@ function serializaForma(pforma) {
     for (var a = 0; a < pforma.length; a++) retorno[pforma[a].name] = pforma[a].value;
     return retorno;
 }
+

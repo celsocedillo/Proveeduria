@@ -13,6 +13,7 @@ using System.Data.SqlClient;
 using CrystalDecisions.CrystalReports.Engine;
 using Proveduria.Reports.DataSetReportsTableAdapters;
 using System.Web;
+using System.Net.Mime;
 
 namespace Proveduria.Controllers
 {
@@ -107,6 +108,17 @@ namespace Proveduria.Controllers
         [HttpGet]
         public ActionResult MovimientoBodega()
         {
+            string[] arrTiposOperacion = new string[] { "I", "E" };
+            List<EPRTA_TIPO_MOVIMIENTO> ltipo_movimiento = unitOfWork.TipoMovimientoRepository.GetAll().Where(p => arrTiposOperacion.Contains(p.INGRESO_EGRESO) && p.ESTADO == "A").ToList();
+            List<SelectListItem> lista = new List<SelectListItem>();
+            lista.Add(new SelectListItem { Text = "Todos los Tipos", Value = "" });
+            foreach (EPRTA_TIPO_MOVIMIENTO tip in ltipo_movimiento)
+            {
+                SelectListItem lin = new SelectListItem { Text = tip.NOMBRE, Value = tip.ID_TIPO_MOVIMIENTO.ToString() };
+                lista.Add(lin);
+            }
+            ViewBag.ltipo_movimiento = lista;
+
             return View();
         }
 
@@ -225,6 +237,66 @@ namespace Proveduria.Controllers
             }
             return Content(total.ToString(), "application/json");
         }
+
+        [HttpPost]
+        public ActionResult ConsultaMovimiento(string inicio, string fin, string anioMovimiento, string numeroMovimiento, string idItem, string tipoMovimiento)
+        {
+            JArray jArray = new JArray();
+            JObject enviar = new JObject();
+
+            if (!String.IsNullOrEmpty(inicio) || 
+                !String.IsNullOrEmpty(fin) || 
+                !String.IsNullOrEmpty(idItem) ||
+                !String.IsNullOrEmpty(anioMovimiento) ||
+                !String.IsNullOrEmpty(numeroMovimiento) ||
+                !String.IsNullOrEmpty(tipoMovimiento)
+               )
+            {
+                var data = (from m in unitOfWork.MovimientoDetalleRepository.GetAll()
+                               select m);
+
+                if (!String.IsNullOrEmpty(inicio) && !String.IsNullOrEmpty(fin))
+                {
+                    data = data.Where(p => p.EPRTA_MOVIMIENTO.FECHA_SOLICITUD >= DateTime.Parse(inicio) && p.EPRTA_MOVIMIENTO.FECHA_SOLICITUD <= DateTime.Parse(fin));
+                }
+
+                if (!String.IsNullOrEmpty(idItem))
+                {
+                    data = data.Where(p => p.ID_ITEM == int.Parse(idItem));
+                }
+
+                if (!String.IsNullOrEmpty(anioMovimiento))
+                {
+                    data = data.Where(p => p.EPRTA_MOVIMIENTO.ANIO == int.Parse(anioMovimiento));
+                }
+
+                if (!String.IsNullOrEmpty(numeroMovimiento))
+                {
+                    data = data.Where(p => p.EPRTA_MOVIMIENTO.NUMERO_MOVIMIENTO == int.Parse(numeroMovimiento));
+                }
+
+                if (!String.IsNullOrEmpty(tipoMovimiento))
+                {
+                    data = data.Where(p => p.EPRTA_MOVIMIENTO.ID_TIPO_MOVIMIENTO == int.Parse(tipoMovimiento));
+                }
+                var xdata = (from p in data
+                        select new
+                        {
+                            ANIO = p.EPRTA_MOVIMIENTO.ANIO,
+                            NUMERO_MOVIMIENTO = p.EPRTA_MOVIMIENTO.NUMERO_MOVIMIENTO,
+                            TIPO_MOVIMIENTO = p.EPRTA_MOVIMIENTO.EPRTA_TIPO_MOVIMIENTO.NOMBRE,
+                            ITEM = p.EPRTA_ITEM.DESCRIPCION,
+                            CODIGO = p.EPRTA_ITEM.CODIGO,
+                            p.CANTIDAD_MOVIMIENTO,
+                            p.COSTO_MOVIMIENTO,
+                            FECHA_SOLICITUD = p.EPRTA_MOVIMIENTO.FECHA_SOLICITUD.HasValue ? p.EPRTA_MOVIMIENTO.FECHA_SOLICITUD.Value.ToString("dd/MM/yyyy") : null
+                        }).ToList();
+                enviar.Add("resultado", "success");
+                enviar.Add("data", JArray.FromObject(xdata));
+            }
+            return Content(enviar.ToString(), "application/json");
+        }
+
 
         [HttpGet]
         public FileResult ExportToExcelPuntosReOrden(string fechaInicio, string fechaFin) 
@@ -361,13 +433,13 @@ namespace Proveduria.Controllers
 
 
         [HttpGet]
-        public FileResult ExportPdfKardex(string inicio, string fin, string id)
+        public FileResult ExportPdfKardex(string pinicio, string pfin, int pidItem)
         {
+
             Stream stream = null;
             var nombreArchivo = "";
-            int idItem = 330;
-            string fechaInicio = "01/01/2017";
-            string fechaFin = "01/01/2018";
+            ReportDocument reportDocument = new ReportDocument();
+            byte[] pdfByte = null;
 
             try
             {
@@ -377,53 +449,56 @@ namespace Proveduria.Controllers
                 SP_KARDEXTableAdapter tableAdapter = new SP_KARDEXTableAdapter();
                 DataTable dataTable;
 
-                DateTime fi = DateTime.Parse(fechaInicio);
-                DateTime ff = DateTime.Parse(fechaFin);
-                dataTable = tableAdapter.GetData(idItem, fi, ff, out objetos);
+                DateTime fi = DateTime.Parse(pinicio);
+                DateTime ff = DateTime.Parse(pfin);
+                dataTable = tableAdapter.GetData(pidItem, fi, ff, out objetos);
 
-
-                //if (inicio != "vacio" && fin != "vacio")
-                //{
-                //    DateTime fi = DateTime.Parse(inicio);
-                //    DateTime ff = DateTime.Parse(fin);
-                //    dataTable = tableAdapter.GetData(idItem, fi, ff, out objetos);
-                //    //dataitems = dataitems.Where(w => w.EPRTA_ITEM.FECHA_ULTIMO_INGRESO >= fi && w.EPRTA_ITEM.FECHA_ULTIMO_EGRESO <= fi);
-                //}
-                ////Filtro por fecha inicio
-                //else if (inicio != "vacio")
-                //{
-                //    DateTime fi = DateTime.Parse(inicio);
-                //    dataTable = tableAdapter.GetData(idItem, fi, null, out objetos);
-                //    //dataitems = dataitems.Where(w => w.EPRTA_ITEM.FECHA_ULTIMO_INGRESO >= fi);
-                //}
-                ////Filtro por fecha fin
-                //else if (fin != "vacio")
-                //{
-                //    DateTime ff = DateTime.Parse(fin);
-                //    dataTable = tableAdapter.GetData(idItem, null, ff, out objetos);
-                //    //dataitems = dataitems.Where(w => w.EPRTA_ITEM.FECHA_ULTIMO_EGRESO <= ff);
-                //}
-
-
-                //dataTable = tableAdapter.GetData(idItem, null, null, out objetos);
 
                 String pathReport = Path.Combine(HttpRuntime.AppDomainAppPath, "Reports\\Cr_Kardex.rpt");
-                ReportDocument reportDocument = new ReportDocument();
                 reportDocument.Load(pathReport);
                 reportDocument.SetDataSource(dataTable);
+                
 
                 reportDocument.SetDatabaseLogon(builderOrden.UserID, builderOrden.Password);
-
+                reportDocument.SetParameterValue("fecha_inicio", fi);
+                reportDocument.SetParameterValue("fecha_fin", ff);
                 stream = reportDocument.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
-                stream.Seek(0, SeekOrigin.Begin);
-                nombreArchivo = "KARDEX.pdf";
+                pdfByte = ReadFully(stream);
+                nombreArchivo = "Kardex";
+                Response.AddHeader("content-disposition", "inline; title='';" + "filename=" + nombreArchivo + ".pdf");
             }
             catch (Exception ex)
             {
                 logger.Error(ex, ex.Message);
             }
-            return File(stream, "application/pdf", nombreArchivo);
+            finally
+            {
+                if (reportDocument != null)
+                {
+                    if (reportDocument.IsLoaded)
+                    {
+                        reportDocument.Close();
+                        reportDocument.Dispose();
+                    }
+                }
+            }
+            return File(pdfByte, MediaTypeNames.Application.Pdf);
         }
+
+        public byte[] ReadFully(Stream input)
+        {
+            byte[] buffer = new byte[16 * 1024];
+            using (MemoryStream ms = new MemoryStream())
+            {
+                int read;
+                while ((read = input.Read(buffer, 0, buffer.Length)) > 0)
+                {
+                    ms.Write(buffer, 0, read);
+                }
+                return ms.ToArray();
+            }
+        }
+
 
     }
 }

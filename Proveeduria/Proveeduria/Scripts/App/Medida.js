@@ -26,11 +26,10 @@ function CargaDatos() {
             }
             else {
                 //var items = data.items;
-                var data = $.parseJSON(data.data);
+                var data = (data.data);
                 //tipomov = data[0]; //Esto es para guardar la estructura del objeto y poder usarlo en el momento de crear uno nuevo
                 tabmedida.clear();
                 tabmedida.rows.add(data);
-
                 tabmedida.draw();
             }
             $(".box-body").waitMe('hide');
@@ -44,9 +43,6 @@ function CargaDatos() {
                 text: 'Error al cargar los datos.',
                 confirmButtonColor: '#00BCD4'
             });
-        },
-        complete: function () {
-            calcularTotales();
         }
     });
 
@@ -125,10 +121,8 @@ var Medida = function () {
     return {
         init: function () {
             tabmedida = $('#tabMedida').DataTable({
-                "paging": true,
-                "searching": false,
                 //"filter": false,
-                //"dom": 't',
+                "dom": 't',
                 "autoWidth": false,
                 "columnDefs":
                     [
@@ -156,16 +150,16 @@ var Medida = function () {
 
                 $.ajax({
                     dataType: 'JSON',
-                    //url: '@Url.Action("GetMedida", "Medida")',
                     url: '/Medida/GetMedida',
                     type: "POST",
                     contentType: 'application/json; charset=utf-8',
                     data: parametros,
                     success: function (result) {
-                        if (result.resultado.text == "success") {
+                        if (result.resultado == "success") {
+                            medida = result.data;
                             $("#dlgMedida").modal('toggle');
-                            $("#lblIdMedida").text(result.ID_MEDIDA);
-                            $("#txtNombre").val(result.NOMBRE);
+                            $("#lblIdMedida").text(medida.ID_MEDIDA);
+                            $("#txtNombre").val(medida.NOMBRE);
                         }
                         else {
                             swal({

@@ -35,21 +35,24 @@ namespace Proveduria.Controllers
         [HttpPost]
         public ActionResult GetMedida(int pid)
         {
-            JObject jsonObject = new JObject();
+            JObject retorno = new JObject();
             try
             {
                 EPRTA_MEDIDA medida = unitOfWork.MedidaRepository.GetById(pid);
-                jsonObject.Add("ID_MEDIDA", medida.ID_MEDIDA);
-                jsonObject.Add("NOMBRE", medida.NOMBRE);
-                jsonObject.Add("resultado", "success");
-                jsonObject.Add("mensaje", "success");
+
+                var tmp = new { medida.ID_MEDIDA, medida.NOMBRE };
+                retorno.Add("resultado", "success");
+                retorno.Add("data", JObject.FromObject(tmp));
+
             }
             catch (Exception ex)
             {
                 logger.Error(ex, ex.Message);
-                jsonObject.Add("resultado", "error");
+                retorno.Add("resultado", "error");
+                retorno.Add("msg", ex.Message);
+
             }
-            return Content(jsonObject.ToString(), "application/json");
+            return Content(retorno.ToString(), "application/json");
 
         }
 
@@ -91,7 +94,7 @@ namespace Proveduria.Controllers
                 var query = from d in unitOfWork.MedidaRepository.GetAll()
                             select new { d.ID_MEDIDA, d.NOMBRE };
                 retorna = new JObject();
-                retorna.Add("data", JsonConvert.SerializeObject(query));
+                retorna.Add("data", JArray.FromObject(query));
                 retorna.Add("error", false);
             }
             catch (Exception ex)

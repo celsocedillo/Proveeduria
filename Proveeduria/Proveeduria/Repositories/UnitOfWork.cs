@@ -20,6 +20,7 @@ namespace Proveduria.Repositories
         private GenericRepository<EPRTA_SECUENCIA> secuenciaRepository = null;
         private GenericRepository<EPRTA_BODEGA> bodegaRepository = null;
         private GenericRepository<VW_DEPARTAMENTO> departamentoRepository = null;
+        private GenericRepository<VW_DIRECCION> direccionRepository = null;
         private GenericRepository<VW_EMPLEADO> empleadoRepository = null;
         private GenericRepository<VW_ORDEN_COMPRA> ordenCompraRepository = null;
 
@@ -158,6 +159,19 @@ namespace Proveduria.Repositories
                 return departamentoRepository;
             }
         }
+
+        public GenericRepository<VW_DIRECCION> DireccionRepository
+        {
+            get
+            {
+                if (direccionRepository == null)
+                {
+                    direccionRepository = new GenericRepository<VW_DIRECCION>(context);
+                }
+                return direccionRepository;
+            }
+        }
+
 
         public GenericRepository<VW_ORDEN_COMPRA> OrdenCompraRepository
         {

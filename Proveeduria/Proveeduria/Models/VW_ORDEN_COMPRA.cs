@@ -29,6 +29,8 @@ namespace Proveduria.Models
         public Nullable<System.DateTime> FECHA_EMISION { get; set; }
         public string TIPO { get; set; }
         public string ESTADO { get; set; }
+        public string DEPARTAMENTO_SOLICITA { get; set; }
+        public string EMPLEADO_SOLICITA { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<VW_ORDEN_COMPRA_DETALLE> VW_ORDEN_COMPRA_DETALLE { get; set; }

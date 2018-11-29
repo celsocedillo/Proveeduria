@@ -5,8 +5,6 @@ using System.Web;
 
 namespace Proveduria.Models.Enumadores
 {
-    public class Enumeradores
-    {
         public enum EnumEstadoSolicitud
         {
             Solicitado = 'S',
@@ -14,5 +12,13 @@ namespace Proveduria.Models.Enumadores
             Despachado = 'D',
             Anulado = 'E'
         }
+
+    public enum EnumTipoMovimiento
+    {
+        REQUISICION_BODEGA = 2,
+        INGRESO_DE_ORDEN_DE_COMPRA = 4,
+        AJUSTE_DE_BODEGA_POR_EGRESO = 11,
+        AJUSTE_DE_BODEGA_POR_INGRESO = 10
     }
+
 }

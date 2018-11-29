@@ -1,7 +1,5 @@
-﻿var tabtipomov;
-var ldata = [];
-var tipomov;
-
+﻿var ldata = [];
+var grupo;
 
 function CargaDatos() {
     var $this = $(this);
@@ -12,7 +10,7 @@ function CargaDatos() {
         datatype: "json",
         data: null,
         contentType: 'application/json; charset=utf-8',
-        url: "/TipoMovimiento/GetListaTipoMovimiento",
+        url: "/Grupo/GetListaGrupo",
         beforeSend: function () {
             run_waitMe($(".box-body"), 'Cargando...');
         },
@@ -26,45 +24,42 @@ function CargaDatos() {
             }
             else {
                 var data = (data.data);
-                tabtipomov.clear();
-                tabtipomov.rows.add(data);
-                tabtipomov.draw();
+                tabGrupo.clear();
+                tabGrupo.rows.add(data);
+                tabGrupo.draw();
             }
             $(".box-body").waitMe('hide');
-            $this.button('reset');
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            $(".box-body").waitMe('hide');
             $this.button('reset');
             swal({
                 type: 'error',
                 text: 'Error al cargar los datos.',
                 confirmButtonColor: '#00BCD4'
             });
-        },
-        complete: function () {
-            calcularTotales();
         }
     });
 
 }
 
-function LimpiarFormularioTipoMovimiento() {
-    $("#lblIdTipoMov").text("");
+function LimpiarFormularioGrupo() {
+    $("#lblIdGrupo").text("");
     $("#txtNombre").val("");
-    $("#sltIngEgr").val("");
+    $("#txtCodigo").val("");
+    $("#txtCuentaContable").val("");
     $("#sltEstado").val("");
 }
 
 function Grabar() {
-    $('#frmTipoMov').parsley().validate();
-    if ($('#frmTipoMov').parsley().isValid()) {
-        tipomov.NOMBRE = $("#txtNombre").val();
-        tipomov.INGRESO_EGRESO = $("#sltIngEgr").val();
-        tipomov.ESTADO = $("#sltEstado").val();
+    $('#frmGrupo').parsley().validate();
+    if ($('#frmGrupo').parsley().isValid()) {
+        grupo.NOMBRE = $("#txtNombre").val();
+        grupo.CODIGO = $("#txtCodigo").val();
+        grupo.CUENTA_CONTABLE = $("#txtCuentaContable").val();
+        grupo.ESTADO = $("#sltEstado").val();
         var parametros = JSON.stringify(
             {
-                precord: tipomov
+                precord: grupo
             });
         $.ajax({
             type: "POST",
@@ -72,9 +67,9 @@ function Grabar() {
             datatype: "json",
             data: parametros,
             contentType: 'application/json; charset=utf-8',
-            url: "/TipoMovimiento/Grabar",
+            url: "/Grupo/Grabar",
             beforeSend: function () {
-                run_waitMe($("#dlgTipoMov"), 'Grabando...');
+                run_waitMe($("#dlgGrupo"), 'Grabando...');
             },
             success: function (data) {
                 if (data.resultado == "error") {
@@ -85,20 +80,20 @@ function Grabar() {
                     });
                 }
                 else {
-                    $('#dlgTipoMov').modal('toggle');
+                    $('#dlgGrupo').modal('toggle');
                     swal({
                         type: 'success',
                         text: 'Datos grabados',
                         confirmButtonColor: '#00BCD4'
                     });
-                    
+
                     CargaDatos();
                 }
-                $("#dlgTipoMov").waitMe('hide');
+                $("#dlgGrupo").waitMe('hide');
                 //$this.button('reset');
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
-                $("#dlgTipoMov").waitMe('hide');
+                $("#dlgGrupo").waitMe('hide');
                 //$this.button('reset');
                 swal({
                     type: 'error',
@@ -114,12 +109,12 @@ function Grabar() {
 
 }
 
-var TipoMovimiento = function () {
+var Grupo = function () {
     return {
         init: function () {
 
-            tabtipomov = $('#tabTipoMov').DataTable({
-                //"paging": false,
+            tabGrupo = $('#tabGrupo').DataTable({
+                "paging": false,
                 //"searching": false,
                 //"filter": false,
                 "dom": 't',
@@ -130,43 +125,44 @@ var TipoMovimiento = function () {
                         { "targets": [4],/* "width": "10%",*/ "defaultContent": '<button id="butEditar" type="button" class="btn btn-default btn-xs clsedit"><i class="fa fa-pencil"></i></button>' }
                     ],
                 "data": ldata,
-                "rowCallback": function (row, data, dataIndex) {
-                    if (data.ESTADO == "I") {
-                        $('td', row).addClass('registro_inactivo');
-                    }
-                },
+                //"rowCallback": function (row, data, dataIndex) {
+                //    if (data.ESTADO == "I") {
+                //        $('td', row).addClass('registro_inactivo');
+                //    }
+                //},
                 "columns": [
-                    { "data": 'ID_TIPO_MOVIMIENTO' },
+                    { "data": 'ID_GRUPO' },
+                    { "data": 'CODIGO' },
                     { "data": 'NOMBRE' },
-                    { "data": 'TIPO_INGEGR' },
-                    { "data": 'ESTADO' }
+                    { "data": 'CUENTA_CONTABLE' }
                 ]
             });
 
             CargaDatos();
 
-            tabtipomov.on('click', 'button.clsedit', function (e) {
+            tabGrupo.on('click', 'button.clsedit', function (e) {
                 var row = $(this).closest('tr');
-                var data = tabtipomov.row($(this).parents('tr')).data();
+                var data = tabGrupo.row($(this).parents('tr')).data();
                 var parametros = JSON.stringify({
-                        pid: data.ID_TIPO_MOVIMIENTO
+                    pid: data.ID_GRUPO
                 });
 
                 $.ajax({
                     dataType: 'JSON',
-                    url: '/TipoMovimiento/GetTipoMovimiento',
+                    url: '/Grupo/GetGrupo',
                     type: "POST",
                     contentType: 'application/json; charset=utf-8',
                     data: parametros,
                     success: function (result) {
-                        tipomov = result.data;
-                        $("#dlgTipoMov").modal('toggle');
-                        $('#frmTipoMov').parsley().reset();
-                        //$("#txtIdTipoMov").val(tipomov.ID_TIPO_MOVIMIENTO);
-                        $("#lblIdTipoMov").text(tipomov.ID_TIPO_MOVIMIENTO);
-                        $("#sltIngEgr").val(tipomov.INGRESO_EGRESO);
-                        $("#txtNombre").val(tipomov.NOMBRE);
-                        $("#sltEstado").val(tipomov.ESTADO);
+                        grupo = result.data;
+                        $("#dlgGrupo").modal('toggle');
+                        $('#frmGrupo').parsley().reset();
+                        $("#lblIdGrupo").text(grupo.ID_GRUPO);
+                        $("#txtCodigo").val(grupo.CODIGO);
+                        $("#txtNombre").val(grupo.NOMBRE);
+                        $("#txtCuentaContable").val(grupo.CUENTA_CONTABLE);
+                        $("#sltEstado").val(grupo.ESTADO);
+                        $("#txtCodigo").prop("disabled", true);
                     },
                     error: function (result) {
                         $("#msgMain").html(result.responseText);
@@ -179,12 +175,13 @@ var TipoMovimiento = function () {
                 Grabar();
             });
 
-            $("#butNuevoTipoMov").on("click", function () {
-                tipomov = { ID_TIPO_MOVIMIENTO: 0, NOMBRE: "", ESTADO: "A" };
-                LimpiarFormularioTipoMovimiento();
-                $("#dlgTipoMov").modal('toggle');
+            $("#butNuevoGrupo").on("click", function () {
+                grupo = { ID_GRUPO: 0, CODIGO: "", NOMBRE: "", CUENTA_CONTABLE: "", ESTADO: "A" };
+                $("#txtCodigo").prop("disabled", false);
+                LimpiarFormularioGrupo();
+                $("#dlgGrupo").modal('toggle');
             });
-         
+
         }
     };
 }();

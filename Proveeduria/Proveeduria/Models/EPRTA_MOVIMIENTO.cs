@@ -31,7 +31,6 @@ namespace Proveduria.Models
         public string USUARIO_APRUEBA { get; set; }
         public string USUARIO_AUTORIZA { get; set; }
         public string USUARIO_SOLICITA { get; set; }
-        public Nullable<byte> ID_DEPARTAMENTO_SOLICITA { get; set; }
         public Nullable<System.DateTime> FECHA_SOLICITUD { get; set; }
         public Nullable<System.DateTime> FECHA_AUTORIZACION { get; set; }
         public Nullable<System.DateTime> FECHA_APROBACION { get; set; }
@@ -41,6 +40,7 @@ namespace Proveduria.Models
         public Nullable<int> ID_MOVIMIENTO_RELACION { get; set; }
         public Nullable<short> ANIO_DOCUMENTO_REFERENCIA { get; set; }
         public Nullable<int> NUMERO_DOCUMENTO_REFERENCIA { get; set; }
+        public Nullable<byte> ID_DIRECCION_SOLICITA { get; set; }
     
         public virtual EPRTA_BODEGA EPRTA_BODEGA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]

@@ -5,6 +5,25 @@
     <!-- SSDL content -->
     <edmx:StorageModels>
     <Schema Namespace="ModelProveduria.Store" Provider="Oracle.ManagedDataAccess.Client" ProviderManifestToken="10.2" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="ASPNETUSERS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="varchar2" MaxLength="128" Nullable="false" />
+          <Property Name="EMAIL" Type="varchar2" MaxLength="256" />
+          <Property Name="EMAILCONFIRMED" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="PASSWORDHASH" Type="varchar2" MaxLength="2500" />
+          <Property Name="SECURITYSTAMP" Type="varchar2" MaxLength="2500" />
+          <Property Name="PHONENUMBER" Type="varchar2" MaxLength="2500" />
+          <Property Name="PHONENUMBERCONFIRMED" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="TWOFACTORENABLED" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="LOCKOUTENDDATEUTC" Type="date" />
+          <Property Name="LOCKOUTENABLED" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="ACCESSFAILEDCOUNT" Type="number" Precision="38" Scale="0" Nullable="false" />
+          <Property Name="USERNAME" Type="varchar2" MaxLength="256" Nullable="false" />
+          <Property Name="FIRSTNAME" Type="varchar2" MaxLength="150" />
+          <Property Name="LASTNAME" Type="varchar2" MaxLength="150" />
+        </EntityType>
         <EntityType Name="EPRTA_ARTICULO_BODEGA">
           <Key>
             <PropertyRef Name="ID_ARTIBODE" />
@@ -80,7 +99,7 @@
           <Property Name="USUARIO_APRUEBA" Type="varchar2" MaxLength="15" />
           <Property Name="USUARIO_AUTORIZA" Type="varchar2" MaxLength="15" />
           <Property Name="USUARIO_SOLICITA" Type="varchar2" MaxLength="15" Nullable="false" />
-          <Property Name="ID_DEPARTAMENTO_SOLICITA" Type="number" Precision="2" Scale="0" />
+          <Property Name="ID_DIRECCION_SOLICITA" Type="number" Precision="2" Scale="0" />
           <Property Name="FECHA_SOLICITUD" Type="date" />
           <Property Name="FECHA_AUTORIZACION" Type="date" />
           <Property Name="FECHA_APROBACION" Type="date" />
@@ -148,6 +167,8 @@ advertencia 6002: La tabla o vista 'PROVEDURIA.VW_DIRECCION' no tiene definida n
         <EntityType Name="VW_DIRECCION">
           <Key>
             <PropertyRef Name="CODIGO" />
+            
+            
           </Key>
           <Property Name="CODIGO" Type="number" Precision="5" Scale="0" Nullable="false" />
           <Property Name="DESCRIPCION" Type="varchar2" MaxLength="255" Nullable="false" />
@@ -188,6 +209,7 @@ advertencia 6002: La tabla o vista 'PROVEDURIA.VW_ORDEN_COMPRA' no tiene definid
             <PropertyRef Name="NUMERO_ORDEN" />
             
             
+            
           </Key>
           <Property Name="ANIO" Type="number" Precision="38" Scale="0" Nullable="false" />
           <Property Name="NUMERO_ORDEN" Type="number" Precision="8" Scale="0" Nullable="false" />
@@ -197,6 +219,8 @@ advertencia 6002: La tabla o vista 'PROVEDURIA.VW_ORDEN_COMPRA' no tiene definid
           <Property Name="FECHA_EMISION" Type="date" />
           <Property Name="TIPO" Type="varchar2" MaxLength="1" Nullable="false" />
           <Property Name="ESTADO" Type="varchar2" MaxLength="1" />
+          <Property Name="DEPARTAMENTO_SOLICITA" Type="varchar2" MaxLength="255" Nullable="false" />
+          <Property Name="EMPLEADO_SOLICITA" Type="varchar2" MaxLength="123" />
         </EntityType>
         <!--Errores durante la generación:
 advertencia 6002: La tabla o vista 'PROVEDURIA.VW_ORDEN_COMPRA_DETALLE' no tiene definida ninguna clave principal. Se ha inferido la clave y la definición se creado como una vista o tabla de solo lectura.-->
@@ -343,6 +367,7 @@ advertencia 6002: La tabla o vista 'PROVEDURIA.VW_ORDEN_COMPRA_DETALLE' no tiene
           </ReferentialConstraint>
         </Association>
         <EntityContainer Name="ModelProveduriaStoreContainer">
+          <EntitySet Name="ASPNETUSERS" EntityType="Self.ASPNETUSERS" Schema="PROVEDURIA" store:Type="Tables" />
           <EntitySet Name="EPRTA_ARTICULO_BODEGA" EntityType="Self.EPRTA_ARTICULO_BODEGA" Schema="PROVEDURIA" store:Type="Tables" />
           <EntitySet Name="EPRTA_BODEGA" EntityType="Self.EPRTA_BODEGA" Schema="PROVEDURIA" store:Type="Tables" />
           <EntitySet Name="EPRTA_GRUPO" EntityType="Self.EPRTA_GRUPO" Schema="PROVEDURIA" store:Type="Tables" />
@@ -396,7 +421,9 @@ FROM "PROVEDURIA"."VW_EMPLEADO" "VW_EMPLEADO"</DefiningQuery>
 "VW_ORDEN_COMPRA"."FACTURA" AS "FACTURA", 
 "VW_ORDEN_COMPRA"."FECHA_EMISION" AS "FECHA_EMISION", 
 "VW_ORDEN_COMPRA"."TIPO" AS "TIPO", 
-"VW_ORDEN_COMPRA"."ESTADO" AS "ESTADO"
+"VW_ORDEN_COMPRA"."ESTADO" AS "ESTADO", 
+"VW_ORDEN_COMPRA"."DEPARTAMENTO_SOLICITA" AS "DEPARTAMENTO_SOLICITA", 
+"VW_ORDEN_COMPRA"."EMPLEADO_SOLICITA" AS "EMPLEADO_SOLICITA"
 FROM "PROVEDURIA"."VW_ORDEN_COMPRA" "VW_ORDEN_COMPRA"</DefiningQuery>
           </EntitySet>
           <EntitySet Name="VW_ORDEN_COMPRA_DETALLE" EntityType="Self.VW_ORDEN_COMPRA_DETALLE" store:Type="Views" store:Schema="PROVEDURIA">
@@ -528,6 +555,7 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
             <End Role="VW_DIRECCION" EntitySet="VW_DIRECCION" />
             <End Role="EPRTA_MOVIMIENTO" EntitySet="EPRTA_MOVIMIENTO" />
           </AssociationSet>
+          <EntitySet Name="ASPNETUSERS" EntityType="ModelProveduria.ASPNETUSERS" />
         </EntityContainer>
         <EntityType Name="EPRTA_ARTICULO_BODEGA">
           <Key>
@@ -615,7 +643,6 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
           <Property Name="USUARIO_APRUEBA" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="USUARIO_AUTORIZA" Type="String" MaxLength="15" FixedLength="false" Unicode="false" />
           <Property Name="USUARIO_SOLICITA" Type="String" Nullable="false" MaxLength="15" FixedLength="false" Unicode="false" />
-          <Property Name="ID_DEPARTAMENTO_SOLICITA" Type="Byte" />
           <Property Name="FECHA_SOLICITUD" Type="DateTime" />
           <Property Name="FECHA_AUTORIZACION" Type="DateTime" />
           <Property Name="FECHA_APROBACION" Type="DateTime" />
@@ -632,6 +659,7 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
           <NavigationProperty Name="EPRTA_TIPO_MOVIMIENTO" Relationship="ModelProveduria.EPRCN_MOVIMIENTO_TIPMOV_FK" FromRole="EPRTA_MOVIMIENTO" ToRole="EPRTA_TIPO_MOVIMIENTO" />
           <NavigationProperty Name="VW_ORDEN_COMPRA" Relationship="ModelProveduria.VW_ORDEN_COMPRAEPRTA_MOVIMIENTO" FromRole="EPRTA_MOVIMIENTO" ToRole="VW_ORDEN_COMPRA" />
           <NavigationProperty Name="VW_DIRECCION" Relationship="ModelProveduria.VW_DIRECCIONEPRTA_MOVIMIENTO" FromRole="EPRTA_MOVIMIENTO" ToRole="VW_DIRECCION" />
+          <Property Name="ID_DIRECCION_SOLICITA" Type="Byte" />
         </EntityType>
         <EntityType Name="EPRTA_MOVIMIENTO_DETALLE">
           <Key>
@@ -849,6 +877,8 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
           <Property Name="ESTADO" Type="String" MaxLength="1" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="VW_ORDEN_COMPRA_DETALLE" Relationship="ModelProveduria.VW_ORDEN_COMPRAVW_ORDEN_COMPRA_DETALLE" FromRole="VW_ORDEN_COMPRA" ToRole="VW_ORDEN_COMPRA_DETALLE" />
           <NavigationProperty Name="EPRTA_MOVIMIENTO" Relationship="ModelProveduria.VW_ORDEN_COMPRAEPRTA_MOVIMIENTO" FromRole="VW_ORDEN_COMPRA" ToRole="EPRTA_MOVIMIENTO" />
+          <Property Name="DEPARTAMENTO_SOLICITA" Type="String" Nullable="false" MaxLength="255" FixedLength="false" Unicode="false" />
+          <Property Name="EMPLEADO_SOLICITA" Type="String" MaxLength="123" FixedLength="false" Unicode="false" />
         </EntityType>
         <EntityType Name="VW_ORDEN_COMPRA_DETALLE">
           <Key>
@@ -927,10 +957,29 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
               <PropertyRef Name="CODIGO" />
             </Principal>
             <Dependent Role="EPRTA_MOVIMIENTO">
-              <PropertyRef Name="ID_DEPARTAMENTO_SOLICITA" />
+              <PropertyRef Name="ID_DIRECCION_SOLICITA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
+        <EntityType Name="ASPNETUSERS">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="String" Nullable="false" MaxLength="128" FixedLength="false" Unicode="false" />
+          <Property Name="EMAIL" Type="String" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="EMAILCONFIRMED" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="PASSWORDHASH" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <Property Name="SECURITYSTAMP" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <Property Name="PHONENUMBER" Type="String" MaxLength="2500" FixedLength="false" Unicode="false" />
+          <Property Name="PHONENUMBERCONFIRMED" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="TWOFACTORENABLED" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="LOCKOUTENDDATEUTC" Type="DateTime" />
+          <Property Name="LOCKOUTENABLED" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="ACCESSFAILEDCOUNT" Type="Decimal" Nullable="false" Precision="38" Scale="0" />
+          <Property Name="USERNAME" Type="String" Nullable="false" MaxLength="256" FixedLength="false" Unicode="false" />
+          <Property Name="FIRSTNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="LASTNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+        </EntityType>
         </Schema>
     </edmx:ConceptualModels>
     <!-- C-S mapping content -->
@@ -1006,6 +1055,7 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
           <EntitySetMapping Name="EPRTA_MOVIMIENTO">
             <EntityTypeMapping TypeName="ModelProveduria.EPRTA_MOVIMIENTO">
               <MappingFragment StoreEntitySet="EPRTA_MOVIMIENTO">
+                <ScalarProperty Name="ID_DIRECCION_SOLICITA" ColumnName="ID_DIRECCION_SOLICITA" />
                 <ScalarProperty Name="NUMERO_DOCUMENTO_REFERENCIA" ColumnName="NUMERO_DOCUMENTO_REFERENCIA" />
                 <ScalarProperty Name="ANIO_DOCUMENTO_REFERENCIA" ColumnName="ANIO_DOCUMENTO_REFERENCIA" />
                 <ScalarProperty Name="ID_MOVIMIENTO_RELACION" ColumnName="ID_MOVIMIENTO_RELACION" />
@@ -1015,7 +1065,6 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
                 <ScalarProperty Name="FECHA_APROBACION" ColumnName="FECHA_APROBACION" />
                 <ScalarProperty Name="FECHA_AUTORIZACION" ColumnName="FECHA_AUTORIZACION" />
                 <ScalarProperty Name="FECHA_SOLICITUD" ColumnName="FECHA_SOLICITUD" />
-                <ScalarProperty Name="ID_DEPARTAMENTO_SOLICITA" ColumnName="ID_DEPARTAMENTO_SOLICITA" />
                 <ScalarProperty Name="USUARIO_SOLICITA" ColumnName="USUARIO_SOLICITA" />
                 <ScalarProperty Name="USUARIO_AUTORIZA" ColumnName="USUARIO_AUTORIZA" />
                 <ScalarProperty Name="USUARIO_APRUEBA" ColumnName="USUARIO_APRUEBA" />
@@ -1103,6 +1152,8 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
           <EntitySetMapping Name="VW_ORDEN_COMPRA">
             <EntityTypeMapping TypeName="ModelProveduria.VW_ORDEN_COMPRA">
               <MappingFragment StoreEntitySet="VW_ORDEN_COMPRA">
+                <ScalarProperty Name="EMPLEADO_SOLICITA" ColumnName="EMPLEADO_SOLICITA" />
+                <ScalarProperty Name="DEPARTAMENTO_SOLICITA" ColumnName="DEPARTAMENTO_SOLICITA" />
                 <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
                 <ScalarProperty Name="TIPO" ColumnName="TIPO" />
                 <ScalarProperty Name="FECHA_EMISION" ColumnName="FECHA_EMISION" />
@@ -1135,6 +1186,26 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
                 <ScalarProperty Name="ESTADO" ColumnName="ESTADO" />
                 <ScalarProperty Name="DESCRIPCION" ColumnName="DESCRIPCION" />
                 <ScalarProperty Name="CODIGO" ColumnName="CODIGO" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ASPNETUSERS">
+            <EntityTypeMapping TypeName="ModelProveduria.ASPNETUSERS">
+              <MappingFragment StoreEntitySet="ASPNETUSERS">
+                <ScalarProperty Name="LASTNAME" ColumnName="LASTNAME" />
+                <ScalarProperty Name="FIRSTNAME" ColumnName="FIRSTNAME" />
+                <ScalarProperty Name="USERNAME" ColumnName="USERNAME" />
+                <ScalarProperty Name="ACCESSFAILEDCOUNT" ColumnName="ACCESSFAILEDCOUNT" />
+                <ScalarProperty Name="LOCKOUTENABLED" ColumnName="LOCKOUTENABLED" />
+                <ScalarProperty Name="LOCKOUTENDDATEUTC" ColumnName="LOCKOUTENDDATEUTC" />
+                <ScalarProperty Name="TWOFACTORENABLED" ColumnName="TWOFACTORENABLED" />
+                <ScalarProperty Name="PHONENUMBERCONFIRMED" ColumnName="PHONENUMBERCONFIRMED" />
+                <ScalarProperty Name="PHONENUMBER" ColumnName="PHONENUMBER" />
+                <ScalarProperty Name="SECURITYSTAMP" ColumnName="SECURITYSTAMP" />
+                <ScalarProperty Name="PASSWORDHASH" ColumnName="PASSWORDHASH" />
+                <ScalarProperty Name="EMAILCONFIRMED" ColumnName="EMAILCONFIRMED" />
+                <ScalarProperty Name="EMAIL" ColumnName="EMAIL" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

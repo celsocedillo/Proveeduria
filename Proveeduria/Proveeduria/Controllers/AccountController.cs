@@ -1,6 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Security;
@@ -8,6 +7,10 @@ using NLog;
 using Proveduria.Models;
 using Proveduria.Repositories;
 using Proveduria.Utils;
+
+using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
+using Microsoft.AspNet.Identity.Owin;
 
 namespace Proveduria.Controllers
 {
@@ -17,6 +20,8 @@ namespace Proveduria.Controllers
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
         private static Logger logger = LogManager.GetCurrentClassLogger();
+        private ApplicationSignInManager _signInManager;
+        private ApplicationUserManager _userManager;
         #region methods
 
         public ActionResult LogOn()
@@ -47,12 +52,31 @@ namespace Proveduria.Controllers
                         {
                             Session["usuario"] = empleado.USUARIO;
                             Session["nombre"] = empleado.EMPLEADO;
-                            Session["id_departamento"] = empleado.DEPARTAMENTO_ID;
+                            Session["id_direccion"] = empleado.DIRECCION_ID;
                             Session["departamento"] = empleado.DIRECCION;
                             Session["usuario_jefe"] = empleado.USUARIO_JEFE_DEPARTAMENTO;
                             Session["bodega_id"] = 1;
                             Session["bodega"] = "BODEGA PROVEDURIA";
                         }
+
+                        try
+                        {
+                            var store = new UserStore<ApplicationUser>(new ApplicationDbContext());
+
+                            ApplicationUserManager _userManager = new ApplicationUserManager(store);
+
+                            var manger = _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+
+                            var user = new ApplicationUser() { Email = model.UserName, UserName = model.UserName };
+
+                            var result = manger.Create(user, model.Password);
+                        }
+                        catch (System.Exception ex)
+                        {
+                            logger.Error(ex, ex.Message);
+                        }
+ 
+
                         return RedirectToAction("Index", "Home");
                     }
                 }
@@ -81,6 +105,71 @@ namespace Proveduria.Controllers
             // If we got this far, something failed, redisplay form
             return View(model);
         }
+
+        public ApplicationUserManager UserManager
+        {
+            get
+            {
+
+                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+            }
+            private set
+            {
+                _userManager = value;
+            }
+        }
+
+        //[HttpPost]
+        //[AllowAnonymous]
+        //[ValidateAntiForgeryToken]
+        //public async Task<ActionResult> Register(RegisterViewModel model)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        var user = new ApplicationUser { UserName = model.Email, Email = model.Email };
+        //        var result = await UserManager.CreateAsync(user, model.Password);
+        //        if (result.Succeeded)
+        //        {
+        //            await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
+
+        //            // Para obtener más información sobre cómo habilitar la confirmación de cuentas y el restablecimiento de contraseña, visite https://go.microsoft.com/fwlink/?LinkID=320771
+        //            // Enviar correo electrónico con este vínculo
+        //            // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+        //            // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+        //            // await UserManager.SendEmailAsync(user.Id, "Confirmar cuenta", "Para confirmar la cuenta, haga clic <a href=\"" + callbackUrl + "\">aquí</a>");
+
+        //            return RedirectToAction("Index", "Home");
+        //        }
+        //        AddErrors(result);
+        //    }
+
+        //    // Si llegamos a este punto, es que se ha producido un error y volvemos a mostrar el formulario
+        //    return View(model);
+        //}
+
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create([Bind(Include = "Id,Email,EmailConfirmed,PasswordHash,SecurityStamp,PhoneNumber,PhoneNumberConfirmed,TwoFactorEnabled,LockoutEndDateUtc,LockoutEnabled,AccessFailedCount,UserName,FirstName,LastName")] AspNetUsers aspNetUsers, string password)
+        //{
+
+        //    if (ModelState.IsValid)
+        //    {
+        //        var store = new UserStore<ApplicationUser>(new ApplicationDbContext());
+
+        //        ApplicationUserManager _userManager = new ApplicationUserManager(store);
+
+        //        var manger = _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+
+        //        var user = new ApplicationUser() { Email = aspNetUsers.Email, UserName = aspNetUsers.Email };
+
+        //        var result = manger.Create(user, password);
+
+
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    return View(aspNetUsers);
+        //}
 
         public ActionResult LogOff()
         {

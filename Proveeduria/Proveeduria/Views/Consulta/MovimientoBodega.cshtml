@@ -11,260 +11,122 @@
 
 </section>
 
-<!-- begin panel -->
-<div class="panel panel-inverse">
-    <div class="panel-heading">
-        <div class="panel-heading-btn">
-        </div>
-        <h4 class="panel-title">
-            <i class="fa fa-filter" aria-hidden="true"></i> Movimiento bodega
-        </h4>
-    </div>
-    <div class="panel-body">
-        <div class="form-horizontal">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-horizontal form-ajust">
-                        <div class="form-group">
-                            <label class="control-label col-sm-4" for="FechaInicio">
-                                Fecha inicio
-                            </label>
-                            <div class="col-sm-6">
-                                <input id="FechaInicio" name="FechaInicio" class="form-control" />
-                            </div>
-                        </div>
+<!-- Main content -->
+<section class="content">
+
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="box box-default collapsed-box">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Filtros</h3>
+                    <div class="box-tools pull-right">
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse">
+                            <i class="fa fa-plus"></i>
+                        </button>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="form-horizontal form-ajust">
-                        <div class="form-group">
-                            <label class="control-label col-sm-4" for="FechaFin">
-                                Fecha fin
-                            </label>
-                            <div class="col-sm-6">
-                                <input id="FechaFin" name="FechaFin" class="form-control" />
+                <div class="box-body">
+                    <div class="form-horizontal">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-horizontal form-ajust">
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-3" for="FechaInicio">
+                                            Fecha movimiento :
+                                        </label>
+                                        <div class="col-sm-3">
+                                            <input id="txtFechaInicio" name="txtFechaInicio" class="form-control" placeholder="Inicio" />
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <input id="txtFechaFin" name="txtFechaFin" class="form-control" placeholder="Fin" />
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-horizontal form-ajust">
-                        <div class="form-group">
-                            <label class="control-label col-sm-4" for="CodigoMovimiento">
-                                Código movimiento
-                            </label>
-                            <div class="col-sm-6">
-                                <input id="CodigoMovimiento" name="CodigoMovimiento" class="form-control" />
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-horizontal form-ajust">
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-3" for="CodigoMovimiento">
+                                            Movimiento
+                                        </label>
+                                        <div class="col-sm-3">
+                                            <input id="txtAnioMovimiento" name="txtAnioMovimiento" class="form-control" placeholder="Año" />
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <input id="txtNumeroMovimiento" name="txtNumeroMovimiento" class="form-control" placeholder="Número" />
+                                        </div>
+
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-horizontal form-ajust">
-                        <div class="form-group">
-                            <label class="control-label col-sm-4" for="CodigoDocumento">
-                                Código documento
-                            </label>
-                            <div class="col-sm-6">
-                                <input id="CodigoDocumento" name="CodigoDocumento" class="form-control" />
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-horizontal form-ajust">
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-3" for="IdItem">
+                                            Item :
+                                        </label>
+                                        <div class="col-sm-6">
+                                            <select class="form-control" id="sltItem" name="sltItem" style="width:100%"></select>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-horizontal form-ajust">
-                        <div class="form-group">
-                            <label class="control-label col-sm-4" for="IdItem">
-                                Item
-                            </label>
-                            <div class="col-sm-6">
-                                <div class="input-group">
-                                    <input id="IdItem" name="IdItem" type="text" class="form-control" />
-                                    <span class="input-group-btn">
-                                        <button id="btnListaItems" type="button" class="btn btn-inverse">
-                                            <i class="fa fa-search" aria-hidden="true"></i>
-                                        </button>
-                                    </span>
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-horizontal form-ajust">
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-3" for="NumeroIngresoEgreso">
+                                            Tipo Movimiento :
+                                        </label>
+                                        <div class="col-sm-6">
+                                            @Html.DropDownList("selIdTipoMovimiento", new SelectList(ViewBag.ltipo_movimiento, "Value", "Text"))
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-6">
-                    <div class="form-horizontal form-ajust">
-                        <div class="form-group">
-                            <label class="control-label col-sm-4" for="TipoMovimiento">
-                                Tipo de movimiento
-                            </label>
-                            <div class="col-md-6 col-sm-6">
-                                <select id="TipoMovimiento" name="TipoMovimiento" style="width:100%;">
-                                    <option value="todos">TODOS</option>
-                                    <option value="1">AUTORIZADO</option>
-                                    <option value="2">NO AUTORIZADO</option>
-                                    <option value="3">ANULADO</option>
-                                </select>
-                            </div>
-                        </div>
-                    </div>
+                <div class="box-footer">
+                    <button id="btnConsult" type="button" class="btn btn-default btn-sm btn-flat" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Consultando...">
+                        <i class="fa fa-search-plus" aria-hidden="true"></i>   Consultar
+                    </button>
+
                 </div>
             </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-horizontal form-ajust">
-                        <div class="form-group">
-                            <label class="control-label col-sm-4" for="NumeroIngresoEgreso">
-                                Número Ingreso/Egreso
-                            </label>
-                            <div class="col-sm-6">
-                                <input id="NumeroIngresoEgreso" name="NumeroIngresoEgreso" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button id="btnConsult" type="button" class="btn btn-inverse" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Consultando...">
-                <i class="fa fa-search-plus" aria-hidden="true"></i>   CONSULTAR
-            </button>
-            <button id="btnConsult" type="button" class="btn btn-inverse" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Consultando...">
-                <i class="fa fa-search-plus" aria-hidden="true"></i>   PDF
-            </button>
-            <button id="btnExcel" type="button" class="btn btn-inverse" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Consultando...">
-                <i class="fa fa-search-plus" aria-hidden="true"></i>   EXCEL
-            </button>
         </div>
     </div>
-</div>
-<!-- end panel -->
-
-<!-- Main content -->
-<section class="content">
-    <!-- begin panel -->
     <div class="box">
         <div class="box-body no-padding">
-            <table id="tablaMovimientos" class="table table-striped hover compact">
+            <table id="tabMovimiento" class="table table-striped hover compact">
                 <thead>
                     <tr>
-                        <th>Código movimiento</th>
-                        <th>Código documento</th>
+                        <th>Año</th>
+                        <th>Nro.Movimiento</th>
                         <th>Tipo movimiento</th>
                         <th>Item</th>
-                        <th>Descripción</th>
-                        <th>Cantidad</th>
-                        <th>Valor</th>
+                        <th>Cant.Movim.</th>
+                        <th>CostoMovim.</th>
                         <th>Fecha</th>
-                        <th>Ingreso/Egreso</th>
                     </tr>
                 </thead>
                 <tbody></tbody>
             </table>
         </div>
     </div>
-    <!-- end panel -->
 </section>
 
 @section scripts {
+    <script type="text/javascript" src=@Url.Content("/Scripts/App/MovimientoBodega.js")></script>
     <script type="text/javascript">
-        var tablaMovimientos;
-        var inicio;
-        var fin;
-        var idItem;
-        var codigoMovimiento;
-        var tipoMovimieno;
 
         $(document).ready(function () {
-
-            if (inicio == "" || inicio == undefined) {
-                inicio = "todos";
-            }
-            if (fin == "" || fin == undefined) {
-                fin = "todos";
-            }
-            if (idItem == "" || idItem == undefined) {
-                idItem = "todos";
-            }
-            if (codigoMovimiento == "" || codigoMovimiento == undefined) {
-                codigoMovimiento = "todos";
-            }
-            if (tipoMovimieno == "" || tipoMovimieno == undefined) {
-                tipoMovimieno = "todos";
-            }
-
-            $("#FechaInicio").datepicker({
-                format: "dd/mm/yyyy",
-                todayHighlight: true,
-                autoclose: true
-            });
-
-            $("#FechaFin").datepicker({
-                format: "dd/mm/yyyy",
-                todayHighlight: true,
-                autoclose: true
-            });
-
-
-            tablaMovimientos = $("#tablaMovimientos").DataTable({
-                autoWidth: false,
-                processing: true,
-                scrollX: true,
-                serverSide: true,
-                info: true,
-                stateSave: true,
-                ajax: {
-                    url: "/Consulta/MovimientoBodega",
-                    type: "POST",
-                    data: function (d) {
-                        d.inicio = inicio,
-                        d.fin = fin,
-                        d.idItem = idItem,
-                        d.codigoMovimiento = codigoMovimiento,
-                        d.tipoMovimieno = tipoMovimieno
-                    },
-                    error: function () {
-                    }
-                },
-                columns: [
-                    { data: "codigoMovimiento", orderable: true },
-                    { data: "tipoMovimiento", orderable: true },
-                    { data: "item", orderable: true },
-                    { data: "descripcion", orderable: false },
-                    { data: "cantidad", orderable: false },
-                    { data: "valor", orderable: false },
-                    { data: "fecha", orderable: false }
-                ],
-                "order": [[0, 'desc']]
-            });
-
-
-
-            $("#btnConsult").click(function (event) {
-                event.preventDefault();
-                inicio = $("#FechaInicio").val();
-                fin = $("#FechaFin").val();
-                idItem = $("#IdItem").val();
-                codigoMovimiento = $("#CodigoMovimiento").val();                
-                tipoMovimieno = $("#TipoMovimiento").val();
-                if (inicio == "" || inicio == undefined) {
-                    inicio = "vacio";
-                }
-                if (fin == "" || fin == undefined) {
-                    fin = "vacio";
-                }
-                if (idItem == "" || idItem == undefined) {
-                    idItem = "vacio";
-                }
-                if (codigoMovimiento == "" || codigoMovimiento == undefined) {
-                    codigoMovimiento = "vacio";
-                }                
-                if (tipoMovimieno == "" || tipoMovimieno == undefined) {
-                    tipoMovimieno = "vacio";
-                }
-                tablaMovimientos.ajax.reload();
-            });
-
+            MovimientoBodega.init();
         });
     </script>
 }

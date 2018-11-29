@@ -8,7 +8,7 @@ using Proveduria.Models.Enumadores;
 using Proveduria.Repositories;
 using Newtonsoft.Json.Linq;
 using NLog;
-using static Proveduria.Models.Enumadores.Enumeradores;
+//using static Proveduria.Models.Enumadores.Enumeradores;
 using System.IO;
 using CrystalDecisions.CrystalReports.Engine;
 using System.Data.SqlClient;
@@ -51,7 +51,7 @@ namespace Proveduria.Controllers
                                from ua in pa.DefaultIfEmpty()
                                join ut in emp on p.USUARIO_AUTORIZA equals ut.USUARIO into pt
                                from ut in pt.DefaultIfEmpty()
-                               where p.ID_DEPARTAMENTO_SOLICITA == Convert.ToByte(Session["id_departamento"].ToString()) && p.ID_TIPO_MOVIMIENTO == 12
+                               where p.ID_DIRECCION_SOLICITA == Convert.ToByte(Session["id_direccion"].ToString()) && p.ID_TIPO_MOVIMIENTO == 12
                                select new
                                {
                                    p.ID_MOVIMIENTO,
@@ -149,13 +149,13 @@ namespace Proveduria.Controllers
                     ViewBag.usuario_solicita = (string)(from p in empleados where p.USUARIO == movimiento.USUARIO_SOLICITA select p.EMPLEADO).FirstOrDefault();
                     ViewBag.usuario_aprueba = movimiento.USUARIO_APRUEBA != null ? (from p in empleados where p.USUARIO == movimiento.USUARIO_APRUEBA select p.EMPLEADO).FirstOrDefault() : null;
                     ViewBag.usuario_autoriza = movimiento.USUARIO_AUTORIZA != null ?  (from p in empleados where p.USUARIO == movimiento.USUARIO_AUTORIZA select p.EMPLEADO).FirstOrDefault() : null;
-                    ViewBag.departamento_solicitud = unitOfWork.DepartamentoRepository.GetById(movimiento.ID_DEPARTAMENTO_SOLICITA).DESCRIPCION;
+                    ViewBag.departamento_solicitud = unitOfWork.DireccionRepository.GetById(movimiento.ID_DIRECCION_SOLICITA).DESCRIPCION;
                 }
                 else
                 {
                     movimiento = new EPRTA_MOVIMIENTO();
                     movimiento.ESTADO = "S";
-                    movimiento.ID_DEPARTAMENTO_SOLICITA = Convert.ToByte(Session["departamento_id"]);
+                    movimiento.ID_DIRECCION_SOLICITA = Convert.ToByte(Session["id_direccion"]);
                     ViewBag.departamento_solicitud = Session["departamento"];
                 }
 
@@ -209,7 +209,7 @@ namespace Proveduria.Controllers
                     movimiento.USUARIO_SOLICITA = Session["usuario"].ToString();
                     movimiento.FECHA_SOLICITUD = DateTime.Now;
                     movimiento.ESTADO = "S";
-                    movimiento.ID_DEPARTAMENTO_SOLICITA = Convert.ToByte(Session["id_departamento"].ToString());
+                    movimiento.ID_DIRECCION_SOLICITA = Convert.ToByte(Session["id_direccion"].ToString());
                     movimiento.ANIO = (short)DateTime.Now.Year;
                     movimiento.ID_TIPO_MOVIMIENTO = 12;
                     movimiento.ID_BODEGA = 1;

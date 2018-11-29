@@ -14,6 +14,8 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Net.Mime;
 using Proveduria.Reports.DataSetReportsTableAdapters;
+using System.Linq.Expressions;
+using Proveduria.Utils;
 
 namespace Proveduria.Controllers
 {
@@ -26,16 +28,30 @@ namespace Proveduria.Controllers
         // GET: Movimiento
         public ActionResult Index()
         {
+
             return View();
         }
 
         public ActionResult ListaMovimiento()
         {
+            string[] arrTiposOperacion = new string[] { "I", "E" };
+            //List<EPRTA_TIPO_MOVIMIENTO> ltipo_movimiento = unitOfWork.TipoMovimientoRepository.GetAll().Where(p => arrTiposOperacion.Contains(p.INGRESO_EGRESO) && p.ESTADO == "A").ToList();//
+
+            List<EPRTA_TIPO_MOVIMIENTO> ltipo_movimiento = unitOfWork.TipoMovimientoRepository.Where(x=> arrTiposOperacion.Contains(x.INGRESO_EGRESO) && x.ESTADO == "A").ToList();
+
+            List<SelectListItem> lista = new List<SelectListItem>();
+            lista.Add(new SelectListItem { Text = "Todos los Tipos", Value = "0" });
+            foreach (EPRTA_TIPO_MOVIMIENTO tip in ltipo_movimiento)
+            {
+                SelectListItem lin = new SelectListItem { Text = tip.NOMBRE, Value = tip.ID_TIPO_MOVIMIENTO.ToString() };
+                lista.Add(lin);
+            }
+            ViewBag.ltipo_movimiento = lista;
             return View();
         }
 
         [HttpPost]
-        public ActionResult GetListaMovimiento()
+        public ActionResult GetListaMovimiento(DateTime pfecha_inicio, DateTime pfecha_fin, int pid_tipo_movimiento)
         {
             string[] arrTiposOperacion = new string[] { "I", "E" };
             JArray jArray = new JArray();
@@ -43,43 +59,64 @@ namespace Proveduria.Controllers
             try
             {
                 var emp = (from e in unitOfWork.EmpleadoRepository.GetAll() select e);
-                var tmp = (from p in unitOfWork.MovimientoRepository.GetAll()
-                           join us in emp on p.USUARIO_SOLICITA equals us.USUARIO
-                           join ua in emp on p.USUARIO_APRUEBA equals ua.USUARIO into pa
-                           from ua in pa.DefaultIfEmpty()
-                           join ut in emp on p.USUARIO_AUTORIZA equals ut.USUARIO into pt
-                           from ut in pt.DefaultIfEmpty()
-                           where arrTiposOperacion.Contains(p.EPRTA_TIPO_MOVIMIENTO.INGRESO_EGRESO)
-                           && p.ANIO == 2018
-                           select new
-                           {
-                               p.ID_MOVIMIENTO,
-                               p.ANIO,
-                               p.NUMERO_MOVIMIENTO,
-                               FECHA_SOLICITUD = p.FECHA_SOLICITUD.HasValue ? p.FECHA_SOLICITUD.Value.ToString("dd/MM/yyyy") : null,
-                               p.OBSERVACION,
-                               p.ID_TIPO_MOVIMIENTO,
-                               MOVIMIENTO = p.EPRTA_TIPO_MOVIMIENTO.NOMBRE,
-                               p.ESTADO,
-                               NOMBREESTADO = (
-                                       p.ESTADO.Equals("D") ? "DESPACHADO" :
-                                       p.ESTADO.Equals("E") ? "ANULADO" :
-                                       p.ESTADO.Equals("A") ? "AUTORIZADO" :
-                                       p.ESTADO.Equals("S") ? "SOLICITADO" : null),
-                               p.USUARIO_SOLICITA,
-                               p.USUARIO_AUTORIZA,
-                               p.USUARIO_APRUEBA,
-                               FECHA_AUTORIZACION = p.FECHA_AUTORIZACION.HasValue ? p.FECHA_AUTORIZACION.Value.ToString("dd/MM/yyyy") : null,
-                               FECHA_APROBACION = p.FECHA_APROBACION.HasValue ? p.FECHA_APROBACION.Value.ToString("dd/MM/yyyy") : null,
-                               EMPLEADO_SOLICITA = us.EMPLEADO,
-                               EMPLEADO_APRUEBA = ua == null ? null : ua.EMPLEADO,
-                               EMPLEADO_AUTORIZA = ut == null ? null : ut.EMPLEADO,
-                               ACCION = "<a href='/Movimiento/Movimiento/" + p.ID_MOVIMIENTO + "' class='text-inverse' data-toggle='tooltip' title='Modificar'>" +
-                                       "<i class='fa fa-search' aria-hidden='true'></i>" +
-                                       "</a>"
-                           }).ToList();
+
+                //var tmp = (from p in unitOfWork.MovimientoRepository.GetAll()
+                //           select p);
+
+                Expression<Func<EPRTA_MOVIMIENTO, Boolean>> xwhere = null;
+
+
+                if (pid_tipo_movimiento != 0)
+                {
+                    Expression<Func<EPRTA_MOVIMIENTO, Boolean>> expr = (p => p.ID_TIPO_MOVIMIENTO == pid_tipo_movimiento);
+                    xwhere = AppendExpression(xwhere, expr);
+                    //tmp = tmp.Where(p => p.ID_TIPO_MOVIMIENTO == pid_tipo_movimiento);
+                }
+                else
+                {
+                    Expression<Func<EPRTA_MOVIMIENTO, Boolean>> expr = (p => arrTiposOperacion.Contains(p.EPRTA_TIPO_MOVIMIENTO.INGRESO_EGRESO));
+                    xwhere = AppendExpression(xwhere, expr);
+
+                    //tmp = tmp.Where(p => arrTiposOperacion.Contains(p.EPRTA_TIPO_MOVIMIENTO.INGRESO_EGRESO));
+                }
+                if (pfecha_inicio != null || pfecha_fin != null)
+                {
+                    Expression<Func<EPRTA_MOVIMIENTO, Boolean>> expr = (p => (p.FECHA_SOLICITUD >= pfecha_inicio && p.FECHA_SOLICITUD <= pfecha_fin));
+                    xwhere = AppendExpression(xwhere, expr);
+
+                    //tmp = tmp.Where(p =>( p.FECHA_SOLICITUD >= pfecha_inicio && p.FECHA_SOLICITUD <= pfecha_fin));
+                }
+
+                var tmp = unitOfWork.MovimientoRepository.Where(xwhere).ToList();
+
+                var lis = (from p in tmp
+                       select new
+                       {
+                           p.ID_MOVIMIENTO,
+                           p.ANIO,
+                           p.NUMERO_MOVIMIENTO,
+                           FECHA_SOLICITUD = p.FECHA_SOLICITUD.HasValue ? p.FECHA_SOLICITUD.Value.ToString("dd/MM/yyyy") : null,
+                           p.OBSERVACION,
+                           p.ID_TIPO_MOVIMIENTO,
+                           MOVIMIENTO = p.EPRTA_TIPO_MOVIMIENTO.NOMBRE,
+                           p.ESTADO,
+                           NOMBREESTADO = (
+                           p.ESTADO.Equals("D") ? "Despachado" :
+                           p.ESTADO.Equals("E") ? "Anulado" :
+                           p.ESTADO.Equals("A") ? "Autorizado" :
+                           p.ESTADO.Equals("S") ? "Solicitado" : null),
+                           p.USUARIO_SOLICITA,
+                           p.USUARIO_AUTORIZA,
+                           p.USUARIO_APRUEBA,
+                           FECHA_AUTORIZACION = p.FECHA_AUTORIZACION.HasValue ? p.FECHA_AUTORIZACION.Value.ToString("dd/MM/yyyy") : null,
+                           FECHA_APROBACION = p.FECHA_APROBACION.HasValue ? p.FECHA_APROBACION.Value.ToString("dd/MM/yyyy") : null,
+                           ACCION = "<a href='/Movimiento/Movimiento/" + p.ID_MOVIMIENTO + "' class='text-inverse' data-toggle='tooltip' title='Modificar'>" +
+                         "<i class='fa fa-search' aria-hidden='true'></i>" +
+                         "</a>"
+                       }).ToList();
+
                 enviar.Add("resultado", "success");
-                enviar.Add("data", JArray.FromObject(tmp));
+                enviar.Add("data", JArray.FromObject(lis));
 
             }
             catch (Exception ex)
@@ -101,9 +138,10 @@ namespace Proveduria.Controllers
             {
                 var emp = (from e in unitOfWork.EmpleadoRepository.GetAll() select e);
                 var dep = (from d in unitOfWork.DepartamentoRepository.GetAll() select d);
+                var dir = (from d in unitOfWork.DireccionRepository.GetAll() select d);
                 var tmp = (from p in unitOfWork.MovimientoRepository.GetAll()
                            join us in emp on p.USUARIO_SOLICITA equals us.USUARIO
-                           join dp in dep on p.ID_DEPARTAMENTO_SOLICITA equals dp.CODIGO
+                           join di in dir on p.ID_DIRECCION_SOLICITA equals di.CODIGO
                            where p.ESTADO == "A" && p.ID_TIPO_MOVIMIENTO == 12
                            select new
                            {
@@ -113,7 +151,7 @@ namespace Proveduria.Controllers
                                p.USUARIO_SOLICITA,
                                MOVIMIENTO = p.EPRTA_TIPO_MOVIMIENTO.NOMBRE,
                                EMPLEADO = us.EMPLEADO,
-                               DEPARTAMENTO = dp.DESCRIPCION,
+                               DEPARTAMENTO = di.DESCRIPCION,
                                FECHA = p.FECHA_AUTORIZACION.HasValue ? p.FECHA_AUTORIZACION.Value.ToString("dd/MM/yyyy") : null
                            }).ToList();
                 enviar.Add("resultado", "success");
@@ -302,13 +340,14 @@ namespace Proveduria.Controllers
                     ViewBag.usuario_solicita = (string)(from p in empleados where p.USUARIO == movimiento.USUARIO_SOLICITA select p.EMPLEADO).FirstOrDefault();
                     ViewBag.usuario_aprueba = movimiento.USUARIO_APRUEBA != null ? (from p in empleados where p.USUARIO == movimiento.USUARIO_APRUEBA select p.EMPLEADO).FirstOrDefault() : null;
                     ViewBag.usuario_autoriza = movimiento.USUARIO_AUTORIZA != null ? (from p in empleados where p.USUARIO == movimiento.USUARIO_AUTORIZA select p.EMPLEADO).FirstOrDefault() : null;
-                    ViewBag.departamento_solicitud = unitOfWork.DepartamentoRepository.GetById(movimiento.ID_DEPARTAMENTO_SOLICITA).DESCRIPCION;
+                    //ViewBag.departamento_solicitud = unitOfWork.DepartamentoRepository.GetById(movimiento.ID_DEPARTAMENTO_SOLICITA).DESCRIPCION;
+                    ViewBag.departamento_solicitud = unitOfWork.DireccionRepository.GetById(movimiento.ID_DIRECCION_SOLICITA).DESCRIPCION;
                 }
                 else
                 {
                     movimiento = new EPRTA_MOVIMIENTO();
                     movimiento.ESTADO = "S";
-                    movimiento.ID_DEPARTAMENTO_SOLICITA = Convert.ToByte(Session["departamento_id"]);
+                    movimiento.ID_DIRECCION_SOLICITA = Convert.ToByte(Session["id_direccion"]);
                     ViewBag.departamento_solicitud = Session["departamento"];
                 }
             }
@@ -335,6 +374,14 @@ namespace Proveduria.Controllers
                 {
                     detalle.ESTADO = "A";
                     EPRTA_ARTICULO_BODEGA itemstock = unitOfWork.ArticuloBodegaRepository.GetAll().Where(p => p.ID_ITEM == detalle.ID_ITEM && p.ID_BODEGA == Byte.Parse(Session["bodega_id"].ToString())).FirstOrDefault();
+                    if (pmovimiento.ID_TIPO_MOVIMIENTO == (int)EnumTipoMovimiento.REQUISICION_BODEGA || pmovimiento.ID_TIPO_MOVIMIENTO == (int)EnumTipoMovimiento.AJUSTE_DE_BODEGA_POR_EGRESO)
+                    {
+                        if (itemstock.CANTIDAD_ACTUAL == 0)
+                        {
+                            throw new ArgumentException("El item " + itemstock.EPRTA_ITEM.DESCRIPCION + " tiene stock 0, y no se puede rebajar");
+                        }
+                    }
+
                     detalle.COSTO_ACTUAL = itemstock == null ? 0 : itemstock.COSTO_PROMEDIO;
                     detalle.STOCK_ACTUAL = itemstock == null ? 0 : itemstock.CANTIDAD_ACTUAL;
                     if (pmovimiento.ID_TIPO_MOVIMIENTO != 4)
@@ -354,7 +401,7 @@ namespace Proveduria.Controllers
                 pmovimiento = unitOfWork.MovimientoRepository.GetById(pmovimiento.ID_MOVIMIENTO);
                 
                 retorno.Add("resultado", "success");
-                retorno.Add("data", null);
+                retorno.Add("data", pmovimiento.ID_MOVIMIENTO);
                 retorno.Add("mensaje", "");
             }
             catch (Exception ex)
@@ -457,26 +504,44 @@ namespace Proveduria.Controllers
             byte[] pdfByte = null;
             try
             {
-                //FacturaVenta facturaVenta = unitOfWork.FacturaVentaRepository.GetById(id);
+
                 EPRTA_MOVIMIENTO solicitud = unitOfWork.MovimientoRepository.GetById(id);
                 EntitiesProveduria db = new EntitiesProveduria();
-                //ERPDBEntities db = new ERPDBEntities();
                 SqlConnectionStringBuilder builderVenta = new SqlConnectionStringBuilder(db.Database.Connection.ConnectionString);
-                //SpFacturaElectronicaTableAdapter tableAdapter = new SpFacturaElectronicaTableAdapter();
-                SP_EGRESO_BODEGATableAdapter tableAdapter = new SP_EGRESO_BODEGATableAdapter();
-                object objetos = new object();
-                DataTable dataTable = tableAdapter.GetData(id,  out objetos);
-                String pathReport = Path.Combine(HttpRuntime.AppDomainAppPath, "Reports\\Cr_Egreso_Bodega.rpt");
-
-                reportDocument.Load(pathReport);
-                reportDocument.SetDataSource(dataTable);
-
+                String pathReport = "";
+                if (solicitud.ID_TIPO_MOVIMIENTO == 2)
+                {
+                    SP_EGRESO_BODEGATableAdapter tableAdapter = new SP_EGRESO_BODEGATableAdapter();
+                    object objetos = new object();
+                    DataTable dataTable = tableAdapter.GetData(id,  out objetos);
+                    pathReport = Path.Combine(HttpRuntime.AppDomainAppPath, "Reports\\Cr_Egreso_Bodega.rpt");
+                    reportDocument.Load(pathReport);
+                    reportDocument.SetDataSource(dataTable);
+                }
+                else if (solicitud.ID_TIPO_MOVIMIENTO == 4)
+                {
+                    SP_INGRESO_BODEGATableAdapter tableAdapter = new SP_INGRESO_BODEGATableAdapter();
+                    object objetos = new object();
+                    DataTable dataTable = tableAdapter.GetData(id, out objetos);
+                    pathReport = Path.Combine(HttpRuntime.AppDomainAppPath, "Reports\\Cr_Ingreso_Bodega.rpt");
+                    reportDocument.Load(pathReport);
+                    reportDocument.SetDataSource(dataTable);
+                }
+                else if (solicitud.ID_TIPO_MOVIMIENTO == 10 || solicitud.ID_TIPO_MOVIMIENTO == 11)
+                {
+                    SP_AJUSTE_BODEGATableAdapter tableAdapter = new SP_AJUSTE_BODEGATableAdapter();
+                    object objetos = new object();
+                    DataTable dataTable = tableAdapter.GetData(id, out objetos);
+                    pathReport = Path.Combine(HttpRuntime.AppDomainAppPath, "Reports\\Cr_Ajuste_Bodega.rpt");
+                    reportDocument.Load(pathReport);
+                    reportDocument.SetDataSource(dataTable);
+                }
 
                 reportDocument.SetDatabaseLogon(builderVenta.UserID, builderVenta.Password);
 
                 stream = reportDocument.ExportToStream(CrystalDecisions.Shared.ExportFormatType.PortableDocFormat);
                 pdfByte = ReadFully(stream);
-                nombreArchivo = "REQUISICION DE BODEGA ";
+                nombreArchivo = "Movimiento_bodega";
                 Response.AddHeader("content-disposition", "inline; title='';" + "filename=" + nombreArchivo + ".pdf");
             }
             catch (Exception ex)
@@ -511,6 +576,16 @@ namespace Proveduria.Controllers
             }
         }
 
+        public Expression<Func<EPRTA_MOVIMIENTO, Boolean>> AppendExpression(Expression<Func<EPRTA_MOVIMIENTO, Boolean>> left, Expression<Func<EPRTA_MOVIMIENTO, Boolean>> right)
+        {
+            Expression<Func<EPRTA_MOVIMIENTO, Boolean>> result;
+            if (left == null)
+            {
+                left = model => true;
+            }
+            result = ExpressionExtension<EPRTA_MOVIMIENTO>.AndAlso(left, right);
+            return result;
+        }
 
         protected override void Dispose(bool disposing)
         {
