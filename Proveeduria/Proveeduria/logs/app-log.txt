@@ -1,56 +1,4 @@
-     ---------------------------- Error(2018-11-29 09:52:26.6213) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.ItemController.<>c.<SearchItemsFiltro>b__5_6(<>f__AnonymousType7`2 <>h__TransparentIdentifier1) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 115
-   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
-   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 112 
- 
-              Stack Trace   :    en Proveduria.Controllers.ItemController.<>c.<SearchItemsFiltro>b__5_6(<>f__AnonymousType7`2 <>h__TransparentIdentifier1) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 115
-   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
-   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 112
-        
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-11-29 09:52:27.6672) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.ItemController.<>c.<SearchItemsFiltro>b__5_6(<>f__AnonymousType7`2 <>h__TransparentIdentifier1) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 115
-   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
-   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 112 
- 
-              Stack Trace   :    en Proveduria.Controllers.ItemController.<>c.<SearchItemsFiltro>b__5_6(<>f__AnonymousType7`2 <>h__TransparentIdentifier1) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 115
-   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
-   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 112
-        
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-11-29 10:33:22.5696) --------------------------    
+     ---------------------------- Error(2018-11-30 10:15:56.4476) --------------------------    
               Machine Name  : CCEDILLO
    
               Exception Type  : System.NullReferenceException
@@ -66,7 +14,7 @@
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-11-29 10:34:37.1951) --------------------------    
+     ---------------------------- Error(2018-11-30 10:16:44.7444) --------------------------    
               Machine Name  : CCEDILLO
    
               Exception Type  : System.NullReferenceException
@@ -82,79 +30,332 @@
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-11-29 11:06:08.6912) --------------------------    
+     ---------------------------- Error(2018-11-30 10:16:53.1163) --------------------------    
               Machine Name  : CCEDILLO
    
-              Exception Type  : System.InvalidOperationException
+              Exception Type  : System.NullReferenceException
       
-              Exception Message : The entity type ApplicationUser is not part of the model for the current context.
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
      
-              Inner Exception  : System.InvalidOperationException: The entity type ApplicationUser is not part of the model for the current context.
-   en System.Data.Entity.Internal.InternalContext.UpdateEntitySetMappingsForType(Type entityType)
-   en System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
-   en System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
-   en System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
-   en System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
-   en System.Data.Entity.QueryableExtensions.FirstOrDefaultAsync[TSource](IQueryable`1 source, Expression`1 predicate, CancellationToken cancellationToken)
-   en System.Data.Entity.QueryableExtensions.FirstOrDefaultAsync[TSource](IQueryable`1 source, Expression`1 predicate)
-   en Microsoft.AspNet.Identity.EntityFramework.UserStore`6.<GetUserAggregateAsync>d__6c.MoveNext()
---- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
-   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
-   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
-   en Microsoft.AspNet.Identity.TaskExtensions.CultureAwaiter`1.GetResult()
-   en Microsoft.AspNet.Identity.UserValidator`2.<ValidateUserName>d__4.MoveNext()
---- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
-   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
-   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
-   en Microsoft.AspNet.Identity.UserValidator`2.<ValidateAsync>d__0.MoveNext()
---- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
-   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
-   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
-   en Microsoft.AspNet.Identity.UserManager`2.<CreateAsync>d__0.MoveNext()
---- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
-   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
-   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
-   en Microsoft.AspNet.Identity.UserManager`2.<CreateAsync>d__d.MoveNext()
---- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
-   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
-   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
-   en Microsoft.AspNet.Identity.AsyncHelper.RunSync[TResult](Func`1 func)
-   en Microsoft.AspNet.Identity.UserManagerExtensions.Create[TUser,TKey](UserManager`2 manager, TUser user, String password)
-   en Proveduria.Controllers.AccountController.LogOn(LogOnModel model, String returnUrl) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\AccountController.cs:línea 72 
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 344 
  
-              Stack Trace   :    en System.Data.Entity.Internal.InternalContext.UpdateEntitySetMappingsForType(Type entityType)
-   en System.Data.Entity.Internal.InternalContext.GetEntitySetAndBaseTypeForType(Type entityType)
-   en System.Data.Entity.Internal.Linq.InternalSet`1.Initialize()
-   en System.Data.Entity.Internal.Linq.InternalSet`1.get_InternalContext()
-   en System.Data.Entity.Infrastructure.DbQuery`1.System.Linq.IQueryable.get_Provider()
-   en System.Data.Entity.QueryableExtensions.FirstOrDefaultAsync[TSource](IQueryable`1 source, Expression`1 predicate, CancellationToken cancellationToken)
-   en System.Data.Entity.QueryableExtensions.FirstOrDefaultAsync[TSource](IQueryable`1 source, Expression`1 predicate)
-   en Microsoft.AspNet.Identity.EntityFramework.UserStore`6.<GetUserAggregateAsync>d__6c.MoveNext()
---- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
-   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
-   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
-   en Microsoft.AspNet.Identity.TaskExtensions.CultureAwaiter`1.GetResult()
-   en Microsoft.AspNet.Identity.UserValidator`2.<ValidateUserName>d__4.MoveNext()
---- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
-   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
-   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
-   en Microsoft.AspNet.Identity.UserValidator`2.<ValidateAsync>d__0.MoveNext()
---- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
-   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
-   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
-   en Microsoft.AspNet.Identity.UserManager`2.<CreateAsync>d__0.MoveNext()
---- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
-   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
-   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
-   en Microsoft.AspNet.Identity.UserManager`2.<CreateAsync>d__d.MoveNext()
---- Fin del seguimiento de la pila de la ubicación anterior donde se produjo la excepción ---
-   en System.Runtime.CompilerServices.TaskAwaiter.ThrowForNonSuccess(Task task)
-   en System.Runtime.CompilerServices.TaskAwaiter.HandleNonSuccessAndDebuggerNotification(Task task)
-   en Microsoft.AspNet.Identity.AsyncHelper.RunSync[TResult](Func`1 func)
-   en Microsoft.AspNet.Identity.UserManagerExtensions.Create[TUser,TKey](UserManager`2 manager, TUser user, String password)
-   en Proveduria.Controllers.AccountController.LogOn(LogOnModel model, String returnUrl) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\AccountController.cs:línea 72
+              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 344
         
-              Additional Info  : The entity type ApplicationUser is not part of the model for the current context.  
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-30 10:17:26.5076) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 344 
+ 
+              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 344
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-30 10:35:57.8567) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 344 
+ 
+              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 344
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-30 10:36:06.3046) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 344 
+ 
+              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 344
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-30 10:38:32.6462) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 344 
+ 
+              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 344
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-30 11:36:48.3408) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 344 
+ 
+              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 344
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-30 11:36:57.6617) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : Oracle.ManagedDataAccess.Client.OracleException
+      
+              Exception Message : ORA-06550: línea 1, columna 18:
+PLS-00905: object PROVEDURIA.SP_REQUISICION_BODEGA is invalid
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+     
+              Inner Exception  : Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-06550: línea 1, columna 18:
+PLS-00905: object PROVEDURIA.SP_REQUISICION_BODEGA is invalid
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+   en OracleInternal.ServiceObjects.OracleConnectionImpl.VerifyExecution(Int32& cursorId, Boolean bThrowArrayBindRelatedErrors, SqlStatementType sqlStatementType, Int32 arrayBindCount, OracleException& exceptionForArrayBindDML, Boolean& hasMoreRowsInDB, Boolean bFirstIterationDone)
+   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
+   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_REQUISICION_BODEGATableAdapter.GetData(Nullable`1 SP_ID_MOVIMIENTO, Object& REQUISICION_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 6173
+   en Proveduria.Controllers.SolicitudController.ViewPDF(Nullable`1 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 315 
+ 
+              Stack Trace   :    en OracleInternal.ServiceObjects.OracleConnectionImpl.VerifyExecution(Int32& cursorId, Boolean bThrowArrayBindRelatedErrors, SqlStatementType sqlStatementType, Int32 arrayBindCount, OracleException& exceptionForArrayBindDML, Boolean& hasMoreRowsInDB, Boolean bFirstIterationDone)
+   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
+   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_REQUISICION_BODEGATableAdapter.GetData(Nullable`1 SP_ID_MOVIMIENTO, Object& REQUISICION_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 6173
+   en Proveduria.Controllers.SolicitudController.ViewPDF(Nullable`1 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 315
+        
+              Additional Info  : ORA-06550: línea 1, columna 18:
+PLS-00905: object PROVEDURIA.SP_REQUISICION_BODEGA is invalid
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-30 11:37:18.8248) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 344 
+ 
+              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 344
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-30 11:37:20.5400) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : Oracle.ManagedDataAccess.Client.OracleException
+      
+              Exception Message : ORA-06550: línea 1, columna 18:
+PLS-00905: object PROVEDURIA.SP_REQUISICION_BODEGA is invalid
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+     
+              Inner Exception  : Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-06550: línea 1, columna 18:
+PLS-00905: object PROVEDURIA.SP_REQUISICION_BODEGA is invalid
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+   en OracleInternal.ServiceObjects.OracleConnectionImpl.VerifyExecution(Int32& cursorId, Boolean bThrowArrayBindRelatedErrors, SqlStatementType sqlStatementType, Int32 arrayBindCount, OracleException& exceptionForArrayBindDML, Boolean& hasMoreRowsInDB, Boolean bFirstIterationDone)
+   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
+   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_REQUISICION_BODEGATableAdapter.GetData(Nullable`1 SP_ID_MOVIMIENTO, Object& REQUISICION_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 6173
+   en Proveduria.Controllers.SolicitudController.ViewPDF(Nullable`1 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 315 
+ 
+              Stack Trace   :    en OracleInternal.ServiceObjects.OracleConnectionImpl.VerifyExecution(Int32& cursorId, Boolean bThrowArrayBindRelatedErrors, SqlStatementType sqlStatementType, Int32 arrayBindCount, OracleException& exceptionForArrayBindDML, Boolean& hasMoreRowsInDB, Boolean bFirstIterationDone)
+   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
+   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_REQUISICION_BODEGATableAdapter.GetData(Nullable`1 SP_ID_MOVIMIENTO, Object& REQUISICION_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 6173
+   en Proveduria.Controllers.SolicitudController.ViewPDF(Nullable`1 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 315
+        
+              Additional Info  : ORA-06550: línea 1, columna 18:
+PLS-00905: object PROVEDURIA.SP_REQUISICION_BODEGA is invalid
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-30 11:38:04.1283) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 344 
+ 
+              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 344
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-30 11:38:06.4286) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : Oracle.ManagedDataAccess.Client.OracleException
+      
+              Exception Message : ORA-06550: línea 1, columna 18:
+PLS-00905: object PROVEDURIA.SP_REQUISICION_BODEGA is invalid
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+     
+              Inner Exception  : Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-06550: línea 1, columna 18:
+PLS-00905: object PROVEDURIA.SP_REQUISICION_BODEGA is invalid
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+   en OracleInternal.ServiceObjects.OracleConnectionImpl.VerifyExecution(Int32& cursorId, Boolean bThrowArrayBindRelatedErrors, SqlStatementType sqlStatementType, Int32 arrayBindCount, OracleException& exceptionForArrayBindDML, Boolean& hasMoreRowsInDB, Boolean bFirstIterationDone)
+   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
+   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_REQUISICION_BODEGATableAdapter.GetData(Nullable`1 SP_ID_MOVIMIENTO, Object& REQUISICION_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 6173
+   en Proveduria.Controllers.SolicitudController.ViewPDF(Nullable`1 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 315 
+ 
+              Stack Trace   :    en OracleInternal.ServiceObjects.OracleConnectionImpl.VerifyExecution(Int32& cursorId, Boolean bThrowArrayBindRelatedErrors, SqlStatementType sqlStatementType, Int32 arrayBindCount, OracleException& exceptionForArrayBindDML, Boolean& hasMoreRowsInDB, Boolean bFirstIterationDone)
+   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
+   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_REQUISICION_BODEGATableAdapter.GetData(Nullable`1 SP_ID_MOVIMIENTO, Object& REQUISICION_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 6173
+   en Proveduria.Controllers.SolicitudController.ViewPDF(Nullable`1 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 315
+        
+              Additional Info  : ORA-06550: línea 1, columna 18:
+PLS-00905: object PROVEDURIA.SP_REQUISICION_BODEGA is invalid
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-30 11:38:45.0854) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : Oracle.ManagedDataAccess.Client.OracleException
+      
+              Exception Message : ORA-06550: línea 1, columna 18:
+PLS-00905: object PROVEDURIA.SP_REQUISICION_BODEGA is invalid
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+     
+              Inner Exception  : Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-06550: línea 1, columna 18:
+PLS-00905: object PROVEDURIA.SP_REQUISICION_BODEGA is invalid
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+   en OracleInternal.ServiceObjects.OracleConnectionImpl.VerifyExecution(Int32& cursorId, Boolean bThrowArrayBindRelatedErrors, SqlStatementType sqlStatementType, Int32 arrayBindCount, OracleException& exceptionForArrayBindDML, Boolean& hasMoreRowsInDB, Boolean bFirstIterationDone)
+   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
+   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_REQUISICION_BODEGATableAdapter.GetData(Nullable`1 SP_ID_MOVIMIENTO, Object& REQUISICION_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 6173
+   en Proveduria.Controllers.SolicitudController.ViewPDF(Nullable`1 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 315 
+ 
+              Stack Trace   :    en OracleInternal.ServiceObjects.OracleConnectionImpl.VerifyExecution(Int32& cursorId, Boolean bThrowArrayBindRelatedErrors, SqlStatementType sqlStatementType, Int32 arrayBindCount, OracleException& exceptionForArrayBindDML, Boolean& hasMoreRowsInDB, Boolean bFirstIterationDone)
+   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
+   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_REQUISICION_BODEGATableAdapter.GetData(Nullable`1 SP_ID_MOVIMIENTO, Object& REQUISICION_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 6173
+   en Proveduria.Controllers.SolicitudController.ViewPDF(Nullable`1 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 315
+        
+              Additional Info  : ORA-06550: línea 1, columna 18:
+PLS-00905: object PROVEDURIA.SP_REQUISICION_BODEGA is invalid
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-30 11:50:32.6622) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : Oracle.ManagedDataAccess.Client.OracleException
+      
+              Exception Message : ORA-06550: línea 1, columna 18:
+PLS-00905: object PROVEDURIA.SP_REQUISICION_BODEGA is invalid
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+     
+              Inner Exception  : Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-06550: línea 1, columna 18:
+PLS-00905: object PROVEDURIA.SP_REQUISICION_BODEGA is invalid
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored
+   en OracleInternal.ServiceObjects.OracleConnectionImpl.VerifyExecution(Int32& cursorId, Boolean bThrowArrayBindRelatedErrors, SqlStatementType sqlStatementType, Int32 arrayBindCount, OracleException& exceptionForArrayBindDML, Boolean& hasMoreRowsInDB, Boolean bFirstIterationDone)
+   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
+   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_REQUISICION_BODEGATableAdapter.GetData(Nullable`1 SP_ID_MOVIMIENTO, Object& REQUISICION_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 6173
+   en Proveduria.Controllers.SolicitudController.ViewPDF(Nullable`1 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 315 
+ 
+              Stack Trace   :    en OracleInternal.ServiceObjects.OracleConnectionImpl.VerifyExecution(Int32& cursorId, Boolean bThrowArrayBindRelatedErrors, SqlStatementType sqlStatementType, Int32 arrayBindCount, OracleException& exceptionForArrayBindDML, Boolean& hasMoreRowsInDB, Boolean bFirstIterationDone)
+   en OracleInternal.ServiceObjects.OracleCommandImpl.ExecuteReader(String commandText, OracleParameterCollection paramColl, CommandType commandType, OracleConnectionImpl connectionImpl, OracleDataReaderImpl& rdrImpl, Int32 longFetchSize, Int64 clientInitialLOBFS, OracleDependencyImpl orclDependencyImpl, Int64[] scnForExecution, Int64[]& scnFromExecution, OracleParameterCollection& bindByPositionParamColl, Boolean& bBindParamPresent, Int64& internalInitialLOBFS, OracleException& exceptionForArrayBindDML, OracleConnection connection, OracleLogicalTransaction& oracleLogicalTransaction, IEnumerable`1 adrianParsedStmt, Boolean isDescribeOnly, Boolean isFromEF)
+   en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_REQUISICION_BODEGATableAdapter.GetData(Nullable`1 SP_ID_MOVIMIENTO, Object& REQUISICION_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 6173
+   en Proveduria.Controllers.SolicitudController.ViewPDF(Nullable`1 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 315
+        
+              Additional Info  : ORA-06550: línea 1, columna 18:
+PLS-00905: object PROVEDURIA.SP_REQUISICION_BODEGA is invalid
+ORA-06550: línea 1, columna 7:
+PL/SQL: Statement ignored  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-30 12:08:59.9102) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 344 
+ 
+              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 344
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
               -------------------------------------------------------------------
               ----------     
      

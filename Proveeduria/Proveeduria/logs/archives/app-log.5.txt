@@ -1,4 +1,4 @@
-     ---------------------------- Error(2018-10-26 10:04:11.5584) --------------------------    
+     ---------------------------- Error(2018-11-19 11:50:39.3660) --------------------------    
               Machine Name  : CCEDILLO
    
               Exception Type  : System.NullReferenceException
@@ -6,15 +6,15 @@
               Exception Message : Referencia a objeto no establecida como instancia de un objeto.
      
               Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360 
+   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 45 
  
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360
+              Stack Trace   :    en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 45
         
               Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-10-26 10:20:52.8004) --------------------------    
+     ---------------------------- Error(2018-11-19 11:50:58.9870) --------------------------    
               Machine Name  : CCEDILLO
    
               Exception Type  : System.NullReferenceException
@@ -22,15 +22,15 @@
               Exception Message : Referencia a objeto no establecida como instancia de un objeto.
      
               Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360 
+   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 45 
  
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360
+              Stack Trace   :    en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 45
         
               Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-10-26 10:21:54.3624) --------------------------    
+     ---------------------------- Error(2018-11-19 11:51:25.2560) --------------------------    
               Machine Name  : CCEDILLO
    
               Exception Type  : System.NullReferenceException
@@ -38,15 +38,15 @@
               Exception Message : Referencia a objeto no establecida como instancia de un objeto.
      
               Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360 
+   en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 45 
  
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360
+              Stack Trace   :    en Proveduria.Controllers.SolicitudController.GetListaSolicitud() en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\SolicitudController.cs:línea 45
         
               Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-10-26 10:23:25.0994) --------------------------    
+     ---------------------------- Error(2018-11-19 12:14:02.9320) --------------------------    
               Machine Name  : CCEDILLO
    
               Exception Type  : System.NullReferenceException
@@ -54,15 +54,15 @@
               Exception Message : Referencia a objeto no establecida como instancia de un objeto.
      
               Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360 
+   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 326 
  
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360
+              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 326
         
               Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-10-26 10:24:25.2634) --------------------------    
+     ---------------------------- Error(2018-11-19 12:27:41.9310) --------------------------    
               Machine Name  : CCEDILLO
    
               Exception Type  : System.NullReferenceException
@@ -70,15 +70,15 @@
               Exception Message : Referencia a objeto no establecida como instancia de un objeto.
      
               Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360 
+   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 326 
  
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360
+              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 326
         
               Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-10-26 10:24:54.5974) --------------------------    
+     ---------------------------- Error(2018-11-19 15:49:32.2604) --------------------------    
               Machine Name  : CCEDILLO
    
               Exception Type  : System.NullReferenceException
@@ -86,395 +86,171 @@
               Exception Message : Referencia a objeto no establecida como instancia de un objeto.
      
               Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360 
+   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 326 
  
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360
+              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 326
         
               Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-10-26 10:25:06.7914) --------------------------    
+     ---------------------------- Error(2018-11-19 17:10:05.2246) --------------------------    
               Machine Name  : CCEDILLO
    
-              Exception Type  : System.NullReferenceException
+              Exception Type  : Oracle.ManagedDataAccess.Client.OracleException
       
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+              Exception Message : ORA-01476: el divisor es igual a cero
      
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360 
+              Inner Exception  : Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-01476: el divisor es igual a cero
+   en OracleInternal.ServiceObjects.OracleDataReaderImpl.FetchMoreRows(Int32 noOfRowsToFetch, Boolean fillReader, Boolean returnPSTypes)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.Read()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5878
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 457 
  
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360
+              Stack Trace   :    en OracleInternal.ServiceObjects.OracleDataReaderImpl.FetchMoreRows(Int32 noOfRowsToFetch, Boolean fillReader, Boolean returnPSTypes)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.Read()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5878
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 457
         
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              Additional Info  : ORA-01476: el divisor es igual a cero  
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-10-26 10:25:21.2304) --------------------------    
+     ---------------------------- Error(2018-11-19 17:10:58.0969) --------------------------    
               Machine Name  : CCEDILLO
    
-              Exception Type  : System.NullReferenceException
+              Exception Type  : Oracle.ManagedDataAccess.Client.OracleException
       
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+              Exception Message : ORA-01476: el divisor es igual a cero
      
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360 
+              Inner Exception  : Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-01476: el divisor es igual a cero
+   en OracleInternal.ServiceObjects.OracleDataReaderImpl.FetchMoreRows(Int32 noOfRowsToFetch, Boolean fillReader, Boolean returnPSTypes)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.Read()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5878
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 457 
  
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360
+              Stack Trace   :    en OracleInternal.ServiceObjects.OracleDataReaderImpl.FetchMoreRows(Int32 noOfRowsToFetch, Boolean fillReader, Boolean returnPSTypes)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.Read()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5878
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 457
         
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              Additional Info  : ORA-01476: el divisor es igual a cero  
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-10-26 10:25:42.2114) --------------------------    
+     ---------------------------- Error(2018-11-19 17:15:16.1627) --------------------------    
               Machine Name  : CCEDILLO
    
-              Exception Type  : System.NullReferenceException
+              Exception Type  : Oracle.ManagedDataAccess.Client.OracleException
       
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+              Exception Message : ORA-01476: el divisor es igual a cero
      
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360 
+              Inner Exception  : Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-01476: el divisor es igual a cero
+   en OracleInternal.ServiceObjects.OracleDataReaderImpl.FetchMoreRows(Int32 noOfRowsToFetch, Boolean fillReader, Boolean returnPSTypes)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.Read()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5878
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 454 
  
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360
+              Stack Trace   :    en OracleInternal.ServiceObjects.OracleDataReaderImpl.FetchMoreRows(Int32 noOfRowsToFetch, Boolean fillReader, Boolean returnPSTypes)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.Read()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5878
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 454
         
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              Additional Info  : ORA-01476: el divisor es igual a cero  
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-10-26 10:26:27.0234) --------------------------    
+     ---------------------------- Error(2018-11-19 17:16:31.7733) --------------------------    
               Machine Name  : CCEDILLO
    
-              Exception Type  : System.NullReferenceException
+              Exception Type  : Oracle.ManagedDataAccess.Client.OracleException
       
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+              Exception Message : ORA-01476: el divisor es igual a cero
      
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360 
+              Inner Exception  : Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-01476: el divisor es igual a cero
+   en OracleInternal.ServiceObjects.OracleDataReaderImpl.FetchMoreRows(Int32 noOfRowsToFetch, Boolean fillReader, Boolean returnPSTypes)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.Read()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5878
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 454 
  
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360
+              Stack Trace   :    en OracleInternal.ServiceObjects.OracleDataReaderImpl.FetchMoreRows(Int32 noOfRowsToFetch, Boolean fillReader, Boolean returnPSTypes)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.Read()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5878
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 454
         
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              Additional Info  : ORA-01476: el divisor es igual a cero  
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-10-26 10:28:23.5914) --------------------------    
+     ---------------------------- Error(2018-11-19 17:17:46.9918) --------------------------    
               Machine Name  : CCEDILLO
    
-              Exception Type  : System.NullReferenceException
+              Exception Type  : Oracle.ManagedDataAccess.Client.OracleException
       
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+              Exception Message : ORA-01476: el divisor es igual a cero
      
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360 
+              Inner Exception  : Oracle.ManagedDataAccess.Client.OracleException (0x80004005): ORA-01476: el divisor es igual a cero
+   en OracleInternal.ServiceObjects.OracleDataReaderImpl.FetchMoreRows(Int32 noOfRowsToFetch, Boolean fillReader, Boolean returnPSTypes)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.Read()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5878
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 454 
  
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360
+              Stack Trace   :    en OracleInternal.ServiceObjects.OracleDataReaderImpl.FetchMoreRows(Int32 noOfRowsToFetch, Boolean fillReader, Boolean returnPSTypes)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.Read()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5878
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 454
         
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-10-26 10:34:04.1074) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360 
- 
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360
-        
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-10-26 10:35:00.6814) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360 
- 
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360
-        
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-10-26 11:06:24.6894) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360 
- 
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360
-        
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-10-26 11:06:52.7644) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360 
- 
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360
-        
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-10-26 11:09:37.3614) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360 
- 
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360
-        
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-10-26 11:09:47.1414) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360 
- 
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360
-        
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-10-26 11:09:55.4014) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360 
- 
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360
-        
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-10-26 11:10:00.4324) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360 
- 
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360
-        
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-10-26 11:10:24.5754) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360 
- 
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360
-        
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-10-26 11:11:09.5294) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360 
- 
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360
-        
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-10-26 11:11:15.9274) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360 
- 
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360
-        
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-10-26 11:11:21.5744) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360 
- 
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360
-        
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-10-26 11:11:27.1444) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360 
- 
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360
-        
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-10-26 11:11:52.1874) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360 
- 
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360
-        
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-10-26 11:12:02.7854) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360 
- 
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360
-        
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-10-26 11:12:06.0734) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360 
- 
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360
-        
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-10-26 11:12:23.6474) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360 
- 
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360
-        
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-10-26 11:13:41.9184) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360 
- 
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360
-        
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-10-26 11:13:49.0524) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360 
- 
-              Stack Trace   :    en Proveduria.Controllers.MovimientoController.Movimiento(Int32 id) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\MovimientoController.cs:línea 360
-        
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              Additional Info  : ORA-01476: el divisor es igual a cero  
               -------------------------------------------------------------------
               ----------     
      

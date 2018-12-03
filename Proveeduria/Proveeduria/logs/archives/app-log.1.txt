@@ -1,4 +1,4 @@
-     ---------------------------- Error(2018-11-27 12:06:56.5742) --------------------------    
+     ---------------------------- Error(2018-11-28 08:41:24.7293) --------------------------    
               Machine Name  : CCEDILLO
    
               Exception Type  : System.NullReferenceException
@@ -24,7 +24,7 @@
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-11-27 12:06:57.2219) --------------------------    
+     ---------------------------- Error(2018-11-28 08:41:25.6934) --------------------------    
               Machine Name  : CCEDILLO
    
               Exception Type  : System.NullReferenceException
@@ -50,7 +50,7 @@
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-11-27 12:06:56.6501) --------------------------    
+     ---------------------------- Error(2018-11-28 08:57:29.9028) --------------------------    
               Machine Name  : CCEDILLO
    
               Exception Type  : System.NullReferenceException
@@ -76,7 +76,7 @@
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-11-27 12:12:59.1192) --------------------------    
+     ---------------------------- Error(2018-11-28 08:57:30.1788) --------------------------    
               Machine Name  : CCEDILLO
    
               Exception Type  : System.NullReferenceException
@@ -102,7 +102,135 @@
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-11-27 12:12:59.2621) --------------------------    
+     ---------------------------- Error(2018-11-28 08:57:39.0947) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : CrystalDecisions.CrystalReports.Engine.ParameterFieldCurrentValueException
+      
+              Exception Message : Faltan los valores del parámetro.
+     
+              Inner Exception  : CrystalDecisions.CrystalReports.Engine.ParameterFieldCurrentValueException: Faltan los valores del parámetro. ---> System.Runtime.InteropServices.COMException: Faltan los valores del parámetro.
+   en CrystalDecisions.ReportAppServer.Controllers.ReportSourceClass.Export(ExportOptions pExportOptions, RequestContext pRequestContext)
+   en CrystalDecisions.ReportSource.EromReportSourceBase.ExportToStream(ExportRequestContext reqContext)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en CrystalDecisions.ReportAppServer.ConvertDotNetToErom.ThrowDotNetException(Exception e)
+   en CrystalDecisions.ReportSource.EromReportSourceBase.ExportToStream(ExportRequestContext reqContext)
+   en CrystalDecisions.CrystalReports.Engine.FormatEngine.ExportToStream(ExportRequestContext reqContext)
+   en CrystalDecisions.CrystalReports.Engine.ReportDocument.ExportToStream(ExportOptions options)
+   en CrystalDecisions.CrystalReports.Engine.ReportDocument.ExportToStream(ExportFormatType formatType)
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 466 
+System.Runtime.InteropServices.COMException (0x8004100E): Faltan los valores del parámetro.
+   en CrystalDecisions.ReportAppServer.Controllers.ReportSourceClass.Export(ExportOptions pExportOptions, RequestContext pRequestContext)
+   en CrystalDecisions.ReportSource.EromReportSourceBase.ExportToStream(ExportRequestContext reqContext) 
+ 
+              Stack Trace   :    en CrystalDecisions.ReportAppServer.ConvertDotNetToErom.ThrowDotNetException(Exception e)
+   en CrystalDecisions.ReportSource.EromReportSourceBase.ExportToStream(ExportRequestContext reqContext)
+   en CrystalDecisions.CrystalReports.Engine.FormatEngine.ExportToStream(ExportRequestContext reqContext)
+   en CrystalDecisions.CrystalReports.Engine.ReportDocument.ExportToStream(ExportOptions options)
+   en CrystalDecisions.CrystalReports.Engine.ReportDocument.ExportToStream(ExportFormatType formatType)
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 466
+        
+              Additional Info  : Faltan los valores del parámetro.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-28 08:57:45.5234) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : CrystalDecisions.CrystalReports.Engine.ParameterFieldCurrentValueException
+      
+              Exception Message : Faltan los valores del parámetro.
+     
+              Inner Exception  : CrystalDecisions.CrystalReports.Engine.ParameterFieldCurrentValueException: Faltan los valores del parámetro. ---> System.Runtime.InteropServices.COMException: Faltan los valores del parámetro.
+   en CrystalDecisions.ReportAppServer.Controllers.ReportSourceClass.Export(ExportOptions pExportOptions, RequestContext pRequestContext)
+   en CrystalDecisions.ReportSource.EromReportSourceBase.ExportToStream(ExportRequestContext reqContext)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en CrystalDecisions.ReportAppServer.ConvertDotNetToErom.ThrowDotNetException(Exception e)
+   en CrystalDecisions.ReportSource.EromReportSourceBase.ExportToStream(ExportRequestContext reqContext)
+   en CrystalDecisions.CrystalReports.Engine.FormatEngine.ExportToStream(ExportRequestContext reqContext)
+   en CrystalDecisions.CrystalReports.Engine.ReportDocument.ExportToStream(ExportOptions options)
+   en CrystalDecisions.CrystalReports.Engine.ReportDocument.ExportToStream(ExportFormatType formatType)
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 466 
+System.Runtime.InteropServices.COMException (0x8004100E): Faltan los valores del parámetro.
+   en CrystalDecisions.ReportAppServer.Controllers.ReportSourceClass.Export(ExportOptions pExportOptions, RequestContext pRequestContext)
+   en CrystalDecisions.ReportSource.EromReportSourceBase.ExportToStream(ExportRequestContext reqContext) 
+ 
+              Stack Trace   :    en CrystalDecisions.ReportAppServer.ConvertDotNetToErom.ThrowDotNetException(Exception e)
+   en CrystalDecisions.ReportSource.EromReportSourceBase.ExportToStream(ExportRequestContext reqContext)
+   en CrystalDecisions.CrystalReports.Engine.FormatEngine.ExportToStream(ExportRequestContext reqContext)
+   en CrystalDecisions.CrystalReports.Engine.ReportDocument.ExportToStream(ExportOptions options)
+   en CrystalDecisions.CrystalReports.Engine.ReportDocument.ExportToStream(ExportFormatType formatType)
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 466
+        
+              Additional Info  : Faltan los valores del parámetro.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-28 08:57:51.9110) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : CrystalDecisions.CrystalReports.Engine.ParameterFieldCurrentValueException
+      
+              Exception Message : Faltan los valores del parámetro.
+     
+              Inner Exception  : CrystalDecisions.CrystalReports.Engine.ParameterFieldCurrentValueException: Faltan los valores del parámetro. ---> System.Runtime.InteropServices.COMException: Faltan los valores del parámetro.
+   en CrystalDecisions.ReportAppServer.Controllers.ReportSourceClass.Export(ExportOptions pExportOptions, RequestContext pRequestContext)
+   en CrystalDecisions.ReportSource.EromReportSourceBase.ExportToStream(ExportRequestContext reqContext)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en CrystalDecisions.ReportAppServer.ConvertDotNetToErom.ThrowDotNetException(Exception e)
+   en CrystalDecisions.ReportSource.EromReportSourceBase.ExportToStream(ExportRequestContext reqContext)
+   en CrystalDecisions.CrystalReports.Engine.FormatEngine.ExportToStream(ExportRequestContext reqContext)
+   en CrystalDecisions.CrystalReports.Engine.ReportDocument.ExportToStream(ExportOptions options)
+   en CrystalDecisions.CrystalReports.Engine.ReportDocument.ExportToStream(ExportFormatType formatType)
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 466 
+System.Runtime.InteropServices.COMException (0x8004100E): Faltan los valores del parámetro.
+   en CrystalDecisions.ReportAppServer.Controllers.ReportSourceClass.Export(ExportOptions pExportOptions, RequestContext pRequestContext)
+   en CrystalDecisions.ReportSource.EromReportSourceBase.ExportToStream(ExportRequestContext reqContext) 
+ 
+              Stack Trace   :    en CrystalDecisions.ReportAppServer.ConvertDotNetToErom.ThrowDotNetException(Exception e)
+   en CrystalDecisions.ReportSource.EromReportSourceBase.ExportToStream(ExportRequestContext reqContext)
+   en CrystalDecisions.CrystalReports.Engine.FormatEngine.ExportToStream(ExportRequestContext reqContext)
+   en CrystalDecisions.CrystalReports.Engine.ReportDocument.ExportToStream(ExportOptions options)
+   en CrystalDecisions.CrystalReports.Engine.ReportDocument.ExportToStream(ExportFormatType formatType)
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 466
+        
+              Additional Info  : Faltan los valores del parámetro.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-28 08:58:45.1233) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : CrystalDecisions.CrystalReports.Engine.ParameterFieldCurrentValueException
+      
+              Exception Message : Faltan los valores del parámetro.
+     
+              Inner Exception  : CrystalDecisions.CrystalReports.Engine.ParameterFieldCurrentValueException: Faltan los valores del parámetro. ---> System.Runtime.InteropServices.COMException: Faltan los valores del parámetro.
+   en CrystalDecisions.ReportAppServer.Controllers.ReportSourceClass.Export(ExportOptions pExportOptions, RequestContext pRequestContext)
+   en CrystalDecisions.ReportSource.EromReportSourceBase.ExportToStream(ExportRequestContext reqContext)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en CrystalDecisions.ReportAppServer.ConvertDotNetToErom.ThrowDotNetException(Exception e)
+   en CrystalDecisions.ReportSource.EromReportSourceBase.ExportToStream(ExportRequestContext reqContext)
+   en CrystalDecisions.CrystalReports.Engine.FormatEngine.ExportToStream(ExportRequestContext reqContext)
+   en CrystalDecisions.CrystalReports.Engine.ReportDocument.ExportToStream(ExportOptions options)
+   en CrystalDecisions.CrystalReports.Engine.ReportDocument.ExportToStream(ExportFormatType formatType)
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 466 
+System.Runtime.InteropServices.COMException (0x8004100E): Faltan los valores del parámetro.
+   en CrystalDecisions.ReportAppServer.Controllers.ReportSourceClass.Export(ExportOptions pExportOptions, RequestContext pRequestContext)
+   en CrystalDecisions.ReportSource.EromReportSourceBase.ExportToStream(ExportRequestContext reqContext) 
+ 
+              Stack Trace   :    en CrystalDecisions.ReportAppServer.ConvertDotNetToErom.ThrowDotNetException(Exception e)
+   en CrystalDecisions.ReportSource.EromReportSourceBase.ExportToStream(ExportRequestContext reqContext)
+   en CrystalDecisions.CrystalReports.Engine.FormatEngine.ExportToStream(ExportRequestContext reqContext)
+   en CrystalDecisions.CrystalReports.Engine.ReportDocument.ExportToStream(ExportOptions options)
+   en CrystalDecisions.CrystalReports.Engine.ReportDocument.ExportToStream(ExportFormatType formatType)
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 466
+        
+              Additional Info  : Faltan los valores del parámetro.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-28 08:59:43.6532) --------------------------    
               Machine Name  : CCEDILLO
    
               Exception Type  : System.NullReferenceException
@@ -128,7 +256,7 @@
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-11-27 12:19:34.0147) --------------------------    
+     ---------------------------- Error(2018-11-28 08:59:43.8282) --------------------------    
               Machine Name  : CCEDILLO
    
               Exception Type  : System.NullReferenceException
@@ -154,7 +282,71 @@
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-11-27 12:19:34.5136) --------------------------    
+     ---------------------------- Error(2018-11-28 09:00:11.8260) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : CrystalDecisions.CrystalReports.Engine.ParameterFieldCurrentValueException
+      
+              Exception Message : Faltan los valores del parámetro.
+     
+              Inner Exception  : CrystalDecisions.CrystalReports.Engine.ParameterFieldCurrentValueException: Faltan los valores del parámetro. ---> System.Runtime.InteropServices.COMException: Faltan los valores del parámetro.
+   en CrystalDecisions.ReportAppServer.Controllers.ReportSourceClass.Export(ExportOptions pExportOptions, RequestContext pRequestContext)
+   en CrystalDecisions.ReportSource.EromReportSourceBase.ExportToStream(ExportRequestContext reqContext)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en CrystalDecisions.ReportAppServer.ConvertDotNetToErom.ThrowDotNetException(Exception e)
+   en CrystalDecisions.ReportSource.EromReportSourceBase.ExportToStream(ExportRequestContext reqContext)
+   en CrystalDecisions.CrystalReports.Engine.FormatEngine.ExportToStream(ExportRequestContext reqContext)
+   en CrystalDecisions.CrystalReports.Engine.ReportDocument.ExportToStream(ExportOptions options)
+   en CrystalDecisions.CrystalReports.Engine.ReportDocument.ExportToStream(ExportFormatType formatType)
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 466 
+System.Runtime.InteropServices.COMException (0x8004100E): Faltan los valores del parámetro.
+   en CrystalDecisions.ReportAppServer.Controllers.ReportSourceClass.Export(ExportOptions pExportOptions, RequestContext pRequestContext)
+   en CrystalDecisions.ReportSource.EromReportSourceBase.ExportToStream(ExportRequestContext reqContext) 
+ 
+              Stack Trace   :    en CrystalDecisions.ReportAppServer.ConvertDotNetToErom.ThrowDotNetException(Exception e)
+   en CrystalDecisions.ReportSource.EromReportSourceBase.ExportToStream(ExportRequestContext reqContext)
+   en CrystalDecisions.CrystalReports.Engine.FormatEngine.ExportToStream(ExportRequestContext reqContext)
+   en CrystalDecisions.CrystalReports.Engine.ReportDocument.ExportToStream(ExportOptions options)
+   en CrystalDecisions.CrystalReports.Engine.ReportDocument.ExportToStream(ExportFormatType formatType)
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 466
+        
+              Additional Info  : Faltan los valores del parámetro.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-28 09:02:32.6501) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : CrystalDecisions.CrystalReports.Engine.ParameterFieldCurrentValueException
+      
+              Exception Message : Faltan los valores del parámetro.
+     
+              Inner Exception  : CrystalDecisions.CrystalReports.Engine.ParameterFieldCurrentValueException: Faltan los valores del parámetro. ---> System.Runtime.InteropServices.COMException: Faltan los valores del parámetro.
+   en CrystalDecisions.ReportAppServer.Controllers.ReportSourceClass.Export(ExportOptions pExportOptions, RequestContext pRequestContext)
+   en CrystalDecisions.ReportSource.EromReportSourceBase.ExportToStream(ExportRequestContext reqContext)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en CrystalDecisions.ReportAppServer.ConvertDotNetToErom.ThrowDotNetException(Exception e)
+   en CrystalDecisions.ReportSource.EromReportSourceBase.ExportToStream(ExportRequestContext reqContext)
+   en CrystalDecisions.CrystalReports.Engine.FormatEngine.ExportToStream(ExportRequestContext reqContext)
+   en CrystalDecisions.CrystalReports.Engine.ReportDocument.ExportToStream(ExportOptions options)
+   en CrystalDecisions.CrystalReports.Engine.ReportDocument.ExportToStream(ExportFormatType formatType)
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 466 
+System.Runtime.InteropServices.COMException (0x8004100E): Faltan los valores del parámetro.
+   en CrystalDecisions.ReportAppServer.Controllers.ReportSourceClass.Export(ExportOptions pExportOptions, RequestContext pRequestContext)
+   en CrystalDecisions.ReportSource.EromReportSourceBase.ExportToStream(ExportRequestContext reqContext) 
+ 
+              Stack Trace   :    en CrystalDecisions.ReportAppServer.ConvertDotNetToErom.ThrowDotNetException(Exception e)
+   en CrystalDecisions.ReportSource.EromReportSourceBase.ExportToStream(ExportRequestContext reqContext)
+   en CrystalDecisions.CrystalReports.Engine.FormatEngine.ExportToStream(ExportRequestContext reqContext)
+   en CrystalDecisions.CrystalReports.Engine.ReportDocument.ExportToStream(ExportOptions options)
+   en CrystalDecisions.CrystalReports.Engine.ReportDocument.ExportToStream(ExportFormatType formatType)
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 466
+        
+              Additional Info  : Faltan los valores del parámetro.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-28 09:04:10.6109) --------------------------    
               Machine Name  : CCEDILLO
    
               Exception Type  : System.NullReferenceException
@@ -180,7 +372,7 @@
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-11-27 12:28:54.5736) --------------------------    
+     ---------------------------- Error(2018-11-28 09:04:10.7959) --------------------------    
               Machine Name  : CCEDILLO
    
               Exception Type  : System.NullReferenceException
@@ -206,7 +398,39 @@
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-11-27 12:28:54.7346) --------------------------    
+     ---------------------------- Error(2018-11-28 09:04:23.6322) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : CrystalDecisions.CrystalReports.Engine.ParameterFieldCurrentValueException
+      
+              Exception Message : Faltan los valores del parámetro.
+     
+              Inner Exception  : CrystalDecisions.CrystalReports.Engine.ParameterFieldCurrentValueException: Faltan los valores del parámetro. ---> System.Runtime.InteropServices.COMException: Faltan los valores del parámetro.
+   en CrystalDecisions.ReportAppServer.Controllers.ReportSourceClass.Export(ExportOptions pExportOptions, RequestContext pRequestContext)
+   en CrystalDecisions.ReportSource.EromReportSourceBase.ExportToStream(ExportRequestContext reqContext)
+   --- Fin del seguimiento de la pila de la excepción interna ---
+   en CrystalDecisions.ReportAppServer.ConvertDotNetToErom.ThrowDotNetException(Exception e)
+   en CrystalDecisions.ReportSource.EromReportSourceBase.ExportToStream(ExportRequestContext reqContext)
+   en CrystalDecisions.CrystalReports.Engine.FormatEngine.ExportToStream(ExportRequestContext reqContext)
+   en CrystalDecisions.CrystalReports.Engine.ReportDocument.ExportToStream(ExportOptions options)
+   en CrystalDecisions.CrystalReports.Engine.ReportDocument.ExportToStream(ExportFormatType formatType)
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 466 
+System.Runtime.InteropServices.COMException (0x8004100E): Faltan los valores del parámetro.
+   en CrystalDecisions.ReportAppServer.Controllers.ReportSourceClass.Export(ExportOptions pExportOptions, RequestContext pRequestContext)
+   en CrystalDecisions.ReportSource.EromReportSourceBase.ExportToStream(ExportRequestContext reqContext) 
+ 
+              Stack Trace   :    en CrystalDecisions.ReportAppServer.ConvertDotNetToErom.ThrowDotNetException(Exception e)
+   en CrystalDecisions.ReportSource.EromReportSourceBase.ExportToStream(ExportRequestContext reqContext)
+   en CrystalDecisions.CrystalReports.Engine.FormatEngine.ExportToStream(ExportRequestContext reqContext)
+   en CrystalDecisions.CrystalReports.Engine.ReportDocument.ExportToStream(ExportOptions options)
+   en CrystalDecisions.CrystalReports.Engine.ReportDocument.ExportToStream(ExportFormatType formatType)
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 466
+        
+              Additional Info  : Faltan los valores del parámetro.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-28 09:09:20.8789) --------------------------    
               Machine Name  : CCEDILLO
    
               Exception Type  : System.NullReferenceException
@@ -232,7 +456,7 @@
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-11-27 12:37:50.5156) --------------------------    
+     ---------------------------- Error(2018-11-28 09:09:21.0619) --------------------------    
               Machine Name  : CCEDILLO
    
               Exception Type  : System.NullReferenceException
@@ -258,7 +482,55 @@
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-11-27 12:37:50.7696) --------------------------    
+     ---------------------------- Error(2018-11-28 09:09:30.4289) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.Runtime.InteropServices.COMException
+      
+              Exception Message : El índice no es válido. (Excepción de HRESULT: 0x8002000B (DISP_E_BADINDEX))
+     
+              Inner Exception  : System.Runtime.InteropServices.COMException (0x8002000B): El índice no es válido. (Excepción de HRESULT: 0x8002000B (DISP_E_BADINDEX))
+   en CrystalDecisions.ReportAppServer.DataDefModel.FieldsClass.get_Item(Int32 Index)
+   en CrystalDecisions.CrystalReports.Engine.ParameterFieldDefinitions.get_Item(Int32 index)
+   en CrystalDecisions.CrystalReports.Engine.ParameterFieldDefinitions.get_Item(String fieldName)
+   en CrystalDecisions.CrystalReports.Engine.ReportDocument.SetParameterValue(String name, Object val)
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 459 
+ 
+              Stack Trace   :    en CrystalDecisions.ReportAppServer.DataDefModel.FieldsClass.get_Item(Int32 Index)
+   en CrystalDecisions.CrystalReports.Engine.ParameterFieldDefinitions.get_Item(Int32 index)
+   en CrystalDecisions.CrystalReports.Engine.ParameterFieldDefinitions.get_Item(String fieldName)
+   en CrystalDecisions.CrystalReports.Engine.ReportDocument.SetParameterValue(String name, Object val)
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 459
+        
+              Additional Info  : El índice no es válido. (Excepción de HRESULT: 0x8002000B (DISP_E_BADINDEX))  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-28 09:10:37.4536) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.Runtime.InteropServices.COMException
+      
+              Exception Message : El índice no es válido. (Excepción de HRESULT: 0x8002000B (DISP_E_BADINDEX))
+     
+              Inner Exception  : System.Runtime.InteropServices.COMException (0x8002000B): El índice no es válido. (Excepción de HRESULT: 0x8002000B (DISP_E_BADINDEX))
+   en CrystalDecisions.ReportAppServer.DataDefModel.FieldsClass.get_Item(Int32 Index)
+   en CrystalDecisions.CrystalReports.Engine.ParameterFieldDefinitions.get_Item(Int32 index)
+   en CrystalDecisions.CrystalReports.Engine.ParameterFieldDefinitions.get_Item(String fieldName)
+   en CrystalDecisions.CrystalReports.Engine.ReportDocument.SetParameterValue(String name, Object val)
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 459 
+ 
+              Stack Trace   :    en CrystalDecisions.ReportAppServer.DataDefModel.FieldsClass.get_Item(Int32 Index)
+   en CrystalDecisions.CrystalReports.Engine.ParameterFieldDefinitions.get_Item(Int32 index)
+   en CrystalDecisions.CrystalReports.Engine.ParameterFieldDefinitions.get_Item(String fieldName)
+   en CrystalDecisions.CrystalReports.Engine.ReportDocument.SetParameterValue(String name, Object val)
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 459
+        
+              Additional Info  : El índice no es válido. (Excepción de HRESULT: 0x8002000B (DISP_E_BADINDEX))  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-28 09:12:19.7698) --------------------------    
               Machine Name  : CCEDILLO
    
               Exception Type  : System.NullReferenceException
@@ -284,7 +556,7 @@
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-11-27 12:44:13.7626) --------------------------    
+     ---------------------------- Error(2018-11-28 09:12:20.4819) --------------------------    
               Machine Name  : CCEDILLO
    
               Exception Type  : System.NullReferenceException
@@ -310,163 +582,7 @@
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-11-27 12:44:14.2446) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.ItemController.<>c.<SearchItemsFiltro>b__5_6(<>f__AnonymousType7`2 <>h__TransparentIdentifier1) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 115
-   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
-   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 112 
- 
-              Stack Trace   :    en Proveduria.Controllers.ItemController.<>c.<SearchItemsFiltro>b__5_6(<>f__AnonymousType7`2 <>h__TransparentIdentifier1) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 115
-   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
-   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 112
-        
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-11-27 12:46:13.7776) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.ItemController.<>c.<SearchItemsFiltro>b__5_6(<>f__AnonymousType7`2 <>h__TransparentIdentifier1) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 115
-   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
-   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 112 
- 
-              Stack Trace   :    en Proveduria.Controllers.ItemController.<>c.<SearchItemsFiltro>b__5_6(<>f__AnonymousType7`2 <>h__TransparentIdentifier1) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 115
-   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
-   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 112
-        
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-11-27 12:46:13.9376) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.ItemController.<>c.<SearchItemsFiltro>b__5_6(<>f__AnonymousType7`2 <>h__TransparentIdentifier1) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 115
-   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
-   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 112 
- 
-              Stack Trace   :    en Proveduria.Controllers.ItemController.<>c.<SearchItemsFiltro>b__5_6(<>f__AnonymousType7`2 <>h__TransparentIdentifier1) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 115
-   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
-   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 112
-        
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-11-27 12:46:14.8466) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.ItemController.<>c.<SearchItemsFiltro>b__5_6(<>f__AnonymousType7`2 <>h__TransparentIdentifier1) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 115
-   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
-   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 112 
- 
-              Stack Trace   :    en Proveduria.Controllers.ItemController.<>c.<SearchItemsFiltro>b__5_6(<>f__AnonymousType7`2 <>h__TransparentIdentifier1) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 115
-   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
-   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 112
-        
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-11-27 12:47:37.9356) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.ItemController.<>c.<SearchItemsFiltro>b__5_6(<>f__AnonymousType7`2 <>h__TransparentIdentifier1) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 115
-   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
-   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 112 
- 
-              Stack Trace   :    en Proveduria.Controllers.ItemController.<>c.<SearchItemsFiltro>b__5_6(<>f__AnonymousType7`2 <>h__TransparentIdentifier1) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 115
-   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
-   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 112
-        
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-11-27 12:47:38.1026) --------------------------    
-              Machine Name  : CCEDILLO
-   
-              Exception Type  : System.NullReferenceException
-      
-              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
-     
-              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
-   en Proveduria.Controllers.ItemController.<>c.<SearchItemsFiltro>b__5_6(<>f__AnonymousType7`2 <>h__TransparentIdentifier1) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 115
-   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
-   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 112 
- 
-              Stack Trace   :    en Proveduria.Controllers.ItemController.<>c.<SearchItemsFiltro>b__5_6(<>f__AnonymousType7`2 <>h__TransparentIdentifier1) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 115
-   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
-   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
-   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
-   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
-   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 112
-        
-              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
-              -------------------------------------------------------------------
-              ----------     
-     
-     ---------------------------- Error(2018-11-27 15:08:44.6496) --------------------------    
+     ---------------------------- Error(2018-11-28 10:32:49.6357) --------------------------    
               Machine Name  : CCEDILLO
    
               Exception Type  : Oracle.ManagedDataAccess.Client.OracleException
@@ -487,7 +603,7 @@
    en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
    en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
    en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
-   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5878
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5923
    en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 454 
 OracleInternal.Network.NetworkException (0x80004005): ORA-12570: Sesión de Red: error de lectura de paquete inesperado ---> System.Net.Sockets.SocketException (0x80004005): Se produjo un error durante el intento de conexión ya que la parte conectada no respondió adecuadamente tras un periodo de tiempo, o bien se produjo un error en la conexión establecida ya que el host conectado no ha podido responder
    en System.Net.Sockets.Socket.Receive(Byte[] buffer, Int32 offset, Int32 size, SocketFlags socketFlags)
@@ -507,14 +623,204 @@ System.Net.Sockets.SocketException (0x80004005): Se produjo un error durante el 
    en Oracle.ManagedDataAccess.Client.OracleCommand.ExecuteReader(Boolean requery, Boolean fillRequest, CommandBehavior behavior)
    en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
    en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
-   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5878
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5923
    en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 454
         
               Additional Info  : ORA-12570: Sesión de Red: error de lectura de paquete inesperado  
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-11-27 16:38:50.8356) --------------------------    
+     ---------------------------- Error(2018-11-28 10:39:15.5063) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.InvalidCastException
+      
+              Exception Message : La conversión especificada no es válida.
+     
+              Inner Exception  : System.InvalidCastException: La conversión especificada no es válida.
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetDecimal(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValue(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.DataReaderContainer.CommonLanguageSubsetDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.SchemaMapping.LoadDataRow()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5923
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 454 
+ 
+              Stack Trace   :    en Oracle.ManagedDataAccess.Client.OracleDataReader.GetDecimal(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValue(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.DataReaderContainer.CommonLanguageSubsetDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.SchemaMapping.LoadDataRow()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5923
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 454
+        
+              Additional Info  : La conversión especificada no es válida.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-28 10:39:19.7197) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.InvalidCastException
+      
+              Exception Message : La conversión especificada no es válida.
+     
+              Inner Exception  : System.InvalidCastException: La conversión especificada no es válida.
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetDecimal(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValue(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.DataReaderContainer.CommonLanguageSubsetDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.SchemaMapping.LoadDataRow()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5923
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 454 
+ 
+              Stack Trace   :    en Oracle.ManagedDataAccess.Client.OracleDataReader.GetDecimal(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValue(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.DataReaderContainer.CommonLanguageSubsetDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.SchemaMapping.LoadDataRow()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5923
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 454
+        
+              Additional Info  : La conversión especificada no es válida.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-28 10:39:23.9542) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.InvalidCastException
+      
+              Exception Message : La conversión especificada no es válida.
+     
+              Inner Exception  : System.InvalidCastException: La conversión especificada no es válida.
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetDecimal(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValue(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.DataReaderContainer.CommonLanguageSubsetDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.SchemaMapping.LoadDataRow()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5923
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 454 
+ 
+              Stack Trace   :    en Oracle.ManagedDataAccess.Client.OracleDataReader.GetDecimal(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValue(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.DataReaderContainer.CommonLanguageSubsetDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.SchemaMapping.LoadDataRow()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5923
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 454
+        
+              Additional Info  : La conversión especificada no es válida.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-28 10:39:48.3636) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.InvalidCastException
+      
+              Exception Message : La conversión especificada no es válida.
+     
+              Inner Exception  : System.InvalidCastException: La conversión especificada no es válida.
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetDecimal(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValue(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.DataReaderContainer.CommonLanguageSubsetDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.SchemaMapping.LoadDataRow()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5923
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 454 
+ 
+              Stack Trace   :    en Oracle.ManagedDataAccess.Client.OracleDataReader.GetDecimal(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValue(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.DataReaderContainer.CommonLanguageSubsetDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.SchemaMapping.LoadDataRow()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5923
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 454
+        
+              Additional Info  : La conversión especificada no es válida.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-28 10:41:16.4464) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.InvalidCastException
+      
+              Exception Message : La conversión especificada no es válida.
+     
+              Inner Exception  : System.InvalidCastException: La conversión especificada no es válida.
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetDecimal(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValue(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.DataReaderContainer.CommonLanguageSubsetDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.SchemaMapping.LoadDataRow()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5923
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 454 
+ 
+              Stack Trace   :    en Oracle.ManagedDataAccess.Client.OracleDataReader.GetDecimal(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValue(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.DataReaderContainer.CommonLanguageSubsetDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.SchemaMapping.LoadDataRow()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5923
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 454
+        
+              Additional Info  : La conversión especificada no es válida.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-28 10:42:31.7419) --------------------------    
               Machine Name  : CCEDILLO
    
               Exception Type  : System.NullReferenceException
@@ -540,7 +846,7 @@ System.Net.Sockets.SocketException (0x80004005): Se produjo un error durante el 
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-11-27 16:38:51.3986) --------------------------    
+     ---------------------------- Error(2018-11-28 10:42:32.5800) --------------------------    
               Machine Name  : CCEDILLO
    
               Exception Type  : System.NullReferenceException
@@ -566,7 +872,83 @@ System.Net.Sockets.SocketException (0x80004005): Se produjo un error durante el 
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-11-27 16:52:47.4596) --------------------------    
+     ---------------------------- Error(2018-11-28 10:42:42.9731) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.InvalidCastException
+      
+              Exception Message : La conversión especificada no es válida.
+     
+              Inner Exception  : System.InvalidCastException: La conversión especificada no es válida.
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetDecimal(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValue(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.DataReaderContainer.CommonLanguageSubsetDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.SchemaMapping.LoadDataRow()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5923
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 454 
+ 
+              Stack Trace   :    en Oracle.ManagedDataAccess.Client.OracleDataReader.GetDecimal(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValue(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.DataReaderContainer.CommonLanguageSubsetDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.SchemaMapping.LoadDataRow()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5923
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 454
+        
+              Additional Info  : La conversión especificada no es válida.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-28 10:42:51.6409) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.InvalidCastException
+      
+              Exception Message : La conversión especificada no es válida.
+     
+              Inner Exception  : System.InvalidCastException: La conversión especificada no es válida.
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetDecimal(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValue(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.DataReaderContainer.CommonLanguageSubsetDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.SchemaMapping.LoadDataRow()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5923
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 454 
+ 
+              Stack Trace   :    en Oracle.ManagedDataAccess.Client.OracleDataReader.GetDecimal(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValue(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.DataReaderContainer.CommonLanguageSubsetDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.SchemaMapping.LoadDataRow()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5923
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 454
+        
+              Additional Info  : La conversión especificada no es válida.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-28 10:45:07.4425) --------------------------    
               Machine Name  : CCEDILLO
    
               Exception Type  : System.NullReferenceException
@@ -592,7 +974,7 @@ System.Net.Sockets.SocketException (0x80004005): Se produjo un error durante el 
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-11-27 16:52:48.0676) --------------------------    
+     ---------------------------- Error(2018-11-28 10:45:07.5935) --------------------------    
               Machine Name  : CCEDILLO
    
               Exception Type  : System.NullReferenceException
@@ -618,7 +1000,159 @@ System.Net.Sockets.SocketException (0x80004005): Se produjo un error durante el 
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-11-27 17:03:20.1766) --------------------------    
+     ---------------------------- Error(2018-11-28 10:45:18.0846) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.InvalidCastException
+      
+              Exception Message : La conversión especificada no es válida.
+     
+              Inner Exception  : System.InvalidCastException: La conversión especificada no es válida.
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetDecimal(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValue(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.DataReaderContainer.CommonLanguageSubsetDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.SchemaMapping.LoadDataRow()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5923
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 454 
+ 
+              Stack Trace   :    en Oracle.ManagedDataAccess.Client.OracleDataReader.GetDecimal(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValue(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.DataReaderContainer.CommonLanguageSubsetDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.SchemaMapping.LoadDataRow()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5923
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 454
+        
+              Additional Info  : La conversión especificada no es válida.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-28 10:45:27.9786) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.InvalidCastException
+      
+              Exception Message : La conversión especificada no es válida.
+     
+              Inner Exception  : System.InvalidCastException: La conversión especificada no es válida.
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetDecimal(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValue(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.DataReaderContainer.CommonLanguageSubsetDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.SchemaMapping.LoadDataRow()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5923
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 454 
+ 
+              Stack Trace   :    en Oracle.ManagedDataAccess.Client.OracleDataReader.GetDecimal(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValue(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.DataReaderContainer.CommonLanguageSubsetDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.SchemaMapping.LoadDataRow()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5923
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 454
+        
+              Additional Info  : La conversión especificada no es válida.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-28 10:50:50.3368) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.InvalidCastException
+      
+              Exception Message : La conversión especificada no es válida.
+     
+              Inner Exception  : System.InvalidCastException: La conversión especificada no es válida.
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetDecimal(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValue(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.DataReaderContainer.CommonLanguageSubsetDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.SchemaMapping.LoadDataRow()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5923
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 454 
+ 
+              Stack Trace   :    en Oracle.ManagedDataAccess.Client.OracleDataReader.GetDecimal(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValue(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.DataReaderContainer.CommonLanguageSubsetDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.SchemaMapping.LoadDataRow()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5923
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 454
+        
+              Additional Info  : La conversión especificada no es válida.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-28 10:51:09.9688) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.InvalidCastException
+      
+              Exception Message : La conversión especificada no es válida.
+     
+              Inner Exception  : System.InvalidCastException: La conversión especificada no es válida.
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetDecimal(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValue(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.DataReaderContainer.CommonLanguageSubsetDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.SchemaMapping.LoadDataRow()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5923
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 454 
+ 
+              Stack Trace   :    en Oracle.ManagedDataAccess.Client.OracleDataReader.GetDecimal(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValue(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.DataReaderContainer.CommonLanguageSubsetDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.SchemaMapping.LoadDataRow()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5923
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 454
+        
+              Additional Info  : La conversión especificada no es válida.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-28 10:52:25.3833) --------------------------    
               Machine Name  : CCEDILLO
    
               Exception Type  : System.NullReferenceException
@@ -644,7 +1178,201 @@ System.Net.Sockets.SocketException (0x80004005): Se produjo un error durante el 
               -------------------------------------------------------------------
               ----------     
      
-     ---------------------------- Error(2018-11-27 17:03:20.3486) --------------------------    
+     ---------------------------- Error(2018-11-28 10:52:25.5563) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.ItemController.<>c.<SearchItemsFiltro>b__5_6(<>f__AnonymousType7`2 <>h__TransparentIdentifier1) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 115
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 112 
+ 
+              Stack Trace   :    en Proveduria.Controllers.ItemController.<>c.<SearchItemsFiltro>b__5_6(<>f__AnonymousType7`2 <>h__TransparentIdentifier1) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 115
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 112
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-28 10:52:34.7342) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.InvalidCastException
+      
+              Exception Message : La conversión especificada no es válida.
+     
+              Inner Exception  : System.InvalidCastException: La conversión especificada no es válida.
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetDecimal(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValue(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.DataReaderContainer.CommonLanguageSubsetDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.SchemaMapping.LoadDataRow()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5923
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 454 
+ 
+              Stack Trace   :    en Oracle.ManagedDataAccess.Client.OracleDataReader.GetDecimal(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValue(Int32 i)
+   en Oracle.ManagedDataAccess.Client.OracleDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.DataReaderContainer.CommonLanguageSubsetDataReader.GetValues(Object[] values)
+   en System.Data.ProviderBase.SchemaMapping.LoadDataRow()
+   en System.Data.Common.DataAdapter.FillLoadDataRow(SchemaMapping mapping)
+   en System.Data.Common.DataAdapter.FillFromReader(DataSet dataset, DataTable datatable, String srcTable, DataReaderContainer dataReader, Int32 startRecord, Int32 maxRecords, DataColumn parentChapterColumn, Object parentChapterValue)
+   en System.Data.Common.DataAdapter.Fill(DataTable[] dataTables, IDataReader dataReader, Int32 startRecord, Int32 maxRecords)
+   en Oracle.ManagedDataAccess.Client.OracleDataAdapter.Fill(DataTable[] dataTables, Int32 startRecord, Int32 maxRecords, IDbCommand command, CommandBehavior behavior)
+   en System.Data.Common.DbDataAdapter.Fill(DataTable dataTable)
+   en Proveduria.Reports.DataSetReportsTableAdapters.SP_KARDEXTableAdapter.GetData(Nullable`1 SP_ID_ITEM, Nullable`1 SP_DESDE, Nullable`1 SP_HASTA, Object& INGRESO_DISPLAY) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Reports\DataSetReports.Designer.cs:línea 5923
+   en Proveduria.Controllers.ConsultaController.ExportPdfKardex(String pinicio, String pfin, Int32 pidItem) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ConsultaController.cs:línea 454
+        
+              Additional Info  : La conversión especificada no es válida.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-28 11:12:16.7524) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.ItemController.<>c.<SearchItemsFiltro>b__5_6(<>f__AnonymousType7`2 <>h__TransparentIdentifier1) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 115
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 112 
+ 
+              Stack Trace   :    en Proveduria.Controllers.ItemController.<>c.<SearchItemsFiltro>b__5_6(<>f__AnonymousType7`2 <>h__TransparentIdentifier1) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 115
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 112
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-28 11:12:16.8814) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.ItemController.<>c.<SearchItemsFiltro>b__5_6(<>f__AnonymousType7`2 <>h__TransparentIdentifier1) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 115
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 112 
+ 
+              Stack Trace   :    en Proveduria.Controllers.ItemController.<>c.<SearchItemsFiltro>b__5_6(<>f__AnonymousType7`2 <>h__TransparentIdentifier1) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 115
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 112
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-28 11:12:17.7685) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.ItemController.<>c.<SearchItemsFiltro>b__5_6(<>f__AnonymousType7`2 <>h__TransparentIdentifier1) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 115
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 112 
+ 
+              Stack Trace   :    en Proveduria.Controllers.ItemController.<>c.<SearchItemsFiltro>b__5_6(<>f__AnonymousType7`2 <>h__TransparentIdentifier1) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 115
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 112
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-28 12:28:44.8942) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.ItemController.<>c.<SearchItemsFiltro>b__5_6(<>f__AnonymousType7`2 <>h__TransparentIdentifier1) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 115
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 112 
+ 
+              Stack Trace   :    en Proveduria.Controllers.ItemController.<>c.<SearchItemsFiltro>b__5_6(<>f__AnonymousType7`2 <>h__TransparentIdentifier1) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 115
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 112
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-28 12:28:45.0322) --------------------------    
+              Machine Name  : CCEDILLO
+   
+              Exception Type  : System.NullReferenceException
+      
+              Exception Message : Referencia a objeto no establecida como instancia de un objeto.
+     
+              Inner Exception  : System.NullReferenceException: Referencia a objeto no establecida como instancia de un objeto.
+   en Proveduria.Controllers.ItemController.<>c.<SearchItemsFiltro>b__5_6(<>f__AnonymousType7`2 <>h__TransparentIdentifier1) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 115
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 112 
+ 
+              Stack Trace   :    en Proveduria.Controllers.ItemController.<>c.<SearchItemsFiltro>b__5_6(<>f__AnonymousType7`2 <>h__TransparentIdentifier1) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 115
+   en System.Linq.Enumerable.WhereSelectEnumerableIterator`2.MoveNext()
+   en System.Linq.Enumerable.<TakeIterator>d__24`1.MoveNext()
+   en System.Collections.Generic.List`1..ctor(IEnumerable`1 collection)
+   en System.Linq.Enumerable.ToList[TSource](IEnumerable`1 source)
+   en Proveduria.Controllers.ItemController.SearchItemsFiltro(String filtro, String pagina) en C:\Emapag\Produccion\Proveduria\Proveeduria\Proveeduria\Controllers\ItemController.cs:línea 112
+        
+              Additional Info  : Referencia a objeto no establecida como instancia de un objeto.  
+              -------------------------------------------------------------------
+              ----------     
+     
+     ---------------------------- Error(2018-11-28 12:33:11.7419) --------------------------    
               Machine Name  : CCEDILLO
    
               Exception Type  : System.NullReferenceException

@@ -149,14 +149,14 @@ namespace Proveduria.Controllers
                     ViewBag.usuario_solicita = (string)(from p in empleados where p.USUARIO == movimiento.USUARIO_SOLICITA select p.EMPLEADO).FirstOrDefault();
                     ViewBag.usuario_aprueba = movimiento.USUARIO_APRUEBA != null ? (from p in empleados where p.USUARIO == movimiento.USUARIO_APRUEBA select p.EMPLEADO).FirstOrDefault() : null;
                     ViewBag.usuario_autoriza = movimiento.USUARIO_AUTORIZA != null ?  (from p in empleados where p.USUARIO == movimiento.USUARIO_AUTORIZA select p.EMPLEADO).FirstOrDefault() : null;
-                    ViewBag.departamento_solicitud = unitOfWork.DireccionRepository.GetById(movimiento.ID_DIRECCION_SOLICITA).DESCRIPCION;
+                    ViewBag.direccion_solicitud = unitOfWork.DireccionRepository.GetById(movimiento.ID_DIRECCION_SOLICITA).DESCRIPCION;
                 }
                 else
                 {
                     movimiento = new EPRTA_MOVIMIENTO();
                     movimiento.ESTADO = "S";
                     movimiento.ID_DIRECCION_SOLICITA = Convert.ToByte(Session["id_direccion"]);
-                    ViewBag.departamento_solicitud = Session["departamento"];
+                    ViewBag.direccion_solicitud = Session["direccion"];
                 }
 
 

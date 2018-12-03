@@ -53,28 +53,24 @@ namespace Proveduria.Controllers
                             Session["usuario"] = empleado.USUARIO;
                             Session["nombre"] = empleado.EMPLEADO;
                             Session["id_direccion"] = empleado.DIRECCION_ID;
-                            Session["departamento"] = empleado.DIRECCION;
+                            Session["direccion"] = empleado.DIRECCION;
                             Session["usuario_jefe"] = empleado.USUARIO_JEFE_DEPARTAMENTO;
                             Session["bodega_id"] = 1;
                             Session["bodega"] = "BODEGA PROVEDURIA";
                         }
 
-                        try
-                        {
-                            var store = new UserStore<ApplicationUser>(new ApplicationDbContext());
-
-                            ApplicationUserManager _userManager = new ApplicationUserManager(store);
-
-                            var manger = _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
-
-                            var user = new ApplicationUser() { Email = model.UserName, UserName = model.UserName };
-
-                            var result = manger.Create(user, model.Password);
-                        }
-                        catch (System.Exception ex)
-                        {
-                            logger.Error(ex, ex.Message);
-                        }
+                        //try
+                        //{
+                        //    var store = new UserStore<ApplicationUser>(new ApplicationDbContext());
+                        //    ApplicationUserManager _userManager = new ApplicationUserManager(store);
+                        //    var manger = _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                        //    var user = new ApplicationUser() { Email = model.UserName, UserName = model.UserName };
+                        //    var result = manger.Create(user, model.Password);
+                        //}
+                        //catch (System.Exception ex)
+                        //{
+                        //    logger.Error(ex, ex.Message);
+                        //}
  
 
                         return RedirectToAction("Index", "Home");

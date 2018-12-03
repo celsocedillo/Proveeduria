@@ -802,6 +802,8 @@ namespace Proveduria.Reports {
             
             private global::System.Data.DataColumn columnSOLICITUD_REQ;
             
+            private global::System.Data.DataColumn columnDIRECCION;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public SP_EGRESO_BODEGADataTable() {
@@ -941,6 +943,14 @@ namespace Proveduria.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DIRECCIONColumn {
+                get {
+                    return this.columnDIRECCION;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -976,7 +986,7 @@ namespace Proveduria.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public SP_EGRESO_BODEGARow AddSP_EGRESO_BODEGARow(string BODEGA, string TIPO_MOVIMIENTO, string NUM_EGRESO, string USUARIO_SOLICITA, string OBSERVACION, System.DateTime FECHA_MOVIMIENTO, string CODIGO, double CANTIDAD_MOVIMIENTO, string UNIDAD, string ITEM, string EMPLEADO_SOLICITUD, System.DateTime FECHA_SOLICITUD, string SOLICITUD_REQ) {
+            public SP_EGRESO_BODEGARow AddSP_EGRESO_BODEGARow(string BODEGA, string TIPO_MOVIMIENTO, string NUM_EGRESO, string USUARIO_SOLICITA, string OBSERVACION, System.DateTime FECHA_MOVIMIENTO, string CODIGO, double CANTIDAD_MOVIMIENTO, string UNIDAD, string ITEM, string EMPLEADO_SOLICITUD, System.DateTime FECHA_SOLICITUD, string SOLICITUD_REQ, string DIRECCION) {
                 SP_EGRESO_BODEGARow rowSP_EGRESO_BODEGARow = ((SP_EGRESO_BODEGARow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         BODEGA,
@@ -991,7 +1001,8 @@ namespace Proveduria.Reports {
                         ITEM,
                         EMPLEADO_SOLICITUD,
                         FECHA_SOLICITUD,
-                        SOLICITUD_REQ};
+                        SOLICITUD_REQ,
+                        DIRECCION};
                 rowSP_EGRESO_BODEGARow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSP_EGRESO_BODEGARow);
                 return rowSP_EGRESO_BODEGARow;
@@ -1027,6 +1038,7 @@ namespace Proveduria.Reports {
                 this.columnEMPLEADO_SOLICITUD = base.Columns["EMPLEADO_SOLICITUD"];
                 this.columnFECHA_SOLICITUD = base.Columns["FECHA_SOLICITUD"];
                 this.columnSOLICITUD_REQ = base.Columns["SOLICITUD_REQ"];
+                this.columnDIRECCION = base.Columns["DIRECCION"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1058,6 +1070,8 @@ namespace Proveduria.Reports {
                 base.Columns.Add(this.columnFECHA_SOLICITUD);
                 this.columnSOLICITUD_REQ = new global::System.Data.DataColumn("SOLICITUD_REQ", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnSOLICITUD_REQ);
+                this.columnDIRECCION = new global::System.Data.DataColumn("DIRECCION", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDIRECCION);
                 this.columnBODEGA.MaxLength = 100;
                 this.columnTIPO_MOVIMIENTO.MaxLength = 50;
                 this.columnNUM_EGRESO.MaxLength = 83;
@@ -1071,6 +1085,8 @@ namespace Proveduria.Reports {
                 this.columnITEM.MaxLength = 300;
                 this.columnEMPLEADO_SOLICITUD.MaxLength = 123;
                 this.columnSOLICITUD_REQ.MaxLength = 83;
+                this.columnDIRECCION.AllowDBNull = false;
+                this.columnDIRECCION.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1768,8 +1784,6 @@ namespace Proveduria.Reports {
             
             private global::System.Data.DataColumn columnBODEGA;
             
-            private global::System.Data.DataColumn columnDEPARTAMENTO;
-            
             private global::System.Data.DataColumn columnOBSERVACION;
             
             private global::System.Data.DataColumn columnFECHA_SOLICITUD;
@@ -1791,6 +1805,8 @@ namespace Proveduria.Reports {
             private global::System.Data.DataColumn columnEMP_SOLICITA;
             
             private global::System.Data.DataColumn columnEMP_AUTORIZA;
+            
+            private global::System.Data.DataColumn columnDIRECCION;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
@@ -1838,14 +1854,6 @@ namespace Proveduria.Reports {
             public global::System.Data.DataColumn BODEGAColumn {
                 get {
                     return this.columnBODEGA;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public global::System.Data.DataColumn DEPARTAMENTOColumn {
-                get {
-                    return this.columnDEPARTAMENTO;
                 }
             }
             
@@ -1939,6 +1947,14 @@ namespace Proveduria.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public global::System.Data.DataColumn DIRECCIONColumn {
+                get {
+                    return this.columnDIRECCION;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1974,12 +1990,11 @@ namespace Proveduria.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public SP_REQUISICION_BODEGARow AddSP_REQUISICION_BODEGARow(string ORDEN, string BODEGA, string DEPARTAMENTO, string OBSERVACION, System.DateTime FECHA_SOLICITUD, System.DateTime FECHA_AUTORIZACION, System.DateTime FECHA_APROBACION, string ESTADO, string CODIGO, string ITEM, string UNIDAD, double CANTIDAD_MOVIMIENTO, string EMP_SOLICITA, string EMP_AUTORIZA) {
+            public SP_REQUISICION_BODEGARow AddSP_REQUISICION_BODEGARow(string ORDEN, string BODEGA, string OBSERVACION, System.DateTime FECHA_SOLICITUD, System.DateTime FECHA_AUTORIZACION, System.DateTime FECHA_APROBACION, string ESTADO, string CODIGO, string ITEM, string UNIDAD, double CANTIDAD_MOVIMIENTO, string EMP_SOLICITA, string EMP_AUTORIZA, string DIRECCION) {
                 SP_REQUISICION_BODEGARow rowSP_REQUISICION_BODEGARow = ((SP_REQUISICION_BODEGARow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         ORDEN,
                         BODEGA,
-                        DEPARTAMENTO,
                         OBSERVACION,
                         FECHA_SOLICITUD,
                         FECHA_AUTORIZACION,
@@ -1990,7 +2005,8 @@ namespace Proveduria.Reports {
                         UNIDAD,
                         CANTIDAD_MOVIMIENTO,
                         EMP_SOLICITA,
-                        EMP_AUTORIZA};
+                        EMP_AUTORIZA,
+                        DIRECCION};
                 rowSP_REQUISICION_BODEGARow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowSP_REQUISICION_BODEGARow);
                 return rowSP_REQUISICION_BODEGARow;
@@ -2015,7 +2031,6 @@ namespace Proveduria.Reports {
             internal void InitVars() {
                 this.columnORDEN = base.Columns["ORDEN"];
                 this.columnBODEGA = base.Columns["BODEGA"];
-                this.columnDEPARTAMENTO = base.Columns["DEPARTAMENTO"];
                 this.columnOBSERVACION = base.Columns["OBSERVACION"];
                 this.columnFECHA_SOLICITUD = base.Columns["FECHA_SOLICITUD"];
                 this.columnFECHA_AUTORIZACION = base.Columns["FECHA_AUTORIZACION"];
@@ -2027,6 +2042,7 @@ namespace Proveduria.Reports {
                 this.columnCANTIDAD_MOVIMIENTO = base.Columns["CANTIDAD_MOVIMIENTO"];
                 this.columnEMP_SOLICITA = base.Columns["EMP_SOLICITA"];
                 this.columnEMP_AUTORIZA = base.Columns["EMP_AUTORIZA"];
+                this.columnDIRECCION = base.Columns["DIRECCION"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -2036,8 +2052,6 @@ namespace Proveduria.Reports {
                 base.Columns.Add(this.columnORDEN);
                 this.columnBODEGA = new global::System.Data.DataColumn("BODEGA", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnBODEGA);
-                this.columnDEPARTAMENTO = new global::System.Data.DataColumn("DEPARTAMENTO", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnDEPARTAMENTO);
                 this.columnOBSERVACION = new global::System.Data.DataColumn("OBSERVACION", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnOBSERVACION);
                 this.columnFECHA_SOLICITUD = new global::System.Data.DataColumn("FECHA_SOLICITUD", typeof(global::System.DateTime), null, global::System.Data.MappingType.Element);
@@ -2060,10 +2074,10 @@ namespace Proveduria.Reports {
                 base.Columns.Add(this.columnEMP_SOLICITA);
                 this.columnEMP_AUTORIZA = new global::System.Data.DataColumn("EMP_AUTORIZA", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnEMP_AUTORIZA);
+                this.columnDIRECCION = new global::System.Data.DataColumn("DIRECCION", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnDIRECCION);
                 this.columnORDEN.MaxLength = 83;
                 this.columnBODEGA.MaxLength = 100;
-                this.columnDEPARTAMENTO.AllowDBNull = false;
-                this.columnDEPARTAMENTO.MaxLength = 255;
                 this.columnOBSERVACION.MaxLength = 500;
                 this.columnESTADO.MaxLength = 10;
                 this.columnCODIGO.AllowDBNull = false;
@@ -2073,6 +2087,8 @@ namespace Proveduria.Reports {
                 this.columnUNIDAD.MaxLength = 250;
                 this.columnEMP_SOLICITA.MaxLength = 123;
                 this.columnEMP_AUTORIZA.MaxLength = 123;
+                this.columnDIRECCION.AllowDBNull = false;
+                this.columnDIRECCION.MaxLength = 255;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -3407,6 +3423,17 @@ namespace Proveduria.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string DIRECCION {
+                get {
+                    return ((string)(this[this.tableSP_EGRESO_BODEGA.DIRECCIONColumn]));
+                }
+                set {
+                    this[this.tableSP_EGRESO_BODEGA.DIRECCIONColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public bool IsBODEGANull() {
                 return this.IsNull(this.tableSP_EGRESO_BODEGA.BODEGAColumn);
             }
@@ -4109,17 +4136,6 @@ namespace Proveduria.Reports {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
-            public string DEPARTAMENTO {
-                get {
-                    return ((string)(this[this.tableSP_REQUISICION_BODEGA.DEPARTAMENTOColumn]));
-                }
-                set {
-                    this[this.tableSP_REQUISICION_BODEGA.DEPARTAMENTOColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
             public string OBSERVACION {
                 get {
                     try {
@@ -4288,6 +4304,17 @@ namespace Proveduria.Reports {
                 }
                 set {
                     this[this.tableSP_REQUISICION_BODEGA.EMP_AUTORIZAColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "15.0.0.0")]
+            public string DIRECCION {
+                get {
+                    return ((string)(this[this.tableSP_REQUISICION_BODEGA.DIRECCIONColumn]));
+                }
+                set {
+                    this[this.tableSP_REQUISICION_BODEGA.DIRECCIONColumn] = value;
                 }
             }
             
@@ -5578,6 +5605,7 @@ namespace Proveduria.Reports.DataSetReportsTableAdapters {
             tableMapping.ColumnMappings.Add("EMPLEADO_SOLICITUD", "EMPLEADO_SOLICITUD");
             tableMapping.ColumnMappings.Add("FECHA_SOLICITUD", "FECHA_SOLICITUD");
             tableMapping.ColumnMappings.Add("SOLICITUD_REQ", "SOLICITUD_REQ");
+            tableMapping.ColumnMappings.Add("DIRECCION", "DIRECCION");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
@@ -6055,7 +6083,6 @@ namespace Proveduria.Reports.DataSetReportsTableAdapters {
             tableMapping.DataSetTable = "SP_REQUISICION_BODEGA";
             tableMapping.ColumnMappings.Add("ORDEN", "ORDEN");
             tableMapping.ColumnMappings.Add("BODEGA", "BODEGA");
-            tableMapping.ColumnMappings.Add("DEPARTAMENTO", "DEPARTAMENTO");
             tableMapping.ColumnMappings.Add("OBSERVACION", "OBSERVACION");
             tableMapping.ColumnMappings.Add("FECHA_SOLICITUD", "FECHA_SOLICITUD");
             tableMapping.ColumnMappings.Add("FECHA_AUTORIZACION", "FECHA_AUTORIZACION");
@@ -6067,6 +6094,7 @@ namespace Proveduria.Reports.DataSetReportsTableAdapters {
             tableMapping.ColumnMappings.Add("CANTIDAD_MOVIMIENTO", "CANTIDAD_MOVIMIENTO");
             tableMapping.ColumnMappings.Add("EMP_SOLICITA", "EMP_SOLICITA");
             tableMapping.ColumnMappings.Add("EMP_AUTORIZA", "EMP_AUTORIZA");
+            tableMapping.ColumnMappings.Add("DIRECCION", "DIRECCION");
             this._adapter.TableMappings.Add(tableMapping);
         }
         
