@@ -12,9 +12,11 @@ using ClosedXML.Excel;
 using System.Data;
 using NLog;
 using Newtonsoft.Json.Linq;
+using Proveduria.Utils;
 
 namespace Proveduria.Controllers
 {
+    [SessionTimeout]
     public class GrupoController : Controller
     {
         private UnitOfWork unitOfWork = new UnitOfWork();

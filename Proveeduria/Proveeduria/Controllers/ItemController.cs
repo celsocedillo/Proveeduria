@@ -8,10 +8,11 @@ using Proveduria.Repositories;
 using Newtonsoft.Json.Linq;
 using NLog;
 using Newtonsoft.Json;
-
+using Proveduria.Utils;
 
 namespace Proveduria.Controllers
 {
+    [SessionTimeout]
     public class ItemController : Controller
     {
         public static Usuario usuario;

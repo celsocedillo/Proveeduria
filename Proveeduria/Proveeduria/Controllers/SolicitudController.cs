@@ -15,9 +15,11 @@ using System.Data.SqlClient;
 using System.Data;
 using System.Net.Mime;
 using Proveduria.Reports.DataSetReportsTableAdapters;
+using Proveduria.Utils;
 
 namespace Proveduria.Controllers
 {
+    [SessionTimeout]
     public class SolicitudController : Controller
     {
 

@@ -19,6 +19,7 @@ using Proveduria.Utils;
 
 namespace Proveduria.Controllers
 {
+    [SessionTimeout]
     public class MovimientoController : Controller
     {
 

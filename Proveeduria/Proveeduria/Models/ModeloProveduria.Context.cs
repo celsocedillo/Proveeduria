@@ -40,5 +40,7 @@ namespace Proveduria.Models
         public virtual DbSet<VW_ORDEN_COMPRA_DETALLE> VW_ORDEN_COMPRA_DETALLE { get; set; }
         public virtual DbSet<VW_DIRECCION> VW_DIRECCION { get; set; }
         public virtual DbSet<ASPNETUSERS> ASPNETUSERS { get; set; }
+        public virtual DbSet<EPRTA_CIERRE_INVENTARIO> EPRTA_CIERRE_INVENTARIO { get; set; }
+        public virtual DbSet<EPRTA_CIERRE_INVENTARIO_DET> EPRTA_CIERRE_INVENTARIO_DET { get; set; }
     }
 }

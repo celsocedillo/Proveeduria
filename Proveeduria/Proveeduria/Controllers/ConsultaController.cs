@@ -14,9 +14,13 @@ using CrystalDecisions.CrystalReports.Engine;
 using Proveduria.Reports.DataSetReportsTableAdapters;
 using System.Web;
 using System.Net.Mime;
+using Proveduria.Utils;
+using Oracle.ManagedDataAccess;
+using Oracle.ManagedDataAccess.Client;
 
 namespace Proveduria.Controllers
 {
+    [SessionTimeout]
     public class ConsultaController : Controller
     {
 
@@ -363,6 +367,46 @@ namespace Proveduria.Controllers
             return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", "PuntosReOrden.xlsx");
         }
 
+        public ActionResult GetPuntoReOrden(DateTime pFechaInicio, DateTime pFechaFin)
+        {
+            DateTime mesAnterior = pFechaFin.AddMonths(-1);
+            DateTime primerDia = new DateTime(mesAnterior.Year, mesAnterior.Month, 1);
+            DateTime ultimoDia = primerDia.AddMonths(1).AddDays(-1);
+
+            JArray jArray = new JArray();
+            JObject enviar = new JObject();
+
+            var tmp = (from p in unitOfWork.ArticuloBodegaRepository.GetAll()
+                       select new
+                       {
+                           p.ID_ITEM,
+                           p.ID_BODEGA,
+                           CODIGO = p.EPRTA_ITEM.CODIGO,
+                           ITEM = p.EPRTA_ITEM.DESCRIPCION,
+                           p.CANTIDAD_MAXIMA,
+                           p.CANTIDAD_MINIMA,
+                           p.CANTIDAD_ACTUAL,
+                           p.CANTIDAD_CRITICA,
+                           p.CANTIDAD_INICIO,
+                           USADO = ((from u in unitOfWork.MovimientoDetalleRepository.Where(u => u.ID_ITEM == p.ID_ITEM && u.EPRTA_MOVIMIENTO.EPRTA_TIPO_MOVIMIENTO.INGRESO_EGRESO == "E"
+                                                                                            && (u.EPRTA_MOVIMIENTO.FECHA_APROBACION >= pFechaInicio
+                                                                                                && u.EPRTA_MOVIMIENTO.FECHA_APROBACION <= pFechaFin)
+                                                                                          )
+                                    group u by u.ID_ITEM into su
+                                    select new { USADO = su.Sum(x => x.CANTIDAD_MOVIMIENTO) ?? 0  }).FirstOrDefault()?.USADO) ?? 0,
+                           MES_ANTERIOR = ((from u in unitOfWork.MovimientoDetalleRepository.Where(u => u.ID_ITEM == p.ID_ITEM && u.EPRTA_MOVIMIENTO.EPRTA_TIPO_MOVIMIENTO.INGRESO_EGRESO == "E"
+                                                                                            && (u.EPRTA_MOVIMIENTO.FECHA_APROBACION >= primerDia
+                                                                                                && u.EPRTA_MOVIMIENTO.FECHA_APROBACION <= ultimoDia)
+                                                                                          )
+                                            group u by u.ID_ITEM into su
+                                            select new { USADO = su.Sum(x => x.CANTIDAD_MOVIMIENTO) ?? 0 }).FirstOrDefault()?.USADO) ?? 0,
+
+                       }).ToList();
+            enviar.Add("resultado", "success");
+            enviar.Add("data", JArray.FromObject(tmp));
+            return Content(enviar.ToString(), "application/json");
+        }
+
         /*Kardex*/
 
         public ActionResult Kardex()
@@ -431,6 +475,120 @@ namespace Proveduria.Controllers
             return Content(total.ToString(), "application/json");
         }
 
+        [HttpGet]
+        public ActionResult ListaCierreInventario()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult GetListaCierres()
+        {
+            JArray jArray = new JArray();
+            JObject enviar = new JObject();
+
+            try
+            {
+                var tmp = (from p in unitOfWork.CierreInventarioRepository.GetAll().OrderByDescending(x => x.FECHA_CIERRE)
+                           select new {
+                               BODEGA = p.EPRTA_BODEGA.NOMBRE,
+                               FECHA_CIERRE = p.FECHA_CIERRE.HasValue ? p.FECHA_CIERRE.Value.ToString("dd/MM/yyyy") : null,
+                               p.NUMERO_ITEMS,
+                               p.TOTAL_CIERRE,
+                               ACCION = "<a href='/Consulta/CierreInventario/" + p.ID_CIERRE + "' class='text-inverse' data-toggle='tooltip' title='Modificar'>" +
+                                            "<i class='fa fa-search' aria-hidden='true'></i>" +
+                                            "</a>"
+                           }).ToList();
+                enviar.Add("resultado", "success");
+                enviar.Add("data", JArray.FromObject(tmp));
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, ex.Message);
+            }
+            return Content(enviar.ToString(), "application/json");
+        }
+
+        [HttpGet]
+        public ActionResult CierreInventario(int id)
+        {
+            EPRTA_CIERRE_INVENTARIO cierre = null;
+            JObject retorno = new JObject();
+            if (id > 0)
+            {
+                cierre = unitOfWork.CierreInventarioRepository.GetById(id);
+                //var tmp = new { FECHA_CIERRE = cierre.FECHA_CIERRE,
+                //    DETALLLE = (from t in cierre.EPRTA_CIERRE_INVENTARIO_DET select new {
+                //        CODIGO = t.EPRTA_ITEM.CODIGO,
+                //        ITEM = t.EPRTA_ITEM.DESCRIPCION,
+                //        t.CANTIDAD_ACTUAL,
+                //        t.COSTO_PROMEDIO,
+                //        }).ToList()};
+                //retorno.Add("resultado", "success");
+                //retorno.Add("data", JObject.FromObject(tmp));
+            }
+            else
+            {
+                cierre = new EPRTA_CIERRE_INVENTARIO();
+                cierre.FECHA_CIERRE = DateTime.Now;
+                cierre.ID_CIERRE = 0;
+            }
+            //return Content(retorno.ToString(), "application/json");
+            return View(cierre);
+        }
+
+        public ActionResult GenerarCorteInventario()
+        {
+            JObject enviar = new JObject();
+            Int32 pid_cierre= 0;
+            
+            using (OracleConnection con = new OracleConnection(System.Configuration.ConfigurationManager.ConnectionStrings["ConnectionStringReports"].ConnectionString.ToString()))
+            {
+                
+                OracleCommand oc = new OracleCommand();
+                oc.Connection = con;
+              
+                oc.CommandText = @"eprpr_genera_corte_inventario";
+                oc.CommandType = CommandType.StoredProcedure;
+                oc.Parameters.Add("pusuario", OracleDbType.Varchar2).Value = Session["usuario"];
+                oc.Parameters.Add("pid_bodega", OracleDbType.Int16).Value = Session["bodega_id"];
+                oc.Parameters.Add("pid_cierre", OracleDbType.Int32).Direction = ParameterDirection.Output;
+
+                try
+                {
+                    con.Open();
+                    oc.ExecuteNonQuery();
+                    OracleDataAdapter da = new OracleDataAdapter(oc);
+                    pid_cierre = Int32.Parse(oc.Parameters["pid_cierre"].Value.ToString());
+                    EPRTA_CIERRE_INVENTARIO cierre = unitOfWork.CierreInventarioRepository.GetById(pid_cierre);
+                    var tmp = new { FECHA_CIERRE = cierre.FECHA_CIERRE,
+                                    USUARIO_CIERRE = cierre.USUARIO_CIERRE,
+                                    DETALLE = (from p in cierre.EPRTA_CIERRE_INVENTARIO_DET
+                                               select new { p.EPRTA_ITEM.CODIGO,
+                                                            ITEM = p.EPRTA_ITEM.DESCRIPCION,
+                                                            p.COSTO_PROMEDIO,
+                                                            p.CANTIDAD_ACTUAL,
+                                                            p.CANTIDAD_BAJA,
+                                                            p.CANTIDAD_CRITICA,
+                                                            p.CANTIDAD_INICIO,
+                                                            p.CANTIDAD_MAXIMA,
+                                                            p.CANTIDAD_MINIMA,
+                                                            p.CANTIDAD_OC
+                                               })};
+                    enviar.Add("resultado", "success");
+                    enviar.Add("data", JObject.FromObject(tmp));
+                }
+                catch (Exception ex)
+                {
+                    enviar.Add("resultado", "error");
+                    enviar.Add("data", null);
+                    enviar.Add("mensaje", ex.ToString());
+                    System.Console.WriteLine("Exception: {0}", ex.ToString());
+                }
+                con.Close();
+            }
+            return Content(enviar.ToString(), "application/json");
+        }
 
         [HttpGet]
         public FileResult ExportPdfKardex(string pinicio, string pfin, int pidItem)

@@ -16,9 +16,11 @@ using CrystalDecisions.CrystalReports.Engine;
 using System.Data.SqlClient;
 using Proveduria.Reports.DataSetReportsTableAdapters;
 using ClosedXML.Excel;
+using Proveduria.Utils;
 
 namespace Proveduria.Controllers
 {
+    [SessionTimeout]
     public class BodegaController : Controller
     {
         private UnitOfWork unitOfWork = new UnitOfWork();

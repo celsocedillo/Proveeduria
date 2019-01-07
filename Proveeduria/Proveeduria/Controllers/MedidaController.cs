@@ -16,9 +16,11 @@ using Proveduria.Reports.DataSetReportsTableAdapters;
 using System.Data;
 using CrystalDecisions.CrystalReports.Engine;
 using ClosedXML.Excel;
+using Proveduria.Utils;
 
 namespace Proveduria.Controllers
 {
+    [SessionTimeout]
     public class MedidaController : Controller
     {
         private UnitOfWork unitOfWork = new UnitOfWork();

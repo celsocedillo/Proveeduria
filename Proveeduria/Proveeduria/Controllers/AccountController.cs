@@ -20,8 +20,8 @@ namespace Proveduria.Controllers
     {
         private UnitOfWork unitOfWork = new UnitOfWork();
         private static Logger logger = LogManager.GetCurrentClassLogger();
-        private ApplicationSignInManager _signInManager;
-        private ApplicationUserManager _userManager;
+        //private ApplicationSignInManager _signInManager;
+        //private ApplicationUserManager _userManager;
         #region methods
 
         public ActionResult LogOn()
@@ -102,18 +102,18 @@ namespace Proveduria.Controllers
             return View(model);
         }
 
-        public ApplicationUserManager UserManager
-        {
-            get
-            {
+        //public ApplicationUserManager UserManager
+        //{
+        //    get
+        //    {
 
-                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
-            }
-            private set
-            {
-                _userManager = value;
-            }
-        }
+        //        return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+        //    }
+        //    private set
+        //    {
+        //        _userManager = value;
+        //    }
+        //}
 
         //[HttpPost]
         //[AllowAnonymous]

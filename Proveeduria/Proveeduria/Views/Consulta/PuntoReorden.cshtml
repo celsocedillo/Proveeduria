@@ -12,71 +12,57 @@
 </section>
 
 <!-- begin panel -->
-<div class="panel panel-inverse">
-    <div class="panel-heading">
-        <div class="panel-heading-btn">
-        </div>
-        <h4 class="panel-title">
-            <i class="fa fa-filter" aria-hidden="true"></i> Punto de re-orden
-        </h4>
-    </div>
-    <div class="panel-body">
-        <div class="form-horizontal">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="form-horizontal form-ajust">
-                        <div class="form-group">
-                            <label class="control-label col-sm-4" for="FechaInicio">
-                                Fecha inicio
-                                <span class="text-danger">*</span>
-                            </label>
-                            <div class="col-sm-6">
-                                <input id="FechaInicio" name="FechaInicio" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="form-horizontal form-ajust">
-                        <div class="form-group">
-                            <label class="control-label col-sm-4" for="FechaFin">
-                                Fecha fin
-                                <span class="text-danger">*</span>
-                            </label>
-                            <div class="col-sm-6">
-                                <input id="FechaFin" name="FechaFin" class="form-control" />
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <button id="btnConsult" type="button" class="btn btn-inverse" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Consultando...">
-                <i class="fa fa-search-plus" aria-hidden="true"></i>   CONSULTAR
-            </button>
-            <button id="btnExcel" type="button" class="btn btn-inverse" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Consultando...">
-                <i class="fa fa-search-plus" aria-hidden="true"></i>   GENERAR EXCEL
-            </button>
-        </div>
-    </div>
-</div>
 <!-- end panel -->
 
 <!-- Main content -->
 <section class="content">
+    <div class="row">
+        <div class="col-sm-12">
+            <div class="box box-default">
+                <div class="box-body">
+                    <div class="form-horizontal">
+                        <div class="row">
+                            <div class="col-md-9">
+                                <div class="form-horizontal form-ajust">
+                                    <div class="form-group">
+                                        <label class="control-label col-sm-3" for="FechaInicio">
+                                            Fecha :
+                                        </label>
+                                        <div class="col-sm-3">
+                                            <input id="txtFechaInicio" name="txtFechaInicio" class="form-control" placeholder="Inicio" />
+                                        </div>
+                                        <div class="col-sm-3">
+                                            <input id="txtFechaFin" name="txtFechaFin" class="form-control" placeholder="Fin" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="box-footer">
+                    <button id="btnConsult" type="button" class="btn btn-default btn-sm btn-flat" data-loading-text="<i class='fa fa-circle-o-notch fa-spin'></i> Consultando...">
+                        <i class="fa fa-search-plus" aria-hidden="true"></i>   Consultar
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- begin panel -->
     <div class="box">
         <div class="box-body no-padding">
             <table id="tablaPuntoReOrden" class="table table-striped hover compact">
                 <thead>
                     <tr>
+                        <th>Código</th>
                         <th>Item</th>
-                        <th>Máxima</th>
-                        <th>Mínima</th>
-                        <th>Crítica</th>
+                        <th>Maxima</th>
+                        <th>Minima</th>
+                        <th>Critica</th>
                         <th>Inicio</th>
                         <th>Actual</th>
                         <th>Usado</th>
-                        <th>Mes 7s</th>
+                        <th>MesAnterior</th>
                     </tr>
                 </thead>
                 <tbody></tbody>

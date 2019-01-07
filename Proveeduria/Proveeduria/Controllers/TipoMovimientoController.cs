@@ -13,9 +13,11 @@ using Newtonsoft.Json;
 using System.IO;
 using System.Data;
 using ClosedXML.Excel;
+using Proveduria.Utils;
 
 namespace Proveduria.Controllers
 {
+    [SessionTimeout]
     public class TipoMovimientoController : Controller
     {
 

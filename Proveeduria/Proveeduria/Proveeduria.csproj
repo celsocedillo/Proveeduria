@@ -128,9 +128,6 @@
     <Reference Include="Oracle.ManagedDataAccess.EntityFramework, Version=6.122.1.0, Culture=neutral, PublicKeyToken=89b483f429c47342, processorArchitecture=MSIL">
       <HintPath>..\packages\Oracle.ManagedDataAccess.EntityFramework.12.2.1100\lib\net45\Oracle.ManagedDataAccess.EntityFramework.dll</HintPath>
     </Reference>
-    <Reference Include="Owin, Version=1.0.0.0, Culture=neutral, PublicKeyToken=f0ebd12fd5e55cc5, processorArchitecture=MSIL">
-      <HintPath>..\packages\Owin.1.0\lib\net40\Owin.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Data.OracleClient" />
@@ -218,7 +215,6 @@
   <ItemGroup>
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
-    <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BodegaController.cs" />
@@ -244,6 +240,12 @@
       <DependentUpon>ModeloProveduria.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EPRTA_BODEGA.cs">
+      <DependentUpon>ModeloProveduria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EPRTA_CIERRE_INVENTARIO.cs">
+      <DependentUpon>ModeloProveduria.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Models\EPRTA_CIERRE_INVENTARIO_DET.cs">
       <DependentUpon>ModeloProveduria.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EPRTA_GRUPO.cs">
@@ -347,6 +349,7 @@
     <Compile Include="Repositories\IGenericRepository.cs" />
     <Compile Include="Repositories\UnitOfWork.cs" />
     <Compile Include="Utils\AuthUtil.cs" />
+    <Compile Include="Utils\SessionTimeoutAttribute.cs" />
     <Compile Include="Utils\ExpressionExtension.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -7005,8 +7008,10 @@
     <Content Include="Scripts\App\Kardex.js" />
     <Content Include="Scripts\App\ListaItem.js" />
     <Content Include="Scripts\App\ListaMovimiento.js" />
+    <Content Include="Scripts\App\ListaCierreInventario.js" />
     <Content Include="Scripts\App\ListaSolicitud.js" />
     <Content Include="Scripts\App\Medida.js" />
+    <Content Include="Scripts\App\CierreInventario.js" />
     <Content Include="Scripts\App\Movimiento.js" />
     <Content Include="Scripts\App\MovimientoBodega.js" />
     <Content Include="Scripts\App\Parametros.js" />
@@ -7561,6 +7566,8 @@
     <Content Include="Views\Configuracion\Parametros.cshtml" />
     <Content Include="Views\Consulta\MovimientoBodega.cshtml" />
     <Content Include="Views\Consulta\Kardex.cshtml" />
+    <Content Include="Views\Consulta\ListaCierreInventario.cshtml" />
+    <Content Include="Views\Consulta\CierreInventario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
