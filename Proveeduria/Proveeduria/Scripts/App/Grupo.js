@@ -1,7 +1,7 @@
-﻿var ldata = [];
+﻿var lgrupo = [];
 var grupo;
 
-function CargaDatos() {
+function CargaDatosGrupo() {
     var $this = $(this);
 
     $.ajax({
@@ -10,7 +10,7 @@ function CargaDatos() {
         datatype: "json",
         data: null,
         contentType: 'application/json; charset=utf-8',
-        url: "/Grupo/GetListaGrupo",
+        url: "/Configuracion/GetListaGrupo",
         beforeSend: function () {
             run_waitMe($(".box-body"), 'Cargando...');
         },
@@ -44,16 +44,16 @@ function CargaDatos() {
 
 function LimpiarFormularioGrupo() {
     $("#lblIdGrupo").text("");
-    $("#txtNombre").val("");
+    $("#txtNombreGrupo").val("");
     $("#txtCodigo").val("");
     $("#txtCuentaContable").val("");
     $("#sltEstado").val("");
 }
 
-function Grabar() {
+function GrabarGrupo() {
     $('#frmGrupo').parsley().validate();
     if ($('#frmGrupo').parsley().isValid()) {
-        grupo.NOMBRE = $("#txtNombre").val();
+        grupo.NOMBRE = $("#txtNombreGrupo").val();
         grupo.CODIGO = $("#txtCodigo").val();
         grupo.CUENTA_CONTABLE = $("#txtCuentaContable").val();
         grupo.ESTADO = $("#sltEstado").val();
@@ -67,7 +67,7 @@ function Grabar() {
             datatype: "json",
             data: parametros,
             contentType: 'application/json; charset=utf-8',
-            url: "/Grupo/Grabar",
+            url: "/Configuracion/GrabarGrupo",
             beforeSend: function () {
                 run_waitMe($("#dlgGrupo"), 'Grabando...');
             },
@@ -75,7 +75,7 @@ function Grabar() {
                 if (data.resultado == "error") {
                     swal({
                         type: 'error',
-                        text: 'Error al grabar los datos. ' + data.mensaje,
+                        text: 'Error al grabar los datos. ' + data.msg,
                         confirmButtonColor: '#00BCD4'
                     });
                 }
@@ -87,7 +87,7 @@ function Grabar() {
                         confirmButtonColor: '#00BCD4'
                     });
 
-                    CargaDatos();
+                    CargaDatosGrupo();
                 }
                 $("#dlgGrupo").waitMe('hide');
                 //$this.button('reset');
@@ -115,8 +115,6 @@ var Grupo = function () {
 
             tabGrupo = $('#tabGrupo').DataTable({
                 "paging": false,
-                //"searching": false,
-                //"filter": false,
                 "dom": 't',
                 "autoWidth": false,
                 "columnDefs":
@@ -124,12 +122,7 @@ var Grupo = function () {
                         { "targets": [0],/* "width": "10%",*/ "visible": false, "orderable": false },
                         { "targets": [4],/* "width": "10%",*/ "defaultContent": '<button id="butEditar" type="button" class="btn btn-default btn-xs clsedit"><i class="fa fa-pencil"></i></button>' }
                     ],
-                "data": ldata,
-                //"rowCallback": function (row, data, dataIndex) {
-                //    if (data.ESTADO == "I") {
-                //        $('td', row).addClass('registro_inactivo');
-                //    }
-                //},
+                "data": lgrupo,
                 "columns": [
                     { "data": 'ID_GRUPO' },
                     { "data": 'CODIGO' },
@@ -138,7 +131,7 @@ var Grupo = function () {
                 ]
             });
 
-            CargaDatos();
+            CargaDatosGrupo();
 
             tabGrupo.on('click', 'button.clsedit', function (e) {
                 var row = $(this).closest('tr');
@@ -149,7 +142,7 @@ var Grupo = function () {
 
                 $.ajax({
                     dataType: 'JSON',
-                    url: '/Grupo/GetGrupo',
+                    url: '/Configuracion/GetGrupo',
                     type: "POST",
                     contentType: 'application/json; charset=utf-8',
                     data: parametros,
@@ -159,7 +152,7 @@ var Grupo = function () {
                         $('#frmGrupo').parsley().reset();
                         $("#lblIdGrupo").text(grupo.ID_GRUPO);
                         $("#txtCodigo").val(grupo.CODIGO);
-                        $("#txtNombre").val(grupo.NOMBRE);
+                        $("#txtNombreGrupo").val(grupo.NOMBRE);
                         $("#txtCuentaContable").val(grupo.CUENTA_CONTABLE);
                         $("#sltEstado").val(grupo.ESTADO);
                         $("#txtCodigo").prop("disabled", true);
@@ -171,8 +164,8 @@ var Grupo = function () {
                 });
             });
 
-            $("#butAcepta").on("click", function () {
-                Grabar();
+            $("#butAceptaGrupo").on("click", function () {
+                GrabarGrupo();
             });
 
             $("#butNuevoGrupo").on("click", function () {

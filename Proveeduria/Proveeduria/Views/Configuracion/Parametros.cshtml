@@ -28,7 +28,7 @@
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Tipos de Movimientos
+        Configuración / Parametros
         @*<small>Control panel</small>*@
     </h1>
     @*<ol class="breadcrumb">
@@ -48,63 +48,25 @@
         <div class="box-body no-padding">
             <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
-                    <li class=""><a href="#tab_1" data-toggle="tab" aria-expanded="false">Tab 1</a></li>
-                    <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">Tab 2</a></li>
+                    <li class=""><a href="#tab_1" data-toggle="tab" aria-expanded="false">Medida</a></li>
+                    <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">Grupo </a></li>
                     <li class="active"><a href="#tab_3" data-toggle="tab" aria-expanded="true">Tipo de Movimientos</a></li>
-                    <li class="dropdown">
-                        <a class="dropdown-toggle" data-toggle="dropdown" href="#" aria-expanded="false">
-                            Dropdown <span class="caret"></span>
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Action</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Another action</a></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Something else here</a></li>
-                            <li role="presentation" class="divider"></li>
-                            <li role="presentation"><a role="menuitem" tabindex="-1" href="#">Separated link</a></li>
-                        </ul>
-                    </li>
                     <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
                 </ul>
                 <div class="tab-content">
                     <div class="tab-pane" id="tab_1">
-                        <b>How to use:</b>
-
-                        <p>
-                            Exactly like the original bootstrap tabs except you should use
-                            the custom wrapper <code>.nav-tabs-custom</code> to achieve this style.
-                        </p>
-                        A wonderful serenity has taken possession of my entire soul,
-                        like these sweet mornings of spring which I enjoy with my whole heart.
-                        I am alone, and feel the charm of existence in this spot,
-                        which was created for the bliss of souls like mine. I am so happy,
-                        my dear friend, so absorbed in the exquisite sense of mere tranquil existence,
-                        that I neglect my talents. I should be incapable of drawing a single stroke
-                        at the present moment; and yet I feel that I never was a greater artist than now.
-                    </div>
-                    <!-- /.tab-pane -->
-                    <div class="tab-pane" id="tab_2">
-                        The European languages are members of the same family. Their separate existence is a myth.
-                        For science, music, sport, etc, Europe uses the same vocabulary. The languages only differ
-                        in their grammar, their pronunciation and their most common words. Everyone realizes why a
-                        new common language would be desirable: one could refuse to pay expensive translators. To
-                        achieve this, it would be necessary to have uniform grammar, pronunciation and more common
-                        words. If several languages coalesce, the grammar of the resulting language is more simple
-                        and regular than that of the individual languages.
-                    </div>
-                    <!-- /.tab-pane -->
-                    <div class="tab-pane active" id="tab_3">
-                        <div class="box">
+                        <div class="box box-info">
+                            <div class="box-header">
+                                <h3 class="box-title">Lista de medidas</h3>
+                            </div>
                             <div class="box-body no-padding">
                                 <div class="btn-group">
-                                    <button id="butNuevoTipoMov" class="btn btn-primary btn-xs btn-flat">
+                                    <button id="butNuevoMedida" class="btn btn-primary btn-xs btn-flat">
                                         <i class="fa fa-plus"></i>  Nuevo
-                                    </button>
-                                    <button id="butExcel" class="btn btn-primary btn-xs btn-flat">
-                                        <i class="fa fa-file-excel-o" aria-hidden="true"></i>  Excel
                                     </button>
                                 </div>
                                 @*<table id="tabTipoMov" class="compact stripe dataTable hover">*@
-                                <table id="tabTipoMov" class="table table-striped hover compact">
+                                <table id="tabMedida" class="table table-striped hover compact">
                                     <thead>
                                         <tr>
                                             <th>
@@ -113,12 +75,6 @@
                                             <th>
                                                 Nombre
                                             </th>
-                                            <th>
-                                                Ingreso/Egreso
-                                            </th>
-                                            <th>
-                                                Estado
-                                            </th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -126,7 +82,79 @@
                                 </table>
 
                             </div>
-                        </div>                    </div>
+                        </div>
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane" id="tab_2">
+                        <div class="box box-info">
+                            <div class="box-header">
+                                <h3 class="box-title">Lista de grupos</h3>
+                            </div>
+                            <div class="box-body no-padding">
+                                <div class="btn-group">
+                                    <button id="butNuevoGrupo" class="btn btn-primary btn-xs btn-flat">
+                                        <i class="fa fa-plus"></i>  Nuevo
+                                    </button>
+                                </div>
+                                <table id="tabGrupo" class="table table-striped hover compact">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Id
+                                            </th>
+                                            <th>
+                                                Código
+                                            </th>
+                                            <th>
+                                                Grupo
+                                            </th>
+                                            <th>
+                                                Cuenta contable
+                                            </th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- /.tab-pane -->
+                    <div class="tab-pane active" id="tab_3">
+                        @*<div class="box">
+                                <div class="box-body no-padding">
+                                    <div class="btn-group">
+                                        <button id="butNuevoTipoMov" class="btn btn-primary btn-xs btn-flat">
+                                            <i class="fa fa-plus"></i>  Nuevo
+                                        </button>
+                                        <button id="butExcel" class="btn btn-primary btn-xs btn-flat">
+                                            <i class="fa fa-file-excel-o" aria-hidden="true"></i>  Excel
+                                        </button>
+                                    </div>
+                                    <table id="tabTipoMov" class="table table-striped hover compact">
+                                        <thead>
+                                            <tr>
+                                                <th>
+                                                    Id
+                                                </th>
+                                                <th>
+                                                    Nombre
+                                                </th>
+                                                <th>
+                                                    Ingreso/Egreso
+                                                </th>
+                                                <th>
+                                                    Estado
+                                                </th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody></tbody>
+                                    </table>
+
+                                </div>
+                            </div>*@
+                    </div>
                     <!-- /.tab-pane -->
                 </div>
                 <!-- /.tab-content -->
@@ -189,21 +217,112 @@
         <!-- /.modal-dialog -->
     </div>
 
+    <div class="modal fade" id="dlgMedida">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title"><span id="titAgrActivo">Medida</span></h4>
+                </div>
+                <div class="modal-body">
+                    <form id="frmMedida" class="form-horizontal" data-parsley-validate>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">ID</label>
+                            <div class="col-sm-10">
+                                @*<input id="txtIdMedida" type="text" class="form-control" />*@
+                                <span id="lblIdMedida"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Nombre</label>
+                            <div class="col-sm-10">
+                                <input id="txtNombreMedida" type="text" class="form-control" required />
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button id="butAceptaMedida" type="button" class="btn btn-primary btn-sm" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Grabando...">Grabar</button>
+                    <button id="butCancelaMedida" type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
+
+    <div class="modal fade" id="dlgGrupo">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                    <h4 class="modal-title"><span id="titAgrActivo"></span></h4>
+                </div>
+                <div class="modal-body">
+                    <form id="frmGrupo" class="form-horizontal" data-parsley-validate>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">ID :</label>
+                            <div class="col-sm-9">
+                                @*<input id="txtIdTipoMov" type="text" class="form-control" />*@
+                                <span id="lblIdGrupo"></span>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Código :</label>
+                            <div class="col-sm-9">
+                                <input id="txtCodigo" type="text" class="form-control" style="text-transform:uppercase" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Nombre :</label>
+                            <div class="col-sm-9">
+                                <input id="txtNombreGrupo" type="text" class="form-control" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Cuenta Contable :</label>
+                            <div class="col-sm-9">
+                                <input id="txtCuentaContable" type="text" class="form-control" style="text-transform:uppercase" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-3 control-label">Estado :</label>
+                            <div class="col-sm-9">
+                                <select id="sltEstado" class="form-control" required>
+                                    <option value="A" selected>Activo</option>
+                                    <option value="I">Inactivo</option>
+                                </select>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button id="butAceptaGrupo" type="button" class="btn btn-primary btn-sm" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Grabando...">Grabar</button>
+                    <button id="butCancelaGrupo" type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+            <!-- /.modal-content -->
+        </div>
+        <!-- /.modal-dialog -->
+    </div>
 
 </section>
 
 @section scripts {
     <!-- DataTables -->
-
-    <script type="text/javascript" src=@Url.Content("/Scripts/App/Parametros.js")></script>
+    @*<script type="text/javascript" src=@Url.Content("/Scripts/App/Parametros.js")></script>*@
+    <script type="text/javascript" src=@Url.Content("/Scripts/App/Medida.js")></script>
+    <script type="text/javascript" src=@Url.Content("/Scripts/App/Grupo.js")></script>
     <script type="text/javascript">
 
 
         $(document).ready(function () {
-            $("#butExcel").on("click", function () {
-                window.location.href = "/TipoMovimiento/ExportToExcel";
-            });
-            TipoMovimiento.init();
+            Medida.init();
+            Grupo.init();
         });
 
 

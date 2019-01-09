@@ -70,7 +70,7 @@ namespace Proveduria.Controllers
         }
 
         [HttpPost]
-        public ActionResult Grabar(EPRTA_GRUPO precord)
+        public ActionResult GrabarGrupo(EPRTA_GRUPO precord)
         {
             JObject retorno = new JObject();
             EPRTA_GRUPO record;

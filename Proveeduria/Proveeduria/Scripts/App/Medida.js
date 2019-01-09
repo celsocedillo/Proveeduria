@@ -1,9 +1,9 @@
-﻿var tabmedida;
-var ldata = [];
+﻿var tabMedida;
+var lmedida = [];
 var medida;
 
 
-function CargaDatos() {
+function CargaDatosMedida() {
     var $this = $(this);
 
     $.ajax({
@@ -20,20 +20,17 @@ function CargaDatos() {
             if (data.error) {
                 swal({
                     type: 'error',
-                    text: 'Error al cargar los datos.',
+                    text: 'Error al cargar los datos.'+' Aplicacion Msg: '+ data.msg,
                     confirmButtonColor: '#00BCD4'
                 });
             }
             else {
-                //var items = data.items;
                 var data = (data.data);
-                //tipomov = data[0]; //Esto es para guardar la estructura del objeto y poder usarlo en el momento de crear uno nuevo
-                tabmedida.clear();
-                tabmedida.rows.add(data);
-                tabmedida.draw();
+                tabMedida.clear();
+                tabMedida.rows.add(data);
+                tabMedida.draw();
             }
             $(".box-body").waitMe('hide');
-            $this.button('reset');
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             $(".box-body").waitMe('hide');
@@ -50,17 +47,17 @@ function CargaDatos() {
 
 function LimpiarFormularioMedida() {
     $("#lblIdMedida").text("");
-    $("#txtNombre").val("");
+    $("#txtNombreMedida").val("");
 }
 
 
 
-function Grabar() {
+function GrabarMedida() {
     $('#frmMedida').parsley().validate();
     if ($('#frmMedida').parsley().isValid()) {
         medida = {
             "ID_MEDIDA": $("#lblIdMedida").text(),
-            "NOMBRE": $("#txtNombre").val()
+            "NOMBRE": $("#txtNombreMedida").val()
         };
 
         var parametros = JSON.stringify(
@@ -73,36 +70,35 @@ function Grabar() {
             datatype: "json",
             data: parametros,
             contentType: 'application/json; charset=utf-8',
-            url: "/Medida/Grabar",
+            url: "/Configuracion/GrabarMedida",
             beforeSend: function () {
                 run_waitMe($("#dlgMedida"), 'win8', 'Cargando...');
             },
             success: function (data) {
-                if (data.error) {
+                if (data.resultado == "error") {
                     swal({
                         type: 'error',
-                        text: 'Error al grabar los datos.',
+                        text: 'Error al grabar los datos. Aplicacion Msg: ' + data.msg,
                         confirmButtonColor: '#00BCD4'
                     });
                 }
-                else {
+                else if (data.resultado == "success"){
                     $('#dlgMedida').modal('toggle');
                     swal({
                         type: 'success',
                         text: 'Datos grabados con éxito',
                         confirmButtonColor: '#00BCD4'
                     });
-                    CargaDatos();
+                    CargaDatosMedida();
                 }
                 $("#dlgMedida").waitMe('hide');
                 //$this.button('reset');
             },
             error: function (XMLHttpRequest, textStatus, errorThrown) {
                 $("#dlgMedida").waitMe('hide');
-                //$this.button('reset');
                 swal({
                     type: 'error',
-                    text: 'Error al cargar los datos.',
+                    text: 'Error en la llamada al servidor.',
                     confirmButtonColor: '#00BCD4'
                 });
             },
@@ -120,29 +116,26 @@ function Grabar() {
 var Medida = function () {
     return {
         init: function () {
-            tabmedida = $('#tabMedida').DataTable({
-                //"filter": false,
+            tabMedida = $('#tabMedida').DataTable({
                 "dom": 't',
                 "autoWidth": false,
                 "columnDefs":
                     [
-                        { "targets": [0],/* "width": "10%",*/ "visible": true, "orderable": false },
-                        { "targets": [2],/* "width": "10%",*/ "defaultContent": '<button id="butEditar" type="button" class="btn btn-default btn-xs clsedit"><i class="fa fa-pencil"></i></button>' }
+                        { "targets": [0], "visible": true, "orderable": false },
+                        { "targets": [2], "defaultContent": '<button id="butEditar" type="button" class="btn btn-default btn-xs clsedit"><i class="fa fa-pencil"></i></button>' }
                     ],
-                "data": ldata,
-                //"rowCallback": function (row, data, dataIndex) {
-                //},
+                "data": lmedida,
                 "columns": [
                     { "data": 'ID_MEDIDA' },
                     { "data": 'NOMBRE' }
                 ]
             });
 
-            CargaDatos();
+            CargaDatosMedida();
 
-            tabmedida.on('click', 'button.clsedit', function (e) {
+            tabMedida.on('click', 'button.clsedit', function (e) {
                 var row = $(this).closest('tr');
-                var data = tabmedida.row($(this).parents('tr')).data();
+                var data = tabMedida.row($(this).parents('tr')).data();
                 var parametros = JSON.stringify(
                     {
                         pid: data.ID_MEDIDA
@@ -150,7 +143,7 @@ var Medida = function () {
 
                 $.ajax({
                     dataType: 'JSON',
-                    url: '/Medida/GetMedida',
+                    url: '/Configuracion/GetMedida',
                     type: "POST",
                     contentType: 'application/json; charset=utf-8',
                     data: parametros,
@@ -159,36 +152,34 @@ var Medida = function () {
                             medida = result.data;
                             $("#dlgMedida").modal('toggle');
                             $("#lblIdMedida").text(medida.ID_MEDIDA);
-                            $("#txtNombre").val(medida.NOMBRE);
+                            $("#txtNombreMedida").val(medida.NOMBRE);
                         }
-                        else {
+                        else if (result.resultado == "error") {
                             swal({
                                 type: 'error',
-                                text: 'Error al grabar los datos.',
+                                text: 'Error al cargar los datos. Aplicacion Msg:' + result.msg,
                                 confirmButtonColor: '#00BCD4'
                             });
                         }
                     },
                     error: function (result) {
-                        alert("Error :" + result.responseText);
+                        swal({
+                            type: 'error',
+                            text: 'Error en la llamada al servidor',
+                            confirmButtonColor: '#00BCD4'
+                        });
                         $("#msgMain").html(result.responseText);
                         $("#msgMain").addClass("alert alert-danger");
                     }
                 });
             });
 
-            $("#butAcepta").on("click", function () {
-                Grabar();
+            $("#butAceptaMedida").on("click", function () {
+                GrabarMedida();
             });
 
             $("#butNuevoMedida").on("click", function () {
                 medida = { ID_MEDIDA: 0, NOMBRE: "" };
-                //if (medida == null) {
-                //    medida = { ID_MEDIDA: 0, NOMBRE: "", ESTADO: "N" };
-                //} else {
-                //    medida.ID_MEDIDA = 0;
-                //    medida.NOMBRE = "";
-                //}
                 LimpiarFormularioMedida();
                 $("#dlgMedida").modal('toggle');
             });

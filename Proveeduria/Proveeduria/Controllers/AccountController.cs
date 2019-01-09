@@ -57,6 +57,7 @@ namespace Proveduria.Controllers
                             Session["usuario_jefe"] = empleado.USUARIO_JEFE_DEPARTAMENTO;
                             Session["bodega_id"] = 1;
                             Session["bodega"] = "BODEGA PROVEDURIA";
+                            logger.Info(Session["usuario"] + " : Inicio de Sesion  ");
                         }
 
                         //try

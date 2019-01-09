@@ -17,6 +17,7 @@ using System.Net.Mime;
 using Proveduria.Utils;
 using Oracle.ManagedDataAccess;
 using Oracle.ManagedDataAccess.Client;
+using System.Linq.Expressions;
 
 namespace Proveduria.Controllers
 {
@@ -243,62 +244,147 @@ namespace Proveduria.Controllers
         }
 
         [HttpPost]
-        public ActionResult ConsultaMovimiento(string inicio, string fin, string anioMovimiento, string numeroMovimiento, string idItem, string tipoMovimiento)
+        public ActionResult GetMovimientos(string inicio, string fin, string anioMovimiento, string numeroMovimiento, string idItem, string tipoMovimiento)
         {
             JArray jArray = new JArray();
             JObject enviar = new JObject();
 
-            if (!String.IsNullOrEmpty(inicio) || 
-                !String.IsNullOrEmpty(fin) || 
-                !String.IsNullOrEmpty(idItem) ||
-                !String.IsNullOrEmpty(anioMovimiento) ||
-                !String.IsNullOrEmpty(numeroMovimiento) ||
-                !String.IsNullOrEmpty(tipoMovimiento)
-               )
+            List<EPRTA_MOVIMIENTO_DETALLE> data = ConsultaMovimientos(inicio, fin, anioMovimiento, numeroMovimiento, idItem, tipoMovimiento);
+
+            var xdata = (from p in data
+                         select new
+                         {
+                             ANIO = p.EPRTA_MOVIMIENTO.ANIO,
+                             NUMERO_MOVIMIENTO = p.EPRTA_MOVIMIENTO.NUMERO_MOVIMIENTO,
+                             TIPO_MOVIMIENTO = p.EPRTA_MOVIMIENTO.EPRTA_TIPO_MOVIMIENTO.NOMBRE,
+                             ITEM = p.EPRTA_ITEM.DESCRIPCION,
+                             CODIGO = p.EPRTA_ITEM.CODIGO,
+                             p.CANTIDAD_MOVIMIENTO,
+                             p.COSTO_MOVIMIENTO,
+                             FECHA_SOLICITUD = p.EPRTA_MOVIMIENTO.FECHA_SOLICITUD.HasValue ? p.EPRTA_MOVIMIENTO.FECHA_SOLICITUD.Value.ToString("dd/MM/yyyy") : null
+                         }).ToList();
+            enviar.Add("resultado", "success");
+            enviar.Add("data", JArray.FromObject(xdata));
+
+            return Content(enviar.ToString(), "application/json");
+        }
+
+
+        public List<EPRTA_MOVIMIENTO_DETALLE> ConsultaMovimientos(string inicio, string fin, string anioMovimiento, string numeroMovimiento, string idItem, string tipoMovimiento)
+        {
+            List<EPRTA_MOVIMIENTO_DETALLE> data = new List<EPRTA_MOVIMIENTO_DETALLE>();
+            string[] arrTiposOperacion = new string[] { "I", "E" };
+            if (!String.IsNullOrEmpty(inicio) ||
+                            !String.IsNullOrEmpty(fin) ||
+                            !String.IsNullOrEmpty(idItem) ||
+                            !String.IsNullOrEmpty(anioMovimiento) ||
+                            !String.IsNullOrEmpty(numeroMovimiento) ||
+                            !String.IsNullOrEmpty(tipoMovimiento)
+                           )
             {
-                var data = (from m in unitOfWork.MovimientoDetalleRepository.GetAll()
-                               select m);
+
+                Expression<Func<EPRTA_MOVIMIENTO_DETALLE, Boolean>> xwhere = null;
+
+                Expression<Func<EPRTA_MOVIMIENTO_DETALLE, Boolean>> exprg = (p => arrTiposOperacion.Contains(p.EPRTA_MOVIMIENTO.EPRTA_TIPO_MOVIMIENTO.INGRESO_EGRESO));
+                xwhere = AppendExpression(xwhere, exprg);
+
+
+                //var data = (from m in unitOfWork.MovimientoDetalleRepository.GetAll()
+                //               select m);
 
                 if (!String.IsNullOrEmpty(inicio) && !String.IsNullOrEmpty(fin))
                 {
-                    data = data.Where(p => p.EPRTA_MOVIMIENTO.FECHA_SOLICITUD >= DateTime.Parse(inicio) && p.EPRTA_MOVIMIENTO.FECHA_SOLICITUD <= DateTime.Parse(fin));
+                    DateTime finicio = DateTime.Parse(inicio);
+                    DateTime ffin = DateTime.Parse(fin);
+                    Expression<Func<EPRTA_MOVIMIENTO_DETALLE, Boolean>> expr = (p => (p.EPRTA_MOVIMIENTO.FECHA_SOLICITUD >= finicio && p.EPRTA_MOVIMIENTO.FECHA_SOLICITUD <= ffin));
+                    xwhere = AppendExpression(xwhere, expr);
+                    //data = data.Where(p => p.EPRTA_MOVIMIENTO.FECHA_SOLICITUD >= DateTime.Parse(inicio) && p.EPRTA_MOVIMIENTO.FECHA_SOLICITUD <= DateTime.Parse(fin));
                 }
 
-                if (!String.IsNullOrEmpty(idItem))
+                if (!String.IsNullOrEmpty(idItem) && idItem != "null")
                 {
-                    data = data.Where(p => p.ID_ITEM == int.Parse(idItem));
+                    int piditem = int.Parse(idItem);
+                    Expression<Func<EPRTA_MOVIMIENTO_DETALLE, Boolean>> expr = (p => p.ID_ITEM == piditem);
+                    xwhere = AppendExpression(xwhere, expr);
+
+                    //data = data.Where(p => p.ID_ITEM == int.Parse(idItem));
                 }
 
                 if (!String.IsNullOrEmpty(anioMovimiento))
                 {
-                    data = data.Where(p => p.EPRTA_MOVIMIENTO.ANIO == int.Parse(anioMovimiento));
+                    Expression<Func<EPRTA_MOVIMIENTO_DETALLE, Boolean>> expr = (p => p.EPRTA_MOVIMIENTO.ANIO == int.Parse(anioMovimiento));
+                    xwhere = AppendExpression(xwhere, expr);
+
+                    //data = data.Where(p => p.EPRTA_MOVIMIENTO.ANIO == int.Parse(anioMovimiento));
                 }
 
                 if (!String.IsNullOrEmpty(numeroMovimiento))
                 {
-                    data = data.Where(p => p.EPRTA_MOVIMIENTO.NUMERO_MOVIMIENTO == int.Parse(numeroMovimiento));
+                    Expression<Func<EPRTA_MOVIMIENTO_DETALLE, Boolean>> expr = (p => p.EPRTA_MOVIMIENTO.NUMERO_MOVIMIENTO == int.Parse(numeroMovimiento));
+                    xwhere = AppendExpression(xwhere, expr);
+
+                    //data = data.Where(p => p.EPRTA_MOVIMIENTO.NUMERO_MOVIMIENTO == int.Parse(numeroMovimiento));
                 }
 
                 if (!String.IsNullOrEmpty(tipoMovimiento))
                 {
-                    data = data.Where(p => p.EPRTA_MOVIMIENTO.ID_TIPO_MOVIMIENTO == int.Parse(tipoMovimiento));
+                    Expression<Func<EPRTA_MOVIMIENTO_DETALLE, Boolean>> expr = (p => p.EPRTA_MOVIMIENTO.ID_TIPO_MOVIMIENTO == int.Parse(tipoMovimiento));
+                    xwhere = AppendExpression(xwhere, expr);
+
+                    //data = data.Where(p => p.EPRTA_MOVIMIENTO.ID_TIPO_MOVIMIENTO == int.Parse(tipoMovimiento));
                 }
-                var xdata = (from p in data
-                        select new
-                        {
-                            ANIO = p.EPRTA_MOVIMIENTO.ANIO,
-                            NUMERO_MOVIMIENTO = p.EPRTA_MOVIMIENTO.NUMERO_MOVIMIENTO,
-                            TIPO_MOVIMIENTO = p.EPRTA_MOVIMIENTO.EPRTA_TIPO_MOVIMIENTO.NOMBRE,
-                            ITEM = p.EPRTA_ITEM.DESCRIPCION,
-                            CODIGO = p.EPRTA_ITEM.CODIGO,
-                            p.CANTIDAD_MOVIMIENTO,
-                            p.COSTO_MOVIMIENTO,
-                            FECHA_SOLICITUD = p.EPRTA_MOVIMIENTO.FECHA_SOLICITUD.HasValue ? p.EPRTA_MOVIMIENTO.FECHA_SOLICITUD.Value.ToString("dd/MM/yyyy") : null
-                        }).ToList();
-                enviar.Add("resultado", "success");
-                enviar.Add("data", JArray.FromObject(xdata));
+
+                data = (from m in unitOfWork.MovimientoDetalleRepository.Where(xwhere)
+                            select m).ToList();
+                
             }
-            return Content(enviar.ToString(), "application/json");
+            return (data);
+        }
+
+        [HttpGet]
+        public FileResult GetMovimientosExcel(string inicio, string fin, string anioMovimiento, string numeroMovimiento, string idItem, string tipoMovimiento)
+        {
+            MemoryStream stream = new MemoryStream();
+            List<EPRTA_MOVIMIENTO_DETALLE> data = ConsultaMovimientos(inicio, fin, anioMovimiento, numeroMovimiento, idItem, tipoMovimiento);
+            try
+            {
+                DataTable dt = new DataTable("Movimientos");
+                dt.Columns.Add("ANIO");
+                dt.Columns.Add("NUMERO_MOVIMIENTO");
+                dt.Columns.Add("TIPO_MOVIMIENTO");
+                dt.Columns.Add("ITEM");
+                dt.Columns.Add("CODIGO");
+                dt.Columns.Add("CANTIDAD_MOVIMIENTO");
+                dt.Columns.Add("COSTO_MOVIMIENTO");
+                dt.Columns.Add("FECHA_SOLICITUD");
+                foreach (EPRTA_MOVIMIENTO_DETALLE item in data)
+                {
+                    dt.Rows.Add(
+                        item.EPRTA_MOVIMIENTO.ANIO,
+                        item.EPRTA_MOVIMIENTO.NUMERO_MOVIMIENTO,
+                        item.EPRTA_MOVIMIENTO.EPRTA_TIPO_MOVIMIENTO.NOMBRE,
+                        item.EPRTA_ITEM.DESCRIPCION,
+                        item.EPRTA_ITEM.CODIGO,
+                        item.CANTIDAD_MOVIMIENTO,
+                        item.COSTO_MOVIMIENTO,
+                        item.EPRTA_MOVIMIENTO.FECHA_SOLICITUD.HasValue ? item.EPRTA_MOVIMIENTO.FECHA_SOLICITUD.Value.ToString("dd/MM/yyyy") : null
+                        );
+                }
+                using (XLWorkbook workbook = new XLWorkbook())
+                {
+                    workbook.Worksheets.Add(dt);
+                    using (stream = new MemoryStream())
+                    {
+                        workbook.SaveAs(stream);
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                logger.Error(ex, ex.Message);
+            }
+            string nombrearchivo = "Movimientos_" + long.Parse(DateTime.Now.ToString("ddMMyyyy")).ToString() + ".xlsx";
+            return File(stream.ToArray(), "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet", nombrearchivo);
         }
 
 
@@ -655,6 +741,18 @@ namespace Proveduria.Controllers
                 }
                 return ms.ToArray();
             }
+        }
+
+
+        public Expression<Func<EPRTA_MOVIMIENTO_DETALLE, Boolean>> AppendExpression(Expression<Func<EPRTA_MOVIMIENTO_DETALLE, Boolean>> left, Expression<Func<EPRTA_MOVIMIENTO_DETALLE, Boolean>> right)
+        {
+            Expression<Func<EPRTA_MOVIMIENTO_DETALLE, Boolean>> result;
+            if (left == null)
+            {
+                left = model => true;
+            }
+            result = ExpressionExtension<EPRTA_MOVIMIENTO_DETALLE>.AndAlso(left, right);
+            return result;
         }
 
 

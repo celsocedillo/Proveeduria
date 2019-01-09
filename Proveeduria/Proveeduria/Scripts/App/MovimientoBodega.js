@@ -15,7 +15,7 @@ function CargaDatos() {
         datatype: "json",
         data: parametros,
         contentType: 'application/json; charset=utf-8',
-        url: "/Consulta/ConsultaMovimiento",
+        url: "/Consulta/GetMovimientos",
         beforeSend: function () {
             run_waitMe($(".box"), 'Cargando...');
         },
@@ -45,6 +45,10 @@ function CargaDatos() {
         complete: function () {
         }
     });
+}
+
+function Excel() {
+
 }
 
 var MovimientoBodega = function () {
@@ -83,14 +87,16 @@ var MovimientoBodega = function () {
                 //    error: function () {
                 //    }
                 //},
+                "columnDefs": [{ "targets": [5, 6], "className": "text-right" }],
                 "columns": [
                     { "data": "ANIO", orderable: true },
                     { "data": "NUMERO_MOVIMIENTO", orderable: true },
+                    { "data": "FECHA_SOLICITUD", orderable: false },
                     { "data": "TIPO_MOVIMIENTO", orderable: true },
                     { "data": "ITEM", orderable: false },
                     { "data": "CANTIDAD_MOVIMIENTO", orderable: false },
-                    { "data": "COSTO_MOVIMIENTO", orderable: false },
-                    { "data": "FECHA_SOLICITUD", orderable: false }
+                    { "data": "COSTO_MOVIMIENTO", orderable: false }
+                    
                 ],
                 "order": [[0, 'desc']]
             });
@@ -166,6 +172,27 @@ var MovimientoBodega = function () {
                 //    tipoMovimieno = "vacio";
                 //}
                 //tablaMovimientos.ajax.reload();
+            });
+
+            $("#btnExcel").click(function (event) {
+                var selected = $("select[name='sltItem']").find('option:selected');
+
+                xidItem = selected.data("iditem");
+                if (xidItem === undefined) {
+                    xidItem = "null";
+                }
+                    
+
+                parametros = JSON.stringify(
+                    {
+                        inicio: $("#txtFechaInicio").val(),
+                        fin: $("#txtFechaFin").val(),
+                        idItem: selected.data("iditem"),
+                        anioMovimiento: $("#txtAnioMovimiento").val(),
+                        numeroMovimiento: $("#txtNumeroMovimiento").val(),
+                        tipoMovimiento: $("#selIdTipoMovimiento").val()
+                    });
+                window.location.href = '/Consulta/GetMovimientosExcel?inicio=' + $("#txtFechaInicio").val() + '&fin=' + $("#txtFechaFin").val() + '&idItem=' + xidItem + '&anioMovimiento=' + $("#txtAnioMovimiento").val() + '&numeroMovimiento=' + $("#txtNumeroMovimiento").val() + '&tipoMovimiento=' + $("#selIdTipoMovimiento").val();
             });
 
         }
