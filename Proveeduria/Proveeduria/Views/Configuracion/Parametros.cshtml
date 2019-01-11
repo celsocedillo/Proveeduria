@@ -48,13 +48,13 @@
         <div class="box-body no-padding">
             <div class="nav-tabs-custom">
                 <ul class="nav nav-tabs">
-                    <li class=""><a href="#tab_1" data-toggle="tab" aria-expanded="false">Medida</a></li>
+                    <li class="active"><a href="#tab_1" data-toggle="tab" aria-expanded="false">Medida</a></li>
                     <li class=""><a href="#tab_2" data-toggle="tab" aria-expanded="false">Grupo </a></li>
-                    <li class="active"><a href="#tab_3" data-toggle="tab" aria-expanded="true">Tipo de Movimientos</a></li>
+                    <li class=""><a href="#tab_3" data-toggle="tab" aria-expanded="true">Tipo de Movimientos</a></li>
                     <li class="pull-right"><a href="#" class="text-muted"><i class="fa fa-gear"></i></a></li>
                 </ul>
                 <div class="tab-content">
-                    <div class="tab-pane" id="tab_1">
+                    <div class="tab-pane active" id="tab_1">
                         <div class="box box-info">
                             <div class="box-header">
                                 <h3 class="box-title">Lista de medidas</h3>
@@ -74,6 +74,9 @@
                                             </th>
                                             <th>
                                                 Nombre
+                                            </th>
+                                            <th>
+                                                Estado
                                             </th>
                                             <th></th>
                                         </tr>
@@ -111,6 +114,9 @@
                                             <th>
                                                 Cuenta contable
                                             </th>
+                                            <th>
+                                                Estado
+                                            </th>
                                             <th></th>
                                         </tr>
                                     </thead>
@@ -120,40 +126,40 @@
                         </div>
                     </div>
                     <!-- /.tab-pane -->
-                    <div class="tab-pane active" id="tab_3">
-                        @*<div class="box">
-                                <div class="box-body no-padding">
-                                    <div class="btn-group">
-                                        <button id="butNuevoTipoMov" class="btn btn-primary btn-xs btn-flat">
-                                            <i class="fa fa-plus"></i>  Nuevo
-                                        </button>
-                                        <button id="butExcel" class="btn btn-primary btn-xs btn-flat">
-                                            <i class="fa fa-file-excel-o" aria-hidden="true"></i>  Excel
-                                        </button>
-                                    </div>
-                                    <table id="tabTipoMov" class="table table-striped hover compact">
-                                        <thead>
-                                            <tr>
-                                                <th>
-                                                    Id
-                                                </th>
-                                                <th>
-                                                    Nombre
-                                                </th>
-                                                <th>
-                                                    Ingreso/Egreso
-                                                </th>
-                                                <th>
-                                                    Estado
-                                                </th>
-                                                <th></th>
-                                            </tr>
-                                        </thead>
-                                        <tbody></tbody>
-                                    </table>
-
+                    <div class="tab-pane" id="tab_3">
+                        <div class="box box-info">
+                            <div class="box-header">
+                                <h3 class="box-title">Lista de tipo de movimientos</h3>
+                            </div>
+                            <div class="box-body no-padding">
+                                <div class="btn-group">
+                                    <button id="butNuevoTipoMov" class="btn btn-primary btn-xs btn-flat">
+                                        <i class="fa fa-plus"></i>  Nuevo
+                                    </button>
                                 </div>
-                            </div>*@
+                                <table id="tabTipoMov" class="table table-striped hover compact">
+                                    <thead>
+                                        <tr>
+                                            <th>
+                                                Id
+                                            </th>
+                                            <th>
+                                                Nombre
+                                            </th>
+                                            <th>
+                                                Ingreso/Egreso
+                                            </th>
+                                            <th>
+                                                Estado
+                                            </th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+
+                            </div>
+                        </div>
                     </div>
                     <!-- /.tab-pane -->
                 </div>
@@ -184,23 +190,24 @@
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Nombre</label>
                             <div class="col-sm-10">
-                                <input id="txtNombre" type="text" class="form-control" style="text-transform:uppercase" required />
+                                <input id="txtNombreTipo" type="text" class="form-control" style="text-transform:uppercase" required />
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Ingreso/Egreso</label>
                             <div class="col-sm-10">
                                 <select id="sltIngEgr" class="form-control" required>
-                                    <option value="I" selected>Ingreso</option>
+                                    <option value="I">Ingreso</option>
                                     <option value="E">Egreso</option>
+                                    <option value="N">Neutro</option>
                                 </select>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Estado</label>
                             <div class="col-sm-10">
-                                <select id="sltEstado" class="form-control" required>
-                                    <option value="A" selected>Activo</option>
+                                <select id="sltEstadoTipo" class="form-control" required>
+                                    <option value="A">Activo</option>
                                     <option value="I">Inactivo</option>
                                 </select>
                             </div>
@@ -208,8 +215,8 @@
                     </form>
                 </div>
                 <div class="modal-footer">
-                    <button id="butAcepta" type="button" class="btn btn-primary btn-sm" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Grabando...">Grabar</button>
-                    <button id="butCancela" type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
+                    <button id="butAceptaTipo" type="button" class="btn btn-primary btn-sm" data-loading-text="<i class='fa fa-spinner fa-spin '></i> Grabando...">Grabar</button>
+                    <button id="butCancelaTipo" type="button" class="btn btn-default btn-sm" data-dismiss="modal">Cancelar</button>
                 </div>
             </div>
             <!-- /.modal-content -->
@@ -239,6 +246,15 @@
                             <label class="col-sm-2 control-label">Nombre</label>
                             <div class="col-sm-10">
                                 <input id="txtNombreMedida" type="text" class="form-control" required />
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label">Estado</label>
+                            <div class="col-sm-10">
+                                <select id="sltEstadoMedida" class="form-control" required>
+                                    <option value="A">Activo</option>
+                                    <option value="I">Inactivo</option>
+                                </select>
                             </div>
                         </div>
                     </form>
@@ -292,7 +308,7 @@
                         <div class="form-group">
                             <label class="col-sm-3 control-label">Estado :</label>
                             <div class="col-sm-9">
-                                <select id="sltEstado" class="form-control" required>
+                                <select id="sltEstadoGrupo" class="form-control" required>
                                     <option value="A" selected>Activo</option>
                                     <option value="I">Inactivo</option>
                                 </select>
@@ -317,12 +333,15 @@
     @*<script type="text/javascript" src=@Url.Content("/Scripts/App/Parametros.js")></script>*@
     <script type="text/javascript" src=@Url.Content("/Scripts/App/Medida.js")></script>
     <script type="text/javascript" src=@Url.Content("/Scripts/App/Grupo.js")></script>
+    <script type="text/javascript" src=@Url.Content("/Scripts/App/TipoMovimiento.js")></script>
+    @Scripts.Render("~/bundles/Enumeradores")
     <script type="text/javascript">
 
 
         $(document).ready(function () {
             Medida.init();
             Grupo.init();
+            TipoMovimiento.init();
         });
 
 

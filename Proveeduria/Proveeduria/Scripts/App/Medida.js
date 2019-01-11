@@ -12,22 +12,22 @@ function CargaDatosMedida() {
         datatype: "json",
         data: null,
         contentType: 'application/json; charset=utf-8',
-        url: "/Medida/GetListaMedida",
+        url: "/Configuracion/GetListaMedida",
         beforeSend: function () {
             run_waitMe($(".box-body"), 'win8', 'Cargando...');
         },
         success: function (data) {
-            if (data.error) {
+            if (data.resultado == "error") {
                 swal({
                     type: 'error',
                     text: 'Error al cargar los datos.'+' Aplicacion Msg: '+ data.msg,
                     confirmButtonColor: '#00BCD4'
                 });
             }
-            else {
-                var data = (data.data);
+            else if (data.resultado == "success"){
+                lmedida = (data.data);
                 tabMedida.clear();
-                tabMedida.rows.add(data);
+                tabMedida.rows.add(lmedida);
                 tabMedida.draw();
             }
             $(".box-body").waitMe('hide');
@@ -48,6 +48,7 @@ function CargaDatosMedida() {
 function LimpiarFormularioMedida() {
     $("#lblIdMedida").text("");
     $("#txtNombreMedida").val("");
+    $("#sltEstadoMedida").val("A").trigger('change.select2');
 }
 
 
@@ -57,7 +58,8 @@ function GrabarMedida() {
     if ($('#frmMedida').parsley().isValid()) {
         medida = {
             "ID_MEDIDA": $("#lblIdMedida").text(),
-            "NOMBRE": $("#txtNombreMedida").val()
+            "NOMBRE": $("#txtNombreMedida").val(),
+            "ESTADO": $("#sltEstadoMedida").val()
         };
 
         var parametros = JSON.stringify(
@@ -121,13 +123,24 @@ var Medida = function () {
                 "autoWidth": false,
                 "columnDefs":
                     [
-                        { "targets": [0], "visible": true, "orderable": false },
-                        { "targets": [2], "defaultContent": '<button id="butEditar" type="button" class="btn btn-default btn-xs clsedit"><i class="fa fa-pencil"></i></button>' }
+                        { "targets": [0], "visible": false, "orderable": false },
+                        {
+                            "targets": [2],
+                            render: function (data, type, row) {
+                                var color = 'black';
+                                if (data == 'Inactivo') {
+                                    color = 'red';
+                                }
+                                return '<span style="color:' + color + '">' + data + '</span>'
+                            }
+                        },
+                        { "targets": [3], "defaultContent": '<button id="butEditar" type="button" class="btn btn-default btn-xs clsedit"><i class="fa fa-pencil"></i></button>' }
                     ],
                 "data": lmedida,
                 "columns": [
                     { "data": 'ID_MEDIDA' },
-                    { "data": 'NOMBRE' }
+                    { "data": 'NOMBRE' },
+                    { "data": 'ESTADO_REGISTRO' }
                 ]
             });
 
@@ -153,6 +166,7 @@ var Medida = function () {
                             $("#dlgMedida").modal('toggle');
                             $("#lblIdMedida").text(medida.ID_MEDIDA);
                             $("#txtNombreMedida").val(medida.NOMBRE);
+                            $("#sltEstadoMedida").val(medida.ESTADO).trigger('change.select2');
                         }
                         else if (result.resultado == "error") {
                             swal({

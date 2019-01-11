@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using Proveduria.Models;
 using Proveduria.Repositories;
+using Proveduria.Models.Enumadores;
 using Newtonsoft.Json.Linq;
 using NLog;
 using Newtonsoft.Json;
@@ -72,21 +73,28 @@ namespace Proveduria.Controllers
                 //        { "ACCION", accionModificar}
                 //    };
                 //    jArray.Add(jsonObject);
-                    
+
                 //}
+                byte xbodega_id = Convert.ToByte(Session["bodega_id"].ToString());
                 var enviar = from p in dataShow
                              select new
                              { p.ID_ITEM,
-                               p.CODIGO,
-                               p.DESCRIPCION,
-                               GRUPO = p.EPRTA_GRUPO.NOMBRE,
-                               MEDIDA = p.EPRTA_MEDIDA.NOMBRE,
-                               ACCION = "<a href='/Item/Item/" + p.ID_ITEM + "' class='text-inverse' data-toggle='tooltip' title='Modificar'>" +
+                                 p.CODIGO,
+                                 p.DESCRIPCION,
+                                 GRUPO = p.EPRTA_GRUPO.NOMBRE,
+                                 MEDIDA = p.EPRTA_MEDIDA.NOMBRE,
+                                 ESTADO_REGISTRO = ((EnumEstadoRegistro)Convert.ToChar(p.ESTADO)).ToString(),
+                                 STOCK_GENERAL = (from s in unitOfWork.ArticuloBodegaRepository.Where(s => s.ID_ITEM ==p.ID_ITEM && s.ID_BODEGA == xbodega_id)
+                                                  group s by s.ID_ITEM into su
+                                                  select new { STOCK_GENERAL = su.Sum(x => x.CANTIDAD_ACTUAL) ?? 0 }
+                                                ).FirstOrDefault()?.STOCK_GENERAL ?? 0,
+                                ACCION = "<a href='/Item/Item/" + p.ID_ITEM + "' class='text-inverse' data-toggle='tooltip' title='Modificar'>" +
                                         "<i class='fa fa-pencil' aria-hidden='true'></i>" +
                                         "</a>"
                              };
                 total.Add("draw", Request.Form.Get("draw"));
                 total.Add("recordsTotal", items.Count());
+                total.Add("resultado", "success");
                 //total.Add("recordsFiltered", filtroItems.Count());
                 total.Add("recordsFiltered", filtroItems.Count());
                 //total.Add("data", jArray);
@@ -94,6 +102,8 @@ namespace Proveduria.Controllers
             }
             catch (Exception ex)
             {
+                total.Add("resultado", "error");
+                total.Add("msg", ex.Message);
                 logger.Error(ex, ex.Message);
             }
             return Content(total.ToString(), "application/json");

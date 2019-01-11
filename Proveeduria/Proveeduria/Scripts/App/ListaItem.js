@@ -94,7 +94,18 @@ var ListaItem = function () {
                 "columnDefs":
                     [
                         { "targets": [0], "visible": false, "orderable": false },
-                        { "targets": [5], "orderable": false }
+                        { "targets": [5, 6], "className": "text-right" },
+                        { "targets": [7], "orderable": false },
+                        {
+                            "targets": [6],
+                            render: function (data, type, row) {
+                                var color = 'black';
+                                if (data == 'Inactivo') {
+                                    color = 'red';
+                                }
+                                return '<span style="color:' + color + '">' + data + '</span>'
+                            }
+                        }
                     ],
                 "columns": [
                     { "data": "ID_ITEM", "orderable": false },
@@ -102,6 +113,8 @@ var ListaItem = function () {
                     { "data": "DESCRIPCION", "orderable": true },
                     { "data": "MEDIDA", "orderable": true },
                     { "data": "GRUPO", "orderable": true },
+                    { "data": "STOCK_GENERAL", "orderable": true },
+                    { "data": "ESTADO_REGISTRO", "orderable": true },
                     { "data": "ACCION", "orderable": true }
                 ],
                 "order": [[0, "asc"]]

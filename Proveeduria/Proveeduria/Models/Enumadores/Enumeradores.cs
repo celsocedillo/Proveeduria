@@ -21,4 +21,18 @@ namespace Proveduria.Models.Enumadores
         AJUSTE_DE_BODEGA_POR_INGRESO = 10
     }
 
+    public enum EnumEstadoRegistro
+    {
+        Activo = 'A',
+        Inactivo = 'I'
+    }
+
+    public enum EnumIngresoEgreso
+    {
+        INGRESO = 'I',
+        EGRESO = 'E',
+        NEUTRAL = 'N'
+    }
+
+
 }

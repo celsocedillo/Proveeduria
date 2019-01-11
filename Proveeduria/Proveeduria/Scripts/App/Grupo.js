@@ -47,7 +47,7 @@ function LimpiarFormularioGrupo() {
     $("#txtNombreGrupo").val("");
     $("#txtCodigo").val("");
     $("#txtCuentaContable").val("");
-    $("#sltEstado").val("");
+    $("#sltEstadoGrupo").val("").trigger('change.select2');
 }
 
 function GrabarGrupo() {
@@ -56,7 +56,7 @@ function GrabarGrupo() {
         grupo.NOMBRE = $("#txtNombreGrupo").val();
         grupo.CODIGO = $("#txtCodigo").val();
         grupo.CUENTA_CONTABLE = $("#txtCuentaContable").val();
-        grupo.ESTADO = $("#sltEstado").val();
+        grupo.ESTADO = $("#sltEstadoGrupo").val();
         var parametros = JSON.stringify(
             {
                 precord: grupo
@@ -120,14 +120,25 @@ var Grupo = function () {
                 "columnDefs":
                     [
                         { "targets": [0],/* "width": "10%",*/ "visible": false, "orderable": false },
-                        { "targets": [4],/* "width": "10%",*/ "defaultContent": '<button id="butEditar" type="button" class="btn btn-default btn-xs clsedit"><i class="fa fa-pencil"></i></button>' }
+                        {
+                            "targets": [4],
+                            render: function (data, type, row) {
+                                var color = 'black';
+                                if (data == 'Inactivo') {
+                                    color = 'red';
+                                }
+                                return '<span style="color:' + color + '">' + data + '</span>'
+                            }
+                        },
+                        { "targets": [5],/* "width": "10%",*/ "defaultContent": '<button id="butEditar" type="button" class="btn btn-default btn-xs clsedit"><i class="fa fa-pencil"></i></button>' }
                     ],
                 "data": lgrupo,
                 "columns": [
                     { "data": 'ID_GRUPO' },
                     { "data": 'CODIGO' },
                     { "data": 'NOMBRE' },
-                    { "data": 'CUENTA_CONTABLE' }
+                    { "data": 'CUENTA_CONTABLE' },
+                    { "data": 'ESTADO_REGISTRO' }
                 ]
             });
 
@@ -154,7 +165,7 @@ var Grupo = function () {
                         $("#txtCodigo").val(grupo.CODIGO);
                         $("#txtNombreGrupo").val(grupo.NOMBRE);
                         $("#txtCuentaContable").val(grupo.CUENTA_CONTABLE);
-                        $("#sltEstado").val(grupo.ESTADO);
+                        $("#sltEstadoGrupo").val(grupo.ESTADO).trigger('change.select2');
                         $("#txtCodigo").prop("disabled", true);
                     },
                     error: function (result) {

@@ -1,9 +1,9 @@
-﻿var tabtipomov;
-var ldata = [];
+﻿var tabTipoMov;
+var ltipo = [];
 var tipomov;
 
 
-function CargaDatos() {
+function CargaDatosTipo() {
     var $this = $(this);
 
     $.ajax({
@@ -12,38 +12,35 @@ function CargaDatos() {
         datatype: "json",
         data: null,
         contentType: 'application/json; charset=utf-8',
-        url: "/TipoMovimiento/GetListaTipoMovimiento",
+        url: "/Configuracion/GetListaTipoMovimiento",
         beforeSend: function () {
             run_waitMe($(".box-body"), 'Cargando...');
         },
         success: function (data) {
-            if (data.error) {
+            if (data.resultado == "error") {
                 swal({
                     type: 'error',
-                    text: 'Error al cargar los datos.',
+                    text: 'Error al cargar los datos. Aplicacion Msg:' + data.msg,
                     confirmButtonColor: '#00BCD4'
                 });
             }
             else {
                 var data = (data.data);
-                tabtipomov.clear();
-                tabtipomov.rows.add(data);
-                tabtipomov.draw();
+                tabTipoMov.clear();
+                tabTipoMov.rows.add(data);
+                tabTipoMov.draw();
             }
             $(".box-body").waitMe('hide');
-            $this.button('reset');
+            //$this.button('reset');
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
             $(".box-body").waitMe('hide');
             $this.button('reset');
             swal({
                 type: 'error',
-                text: 'Error al cargar los datos.',
+                text: 'Error en la llamada al servidor ',
                 confirmButtonColor: '#00BCD4'
             });
-        },
-        complete: function () {
-            calcularTotales();
         }
     });
 
@@ -51,17 +48,17 @@ function CargaDatos() {
 
 function LimpiarFormularioTipoMovimiento() {
     $("#lblIdTipoMov").text("");
-    $("#txtNombre").val("");
-    $("#sltIngEgr").val("");
-    $("#sltEstado").val("");
+    $("#txtNombreTipo").val("");
+    $("#sltIngEgr").val("").trigger('change.select2');
+    $("#sltEstadoTipo").val("").trigger('change.select2');
 }
 
-function Grabar() {
+function GrabarTipo() {
     $('#frmTipoMov').parsley().validate();
     if ($('#frmTipoMov').parsley().isValid()) {
-        tipomov.NOMBRE = $("#txtNombre").val();
+        tipomov.NOMBRE = $("#txtNombreTipo").val();
         tipomov.INGRESO_EGRESO = $("#sltIngEgr").val();
-        tipomov.ESTADO = $("#sltEstado").val();
+        tipomov.ESTADO = $("#sltEstadoTipo").val();
         var parametros = JSON.stringify(
             {
                 precord: tipomov
@@ -72,7 +69,7 @@ function Grabar() {
             datatype: "json",
             data: parametros,
             contentType: 'application/json; charset=utf-8',
-            url: "/TipoMovimiento/Grabar",
+            url: "/Configuracion/GrabarTipo",
             beforeSend: function () {
                 run_waitMe($("#dlgTipoMov"), 'Grabando...');
             },
@@ -80,11 +77,11 @@ function Grabar() {
                 if (data.resultado == "error") {
                     swal({
                         type: 'error',
-                        text: 'Error al grabar los datos. ' + data.mensaje,
+                        text: 'Error al grabar los datos. Aplicacion Msg : ' + data.mensaje,
                         confirmButtonColor: '#00BCD4'
                     });
                 }
-                else {
+                else if (data.resultado == "success") {
                     $('#dlgTipoMov').modal('toggle');
                     swal({
                         type: 'success',
@@ -92,7 +89,7 @@ function Grabar() {
                         confirmButtonColor: '#00BCD4'
                     });
                     
-                    CargaDatos();
+                    CargaDatosTipo();
                 }
                 $("#dlgTipoMov").waitMe('hide');
                 //$this.button('reset');
@@ -102,7 +99,7 @@ function Grabar() {
                 //$this.button('reset');
                 swal({
                     type: 'error',
-                    text: 'Error al cargar los datos.',
+                    text: 'Error en la llamada al servidor',
                     confirmButtonColor: '#00BCD4'
                 });
             },
@@ -118,55 +115,72 @@ var TipoMovimiento = function () {
     return {
         init: function () {
 
-            tabtipomov = $('#tabTipoMov').DataTable({
-                //"paging": false,
-                //"searching": false,
-                //"filter": false,
+            tabTipoMov = $('#tabTipoMov').DataTable({
+                "paging": false,
                 "dom": 't',
                 "autoWidth": false,
                 "columnDefs":
                     [
-                        { "targets": [0],/* "width": "10%",*/ "visible": false, "orderable": false },
+                        { "targets": [0], "visible": false, "orderable": false },
+                        {
+                            "targets": [3],
+                            render: function (data, type, row) {
+                                var color = 'black';
+                                if (data == 'Inactivo') {
+                                    color = 'red';
+                                }
+                                return '<span style="color:' + color + '">' + data + '</span>'
+                            }
+                        },
                         { "targets": [4],/* "width": "10%",*/ "defaultContent": '<button id="butEditar" type="button" class="btn btn-default btn-xs clsedit"><i class="fa fa-pencil"></i></button>' }
                     ],
-                "data": ldata,
-                "rowCallback": function (row, data, dataIndex) {
-                    if (data.ESTADO == "I") {
-                        $('td', row).addClass('registro_inactivo');
-                    }
-                },
+                "data": ltipo,
+                //"rowCallback": function (row, data, dataIndex) {
+                //    if (data.ESTADO == "I") {
+                //        $('td', row).addClass('registro_inactivo');
+                //    }
+                //},
                 "columns": [
                     { "data": 'ID_TIPO_MOVIMIENTO' },
                     { "data": 'NOMBRE' },
                     { "data": 'TIPO_INGEGR' },
-                    { "data": 'ESTADO' }
+                    { "data": 'ESTADO_REGISTRO' }
                 ]
             });
 
-            CargaDatos();
+            CargaDatosTipo();
 
-            tabtipomov.on('click', 'button.clsedit', function (e) {
+            tabTipoMov.on('click', 'button.clsedit', function (e) {
                 var row = $(this).closest('tr');
-                var data = tabtipomov.row($(this).parents('tr')).data();
+                var data = tabTipoMov.row($(this).parents('tr')).data();
                 var parametros = JSON.stringify({
                         pid: data.ID_TIPO_MOVIMIENTO
                 });
 
                 $.ajax({
                     dataType: 'JSON',
-                    url: '/TipoMovimiento/GetTipoMovimiento',
+                    url: '/Configuracion/GetTipoMovimiento',
                     type: "POST",
                     contentType: 'application/json; charset=utf-8',
                     data: parametros,
                     success: function (result) {
-                        tipomov = result.data;
-                        $("#dlgTipoMov").modal('toggle');
-                        $('#frmTipoMov').parsley().reset();
-                        //$("#txtIdTipoMov").val(tipomov.ID_TIPO_MOVIMIENTO);
-                        $("#lblIdTipoMov").text(tipomov.ID_TIPO_MOVIMIENTO);
-                        $("#sltIngEgr").val(tipomov.INGRESO_EGRESO);
-                        $("#txtNombre").val(tipomov.NOMBRE);
-                        $("#sltEstado").val(tipomov.ESTADO);
+                        if (result.resultado == "success") {
+                            tipomov = result.data;
+                            $("#dlgTipoMov").modal('toggle');
+                            $('#frmTipoMov').parsley().reset();
+                            //$("#txtIdTipoMov").val(tipomov.ID_TIPO_MOVIMIENTO);
+                            $("#lblIdTipoMov").text(tipomov.ID_TIPO_MOVIMIENTO);
+                            //$("#sltIngEgr").val(tipomov.INGRESO_EGRESO);
+                            $("#sltIngEgr").val(tipomov.INGRESO_EGRESO).trigger('change.select2');
+                            $("#txtNombreTipo").val(tipomov.NOMBRE);
+                            $("#sltEstadoTipo").val(tipomov.ESTADO).trigger('change.select2');
+                        } else if (result.resultado == "error") {
+                            swal({
+                                type: 'error',
+                                text: 'Error al cargar los datos. Aplicacion Msg:' + data.msg,
+                                confirmButtonColor: '#00BCD4'
+                            });
+                        }
                     },
                     error: function (result) {
                         $("#msgMain").html(result.responseText);
@@ -175,8 +189,8 @@ var TipoMovimiento = function () {
                 });
             });
 
-            $("#butAcepta").on("click", function () {
-                Grabar();
+            $("#butAceptaTipo").on("click", function () {
+                GrabarTipo();
             });
 
             $("#butNuevoTipoMov").on("click", function () {
