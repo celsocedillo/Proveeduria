@@ -19,7 +19,7 @@ namespace Proveduria.Models
         {
             this.EPRTA_ARTICULO_BODEGA = new HashSet<EPRTA_ARTICULO_BODEGA>();
             this.EPRTA_MOVIMIENTO = new HashSet<EPRTA_MOVIMIENTO>();
-            this.EPRTA_CIERRE_INVENTARIO = new HashSet<EPRTA_CIERRE_INVENTARIO>();
+            this.EPRTA_CORTE_INVENTARIO = new HashSet<EPRTA_CORTE_INVENTARIO>();
         }
     
         public byte ID_BODEGA { get; set; }
@@ -32,6 +32,6 @@ namespace Proveduria.Models
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<EPRTA_MOVIMIENTO> EPRTA_MOVIMIENTO { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EPRTA_CIERRE_INVENTARIO> EPRTA_CIERRE_INVENTARIO { get; set; }
+        public virtual ICollection<EPRTA_CORTE_INVENTARIO> EPRTA_CORTE_INVENTARIO { get; set; }
     }
 }

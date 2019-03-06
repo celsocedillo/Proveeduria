@@ -18,10 +18,10 @@ function CargaStock() {
             run_waitMe($(".box-body"), 'Cargando...');
         },
         success: function (data) {
-            if (data.error) {
+            if (data.resultado == "error") {
                 swal({
                     type: 'error',
-                    text: 'Error al cargar los datos.',
+                    text: 'Error al cargar los datos de stock. Aplicación Msg: [' + data.msg + "]",
                     confirmButtonColor: '#00BCD4'
                 });
             }
@@ -38,7 +38,7 @@ function CargaStock() {
             $(".box-body").waitMe('hide');
             swal({
                 type: 'error',
-                text: 'Error al cargar los datos.',
+                text: 'Error en la llamada del servidor',
                 confirmButtonColor: '#00BCD4'
             });
         },
@@ -119,12 +119,11 @@ function Grabar() {
                     }).then(function () {
                         window.location.href = '/Item/ListaItem';
                     });
-                    
                 }
                 else {
                     swal({
                         type: data.resultado,
-                        text: 'Error al grabar los datos. ' + data.mensaje,
+                        text: 'Error al grabar los datos. ' + data.msg,
                         confirmButtonColor: '#00BCD4'
                     });
                 }
@@ -134,7 +133,7 @@ function Grabar() {
                 $(".box-primary").waitMe('hide');
                 swal({
                     type: 'error',
-                    text: 'Error al cargar los datos.',
+                    text: 'Error en la llamada al servidor',
                     confirmButtonColor: '#00BCD4'
                 });
             },
@@ -148,13 +147,6 @@ function Grabar() {
 var Item = function () {
 return {
     init: function () {
-
-        //$("#FECHA_ULTIMO").datepicker({
-        //    format: "dd/mm/yyyy",
-        //    todayHighlight: true,
-        //    autoclose: true
-        //});
-
 
         $("#btnCancelar").on('click', function () {
             window.location.href = '/Item/ListaItem' ;
@@ -209,17 +201,26 @@ return {
         column = tabStock.column(1);
         column.visible(false);
 
-
-        //CargaStock();
-
         $("#btnGrabar").on('click', function () {
-            Grabar();
+            swal({
+                text: '¿Seguro desea grabar los cambios realizados?',
+                type: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#00BCD4',
+                cancelButtonColor: '#EF5350',
+                confirmButtonText: 'Aceptar',
+                cancelButtonText: 'Cancelar'
+            }).then(function () {
+                    Grabar();
+            });
         });
 
         if ($("#ESTADO").val() == "N") {
 
         } else {
             $("#CODIGO").prop('readonly', true);
+            //$("#ID_GRUPO").select2("readonly", true);
+            $("#ID_GRUPO").prop('disabled', true);
         }
 
         

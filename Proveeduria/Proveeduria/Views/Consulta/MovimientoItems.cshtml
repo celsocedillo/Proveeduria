@@ -1,5 +1,5 @@
 ﻿@{
-    ViewBag.Title = "Punto de Re-Orden";
+    ViewBag.Title = "MovimientoItems";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -125,11 +125,11 @@
 </section>
 
 @section scripts {
-    <script type="text/javascript" src=@Url.Content("/Scripts/App/MovimientoBodega.js")></script>
+    <script type="text/javascript" src=@Url.Content("/Scripts/App/MovimientoItems.js")></script>
     <script type="text/javascript">
 
         $(document).ready(function () {
-            MovimientoBodega.init();
+            MovimientoItems.init();
         });
     </script>
 }

@@ -58,7 +58,21 @@ var ListaSolicitud = function () {
                 "order" : [[5, "desc"]],
                 "columnDefs":
                     [
-                        { "targets": [1], "className": "text-right" }
+                        { "targets": [1], "className": "text-center" },
+                        {
+                            "targets": [3],
+                            render: function (data, type, row) {
+                                var color = 'black';
+                                if (data == 'DESPACHADO') {
+                                    color = 'green';
+                                } else if (data == "AUTORIZADO") {
+                                    color = 'orange';
+                                } else if (data == "ANULADO") {
+                                    color = 'red';
+                                }
+                                return '<span style="color:' + color + '">' + data + '</span>'
+                            }
+                        }
                     ],
                 "columns": [
                     { "data": 'ANIO' },

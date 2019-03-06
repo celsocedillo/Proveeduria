@@ -97,12 +97,18 @@
         <div class="box-footer">
             @{ if (Model.ESTADO == "S" || Model.ESTADO == "A")
         {
-            <button type="button" id="btnGrabar" class="btn btn-primary btn-sm btn-flat">Grabar</button>
+            <button type="button" id="btnGrabar" class="btn btn-primary btn-sm btn-flat">
+                <i class="fa fa-save"></i> Grabar
+            </button>
 }
             }
 
-            <button type="button" id="btnCancelar" class="btn btn-default btn-sm btn-flat">Cancelar</button>
-            <button type="button" id="btnImprimir" class="btn btn-default btn-sm btn-flat">Imprimir</button>
+            <button type="button" id="btnCancelar" class="btn btn-default btn-sm btn-flat">
+                <i class="fa fa-arrow-left"></i> Cancelar
+            </button>
+            <button type="button" id="btnImprimir" class="btn btn-default btn-sm btn-flat">
+                <i class="fa fa-print"></i> Imprimir
+            </button>
         </div>
 
     </div>

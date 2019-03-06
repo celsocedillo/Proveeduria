@@ -23,7 +23,7 @@ namespace Proveduria.Repositories
         private GenericRepository<VW_DIRECCION> direccionRepository = null;
         private GenericRepository<VW_EMPLEADO> empleadoRepository = null;
         private GenericRepository<VW_ORDEN_COMPRA> ordenCompraRepository = null;
-        private GenericRepository<EPRTA_CIERRE_INVENTARIO> cierreInventarioRepository = null;
+        private GenericRepository<EPRTA_CORTE_INVENTARIO> corteInventarioRepository = null;
 
         public GenericRepository<EPRTA_TIPO_MOVIMIENTO> TipoMovimientoRepository
         {
@@ -186,15 +186,15 @@ namespace Proveduria.Repositories
             }
         }
 
-        public GenericRepository<EPRTA_CIERRE_INVENTARIO> CierreInventarioRepository
+        public GenericRepository<EPRTA_CORTE_INVENTARIO> CorteInventarioRepository
         {
             get
             {
-                if (cierreInventarioRepository == null)
+                if (corteInventarioRepository == null)
                 {
-                    cierreInventarioRepository = new GenericRepository<EPRTA_CIERRE_INVENTARIO>(context);
+                    corteInventarioRepository = new GenericRepository<EPRTA_CORTE_INVENTARIO>(context);
                 }
-                return cierreInventarioRepository;
+                return corteInventarioRepository;
             }
         }
         public void Save()

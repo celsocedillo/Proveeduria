@@ -1,4 +1,4 @@
-﻿var tabCierre;
+﻿var tabCorte;
 var ldata = [];
 
 
@@ -10,7 +10,7 @@ function CargaDatos() {
         datatype: "json",
         data: null,
         contentType: 'application/json; charset=utf-8',
-        url: "/Consulta/GetListaCierres",
+        url: "/Consulta/GetListaCorte",
         beforeSend: function () {
             run_waitMe($(".box"), 'Cargando...');
         },
@@ -24,9 +24,9 @@ function CargaDatos() {
             }
             else {
                 //var data = $.parseJSON(data.data);
-                tabCierre.clear();
-                tabCierre.rows.add(data.data);
-                tabCierre.draw();
+                tabCorte.clear();
+                tabCorte.rows.add(data.data);
+                tabCorte.draw();
             }
             $(".box").waitMe('hide');
         },
@@ -46,13 +46,13 @@ function CargaDatos() {
 
 
 
-var ListaCierreInventario = function () {
+var ListaCorteInventario = function () {
     return {
         init: function () {
 
             //$.fn.dataTable.moment('D-M-Y');
             $.fn.dataTable.moment('DD/MM/YYYY');
-            tabCierre= $('#tabCierre').DataTable({
+            tabCorte= $('#tabCorte').DataTable({
                 "autoWidth": false,
                 "data": ldata,
                 "columnDefs":
@@ -62,9 +62,9 @@ var ListaCierreInventario = function () {
                     ],
                 "columns": [
                     { "data": 'BODEGA' },
-                    { "data": 'FECHA_CIERRE' },
+                    { "data": 'FECHA_CORTE' },
                     { "data": 'NUMERO_ITEMS' },
-                    { "data": 'TOTAL_CIERRE' },
+                    { "data": 'TOTAL_CORTE' },
                     { "data": "ACCION", "orderable": true }
                 ]
             });
@@ -72,7 +72,7 @@ var ListaCierreInventario = function () {
             CargaDatos();
 
             $("#butNuevo").on('click', function () {
-                window.location.href = '/Consulta/CierreInventario/0';
+                window.location.href = '/Consulta/CorteInventario/0';
             });
 
         }

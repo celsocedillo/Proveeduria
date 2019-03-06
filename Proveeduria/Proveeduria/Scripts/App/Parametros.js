@@ -185,7 +185,7 @@ var Parametros = function () {
                 "columnDefs":
                     [
                         { "targets": [0],/* "width": "10%",*/ "visible": true, "orderable": false },
-                        { "targets": [2],/* "width": "10%",*/ "defaultContent": '<button id="butEditar" type="button" class="btn btn-default btn-xs clsedit"><i class="fa fa-pencil"></i></button>' }
+                        { "targets": [2],/* "width": "10%",*/ "defaultContent": '<a id="butEditar" class="clsedit"><i class="fa fa-pencil"></i></a>' }
                     ],
                 "data": ldata,
                 //"rowCallback": function (row, data, dataIndex) {

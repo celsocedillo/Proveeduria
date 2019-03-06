@@ -47,7 +47,7 @@ namespace Proveduria.Controllers
 
                 }
                 var sortColumnIndex = Convert.ToInt32(Request.Form.Get("order[0][column]"));
-                Func<EPRTA_ITEM, string> orderingFunction = (c => sortColumnIndex == 0 ? c.CODIGO.ToString() : sortColumnIndex == 1 ? c.DESCRIPCION : c.EPRTA_MEDIDA.NOMBRE);
+                Func<EPRTA_ITEM, string> orderingFunction = (c => sortColumnIndex == 1 ? c.CODIGO.ToString() : sortColumnIndex == 2 ? c.DESCRIPCION : sortColumnIndex == 3 ? c.EPRTA_MEDIDA.NOMBRE : sortColumnIndex == 4 ? c.EPRTA_GRUPO.NOMBRE : sortColumnIndex == 6 ? c.ESTADO : c.EPRTA_MEDIDA.NOMBRE);
                 var sortDirection = Request.Form.Get("order[0][dir]");
                 if (sortDirection == "asc")
                 {
@@ -58,23 +58,7 @@ namespace Proveduria.Controllers
                     filtroItems = filtroItems.OrderByDescending(orderingFunction);
                 }
                 IEnumerable<EPRTA_ITEM> dataShow = filtroItems.Skip(int.Parse(Request.Form.Get("start"))).Take(int.Parse(Request.Form.Get("length")));
-                //foreach (EPRTA_ITEM item in dataShow)
-                //{
-                //    var accionModificar = "<a href='/Item/Item/" + item.ID_ITEM + "' class='text-inverse' data-toggle='tooltip' title='Modificar'>" +
-                //                            "<i class='fa fa-pencil' aria-hidden='true'></i>" +
-                //                          "</a>";
-                //    JObject jsonObject = new JObject
-                //    {
-                //        { "ID_ITEM", item.ID_ITEM},
-                //        { "CODIGO", item.CODIGO },
-                //        { "DESCRIPCION", item.DESCRIPCION},
-                //        { "MEDIDA", item.EPRTA_MEDIDA.NOMBRE},
-                //        { "GRUPO", item.EPRTA_GRUPO.NOMBRE },
-                //        { "ACCION", accionModificar}
-                //    };
-                //    jArray.Add(jsonObject);
-
-                //}
+                
                 byte xbodega_id = Convert.ToByte(Session["bodega_id"].ToString());
                 var enviar = from p in dataShow
                              select new
@@ -162,7 +146,7 @@ namespace Proveduria.Controllers
                 List<SelectListItem> lista  = new List<SelectListItem>();
                 foreach (EPRTA_GRUPO reg in (from p in unitOfWork.GrupoRepository.GetAll() where p.ESTADO == "A" select p))
                 {
-                    SelectListItem lin = new SelectListItem { Text = reg.NOMBRE, Value = reg.ID_GRUPO.ToString() };
+                    SelectListItem lin = new SelectListItem { Text = "[" + reg.CODIGO + "] " + reg.NOMBRE, Value = reg.ID_GRUPO.ToString() };
                     lista.Add(lin);
                 }
                 ViewBag.lstGrupo = lista;
@@ -201,7 +185,7 @@ namespace Proveduria.Controllers
                     {
                         retorno.Add("resultado", "warning");
                         retorno.Add("data", null);
-                        retorno.Add("mensaje", "Codigo " + precord.CODIGO + " ya está registrado" );
+                        retorno.Add("msg", "Codigo " + precord.CODIGO + " ya está registrado" );
                         return Content(retorno.ToString(), "application/json");
                     }
 
@@ -295,23 +279,6 @@ namespace Proveduria.Controllers
                     {
                         if (item.EPRTA_ARTICULO_BODEGA.Count > 0)
                         {
-                            //foreach (EPRTA_ARTICULO_BODEGA arti in item.EPRTA_ARTICULO_BODEGA)
-                            //{
-                            //    var stock = new
-                            //    {
-                            //        BODEGA = arti.EPRTA_BODEGA.NOMBRE,
-                            //        arti.CANTIDAD_MAXIMA,
-                            //        arti.CANTIDAD_MINIMA,
-                            //        arti.CANTIDAD_ACTUAL,
-                            //        arti.CANTIDAD_BAJA,
-                            //        arti.CANTIDAD_CRITICA
-                            //    };
-                            //    //jArray.Add(JObject.FromObject(stock));
-                            //    jArray.Add(stock);
-                            //}
-
-                            //var tmp2 = new { tmp.CODIGO, tmp.DESCRIPCION, tmp.EPRTA_ARTICULO_BODEGA };
-                            //var tmp = unitOfWork.ArticuloBodegaRepository.GetAll().Where(c => c.ID_ITEM == pid);
 
                             var stock = from arti in item.EPRTA_ARTICULO_BODEGA
                                         select new
@@ -325,15 +292,9 @@ namespace Proveduria.Controllers
                                         };
                             retorna.Add("data", JArray.FromObject(stock));
                             retorna.Add("resultado", "success");
-               
                         }
                     }
                 }
-
-
-          
-                
-
             }catch(Exception ex)
             {
                 retorna.Add("resultado", "error");

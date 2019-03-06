@@ -1,13 +1,13 @@
 ﻿
 @{
-    ViewBag.Title = "Cierres de Inventario";
+    ViewBag.Title = "Cortes de Inventario";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 <!-- Content Header (Page header) -->
 <section class="content-header">
     <h1>
-        Cierres de Inventario
+        Cortes de Inventario
     </h1>
 </section>
 
@@ -25,20 +25,20 @@
                     <i class="fa fa-plus"></i>  Nuevo
                 </button>
             </div>
-            <table id="tabCierre" class="table table-striped hover compact">
+            <table id="tabCorte" class="table table-striped hover compact">
                 <thead>
                     <tr>
                         <th>
                             Bodega
                         </th>
                         <th>
-                            FechaCierre
+                            FechaCorte
                         </th>
                         <th>
                             # Items
                         </th>
                         <th>
-                            ValorCierre
+                            ValorCorte
                         </th>
                         <th></th>
                     </tr>
@@ -59,12 +59,12 @@
     @*<script src=@Url.Content("/Content/bower_components/datatables.net/js/jquery.dataTables.min.js")></script>
         <script src=@Url.Content("/Content/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js")></script>*@
 
-    <script type="text/javascript" src=@Url.Content("/Scripts/App/ListaCierreInventario.js")></script>
+    <script type="text/javascript" src=@Url.Content("/Scripts/App/ListaCorteInventario.js")></script>
     <script type="text/javascript">
 
 
         $(document).ready(function () {
-            ListaCierreInventario.init();
+            ListaCorteInventario.init();
         });
 
 

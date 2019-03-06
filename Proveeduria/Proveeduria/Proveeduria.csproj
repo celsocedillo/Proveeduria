@@ -220,15 +220,12 @@
     <Compile Include="Controllers\BodegaController.cs" />
     <Compile Include="Controllers\ConfiguracionController.cs" />
     <Compile Include="Controllers\ConsultaController.cs" />
-    <Compile Include="Controllers\GrupoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InvMedidaController.cs" />
     <Compile Include="Controllers\ItemController.cs" />
     <Compile Include="Controllers\MovimientoController.cs" />
     <Compile Include="Controllers\SolicitudController.cs" />
     <Compile Include="Controllers\UsuarioController.cs" />
-    <Compile Include="Controllers\MedidaController.cs" />
-    <Compile Include="Controllers\TipoMovimientoController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -242,10 +239,10 @@
     <Compile Include="Models\EPRTA_BODEGA.cs">
       <DependentUpon>ModeloProveduria.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EPRTA_CIERRE_INVENTARIO.cs">
+    <Compile Include="Models\EPRTA_CORTE_INVENTARIO.cs">
       <DependentUpon>ModeloProveduria.tt</DependentUpon>
     </Compile>
-    <Compile Include="Models\EPRTA_CIERRE_INVENTARIO_DET.cs">
+    <Compile Include="Models\EPRTA_CORTE_INVENTARIO_DET.cs">
       <DependentUpon>ModeloProveduria.tt</DependentUpon>
     </Compile>
     <Compile Include="Models\EPRTA_GRUPO.cs">
@@ -7000,7 +6997,7 @@
       <LastGenOutput>ModeloProveduria.cs</LastGenOutput>
     </Content>
     <Content Include="Scripts\App\Bodega.js" />
-    <Content Include="Scripts\App\Consulta.js" />
+    <Content Include="Scripts\App\PuntoReorden.js" />
     <Content Include="Scripts\App\Enumeradores.js" />
     <Content Include="Scripts\App\Grupo.js" />
     <Content Include="Scripts\App\InvMedida.js" />
@@ -7008,12 +7005,12 @@
     <Content Include="Scripts\App\Kardex.js" />
     <Content Include="Scripts\App\ListaItem.js" />
     <Content Include="Scripts\App\ListaMovimiento.js" />
-    <Content Include="Scripts\App\ListaCierreInventario.js" />
+    <Content Include="Scripts\App\ListaCorteInventario.js" />
     <Content Include="Scripts\App\ListaSolicitud.js" />
     <Content Include="Scripts\App\Medida.js" />
-    <Content Include="Scripts\App\CierreInventario.js" />
+    <Content Include="Scripts\App\CorteInventario.js" />
     <Content Include="Scripts\App\Movimiento.js" />
-    <Content Include="Scripts\App\MovimientoBodega.js" />
+    <Content Include="Scripts\App\MovimientoItems.js" />
     <Content Include="Scripts\App\Parametros.js" />
     <Content Include="Scripts\App\Solicitud.js" />
     <Content Include="Scripts\App\TipoMovimiento.js" />
@@ -7549,14 +7546,10 @@
     <Content Include="Views\InvMedida\Index.cshtml" />
     <Content Include="Views\InvMedida\Create.cshtml" />
     <Content Include="Views\InvMedida\Edit.cshtml" />
-    <Content Include="Views\TipoMovimiento\ListaTipoMovimiento.cshtml" />
-    <Content Include="Views\Grupo\ListaGrupo.cshtml" />
-    <Content Include="Views\Medida\ListaMedida.cshtml" />
     <Content Include="Views\Item\ListaItem.cshtml" />
     <Content Include="Views\Item\Item.cshtml" />
     <Content Include="Views\Solicitud\ListaSolicitud.cshtml" />
     <Content Include="Views\Solicitud\Solicitud.cshtml" />
-    <Content Include="Views\Medida\ExportPdf.cshtml" />
     <Content Include="Views\Bodega\ListaBodega.cshtml" />
     <Content Include="Views\Movimiento\ListaMovimiento.cshtml" />
     <Content Include="Views\Movimiento\Movimiento.cshtml" />
@@ -7564,10 +7557,10 @@
     <Content Include="Views\Account\LogOn.cshtml" />
     <Content Include="Views\Shared\_LayoutLogin.cshtml" />
     <Content Include="Views\Configuracion\Parametros.cshtml" />
-    <Content Include="Views\Consulta\MovimientoBodega.cshtml" />
+    <Content Include="Views\Consulta\MovimientoItems.cshtml" />
     <Content Include="Views\Consulta\Kardex.cshtml" />
-    <Content Include="Views\Consulta\ListaCierreInventario.cshtml" />
-    <Content Include="Views\Consulta\CierreInventario.cshtml" />
+    <Content Include="Views\Consulta\ListaCorteInventario.cshtml" />
+    <Content Include="Views\Consulta\CorteInventario.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

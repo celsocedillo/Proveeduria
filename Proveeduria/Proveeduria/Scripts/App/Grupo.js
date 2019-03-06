@@ -130,7 +130,7 @@ var Grupo = function () {
                                 return '<span style="color:' + color + '">' + data + '</span>'
                             }
                         },
-                        { "targets": [5],/* "width": "10%",*/ "defaultContent": '<button id="butEditar" type="button" class="btn btn-default btn-xs clsedit"><i class="fa fa-pencil"></i></button>' }
+                        { "targets": [5],/* "width": "10%",*/ "defaultContent": '<a href=# class="clsedit"><i class="fa fa-pencil"></i></a>', "className" : "text-center" }
                     ],
                 "data": lgrupo,
                 "columns": [
@@ -144,7 +144,7 @@ var Grupo = function () {
 
             CargaDatosGrupo();
 
-            tabGrupo.on('click', 'button.clsedit', function (e) {
+            tabGrupo.on('click', 'a.clsedit', function (e) {
                 var row = $(this).closest('tr');
                 var data = tabGrupo.row($(this).parents('tr')).data();
                 var parametros = JSON.stringify({

@@ -73,6 +73,7 @@ var ListaItem = function () {
 
             tabitem = $("#tabItem").DataTable({
                 "autoWidth": false,
+                "pageLength" : 50,
                 "responsive": true,
                 "processing": true,
                 "serverSide": true,
@@ -95,7 +96,8 @@ var ListaItem = function () {
                     [
                         { "targets": [0], "visible": false, "orderable": false },
                         { "targets": [5, 6], "className": "text-right" },
-                        { "targets": [7], "orderable": false },
+                        { "targets": [5], "orderable": false },
+                        { "targets": [7], "className": "text-center", "orderable": false },
                         {
                             "targets": [6],
                             render: function (data, type, row) {
@@ -108,16 +110,15 @@ var ListaItem = function () {
                         }
                     ],
                 "columns": [
-                    { "data": "ID_ITEM", "orderable": false },
-                    { "data": "CODIGO", "orderable": true },
-                    { "data": "DESCRIPCION", "orderable": true },
-                    { "data": "MEDIDA", "orderable": true },
-                    { "data": "GRUPO", "orderable": true },
-                    { "data": "STOCK_GENERAL", "orderable": true },
-                    { "data": "ESTADO_REGISTRO", "orderable": true },
-                    { "data": "ACCION", "orderable": true }
-                ],
-                "order": [[0, "asc"]]
+                    { "data": "ID_ITEM"},
+                    { "data": "CODIGO"},
+                    { "data": "DESCRIPCION"},
+                    { "data": "MEDIDA"},
+                    { "data": "GRUPO"},
+                    { "data": "STOCK_GENERAL"},
+                    { "data": "ESTADO_REGISTRO"},
+                    { "data": "ACCION"}
+                ]
             });
 
             //CargaDatos();

@@ -27,7 +27,7 @@ function CargaDatos() {
         contentType: 'application/json; charset=utf-8',
         url: "/Consulta/GetPuntoReOrden",
         beforeSend: function () {
-            run_waitMe($(".box"), 'Cargando...');
+            run_waitMe($(".content"), 'Cargando...');
         },
         success: function (data) {
             if (data.error) {
@@ -42,10 +42,10 @@ function CargaDatos() {
                 tablaPuntoReOrden.rows.add(data.data);
                 tablaPuntoReOrden.draw();
             }
-            $(".box").waitMe('hide');
+            $(".content").waitMe('hide');
         },
         error: function (XMLHttpRequest, textStatus, errorThrown) {
-            $(".box").waitMe('hide');
+            $(".content").waitMe('hide');
             swal({
                 type: 'error',
                 text: 'Error al cargar los datos.',
@@ -58,7 +58,7 @@ function CargaDatos() {
 }
 
 
-var Consulta = function () {
+var PuntoReorden = function () {
     return {
         init: function () {
 
@@ -75,6 +75,11 @@ var Consulta = function () {
                 todayHighlight: true,
                 autoclose: true
             });
+
+            fecha1 = new Date(new Date().getFullYear(), 0, 1); // Con esto obtengo el primer dia del año
+            fecha2 = new Date(); //fecha actual
+            $("#txtFechaInicio").val(fecha1.toJSON().slice(0, 10).split("-").reverse().join("/"));
+            $("#txtFechaFin").val(fecha2.toJSON().slice(0, 10).split("-").reverse().join("/"));
 
             fechaInicio = $("#FechaInicio").val();
             fechaFin = $("#FechaFin").val();
@@ -118,6 +123,20 @@ var Consulta = function () {
             tablaPuntoReOrden = $("#tablaPuntoReOrden").DataTable({
                 "autoWidth": false,
                 "pageLength": 25,
+                "rowCallback": function (nRow, aData, iDisplayIndex) {
+                    if (aData["CANTIDAD_ACTUAL"] <= aData["CANTIDAD_CRITICA"]) {
+                        //$('td', nRow).eq(2).css({ color: "#34485e" });
+                        $('td', nRow).css("color" , "red");
+                        //$(nRow).addClass('selected');
+                    }
+                    else if ((aData["CANTIDAD_ACTUAL"] <= aData["CANTIDAD_MINIMA "]) && (aData["CANTIDAD_ACTUAL"] > aData["CANTIDAD_CRITICA "])) {
+                        $('td', nRow).css("color", "yellow");
+                    }
+                },
+                "columnDefs":
+                    [
+                        { "targets": [2, 3, 4, 5, 6, 7, 8], "className": "text-right" }
+                    ],
                 "columns": [
                     { "data": "CODIGO", orderable: true },
                     { "data": "ITEM", orderable: true },
@@ -149,7 +168,8 @@ var Consulta = function () {
                     parametros = JSON.stringify(
                         {
                             pFechaInicio: $("#txtFechaInicio").val(),
-                            pFechaFin: $("#txtFechaFin").val()
+                            pFechaFin: $("#txtFechaFin").val(),
+                            pTodos: $('input[name=oprTodos]:checked').val()
                         });
                     CargaDatos();
                 } else {
@@ -165,18 +185,22 @@ var Consulta = function () {
             });
 
             $("#btnExcel").click(function (event) {
-                event.preventDefault();
-                var fechaInicio = $("#FechaInicio").val();
-                var fechaFin = $("#FechaFin").val();
-                if (fechaInicio == "" || fechaInicio == undefined) {
-                    fechaInicio = "vacio"
-                }
-                if (fechaFin == "" || fechaFin == undefined) {
-                    fechaFin = "vacio"
-                }
-                window.location.href = '/Consulta/ExportToExcelPuntosReOrden?fechaInicio=' + fechaInicio + '&fechaFin=' + fechaFin;
-            });
+                //var selected = $("select[name='sltItem']").find('option:selected');
 
+                //xidItem = selected.data("iditem");
+                //if (xidItem === undefined) {
+                //    xidItem = "null";
+                //}
+
+
+                parametros = JSON.stringify(
+                    {
+                        pFechaInicio: $("#txtFechaInicio").val(),
+                        pFechaFin: $("#txtFechaFin").val(),
+                        pTodos: $('input[name=oprTodos]:checked').val()
+                    });
+                window.location.href = '/Consulta/GetPuntoReOrdenExcel?pFechaInicio=' + $("#txtFechaInicio").val() + '&pFechaFin=' + $("#txtFechaFin").val() + '&pTodos=' + $('input[name=oprTodos]:checked').val();
+            });
         }
     };
 }();

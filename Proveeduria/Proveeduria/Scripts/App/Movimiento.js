@@ -389,7 +389,7 @@ function Imprimir() {
     if ($("#ID_TIPO_MOVIMIENTO").val() == 2) {
         $("#modImpRequisicion").modal("show");
         var id = $(this).data("id");
-        $('#tagRequisicion').attr("src", "/Solicitud/ViewPDF/" + idRequisicion);
+        $('#tagRequisicion').attr("src", "/Solicitud/ViewPDF/" + $("#ID_MOVIMIENTO_RELACION").val());
     }
     $("#modal-dialog-print-pdf").modal("show");
     $('#TagEmbed').attr("src", "/Movimiento/ViewPDF/" + movimientoId);
@@ -563,10 +563,14 @@ var Movimiento = function () {
                         $("#lblProveedor").text("");
                         $("#lblFactura").text("");
                         $("#lblFechaFactura").text("");
+                        $("#ID_MOVIMIENTO_RELACION").val();
+                        $("#ANIO_DOCUMENTO_REFERENCIA").val();
+                        $("#NUMERO_DOCUMENTO_REFERENCIA").val();
                         if (tipoMovimientoSeleccionado == EnumTipoMovimiento.REQUISICION_BODEGA) {
                             $("#divBuscaRelacion").css('display', 'block');
                             $("#divAgregar").css('display', 'block');
-                            $("#btnEliminarItem").css('display', 'none');
+                            //$("#btnEliminarItem").css('display', 'none');
+                            $("#divAgregar").css('display', 'none');
                             $("#divRequisicion").css('display', 'block');
                             $("#divOrdenCompra").css('display', 'none');
                         } else if (tipoMovimientoSeleccionado == EnumTipoMovimiento.INGRESO_DE_ORDEN_DE_COMPRA) {
@@ -725,6 +729,7 @@ var Movimiento = function () {
                     $("#lblFechaAutorizacion").text(documentoSeleccionado.FECHA);
                     $("#lblUsuarioSolicita").text(documentoSeleccionado.USUARIO_SOLICITA);
                     $("#lblDptoSolicita").text(documentoSeleccionado.DEPARTAMENTO);
+                    $("#ID_MOVIMIENTO_RELACION").val(documentoSeleccionado.ID_MOVIMIENTO);
                     DetalleSolicitud(documentoSeleccionado.ID_MOVIMIENTO);
                 }
                 
@@ -737,6 +742,8 @@ var Movimiento = function () {
                 $("#lblProveedor").text(ocSeleccionado.PROVEEDOR);
                 $("#lblFactura").text(ocSeleccionado.FACTURA);
                 $("#lblFechaFactura").text(ocSeleccionado.FECHA);
+                $("#ANIO_DOCUMENTO_REFERENCIA").val(ocSeleccionado.ANIO);
+                $("#NUMERO_DOCUMENTO_REFERENCIA").val(ocSeleccionado.NUMERO_MOVIMIENTO);
                 DetalleOrdenCompra(ocSeleccionado.ANIO, ocSeleccionado.NUMERO_MOVIMIENTO);
                 $("#dlgOrdenCompra").modal('toggle');
             });

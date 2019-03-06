@@ -12,23 +12,23 @@ namespace Proveduria.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class EPRTA_CIERRE_INVENTARIO
+    public partial class EPRTA_CORTE_INVENTARIO
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public EPRTA_CIERRE_INVENTARIO()
+        public EPRTA_CORTE_INVENTARIO()
         {
-            this.EPRTA_CIERRE_INVENTARIO_DET = new HashSet<EPRTA_CIERRE_INVENTARIO_DET>();
+            this.EPRTA_CORTE_INVENTARIO_DET = new HashSet<EPRTA_CORTE_INVENTARIO_DET>();
         }
     
-        public int ID_CIERRE { get; set; }
+        public int ID_CORTE { get; set; }
         public Nullable<byte> ID_BODEGA { get; set; }
-        public Nullable<System.DateTime> FECHA_CIERRE { get; set; }
-        public string USUARIO_CIERRE { get; set; }
+        public Nullable<System.DateTime> FECHA_CORTE { get; set; }
+        public string USUARIO_CORTE { get; set; }
         public Nullable<int> NUMERO_ITEMS { get; set; }
-        public Nullable<decimal> TOTAL_CIERRE { get; set; }
+        public Nullable<decimal> TOTAL_CORTE { get; set; }
     
         public virtual EPRTA_BODEGA EPRTA_BODEGA { get; set; }
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<EPRTA_CIERRE_INVENTARIO_DET> EPRTA_CIERRE_INVENTARIO_DET { get; set; }
+        public virtual ICollection<EPRTA_CORTE_INVENTARIO_DET> EPRTA_CORTE_INVENTARIO_DET { get; set; }
     }
 }

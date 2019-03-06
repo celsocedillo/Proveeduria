@@ -51,7 +51,7 @@ function Excel() {
 
 }
 
-var MovimientoBodega = function () {
+var MovimientoItems = function () {
     return {
         init: function () {
 

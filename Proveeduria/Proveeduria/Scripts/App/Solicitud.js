@@ -118,7 +118,7 @@ function Grabar() {
                     else {
                         swal({
                             type: data.resultado,
-                            text: 'Error al grabar los datos. ' + data.mensaje,
+                            text: data.msg,
                             confirmButtonColor: '#00BCD4'
                         });
                     }
@@ -161,6 +161,7 @@ var Solicitud = function () {
                 "columnDefs":
                     [
                         { "targets": [2], "className": "text-right" },
+                        { "targets": [3], "className": "text-center" },
                         { "targets": [4], "checkboxes": { 'selectRow': false } },
                     ],
                 "select": {
@@ -216,18 +217,36 @@ var Solicitud = function () {
             $("#btnCancelar").on('click', function () {
                 window.location.href = '/Solicitud/ListaSolicitud';
             });
-
+            
             $("#btnAgregarItem").on('click', function () {
                 var selected = $("select[name='sltItem']").find('option:selected');
-                var item = {
-                    ID_ITEM: selected.val(),
-                    CODIGO: selected.data("codigo"),
-                    DESCRIPCION: selected.data("descripcion"),
-                    UNIDAD: selected.data("unidad"),
-                    CANTIDAD_MOVIMIENTO: 1,
-                    ID_DETALLE : 0
+                xencuentra = jQuery.inArray(selected.data("codigo"), tabItems.columns(0).data()[0]);
+                xestado = tabItems.rows(xencuentra).nodes().to$().attr('data-estado');
+                if ((xencuentra => 0) && (xestado == "A")) {
+                    swal({
+                        type: 'ERROR',
+                        type: 'error',
+                        text: 'Codigo ya se encuentra en el pedido',
+                        confirmButtonColor: '#00BCD4'
+                    });
+
+                } else if ((xencuentra => 0) && (xestado == "E")) {
+                    //fila.attr('data-estado', 'A');
+                    //fila.css('display', 'block');
+
+                    tabItems.rows(xencuentra).nodes().to$().attr('data-estado', 'A');
+                    tabItems.rows(xencuentra).nodes().to$().css('display', 'table-row');
+                } else {
+                    var item = {
+                        ID_ITEM: selected.val(),
+                        CODIGO: selected.data("codigo"),
+                        DESCRIPCION: selected.data("descripcion"),
+                        UNIDAD: selected.data("unidad"),
+                        CANTIDAD_MOVIMIENTO: 1,
+                        ID_DETALLE: 0
+                    }
+                    agregarItem(item);
                 }
-                agregarItem(item);
             });
 
             $("#btnGrabar").on('click', function () {
@@ -253,12 +272,16 @@ var Solicitud = function () {
                         tabItems.$("input[type='checkbox']").each(function () {
                             if (this.checked) {
                                 var fila = $(this).closest('tr');
-                                fila.attr('data-estado', 'E');
-                                fila.css('display', 'none');
+                                if (fila.data('id-detalle') == 0) {
+                                    linea = tabItems.row(tabItems.row(fila).index());
+                                    tabItems.row(tabItems.row(fila).index()).remove().draw();
+                                } else {
+                                    fila.attr('data-estado', 'E');
+                                    fila.css('display', 'none');
+                                }
                             }
                         });
                     });
-
                 }
             });
 

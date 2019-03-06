@@ -362,12 +362,15 @@ namespace Proveduria.Controllers
         [HttpPost]
         public ActionResult Grabar(EPRTA_MOVIMIENTO pmovimiento)
         {
+            string msgErr = "";
             JObject retorno = new JObject();
             try
             {
                 //EPRTA_MOVIMIENTO movimiento = new EPRTA_MOVIMIENTO();
                 pmovimiento.USUARIO_SOLICITA = Session["usuario"].ToString();
                 pmovimiento.FECHA_SOLICITUD = DateTime.Now;
+                pmovimiento.USUARIO_APRUEBA = Session["usuario"].ToString();
+                pmovimiento.FECHA_APROBACION = DateTime.Now;
                 pmovimiento.ESTADO = "D";
                 pmovimiento.ANIO = (short)DateTime.Now.Year;
                 pmovimiento.ID_BODEGA = Byte.Parse(Session["bodega_id"].ToString());
@@ -377,9 +380,9 @@ namespace Proveduria.Controllers
                     EPRTA_ARTICULO_BODEGA itemstock = unitOfWork.ArticuloBodegaRepository.GetAll().Where(p => p.ID_ITEM == detalle.ID_ITEM && p.ID_BODEGA == Byte.Parse(Session["bodega_id"].ToString())).FirstOrDefault();
                     if (pmovimiento.ID_TIPO_MOVIMIENTO == (int)EnumTipoMovimiento.REQUISICION_BODEGA || pmovimiento.ID_TIPO_MOVIMIENTO == (int)EnumTipoMovimiento.AJUSTE_DE_BODEGA_POR_EGRESO)
                     {
-                        if (itemstock.CANTIDAD_ACTUAL == 0)
+                        if (detalle.CANTIDAD_MOVIMIENTO > itemstock.CANTIDAD_ACTUAL )
                         {
-                            throw new ArgumentException("El item " + itemstock.EPRTA_ITEM.DESCRIPCION + " tiene stock 0, y no se puede rebajar");
+                            throw new ArgumentException("El item " + itemstock.EPRTA_ITEM.DESCRIPCION + " no tiene stock suficiente, y no se puede rebajar");
                         }
                     }
 
@@ -390,14 +393,26 @@ namespace Proveduria.Controllers
                         detalle.COSTO_MOVIMIENTO = itemstock.COSTO_PROMEDIO;
                     }
                 }
+                msgErr = "Intentado obtener secuencia";
                 EPRTA_SECUENCIA secuencia = unitOfWork.SecuenciaRepository.GetAll().Where(p => p.ID_TIPO_MOVIMIENTO == pmovimiento.ID_TIPO_MOVIMIENTO && p.ANIO == pmovimiento.ANIO).FirstOrDefault();
                 pmovimiento.NUMERO_MOVIMIENTO = (int)secuencia.SECUENCIA;
                 secuencia.SECUENCIA++;
+                msgErr = "Intentando grabar en base de datos";
                 unitOfWork.MovimientoRepository.Insert(pmovimiento);
                 unitOfWork.SecuenciaRepository.Update(secuencia);
                 //EPRTA_MOVIMIENTO x = unitOfWork.MovimientoRepository.GetById(movimiento.ID_MOVIMIENTO);
                 string ingreso_egreso = unitOfWork.TipoMovimientoRepository.GetById(pmovimiento.ID_TIPO_MOVIMIENTO).INGRESO_EGRESO;
                 ActualizaStock(pmovimiento, ingreso_egreso);
+                //Si es egreso se busca la solicitud de requisicion para actualizar el estado
+                EPRTA_MOVIMIENTO movimiento_relacionado = null;
+                if (  pmovimiento.ID_MOVIMIENTO_RELACION != null)
+                {
+                    movimiento_relacionado = unitOfWork.MovimientoRepository.Where(x => x.ID_MOVIMIENTO == pmovimiento.ID_MOVIMIENTO_RELACION).FirstOrDefault();
+                    movimiento_relacionado.ESTADO = "D";
+                    movimiento_relacionado.FECHA_APROBACION = DateTime.Now;
+                    movimiento_relacionado.USUARIO_APRUEBA = Session["usuario"].ToString();
+                    unitOfWork.MovimientoRepository.Update(movimiento_relacionado);
+                }
                 unitOfWork.Save();
                 pmovimiento = unitOfWork.MovimientoRepository.GetById(pmovimiento.ID_MOVIMIENTO);
                 
@@ -409,7 +424,7 @@ namespace Proveduria.Controllers
             {
                 retorno.Add("resultado", "error");
                 retorno.Add("data", null);
-                retorno.Add("mensaje", ex.ToString());
+                retorno.Add("mensaje", "["+ msgErr + "] "+  ex.ToString());
                 logger.Error(ex, ex.Message);
             }
             return Content(retorno.ToString(), "application/json");

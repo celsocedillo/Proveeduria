@@ -1,9 +1,9 @@
-﻿@model Proveduria.Models.EPRTA_CIERRE_INVENTARIO
+﻿@model Proveduria.Models.EPRTA_CORTE_INVENTARIO
 @{
-                /**/
+    /**/
 
-                ViewBag.Title = "CierreInventario";
-                Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "CorteInventario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 
 }
 
@@ -25,31 +25,35 @@
         <div class="box-body ">
             <div class="row">
                 <form id="frmCierre" class="form-horizontal" data-parsley-validate>
+                    @Html.HiddenFor(m => m.ID_CORTE)
                     <div class="col-sm-7">
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Fecha Cierre :</label>
                             <div class="col-sm-7">
-                                <label class="form-control" id="FECHA_CIERRE">@(Model.FECHA_CIERRE.HasValue ? Model.FECHA_CIERRE.Value.ToString("dd/MM/yyyy") : null)</label>
+                                <label class="form-control" id="FECHA_CIERRE">@(Model.FECHA_CORTE.HasValue ? Model.FECHA_CORTE.Value.ToString("dd/MM/yyyy") : null)</label>
                             </div>
                         </div>
                         <div class="form-group">
                             <label class="col-sm-2 control-label">Creado por:</label>
                             <div class="col-sm-7">
-                                <label class="form-control" id="USUARIO_CIERRE">@(Model.USUARIO_CIERRE)</label>
+                                <label class="form-control" id="USUARIO_CIERRE">@(Model.USUARIO_CORTE)</label>
                             </div>
                         </div>
-                     </div>
+                    </div>
                 </form>
             </div>
         </div>
         <div class="box-footer">
-            @{ if (Model.ID_CIERRE == 0 )
+            @{ if (Model.ID_CORTE == 0)
                 {
-                    <button type="button" id="btnGenerar" class="btn btn-primary btn-sm btn-flat">Generar</button>
+                    <button type="button" id="btnGenerar" class="btn btn-primary btn-sm btn-flat">
+                        <i class="fa fa-cog"></i> Generar
+                    </button>
                 }
             }
-            <button type="button" id="btnCancelar" class="btn btn-default btn-sm btn-flat">Cancelar</button>
-            <button type="button" id="btnImprimir" class="btn btn-default btn-sm btn-flat">Imprimir</button>
+            <button type="button" id="btnCancelar" class="btn btn-default btn-sm btn-flat">
+                <i class="fa fa-arrow-left"></i> Cancelar
+            </button>
         </div>
 
     </div>
@@ -57,8 +61,22 @@
     <div class="box box-default">
         <div class="box-header">
             <h2 class="box-title">Detalle de corte</h2>
+            <div id="divButtons"  class="box-tools pull-right" disabled>
+                <div class="btn-group btn-group-toggle " data-toggle="buttons">
+                    <label class="btn btn-default btn-xs active  ">
+                        <input type="radio" name="oprSaldo" value="T" autocomplete="off" checked  > Todos los items
+                    </label>
+                    <label class="btn btn-default btn-xs ">
+                        <input type="radio" name="oprSaldo" value="S" autocomplete="off"  > Items con saldos
+                    </label>
+                </div>
+                <button type="button" id="btnExcel" class="btn btn-default btn-xs btn-flat "  >
+                    <i class="fa fa-file-excel-o" aria-hidden="true"></i> Excel
+                </button>
+            </div>
         </div>
         <div class="box-body no-padding ">
+            
             <div class="row">
                 <div class="col-sm-12">
                     <table id="tabItems" class="table table-striped hover compact">
@@ -70,8 +88,7 @@
                                 <th width="80px">Costo</th>
                             </tr>
                         </thead>
-                        <tbody>
-                        </tbody>
+                        <tbody></tbody>
                     </table>
                 </div>
             </div>
@@ -90,14 +107,14 @@
     @*<script src=@Url.Content("/Content/bower_components/datatables.net/js/jquery.dataTables.min.js")></script>
         <script src=@Url.Content("/Content/bower_components/datatables.net-bs/js/dataTables.bootstrap.min.js")></script>*@
 
-    <script type="text/javascript" src=@Url.Content("/Scripts/App/CierreInventario.js")></script>
+    <script type="text/javascript" src=@Url.Content("/Scripts/App/CorteInventario.js")></script>
     @*@Scripts.Render("~/bundles/Movimiento")
     @Scripts.Render("~/bundles/Enumeradores")*@
 
     <script type="text/javascript">
 
          @{ 
-            var tmp = (from p in Model.EPRTA_CIERRE_INVENTARIO_DET
+            var tmp = (from p in Model.EPRTA_CORTE_INVENTARIO_DET
                        select new
                        {
                            CODIGO = p.EPRTA_ITEM.CODIGO,
@@ -111,7 +128,7 @@
         var items = @Html.Raw(Json.Encode(tmp));
         
         $(document).ready(function () {
-            CierreInventario.init();
+            CorteInventario.init();
         });
 
 

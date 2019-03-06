@@ -51,23 +51,23 @@
           <Property Name="ESTADO" Type="varchar2" MaxLength="1" />
           <Property Name="CUENTA_CONTABLE" Type="varchar2" MaxLength="50" />
         </EntityType>
-        <EntityType Name="EPRTA_CIERRE_INVENTARIO">
+        <EntityType Name="EPRTA_CORTE_INVENTARIO">
           <Key>
-            <PropertyRef Name="ID_CIERRE" />
+            <PropertyRef Name="ID_CORTE" />
           </Key>
-          <Property Name="ID_CIERRE" Type="number" Precision="8" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_CORTE" Type="number" Precision="8" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ID_BODEGA" Type="number" Precision="2" Scale="0" />
-          <Property Name="FECHA_CIERRE" Type="date" />
-          <Property Name="USUARIO_CIERRE" Type="varchar2" MaxLength="25" />
+          <Property Name="FECHA_CORTE" Type="date" />
+          <Property Name="USUARIO_CORTE" Type="varchar2" MaxLength="25" />
           <Property Name="NUMERO_ITEMS" Type="number" Precision="10" Scale="0" />
-          <Property Name="TOTAL_CIERRE" Type="number" Precision="12" Scale="3" />
+          <Property Name="TOTAL_CORTE" Type="number" Precision="12" Scale="3" />
         </EntityType>
-        <EntityType Name="EPRTA_CIERRE_INVENTARIO_DET">
+        <EntityType Name="EPRTA_CORTE_INVENTARIO_DET">
           <Key>
-            <PropertyRef Name="ID_CIERRE_DETALLE" />
+            <PropertyRef Name="ID_CORTE_DETALLE" />
           </Key>
-          <Property Name="ID_CIERRE_DETALLE" Type="number" Precision="12" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="ID_CIERRE" Type="number" Precision="8" Scale="0" />
+          <Property Name="ID_CORTE_DETALLE" Type="number" Precision="12" Scale="0" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ID_CORTE" Type="number" Precision="8" Scale="0" />
           <Property Name="ID_ITEM" Type="number" Precision="8" Scale="0" />
           <Property Name="COSTO_PROMEDIO" Type="number" Precision="12" Scale="3" />
           <Property Name="CANTIDAD_MAXIMA" Type="number" Precision="10" Scale="2" />
@@ -282,38 +282,38 @@ advertencia 6002: La tabla o vista 'PROVEDURIA.VW_ORDEN_COMPRA_DETALLE' no tiene
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="EPRCN_CIEINV_BODEGA_FK">
+        <Association Name="EPRCN_CORINV_BODEGA_FK">
           <End Role="EPRTA_BODEGA" Type="Self.EPRTA_BODEGA" Multiplicity="0..1" />
-          <End Role="EPRTA_CIERRE_INVENTARIO" Type="Self.EPRTA_CIERRE_INVENTARIO" Multiplicity="*" />
+          <End Role="EPRTA_CORTE_INVENTARIO" Type="Self.EPRTA_CORTE_INVENTARIO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EPRTA_BODEGA">
               <PropertyRef Name="ID_BODEGA" />
             </Principal>
-            <Dependent Role="EPRTA_CIERRE_INVENTARIO">
+            <Dependent Role="EPRTA_CORTE_INVENTARIO">
               <PropertyRef Name="ID_BODEGA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="EPRCN_CIEINVDET_CABECERA_FK">
-          <End Role="EPRTA_CIERRE_INVENTARIO" Type="Self.EPRTA_CIERRE_INVENTARIO" Multiplicity="0..1" />
-          <End Role="EPRTA_CIERRE_INVENTARIO_DET" Type="Self.EPRTA_CIERRE_INVENTARIO_DET" Multiplicity="*" />
+        <Association Name="EPRCN_CORINVDET_CABECERA_FK">
+          <End Role="EPRTA_CORTE_INVENTARIO" Type="Self.EPRTA_CORTE_INVENTARIO" Multiplicity="0..1" />
+          <End Role="EPRTA_CORTE_INVENTARIO_DET" Type="Self.EPRTA_CORTE_INVENTARIO_DET" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="EPRTA_CIERRE_INVENTARIO">
-              <PropertyRef Name="ID_CIERRE" />
+            <Principal Role="EPRTA_CORTE_INVENTARIO">
+              <PropertyRef Name="ID_CORTE" />
             </Principal>
-            <Dependent Role="EPRTA_CIERRE_INVENTARIO_DET">
-              <PropertyRef Name="ID_CIERRE" />
+            <Dependent Role="EPRTA_CORTE_INVENTARIO_DET">
+              <PropertyRef Name="ID_CORTE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="EPRCN_CIEINVDET_ITEM_FK">
+        <Association Name="EPRCN_CORINVDET_ITEM_FK">
           <End Role="EPRTA_ITEM" Type="Self.EPRTA_ITEM" Multiplicity="0..1" />
-          <End Role="EPRTA_CIERRE_INVENTARIO_DET" Type="Self.EPRTA_CIERRE_INVENTARIO_DET" Multiplicity="*" />
+          <End Role="EPRTA_CORTE_INVENTARIO_DET" Type="Self.EPRTA_CORTE_INVENTARIO_DET" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EPRTA_ITEM">
               <PropertyRef Name="ID_ITEM" />
             </Principal>
-            <Dependent Role="EPRTA_CIERRE_INVENTARIO_DET">
+            <Dependent Role="EPRTA_CORTE_INVENTARIO_DET">
               <PropertyRef Name="ID_ITEM" />
             </Dependent>
           </ReferentialConstraint>
@@ -434,8 +434,8 @@ advertencia 6002: La tabla o vista 'PROVEDURIA.VW_ORDEN_COMPRA_DETALLE' no tiene
           <EntitySet Name="ASPNETUSERS" EntityType="Self.ASPNETUSERS" Schema="PROVEDURIA" store:Type="Tables" />
           <EntitySet Name="EPRTA_ARTICULO_BODEGA" EntityType="Self.EPRTA_ARTICULO_BODEGA" Schema="PROVEDURIA" store:Type="Tables" />
           <EntitySet Name="EPRTA_BODEGA" EntityType="Self.EPRTA_BODEGA" Schema="PROVEDURIA" store:Type="Tables" />
-          <EntitySet Name="EPRTA_CIERRE_INVENTARIO" EntityType="Self.EPRTA_CIERRE_INVENTARIO" Schema="PROVEDURIA" store:Type="Tables" />
-          <EntitySet Name="EPRTA_CIERRE_INVENTARIO_DET" EntityType="Self.EPRTA_CIERRE_INVENTARIO_DET" Schema="PROVEDURIA" store:Type="Tables" />
+          <EntitySet Name="EPRTA_CORTE_INVENTARIO" EntityType="Self.EPRTA_CORTE_INVENTARIO" Schema="PROVEDURIA" store:Type="Tables" />
+          <EntitySet Name="EPRTA_CORTE_INVENTARIO_DET" EntityType="Self.EPRTA_CORTE_INVENTARIO_DET" Schema="PROVEDURIA" store:Type="Tables" />
           <EntitySet Name="EPRTA_GRUPO" EntityType="Self.EPRTA_GRUPO" Schema="PROVEDURIA" store:Type="Tables" />
           <EntitySet Name="EPRTA_ITEM" EntityType="Self.EPRTA_ITEM" Schema="PROVEDURIA" store:Type="Tables" />
           <EntitySet Name="EPRTA_MEDIDA" EntityType="Self.EPRTA_MEDIDA" Schema="PROVEDURIA" store:Type="Tables" />
@@ -509,17 +509,17 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
             <End Role="EPRTA_ITEM" EntitySet="EPRTA_ITEM" />
             <End Role="EPRTA_ARTICULO_BODEGA" EntitySet="EPRTA_ARTICULO_BODEGA" />
           </AssociationSet>
-          <AssociationSet Name="EPRCN_CIEINV_BODEGA_FK" Association="Self.EPRCN_CIEINV_BODEGA_FK">
+          <AssociationSet Name="EPRCN_CORINV_BODEGA_FK" Association="Self.EPRCN_CORINV_BODEGA_FK">
             <End Role="EPRTA_BODEGA" EntitySet="EPRTA_BODEGA" />
-            <End Role="EPRTA_CIERRE_INVENTARIO" EntitySet="EPRTA_CIERRE_INVENTARIO" />
+            <End Role="EPRTA_CORTE_INVENTARIO" EntitySet="EPRTA_CORTE_INVENTARIO" />
           </AssociationSet>
-          <AssociationSet Name="EPRCN_CIEINVDET_CABECERA_FK" Association="Self.EPRCN_CIEINVDET_CABECERA_FK">
-            <End Role="EPRTA_CIERRE_INVENTARIO" EntitySet="EPRTA_CIERRE_INVENTARIO" />
-            <End Role="EPRTA_CIERRE_INVENTARIO_DET" EntitySet="EPRTA_CIERRE_INVENTARIO_DET" />
+          <AssociationSet Name="EPRCN_CORINVDET_CABECERA_FK" Association="Self.EPRCN_CORINVDET_CABECERA_FK">
+            <End Role="EPRTA_CORTE_INVENTARIO" EntitySet="EPRTA_CORTE_INVENTARIO" />
+            <End Role="EPRTA_CORTE_INVENTARIO_DET" EntitySet="EPRTA_CORTE_INVENTARIO_DET" />
           </AssociationSet>
-          <AssociationSet Name="EPRCN_CIEINVDET_ITEM_FK" Association="Self.EPRCN_CIEINVDET_ITEM_FK">
+          <AssociationSet Name="EPRCN_CORINVDET_ITEM_FK" Association="Self.EPRCN_CORINVDET_ITEM_FK">
             <End Role="EPRTA_ITEM" EntitySet="EPRTA_ITEM" />
-            <End Role="EPRTA_CIERRE_INVENTARIO_DET" EntitySet="EPRTA_CIERRE_INVENTARIO_DET" />
+            <End Role="EPRTA_CORTE_INVENTARIO_DET" EntitySet="EPRTA_CORTE_INVENTARIO_DET" />
           </AssociationSet>
           <AssociationSet Name="EPRCN_ITEM_MEDIDA_FK" Association="Self.EPRCN_ITEM_MEDIDA_FK">
             <End Role="EPRTA_MEDIDA" EntitySet="EPRTA_MEDIDA" />
@@ -634,21 +634,21 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
             <End Role="EPRTA_MOVIMIENTO" EntitySet="EPRTA_MOVIMIENTO" />
           </AssociationSet>
           <EntitySet Name="ASPNETUSERS" EntityType="ModelProveduria.ASPNETUSERS" />
-          <EntitySet Name="EPRTA_CIERRE_INVENTARIO" EntityType="ModelProveduria.EPRTA_CIERRE_INVENTARIO" />
-          <EntitySet Name="EPRTA_CIERRE_INVENTARIO_DET" EntityType="ModelProveduria.EPRTA_CIERRE_INVENTARIO_DET" />
-          <AssociationSet Name="EPRCN_CIEINV_BODEGA_FK" Association="ModelProveduria.EPRCN_CIEINV_BODEGA_FK">
+          <EntitySet Name="EPRTA_CORTE_INVENTARIO" EntityType="ModelProveduria.EPRTA_CORTE_INVENTARIO" />
+          <EntitySet Name="EPRTA_CORTE_INVENTARIO_DET" EntityType="ModelProveduria.EPRTA_CORTE_INVENTARIO_DET" />
+          <AssociationSet Name="EPRCN_CORINV_BODEGA_FK" Association="ModelProveduria.EPRCN_CORINV_BODEGA_FK">
             <End Role="EPRTA_BODEGA" EntitySet="EPRTA_BODEGA" />
-            <End Role="EPRTA_CIERRE_INVENTARIO" EntitySet="EPRTA_CIERRE_INVENTARIO" />
+            <End Role="EPRTA_CORTE_INVENTARIO" EntitySet="EPRTA_CORTE_INVENTARIO" />
           </AssociationSet>
-          <AssociationSet Name="EPRCN_CIEINVDET_CABECERA_FK" Association="ModelProveduria.EPRCN_CIEINVDET_CABECERA_FK">
-            <End Role="EPRTA_CIERRE_INVENTARIO" EntitySet="EPRTA_CIERRE_INVENTARIO" />
-            <End Role="EPRTA_CIERRE_INVENTARIO_DET" EntitySet="EPRTA_CIERRE_INVENTARIO_DET" />
+          <AssociationSet Name="EPRCN_CORINVDET_CABECERA_FK" Association="ModelProveduria.EPRCN_CORINVDET_CABECERA_FK">
+            <End Role="EPRTA_CORTE_INVENTARIO" EntitySet="EPRTA_CORTE_INVENTARIO" />
+            <End Role="EPRTA_CORTE_INVENTARIO_DET" EntitySet="EPRTA_CORTE_INVENTARIO_DET" />
           </AssociationSet>
-          <AssociationSet Name="EPRCN_CIEINVDET_ITEM_FK" Association="ModelProveduria.EPRCN_CIEINVDET_ITEM_FK">
+          <AssociationSet Name="EPRCN_CORINVDET_ITEM_FK" Association="ModelProveduria.EPRCN_CORINVDET_ITEM_FK">
             <End Role="EPRTA_ITEM" EntitySet="EPRTA_ITEM" />
-            <End Role="EPRTA_CIERRE_INVENTARIO_DET" EntitySet="EPRTA_CIERRE_INVENTARIO_DET" />
+            <End Role="EPRTA_CORTE_INVENTARIO_DET" EntitySet="EPRTA_CORTE_INVENTARIO_DET" />
           </AssociationSet>
-        </EntityContainer>
+          </EntityContainer>
         <EntityType Name="EPRTA_ARTICULO_BODEGA">
           <Key>
             <PropertyRef Name="ID_ARTIBODE" />
@@ -679,7 +679,7 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
           <Property Name="CUENTA_CONTABLE" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <NavigationProperty Name="EPRTA_ARTICULO_BODEGA" Relationship="ModelProveduria.EPRTA_ARTBOD_BODEGA_FK" FromRole="EPRTA_BODEGA" ToRole="EPRTA_ARTICULO_BODEGA" />
           <NavigationProperty Name="EPRTA_MOVIMIENTO" Relationship="ModelProveduria.EPRCN_MOVIMIENTO_BODEGA_FK" FromRole="EPRTA_BODEGA" ToRole="EPRTA_MOVIMIENTO" />
-          <NavigationProperty Name="EPRTA_CIERRE_INVENTARIO" Relationship="ModelProveduria.EPRCN_CIEINV_BODEGA_FK" FromRole="EPRTA_BODEGA" ToRole="EPRTA_CIERRE_INVENTARIO" />
+          <NavigationProperty Name="EPRTA_CORTE_INVENTARIO" Relationship="ModelProveduria.EPRCN_CORINV_BODEGA_FK" FromRole="EPRTA_BODEGA" ToRole="EPRTA_CORTE_INVENTARIO" />
         </EntityType>
         <EntityType Name="EPRTA_GRUPO">
           <Key>
@@ -712,7 +712,7 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
           <NavigationProperty Name="EPRTA_MEDIDA" Relationship="ModelProveduria.EPRCN_ITEM_MEDIDA_FK" FromRole="EPRTA_ITEM" ToRole="EPRTA_MEDIDA" />
           <NavigationProperty Name="EPRTA_MOVIMIENTO_DETALLE" Relationship="ModelProveduria.EPRCN_MOVDET_ITEM_FK" FromRole="EPRTA_ITEM" ToRole="EPRTA_MOVIMIENTO_DETALLE" />
           <NavigationProperty Name="VW_ORDEN_COMPRA_DETALLE" Relationship="ModelProveduria.EPRTA_ITEMVW_ORDEN_COMPRA_DETALLE" FromRole="EPRTA_ITEM" ToRole="VW_ORDEN_COMPRA_DETALLE" />
-          <NavigationProperty Name="EPRTA_CIERRE_INVENTARIO_DET" Relationship="ModelProveduria.EPRCN_CIEINVDET_ITEM_FK" FromRole="EPRTA_ITEM" ToRole="EPRTA_CIERRE_INVENTARIO_DET" />
+          <NavigationProperty Name="EPRTA_CORTE_INVENTARIO_DET" Relationship="ModelProveduria.EPRCN_CORINVDET_ITEM_FK" FromRole="EPRTA_ITEM" ToRole="EPRTA_CORTE_INVENTARIO_DET" />
         </EntityType>
         <EntityType Name="EPRTA_MEDIDA">
           <Key>
@@ -1074,25 +1074,25 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
           <Property Name="FIRSTNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="LASTNAME" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
         </EntityType>
-        <EntityType Name="EPRTA_CIERRE_INVENTARIO">
+        <EntityType Name="EPRTA_CORTE_INVENTARIO">
           <Key>
-            <PropertyRef Name="ID_CIERRE" />
+            <PropertyRef Name="ID_CORTE" />
           </Key>
-          <Property Name="ID_CIERRE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_CORTE" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ID_BODEGA" Type="Byte" />
-          <Property Name="FECHA_CIERRE" Type="DateTime" />
-          <Property Name="USUARIO_CIERRE" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
+          <Property Name="FECHA_CORTE" Type="DateTime" />
+          <Property Name="USUARIO_CORTE" Type="String" MaxLength="25" FixedLength="false" Unicode="false" />
           <Property Name="NUMERO_ITEMS" Type="Int32" />
-          <Property Name="TOTAL_CIERRE" Type="Decimal" Precision="12" Scale="3" />
-          <NavigationProperty Name="EPRTA_BODEGA" Relationship="ModelProveduria.EPRCN_CIEINV_BODEGA_FK" FromRole="EPRTA_CIERRE_INVENTARIO" ToRole="EPRTA_BODEGA" />
-          <NavigationProperty Name="EPRTA_CIERRE_INVENTARIO_DET" Relationship="ModelProveduria.EPRCN_CIEINVDET_CABECERA_FK" FromRole="EPRTA_CIERRE_INVENTARIO" ToRole="EPRTA_CIERRE_INVENTARIO_DET" />
+          <Property Name="TOTAL_CORTE" Type="Decimal" Precision="12" Scale="3" />
+          <NavigationProperty Name="EPRTA_BODEGA" Relationship="ModelProveduria.EPRCN_CORINV_BODEGA_FK" FromRole="EPRTA_CORTE_INVENTARIO" ToRole="EPRTA_BODEGA" />
+          <NavigationProperty Name="EPRTA_CORTE_INVENTARIO_DET" Relationship="ModelProveduria.EPRCN_CORINVDET_CABECERA_FK" FromRole="EPRTA_CORTE_INVENTARIO" ToRole="EPRTA_CORTE_INVENTARIO_DET" />
         </EntityType>
-        <EntityType Name="EPRTA_CIERRE_INVENTARIO_DET">
+        <EntityType Name="EPRTA_CORTE_INVENTARIO_DET">
           <Key>
-            <PropertyRef Name="ID_CIERRE_DETALLE" />
+            <PropertyRef Name="ID_CORTE_DETALLE" />
           </Key>
-          <Property Name="ID_CIERRE_DETALLE" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="ID_CIERRE" Type="Int32" />
+          <Property Name="ID_CORTE_DETALLE" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ID_CORTE" Type="Int32" />
           <Property Name="ID_ITEM" Type="Int32" />
           <Property Name="COSTO_PROMEDIO" Type="Decimal" Precision="12" Scale="3" />
           <Property Name="CANTIDAD_MAXIMA" Type="Decimal" Precision="10" Scale="2" />
@@ -1103,41 +1103,41 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
           <Property Name="CANTIDAD_BAJA" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="CANTIDAD_OC" Type="Decimal" Precision="10" Scale="2" />
           <Property Name="TOTAL_STOCK" Type="Decimal" Precision="12" Scale="2" />
-          <NavigationProperty Name="EPRTA_CIERRE_INVENTARIO" Relationship="ModelProveduria.EPRCN_CIEINVDET_CABECERA_FK" FromRole="EPRTA_CIERRE_INVENTARIO_DET" ToRole="EPRTA_CIERRE_INVENTARIO" />
-          <NavigationProperty Name="EPRTA_ITEM" Relationship="ModelProveduria.EPRCN_CIEINVDET_ITEM_FK" FromRole="EPRTA_CIERRE_INVENTARIO_DET" ToRole="EPRTA_ITEM" />
+          <NavigationProperty Name="EPRTA_CORTE_INVENTARIO" Relationship="ModelProveduria.EPRCN_CORINVDET_CABECERA_FK" FromRole="EPRTA_CORTE_INVENTARIO_DET" ToRole="EPRTA_CORTE_INVENTARIO" />
+          <NavigationProperty Name="EPRTA_ITEM" Relationship="ModelProveduria.EPRCN_CORINVDET_ITEM_FK" FromRole="EPRTA_CORTE_INVENTARIO_DET" ToRole="EPRTA_ITEM" />
         </EntityType>
-        <Association Name="EPRCN_CIEINV_BODEGA_FK">
+        <Association Name="EPRCN_CORINV_BODEGA_FK">
           <End Type="ModelProveduria.EPRTA_BODEGA" Role="EPRTA_BODEGA" Multiplicity="0..1" />
-          <End Type="ModelProveduria.EPRTA_CIERRE_INVENTARIO" Role="EPRTA_CIERRE_INVENTARIO" Multiplicity="*" />
+          <End Type="ModelProveduria.EPRTA_CORTE_INVENTARIO" Role="EPRTA_CORTE_INVENTARIO" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EPRTA_BODEGA">
               <PropertyRef Name="ID_BODEGA" />
             </Principal>
-            <Dependent Role="EPRTA_CIERRE_INVENTARIO">
+            <Dependent Role="EPRTA_CORTE_INVENTARIO">
               <PropertyRef Name="ID_BODEGA" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="EPRCN_CIEINVDET_CABECERA_FK">
-          <End Type="ModelProveduria.EPRTA_CIERRE_INVENTARIO" Role="EPRTA_CIERRE_INVENTARIO" Multiplicity="0..1" />
-          <End Type="ModelProveduria.EPRTA_CIERRE_INVENTARIO_DET" Role="EPRTA_CIERRE_INVENTARIO_DET" Multiplicity="*" />
+        <Association Name="EPRCN_CORINVDET_CABECERA_FK">
+          <End Type="ModelProveduria.EPRTA_CORTE_INVENTARIO" Role="EPRTA_CORTE_INVENTARIO" Multiplicity="0..1" />
+          <End Type="ModelProveduria.EPRTA_CORTE_INVENTARIO_DET" Role="EPRTA_CORTE_INVENTARIO_DET" Multiplicity="*" />
           <ReferentialConstraint>
-            <Principal Role="EPRTA_CIERRE_INVENTARIO">
-              <PropertyRef Name="ID_CIERRE" />
+            <Principal Role="EPRTA_CORTE_INVENTARIO">
+              <PropertyRef Name="ID_CORTE" />
             </Principal>
-            <Dependent Role="EPRTA_CIERRE_INVENTARIO_DET">
-              <PropertyRef Name="ID_CIERRE" />
+            <Dependent Role="EPRTA_CORTE_INVENTARIO_DET">
+              <PropertyRef Name="ID_CORTE" />
             </Dependent>
           </ReferentialConstraint>
         </Association>
-        <Association Name="EPRCN_CIEINVDET_ITEM_FK">
+        <Association Name="EPRCN_CORINVDET_ITEM_FK">
           <End Type="ModelProveduria.EPRTA_ITEM" Role="EPRTA_ITEM" Multiplicity="0..1" />
-          <End Type="ModelProveduria.EPRTA_CIERRE_INVENTARIO_DET" Role="EPRTA_CIERRE_INVENTARIO_DET" Multiplicity="*" />
+          <End Type="ModelProveduria.EPRTA_CORTE_INVENTARIO_DET" Role="EPRTA_CORTE_INVENTARIO_DET" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="EPRTA_ITEM">
               <PropertyRef Name="ID_ITEM" />
             </Principal>
-            <Dependent Role="EPRTA_CIERRE_INVENTARIO_DET">
+            <Dependent Role="EPRTA_CORTE_INVENTARIO_DET">
               <PropertyRef Name="ID_ITEM" />
             </Dependent>
           </ReferentialConstraint>
@@ -1371,21 +1371,21 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="EPRTA_CIERRE_INVENTARIO">
-            <EntityTypeMapping TypeName="ModelProveduria.EPRTA_CIERRE_INVENTARIO">
-              <MappingFragment StoreEntitySet="EPRTA_CIERRE_INVENTARIO">
-                <ScalarProperty Name="TOTAL_CIERRE" ColumnName="TOTAL_CIERRE" />
+          <EntitySetMapping Name="EPRTA_CORTE_INVENTARIO">
+            <EntityTypeMapping TypeName="ModelProveduria.EPRTA_CORTE_INVENTARIO">
+              <MappingFragment StoreEntitySet="EPRTA_CORTE_INVENTARIO">
+                <ScalarProperty Name="TOTAL_CORTE" ColumnName="TOTAL_CORTE" />
                 <ScalarProperty Name="NUMERO_ITEMS" ColumnName="NUMERO_ITEMS" />
-                <ScalarProperty Name="USUARIO_CIERRE" ColumnName="USUARIO_CIERRE" />
-                <ScalarProperty Name="FECHA_CIERRE" ColumnName="FECHA_CIERRE" />
+                <ScalarProperty Name="USUARIO_CORTE" ColumnName="USUARIO_CORTE" />
+                <ScalarProperty Name="FECHA_CORTE" ColumnName="FECHA_CORTE" />
                 <ScalarProperty Name="ID_BODEGA" ColumnName="ID_BODEGA" />
-                <ScalarProperty Name="ID_CIERRE" ColumnName="ID_CIERRE" />
+                <ScalarProperty Name="ID_CORTE" ColumnName="ID_CORTE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
-          <EntitySetMapping Name="EPRTA_CIERRE_INVENTARIO_DET">
-            <EntityTypeMapping TypeName="ModelProveduria.EPRTA_CIERRE_INVENTARIO_DET">
-              <MappingFragment StoreEntitySet="EPRTA_CIERRE_INVENTARIO_DET">
+          <EntitySetMapping Name="EPRTA_CORTE_INVENTARIO_DET">
+            <EntityTypeMapping TypeName="ModelProveduria.EPRTA_CORTE_INVENTARIO_DET">
+              <MappingFragment StoreEntitySet="EPRTA_CORTE_INVENTARIO_DET">
                 <ScalarProperty Name="TOTAL_STOCK" ColumnName="TOTAL_STOCK" />
                 <ScalarProperty Name="CANTIDAD_OC" ColumnName="CANTIDAD_OC" />
                 <ScalarProperty Name="CANTIDAD_BAJA" ColumnName="CANTIDAD_BAJA" />
@@ -1396,8 +1396,8 @@ FROM "PROVEDURIA"."VW_ORDEN_COMPRA_DETALLE" "VW_ORDEN_COMPRA_DETALLE"</DefiningQ
                 <ScalarProperty Name="CANTIDAD_MAXIMA" ColumnName="CANTIDAD_MAXIMA" />
                 <ScalarProperty Name="COSTO_PROMEDIO" ColumnName="COSTO_PROMEDIO" />
                 <ScalarProperty Name="ID_ITEM" ColumnName="ID_ITEM" />
-                <ScalarProperty Name="ID_CIERRE" ColumnName="ID_CIERRE" />
-                <ScalarProperty Name="ID_CIERRE_DETALLE" ColumnName="ID_CIERRE_DETALLE" />
+                <ScalarProperty Name="ID_CORTE" ColumnName="ID_CORTE" />
+                <ScalarProperty Name="ID_CORTE_DETALLE" ColumnName="ID_CORTE_DETALLE" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>

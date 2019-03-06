@@ -53,6 +53,9 @@
                     </div>
                     <div class="col-sm-5">
                         <h4 class="page-header">Documento Relacionado</h4>
+                        @Html.HiddenFor(m => m.ID_MOVIMIENTO_RELACION)
+                        @Html.HiddenFor(m => m.ANIO_DOCUMENTO_REFERENCIA)
+                        @Html.HiddenFor(m => m.NUMERO_DOCUMENTO_REFERENCIA)
                         <div id="divBuscaRelacion" class="form-group" style="display:none;">
                             <div class="col-sm-5">
 
@@ -86,7 +89,7 @@
 
                             <label class="col-sm-5 control-label">Dpto. Solicita :</label>
                             <div class="col-sm-7">
-                                <label id="lblDptoSolicita">@(Model.ID_MOVIMIENTO_RELACION.HasValue ? Model.EPRTA_MOVIMIENTO2.VW_DIRECCION.DESCRIPCION: null)</label>
+                                <label id="lblDptoSolicita">@(Model.ID_MOVIMIENTO_RELACION.HasValue ? Model.EPRTA_MOVIMIENTO2.VW_DIRECCION.DESCRIPCION : null)</label>
                             </div>
                         </div>
                         <div id="divOrdenCompra" class="form-group">
@@ -117,12 +120,18 @@
         <div class="box-footer">
             @{ if (Model.ESTADO == "S" || Model.ESTADO == "A")
                 {
-                    <button type="button" id="btnGrabar" class="btn btn-primary btn-sm btn-flat">Grabar</button>
+                    <button type="button" id="btnGrabar" class="btn btn-primary btn-sm btn-flat">
+                        <i class="fa fa-save"></i> Grabar
+                    </button>
                 }
             }
 
-            <button type="button" id="btnCancelar" class="btn btn-default btn-sm btn-flat">Cancelar</button>
-            <button type="button" id="btnImprimir" class="btn btn-default btn-sm btn-flat">Imprimir</button>
+            <button type="button" id="btnCancelar" class="btn btn-default btn-sm btn-flat">
+                <i class="fa fa-arrow-left"></i> Cancelar
+            </button>
+            <button type="button" id="btnImprimir" class="btn btn-default btn-sm btn-flat">
+                <i class="fa fa-print"></i> Imprimir
+            </button>
         </div>
 
     </div>

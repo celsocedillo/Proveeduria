@@ -134,7 +134,7 @@ var Medida = function () {
                                 return '<span style="color:' + color + '">' + data + '</span>'
                             }
                         },
-                        { "targets": [3], "defaultContent": '<button id="butEditar" type="button" class="btn btn-default btn-xs clsedit"><i class="fa fa-pencil"></i></button>' }
+                        { "targets": [3], "defaultContent": '<a href=# id="butEditar" class="clsedit" ><i class="fa fa-pencil"></i></a>', "className" : "text-center"  }
                     ],
                 "data": lmedida,
                 "columns": [
@@ -146,7 +146,7 @@ var Medida = function () {
 
             CargaDatosMedida();
 
-            tabMedida.on('click', 'button.clsedit', function (e) {
+            tabMedida.on('click', 'a.clsedit', function (e) {
                 var row = $(this).closest('tr');
                 var data = tabMedida.row($(this).parents('tr')).data();
                 var parametros = JSON.stringify(

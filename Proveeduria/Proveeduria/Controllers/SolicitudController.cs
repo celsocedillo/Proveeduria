@@ -19,7 +19,7 @@ using Proveduria.Utils;
 
 namespace Proveduria.Controllers
 {
-    [SessionTimeout]
+    //[SessionTimeout]
     public class SolicitudController : Controller
     {
 
@@ -32,8 +32,13 @@ namespace Proveduria.Controllers
             return View();
         }
 
-        public ActionResult ListaSolicitud()
+        public ActionResult ListaSolicitud(string pusuario)
         {
+            //logger.Info("Intento usuario " + pusuario);
+            if (pusuario != null)
+            {
+                CreaSesion(pusuario);
+            }
             return View();
         }
 
@@ -160,34 +165,6 @@ namespace Proveduria.Controllers
                     movimiento.ID_DIRECCION_SOLICITA = Convert.ToByte(Session["id_direccion"]);
                     ViewBag.direccion_solicitud = Session["direccion"];
                 }
-
-
-                //var empleados = (from e in unitOfWork.EmpleadoRepository.GetAll() select e);
-                //var tmp = new
-                //{
-                //    movimiento.ID_MOVIMIENTO,
-                //    movimiento.ANIO,
-                //    movimiento.NUMERO_MOVIMIENTO,
-                //    FECHA_SOLICITUD = movimiento.FECHA_SOLICITUD.HasValue ? movimiento.FECHA_SOLICITUD.Value.ToString("dd/MM/yyyy") : null,
-                //    movimiento.OBSERVACION,
-                //    movimiento.ID_TIPO_MOVIMIENTO,
-                //    movimiento.ESTADO,
-                //    NOMBREESTADO = (
-                //                        movimiento.ESTADO.Equals("D") ? "DESPACHADO" :
-                //                        movimiento.ESTADO.Equals("E") ? "ANULADO" :
-                //                        movimiento.ESTADO.Equals("A") ? "AUTORIZADO" :
-                //                        movimiento.ESTADO.Equals("S") ? "SOLICITADO" : null
-                //                   ),
-                //    movimiento.USUARIO_AUTORIZA,
-                //    movimiento.USUARIO_APRUEBA,
-                //    FECHA_AUTORIZACION = movimiento.FECHA_AUTORIZACION.HasValue ? movimiento.FECHA_AUTORIZACION.Value.ToString("dd/MM/yyyy") : null,
-                //    FECHA_APROBACION = movimiento.FECHA_APROBACION.HasValue ? movimiento.FECHA_APROBACION.Value.ToString("dd/MM/yyyy") : null,
-                //    EMPLEADO_SOLICITA = (from us in empleados where us.USUARIO == movimiento.USUARIO_SOLICITA select us.EMPLEADO),
-                //    EMPLEADO_APRUEBA = (from ua in empleados where ua.USUARIO == movimiento.USUARIO_APRUEBA select ua.EMPLEADO),
-                //    EMPLEADO_AUTORIZA = (from ut in empleados where ut.USUARIO == movimiento.USUARIO_AUTORIZA select ut.EMPLEADO)
-                //};
-                //enviar.Add("resultado", "success");
-                //enviar.Add("data", JObject.FromObject(tmp));
             }
             catch (Exception ex)
             {
@@ -201,6 +178,7 @@ namespace Proveduria.Controllers
         [HttpPost]
         public ActionResult Grabar(EPRTA_MOVIMIENTO pmovimiento, bool pregistro_nuevo)
         {
+            string msgErr = "";
             JObject retorno = new JObject();
             if (pregistro_nuevo)
             {
@@ -216,27 +194,28 @@ namespace Proveduria.Controllers
                     movimiento.ID_TIPO_MOVIMIENTO = 12;
                     movimiento.ID_BODEGA = 1;
 
+                    msgErr = "[Intentando obtener secuencia] ";
                     EPRTA_SECUENCIA secuencia = unitOfWork.SecuenciaRepository.GetAll().Where(p => p.ID_TIPO_MOVIMIENTO == 12 && p.ANIO == movimiento.ANIO).FirstOrDefault();
                     movimiento.NUMERO_MOVIMIENTO = (int)secuencia.SECUENCIA;
-
+                    msgErr = "";
                     foreach (EPRTA_MOVIMIENTO_DETALLE detalle in pmovimiento.EPRTA_MOVIMIENTO_DETALLE)
                     {
                         detalle.ESTADO = "A";
                         movimiento.EPRTA_MOVIMIENTO_DETALLE.Add(detalle);
                     }
                     secuencia.SECUENCIA++;
+                    msgErr = "[Intentando grabar en Base de datos] ";
                     unitOfWork.MovimientoRepository.Insert(movimiento);
                     unitOfWork.SecuenciaRepository.Update(secuencia);
                     unitOfWork.Save();
                     retorno.Add("resultado", "success");
                     retorno.Add("data", null);
-                    retorno.Add("mensaje", "");
                 }
                 catch(Exception ex)
                 {
                     retorno.Add("resultado", "error");
                     retorno.Add("data", null);
-                    retorno.Add("mensaje", ex.ToString());
+                    retorno.Add("msg",  msgErr + ex.ToString());
                     logger.Error(ex, ex.Message);
                 }
 
@@ -357,6 +336,25 @@ namespace Proveduria.Controllers
                     ms.Write(buffer, 0, read);
                 }
                 return ms.ToArray();
+            }
+        }
+
+        private void CreaSesion(string pusuario)
+        {
+            UsuarioController usuarioController = new UsuarioController();
+            ViewBag.usuario = UsuarioController.usuario.usuario;
+            ViewBag.nombre = UsuarioController.usuario.nombre;
+            VW_EMPLEADO empleado = unitOfWork.EmpleadoRepository.GetAll().Where(p => p.USUARIO == pusuario.ToUpper()).FirstOrDefault();
+            if (empleado != null)
+            {
+                Session["usuario"] = empleado.USUARIO;
+                Session["nombre"] = empleado.EMPLEADO;
+                Session["id_direccion"] = empleado.DIRECCION_ID;
+                Session["direccion"] = empleado.DIRECCION;
+                Session["usuario_jefe"] = empleado.USUARIO_JEFE_DEPARTAMENTO;
+                Session["bodega_id"] = 1;
+                Session["bodega"] = "BODEGA PROVEDURIA";
+                logger.Info(Session["usuario"] + " : Inicio de Sesion  ");
             }
         }
 

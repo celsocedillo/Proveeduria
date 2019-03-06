@@ -12,10 +12,10 @@ namespace Proveduria.Models
     using System;
     using System.Collections.Generic;
     
-    public partial class EPRTA_CIERRE_INVENTARIO_DET
+    public partial class EPRTA_CORTE_INVENTARIO_DET
     {
-        public long ID_CIERRE_DETALLE { get; set; }
-        public Nullable<int> ID_CIERRE { get; set; }
+        public long ID_CORTE_DETALLE { get; set; }
+        public Nullable<int> ID_CORTE { get; set; }
         public Nullable<int> ID_ITEM { get; set; }
         public Nullable<decimal> COSTO_PROMEDIO { get; set; }
         public Nullable<decimal> CANTIDAD_MAXIMA { get; set; }
@@ -27,7 +27,7 @@ namespace Proveduria.Models
         public Nullable<decimal> CANTIDAD_OC { get; set; }
         public Nullable<decimal> TOTAL_STOCK { get; set; }
     
-        public virtual EPRTA_CIERRE_INVENTARIO EPRTA_CIERRE_INVENTARIO { get; set; }
+        public virtual EPRTA_CORTE_INVENTARIO EPRTA_CORTE_INVENTARIO { get; set; }
         public virtual EPRTA_ITEM EPRTA_ITEM { get; set; }
     }
 }
